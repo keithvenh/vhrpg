@@ -1,6 +1,7 @@
 @import 'reset';
 @import 'variables';
-@import 'login';
+@import 'auth';
+@import 'loading';
 
 body {
     background-color: $black;
