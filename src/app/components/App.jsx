@@ -1,7 +1,6 @@
 import React from 'react';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
-import emailLogin from '../helpers/auth/login.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,8 +32,6 @@ class App extends React.Component {
   }
 
   render() {
-
-    emailLogin();
     
     return (
       <div className="App">

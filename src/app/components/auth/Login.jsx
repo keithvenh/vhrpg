@@ -1,4 +1,6 @@
 import React from 'react';
+// import login from '../../helpers/auth/login';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 class Login extends React.Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class Login extends React.Component {
         }
         this.validateEmail = this.validateEmail.bind(this);
         this.validatePassword = this.validatePassword.bind(this);
+        this.buttonHandler = this.buttonHandler.bind(this);
     }
 
     validateEmail(event) {
@@ -18,6 +21,22 @@ class Login extends React.Component {
 
     validatePassword(event) {
         this.setState({password: event.target.value})
+    }
+
+    buttonHandler(email, password) {
+        const auth = getAuth();
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user.uid);
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
     }
 
     render() {
@@ -40,7 +59,7 @@ class Login extends React.Component {
                     
                 </div>
 
-                <button className='btn btn-submit' onClick={this.buttonHandler}>Login</button>
+                <button className='btn btn-submit' onClick={() => this.buttonHandler(this.state.email, this.state.password)}>Login</button>
 
             </div>
         )

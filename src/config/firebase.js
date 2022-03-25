@@ -9,9 +9,9 @@ const config = {
     measurementId: process.env.REACT_APP_measurementId
 };
 
-export function getFirebaseConfig() {
+export default function getFirebaseConfig() {
     if(!config || !config.apiKey) {
-        throw new Error('No Firebase configuration object provided. Add your web app\'s configuration object to firebase-config.js');
+        throw new Error('No Firebase configuration object provided. Add your web app\'s configuration object to config/firebase.js');
     } else {
         return config;
     }
