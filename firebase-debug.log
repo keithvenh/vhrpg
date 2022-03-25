@@ -1,0 +1,26 @@
+[debug] [2022-03-25T01:58:40.108Z] ----------------------------------------------------------------------
+[debug] [2022-03-25T01:58:40.110Z] Command:       /Users/keithvenh/.nvm/versions/node/v14.17.5/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2022-03-25T01:58:40.110Z] CLI Version:   10.5.0
+[debug] [2022-03-25T01:58:40.111Z] Platform:      darwin
+[debug] [2022-03-25T01:58:40.111Z] Node Version:  v14.17.5
+[debug] [2022-03-25T01:58:40.111Z] Time:          Thu Mar 24 2022 15:58:40 GMT-1000 (Hawaii-Aleutian Standard Time)
+[debug] [2022-03-25T01:58:40.111Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-25T01:58:40.168Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-25T01:58:40.168Z] > authorizing via signed-in user (keith.venhuizen@gmail.com)
+[debug] [2022-03-25T01:58:40.169Z] [iam] checking project vhrpg-8890 for permissions ["firebase.projects.get"]
+[debug] [2022-03-25T01:58:40.171Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/vhrpg-8890:testIamPermissions [none]
+[debug] [2022-03-25T01:58:40.171Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/vhrpg-8890:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-25T01:58:40.794Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/vhrpg-8890:testIamPermissions 200
+[debug] [2022-03-25T01:58:40.794Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/vhrpg-8890:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-25T01:58:40.795Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890 [none]
+[debug] [2022-03-25T01:58:41.178Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890 200
+[debug] [2022-03-25T01:58:41.178Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890 {"projectId":"vhrpg-8890","projectNumber":"75961707876","displayName":"vhrpg","name":"projects/vhrpg-8890","resources":{"hostingSite":"vhrpg-8890","realtimeDatabaseInstance":"vhrpg-8890-default-rtdb","storageBucket":"vhrpg-8890.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-03-25T01:58:41.179Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/vhrpg-8890/sites 
+[debug] [2022-03-25T01:58:41.909Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/vhrpg-8890/sites 200
+[debug] [2022-03-25T01:58:41.909Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/vhrpg-8890/sites {"sites":[{"name":"projects/75961707876/sites/vhrpg-8890","defaultUrl":"https://vhrpg-8890.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-25T01:58:41.909Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890/webApps/-/config [none]
+[debug] [2022-03-25T01:58:42.435Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890/webApps/-/config 200
+[debug] [2022-03-25T01:58:42.435Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vhrpg-8890/webApps/-/config {"projectId":"vhrpg-8890","appId":"1:75961707876:web:7f06d949c2c809f14ade71","databaseURL":"https://vhrpg-8890-default-rtdb.firebaseio.com","storageBucket":"vhrpg-8890.appspot.com","locationId":"us-central","apiKey":"AIzaSyC7pkFjI9VGE7Sh5T8Kk76rJyBk_kTriCU","authDomain":"vhrpg-8890.firebaseapp.com","messagingSenderId":"75961707876","measurementId":"G-WN4N967Y86"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
