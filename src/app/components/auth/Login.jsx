@@ -1,6 +1,5 @@
 import React from 'react';
-// import login from '../../helpers/auth/login';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import loginButton from '../../helpers/auth/login';
 
 class Login extends React.Component {
     constructor(props) {
@@ -12,7 +11,7 @@ class Login extends React.Component {
         }
         this.validateEmail = this.validateEmail.bind(this);
         this.validatePassword = this.validatePassword.bind(this);
-        this.buttonHandler = this.buttonHandler.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     validateEmail(event) {
@@ -23,21 +22,12 @@ class Login extends React.Component {
         this.setState({password: event.target.value})
     }
 
-    buttonHandler(email, password) {
-        const auth = getAuth();
-
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            console.log(user.uid);
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
-    }
+    //On 'Enter' run loginButton
+    handleKeyPress(event) {
+        if (event.charCode === 13) {
+            loginButton(this.state.email, this.state.password);
+        }
+    };
 
     render() {
         return (
@@ -55,11 +45,9 @@ class Login extends React.Component {
                 <div className='login-input-container'>
 
                     <span className="input-leader"> &gt; </span>
-                    <input className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} /> 
+                    <input className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} onKeyPress={this.handleKeyPress}/> 
                     
                 </div>
-
-                <button className='btn btn-submit' onClick={() => this.buttonHandler(this.state.email, this.state.password)}>Login</button>
 
             </div>
         )
