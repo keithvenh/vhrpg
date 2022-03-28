@@ -1,5 +1,5 @@
 import React from 'react';
-import loginButton from '../../helpers/auth/login';
+import login from '../../helpers/auth/login';
 
 class Login extends React.Component {
     constructor(props) {
@@ -25,13 +25,12 @@ class Login extends React.Component {
     //On 'Enter' run loginButton
     handleKeyPress(event) {
         if (event.charCode === 13) {
-            loginButton(this.state.email, this.state.password);
+            login(this.state.email, this.state.password);
             this.props.updateView('loading');
         }
     };
 
     render() {
-        console.log(this.props);
         return (
             <div className="login">
 

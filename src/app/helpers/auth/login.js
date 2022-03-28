@@ -1,6 +1,6 @@
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from 'firebase/auth';
 
-export default function loginButton(email, password) {
+export default function login(email, password) {
   const auth = getAuth();
   
   setPersistence(auth, browserLocalPersistence)
