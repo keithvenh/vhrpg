@@ -6,6 +6,11 @@
 body {
     background-color: $black;
     color: $white;
+    font-family: $primary;
+}
+
+.sw {
+    font-family: $aurebesh;
 }
 
 .settings-cog {
@@ -21,13 +26,13 @@ body {
         letter-spacing: 2px;
     }
     &:hover {
-        color: blue;
+        color: $tealDark;
         cursor: pointer;
         .logout-link {
             display: inline-block;
             color: $white;
             &:hover {
-                color: blue;
+                color: $tealDark;
             }
         }
     }
