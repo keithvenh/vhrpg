@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Hq from './hq/Hq';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -7,45 +9,36 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: <Login updateView={this.changeView}/>
+      view: <Loading updateView={this.changeView}/>,
+      user: null
     }
 
     this.changeView = this.changeView.bind(this);
   }
 
-  changeView = (link) => {
+  changeView = (link, user=null) => {
 
-    let view = <Login updateView={this.changeView} />;
+    let view = <Loading updateView={this.changeView} />;
     switch(link) {
-      case 'login':
-        view = <Login updateView={this.changeView}/>
+      case 'hq':
+        view = <Hq updateView={this.changeView} user={user} />;
         break;
       case 'loading':
-        view = <Loading updateView={this.changeView}/>
+        view = <Loading updateView={this.changeView}/>;
+        break;
+      case 'login':
+        view = <Login updateView={this.changeView}/>;
         break;
       default:
-        view = <Login updateView={this.changeView}/>
+        view = <Loading updateView={this.changeView}/>;
         break;
     }
 
-    this.setState({view: view})
+    this.setState({view: view, user: user})
 
   }
 
   render() {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        console.log(user);
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
 
     return (
       <div className="App">

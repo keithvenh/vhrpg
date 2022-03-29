@@ -7,3 +7,28 @@ body {
     background-color: $black;
     color: $white;
 }
+
+.settings-cog {
+    font-size: 24px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    text-align: right;
+    .logout-link {
+        display: none;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    &:hover {
+        color: blue;
+        cursor: pointer;
+        .logout-link {
+            display: inline-block;
+            color: $white;
+            &:hover {
+                color: blue;
+            }
+        }
+    }
+}

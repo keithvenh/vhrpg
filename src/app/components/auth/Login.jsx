@@ -26,7 +26,6 @@ class Login extends React.Component {
     handleKeyPress(event) {
         if (event.charCode === 13) {
             login(this.state.email, this.state.password);
-            this.props.updateView('loading');
         }
     };
 

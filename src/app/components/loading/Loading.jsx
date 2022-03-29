@@ -1,7 +1,16 @@
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 function Loading(props) {
 
-    setTimeout(() => props.updateView('login'), 3000);
+    const auth = getAuth();
+    setTimeout(
+    () => {onAuthStateChanged(auth, (user) => {
+        if(user) {
+          props.updateView('hq', user);
+        } else {
+          props.updateView('login');
+        }
+    })}, 3000);
 
     return (
         <div className='loading'>

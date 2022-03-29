@@ -1,15 +1,14 @@
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from 'firebase/auth';
 
-export default function login(email, password) {
+export default async function login(email, password) {
   const auth = getAuth();
   
   setPersistence(auth, browserLocalPersistence)
       .then(() => {
-        return signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user.uid);
                 // ...
             })
             .catch((error) => {
