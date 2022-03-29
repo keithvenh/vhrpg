@@ -3,21 +3,22 @@ import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersis
 export default async function login(email, password) {
   const auth = getAuth();
   
-  setPersistence(auth, browserLocalPersistence)
+  return setPersistence(auth, browserLocalPersistence)
       .then(() => {
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
-                const user = userCredential.user;
+                return {user: userCredential.user};
+                
                 // ...
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+              return {errorCode: error.code, errorMessage: error.message, error: error.name};
+              
             });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        return {errorCode: error.code, errorMessage: error.message, error: error.name};
+        
       });
 };

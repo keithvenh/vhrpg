@@ -18,6 +18,7 @@
         font-size: 20px;
         outline: none;
         padding: 6px 12px;
+        width: 25vw;
     }
 
     .input-leader {
@@ -25,5 +26,13 @@
         line-height: 32px;
     }
 
+}
 
+.login-input-container.password {
+    display: none;
+}
+
+.authentication-errors {
+    color: $red;
+    margin: 6px;
 }

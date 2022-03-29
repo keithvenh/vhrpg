@@ -5,9 +5,9 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authenticated: false,
             email: '',
-            password: ''
+            password: '',
+            errors: ''
         }
         this.validateEmail = this.validateEmail.bind(this);
         this.validatePassword = this.validatePassword.bind(this);
@@ -24,8 +24,23 @@ class Login extends React.Component {
 
     //On 'Enter' run loginButton
     handleKeyPress(event) {
+
         if (event.charCode === 13) {
-            login(this.state.email, this.state.password);
+
+            if(event.target.id == 'login-email') {
+
+                document.getElementById('login-password-container').style="display: inline-block";
+                document.getElementById('login-password').focus();
+
+            } else if(event.target.id == 'login-password') {
+
+                login(this.state.email, this.state.password)
+                    .then((res) => {
+                        if(res.error) {
+                            this.setState({errors: "Invalid Username or Password"})
+                        }
+                    });
+            }
         }
     };
 
@@ -33,19 +48,21 @@ class Login extends React.Component {
         return (
             <div className="login">
 
-                <h1>Login</h1>
+                <div className='authentication-errors'>
+                    {this.state.errors}
+                </div>
 
-                <div className='login-input-container'>
+                <div className='login-input-container email'>
 
                     <span className="input-leader"> &gt; </span>
-                    <input className="login-email" type="email" value={this.state.email} placeholder="EMAIL" onChange={(event) => this.validateEmail(event)} autoFocus/>
+                    <input id='login-email' className="login-email" type="email" value={this.state.email} placeholder="EMAIL" onChange={(event) => this.validateEmail(event)} onKeyPress={this.handleKeyPress} autoFocus/>
 
                 </div>
 
-                <div className='login-input-container'>
+                <div className='login-input-container password' id='login-password-container'>
 
                     <span className="input-leader"> &gt; </span>
-                    <input className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} onKeyPress={this.handleKeyPress}/> 
+                    <input id='login-password' className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} onKeyPress={this.handleKeyPress}/> 
                     
                 </div>
 
