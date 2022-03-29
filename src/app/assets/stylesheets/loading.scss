@@ -14,3 +14,13 @@
         letter-spacing: 5px;
     }
 }
+
+.loading-image {
+    height: 10vh;
+    border: 1px solid red;
+    position: absolute;
+    bottom: 0;
+    img {
+        height: 100%;
+    }
+}

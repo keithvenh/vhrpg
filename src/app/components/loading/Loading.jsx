@@ -12,9 +12,21 @@ function Loading(props) {
         }
     })}, 3000);
 
+    let int = Math.floor(Math.random()*2);
+    console.log(int === 0);
+    if(int === 0) {
+      char = "Ru";
+    } else {
+      char = "Pax"
+    }
+    const image = require('../../assets/images/' + char + '-Goes-Walking.gif');
+
     return (
         <div className='loading'>
             <h1>Loading...</h1>
+            <div className="loading-image">
+              <img className='loading-image-character' src={image} alt='' />
+            </div>
         </div>
     )
 }
