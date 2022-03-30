@@ -1,24 +1,24 @@
-import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from 'firebase/auth';
+import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from "firebase/auth";
 
-export default async function login(email, password) {
+export default function login(email, password) {
+
   const auth = getAuth();
-  
-  return setPersistence(auth, browserLocalPersistence)
-      .then(() => {
-        return signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                return {user: userCredential.user};
-                
-                // ...
-            })
-            .catch((error) => {
-              return {errorCode: error.code, errorMessage: error.message, error: error.name};
-              
-            });
-      })
-      .catch((error) => {
-        return {errorCode: error.code, errorMessage: error.message, error: error.name};
-        
-      });
+
+  setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+
+    // New sign-in will be persisted with local persistence.
+    return signInWithEmailAndPassword(auth, email, password);
+
+  })
+  .catch((error) => {
+
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    console.error(errorMessage);
+    
+  });
+
 };

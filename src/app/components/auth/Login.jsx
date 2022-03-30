@@ -34,12 +34,7 @@ class Login extends React.Component {
 
             } else if(event.target.id == 'login-password') {
 
-                login(this.state.email, this.state.password)
-                    .then((res) => {
-                        if(res.error) {
-                            this.setState({errors: "Invalid Username or Password"})
-                        }
-                    });
+                login(this.state.email, this.state.password);
             }
         }
     };
