@@ -1,6 +1,6 @@
 import logout from '../../helpers/auth/logout';
 
-function Hq(props) {
+function MissionControl(props) {
 
     return (
         <div className='loading'>
@@ -13,4 +13,4 @@ function Hq(props) {
     )
 }
 
-export default Hq;
+export default MissionControl;

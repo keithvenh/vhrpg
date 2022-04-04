@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Hq from './hq/Hq';
+import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,8 +19,8 @@ class App extends React.Component {
 
     let view = <Loading updateView={this.changeView} />;
     switch(link) {
-      case 'hq':
-        view = <Hq updateView={this.changeView} user={user} />;
+      case 'mission control':
+        view = <MissionControl updateView={this.changeView} user={user} />;
         break;
       case 'loading':
         view = <Loading updateView={this.changeView}/>;

@@ -11,7 +11,7 @@ function Loading(props) {
     () => {onAuthStateChanged(auth, (user) => {
         // go to HQ if user exists
         if(user) {
-          props.updateView('hq', user);
+          props.updateView('mission control', user);
         // go to login if user does not exist
         } else {
           props.updateView('login');
