@@ -1,0 +1,35 @@
+.mission-control {
+    height: 100vh;
+    width: 100vw;
+}
+
+.houses-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    bottom: 0;
+    position: absolute;
+}
+
+.house {
+    flex: 1 1 12.5%;
+    display: inline-block;
+    width: 12.5%;
+}
+
+.sidewalk {
+    height: 32px;
+    width: 100vw;
+    background-color: #777;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.village-character {
+    position: absolute;
+    bottom: 16px;
+    left: 120px;
+    transition: left 0.5s linear;
+    height: 96px;
+}
