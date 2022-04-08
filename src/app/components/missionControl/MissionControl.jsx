@@ -17,40 +17,71 @@ function MissionControl(props) {
         // get the character and the houses
         const char = document.getElementById('village-character');
         const houses = document.getElementById('houses-container');
-        let charLoc = 120;
+        const mc = document.getElementById('mission-control');
+        let charX = (mc.offsetWidth/2) - (char.offsetWidth/2);
+        let charY = (mc.offsetHeight/2) - (char.offsetHeight/2);
+        char.style.left = charX;
+        char.style.top = charY;
         let facing = 'right';
 
-        function moveScene(event, character, village) {
+        function moveScene(event, character, village, control) {
 
-            let width = village.offsetWidth;
-            console.log(width);
-            if(event.key === "ArrowRight" && (charLoc < (width - (character.offsetWidth + 32)))) {
-                charLoc += 30;
-                character.style.left = charLoc + 'px';
+            let villageWidth = village.offsetWidth;
+            let controlWidth = control.offsetWidth;
+            let padding = control.offsetWidth - village.offsetWidth;
+            let charWidth = character.offsetWidth;
+            let leftWall = (padding/2);
+            let rightWall = ((padding/2) + villageWidth) - (charWidth);
+            let bottomWall = control.offsetHeight - character.offsetHeight;
+            console.log(event.key);
+            if(event.key === "ArrowRight" && (charX < rightWall)) {
+                charX += 30;
+                if(charX > rightWall) {
+                    charX = rightWall;
+                }
+                character.style.left = charX + 'px';
                 if(facing === 'left') {
                     char.style.transform = "scaleX(1)";
                     facing = 'right';
                 }
             }
-            else if(event.key === "ArrowLeft" && (charLoc > 32)) {
-                charLoc -= 30;
-                character.style.left = charLoc + 'px';
+            else if(event.key === "ArrowLeft" && (charX > leftWall)) {
+                console.log(leftWall);
+                charX -= 30;
+                if(charX < leftWall) {
+                    charX = leftWall;
+                }
+                character.style.left = charX + 'px';
                 if(facing === 'right') {
                     char.style.transform = "scaleX(-1)";
                     facing = "left";
                 }
             }
-            console.log(character);
-            console.log(village);
+            else if(event.key === "ArrowUp" && (charY > 0)) {
+                console.log(leftWall);
+                charY -= 30;
+                if(charY < 0) {
+                    charY = 0;
+                }
+                character.style.top = charY + 'px';
+            }
+            else if(event.key === "ArrowDown" && (charY < bottomWall)) {
+                console.log(leftWall);
+                charY += 30;
+                if(charY > bottomWall) {
+                    charY = bottomWall;
+                }
+                character.style.top = charY + 'px';
+            }
 
         }
   
         // listen for a keypress event
-        document.addEventListener("keydown", (e) => moveScene(e, char, houses));
+        document.addEventListener("keydown", (e) => moveScene(e, char, houses, mc));
       })
 
     return (
-        <div className='mission-control'>
+        <div id='mission-control' className='mission-control'>
             <div className='settings-cog'>
                 <p><i className='fas fa-cog'></i></p>
                 <p className='logout-link' onClick={logout}>Logout</p>

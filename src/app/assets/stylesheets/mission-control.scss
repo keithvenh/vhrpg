@@ -1,35 +1,29 @@
 .mission-control {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .houses-container {
     display: flex;
-    width: 100%;
+    width: 100vh;
+    height: 100vh;
     justify-content: center;
-    bottom: 0;
-    position: absolute;
+    flex-wrap: wrap;
 }
 
 .house {
-    flex: 1 1 12.5%;
+    flex: 1 1 33.33%;
     display: inline-block;
-    width: 12.5%;
-}
-
-.sidewalk {
-    height: 32px;
-    width: 100vw;
-    background-color: #777;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 33.33vw;
+    height: 33.33vh;
 }
 
 .village-character {
     position: absolute;
-    bottom: 16px;
-    left: 120px;
-    transition: left 0.5s linear;
+    transition: left 0.1s linear;
+    top: 0;
+    left: 0;
     height: 96px;
 }

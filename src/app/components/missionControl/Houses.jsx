@@ -18,6 +18,7 @@ export default function Houses() {
             <img className='house' src={hangar} alt='Hangar' />
             <img className='house' src={equipment} alt='Equipment' />
             <img className='house' src={weapons} alt='Weapons' />
+            <div className='house'></div>
             <img className='house' src={characters} alt='Characters' />
             <img className='house' src={health} alt='Health' />
             <img className='house' src={stats} alt='Stats' />
