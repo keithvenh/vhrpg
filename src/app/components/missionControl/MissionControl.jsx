@@ -4,14 +4,11 @@ import { useEffect } from 'react';
 
 function MissionControl(props) {
 
-    let int = Math.floor(Math.random()*2);
-    let char;
-    if(int === 0) {
-      char = "Pax";
-    } else {
-      char = "Ru"
-    }
-    const image = require('../../assets/images/' + char + '-Goes-Walking.gif');
+    const up = require('../../assets/images/characterUp.png');
+    const down = require('../../assets/images/characterDown.png');
+    const left = require('../../assets/images/characterLeft.png');
+    const right = require('../../assets/images/characterRight.png');
+    let image = down;
 
     useEffect(() => {
         // get the character and the houses
@@ -20,9 +17,8 @@ function MissionControl(props) {
         const mc = document.getElementById('mission-control');
         let charX = (mc.offsetWidth/2) - (char.offsetWidth/2);
         let charY = (mc.offsetHeight/2) - (char.offsetHeight/2);
-        char.style.left = charX;
-        char.style.top = charY;
-        let facing = 'right';
+        char.style.left = charX + 'px';
+        char.style.top = charY + 'px';
 
         function moveScene(event, character, village, control) {
 
@@ -33,45 +29,37 @@ function MissionControl(props) {
             let leftWall = (padding/2);
             let rightWall = ((padding/2) + villageWidth) - (charWidth);
             let bottomWall = control.offsetHeight - character.offsetHeight;
-            console.log(event.key);
             if(event.key === "ArrowRight" && (charX < rightWall)) {
                 charX += 30;
                 if(charX > rightWall) {
                     charX = rightWall;
                 }
                 character.style.left = charX + 'px';
-                if(facing === 'left') {
-                    char.style.transform = "scaleX(1)";
-                    facing = 'right';
-                }
+                char.src = right;
             }
             else if(event.key === "ArrowLeft" && (charX > leftWall)) {
-                console.log(leftWall);
                 charX -= 30;
                 if(charX < leftWall) {
                     charX = leftWall;
                 }
                 character.style.left = charX + 'px';
-                if(facing === 'right') {
-                    char.style.transform = "scaleX(-1)";
-                    facing = "left";
-                }
+                char.src = left;
             }
             else if(event.key === "ArrowUp" && (charY > 0)) {
-                console.log(leftWall);
                 charY -= 30;
                 if(charY < 0) {
                     charY = 0;
                 }
                 character.style.top = charY + 'px';
+                char.src = up;
             }
             else if(event.key === "ArrowDown" && (charY < bottomWall)) {
-                console.log(leftWall);
                 charY += 30;
                 if(charY > bottomWall) {
                     charY = bottomWall;
                 }
                 character.style.top = charY + 'px';
+                char.src = down;
             }
 
         }
@@ -87,6 +75,17 @@ function MissionControl(props) {
                 <p className='logout-link' onClick={logout}>Logout</p>
             </div>
             <div className='village'>
+                <div className='row'>
+
+                    <div className='rules' id='rules'></div>
+                    <div className='street vert four'></div>
+                    <div className='park' id='park'></div>
+                    <div className='wall vert four'></div>
+                    <div className='businessScene' id='businessScene'></div>
+                    <div className='darkShroud' id='darkShroud'></div>
+                    <div className='sithTemple' id='sithTemple'></div>
+
+                </div>
                 <Houses />
                 <div className='sidewalk'>
 

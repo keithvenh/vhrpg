@@ -5,6 +5,68 @@
     justify-content: center;
 }
 
+.village {
+    max-height: 100vh;
+    max-width: 100vw;
+    border: 16px solid black;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.rules, .park {
+    height: 128px;
+    width: 256px;
+}
+
+.rules {
+    background-color: #ff0000;
+}
+
+.park {
+    background-color: #00ff00;
+}
+
+.street {
+    background-color: #777;
+}
+
+.wall {
+    background-color: #000;
+}
+
+.businessScene {
+    background-color: #0000ff;
+    height: 128px;
+    width: 640px;
+}
+
+.darkShroud {
+    background-color: #000;
+    height: 128px;
+    width: 576px;
+}
+
+.sithTemple {
+    background-color: #006666;
+    height: 128px;
+    width: 128px;
+}
+
+.vert.four {
+    height: 128px;
+}
+
+.vert {
+    width: 32px;
+}
+
+.horiz {
+    height: 32px;
+}
+
 .houses-container {
     display: flex;
     width: 100vh;
@@ -23,7 +85,5 @@
 .village-character {
     position: absolute;
     transition: left 0.1s linear;
-    top: 0;
-    left: 0;
-    height: 96px;
+    height: 64px;
 }
