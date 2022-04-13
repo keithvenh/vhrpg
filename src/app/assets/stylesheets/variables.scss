@@ -20,12 +20,34 @@ $trueBlack: #000;
 
 $white: #fafafa;
 $trueWhite: #fff;
-$white-fade: rgba(250, 250, 250, 0.5);
+$whiteFaded: rgba(250, 250, 250, 0.7);
+$whiteTransparent: rgba(250, 250, 250, 0.5);
 
 
 $red: #d60000;
-$orange: #FBDB61;
-$teal: #61DBFB;
-$tealDark: #31a8c8;
+$redFaded: rgba(214, 0, 0, 0.5);
+$redTransparent: rgba(214, 0, 0, 0.1);
+
+$green: #009900;
+$greenFaded: rgba(0, 153, 0, 0.5);
+$greenTransparent: rgba(0, 153, 0, 0.1);
+
+$blue: #000099;
+$blueFaded: rgba(0, 0, 153, 0.5);
+$blueTransparent: rgba(0, 0, 153, 0.1);
+
+$yellow: #d6d600;
+$yellowFaded: rgba(214, 214, 0, 0.5);
+$yellowTransparent: rgba(214, 214, 0, 0.1);
+
+$orange: #ff9900;
+$orangeFaded: rgba(255, 153, 0, 0.5);
+$orangeTransparent: rgba(255, 153, 0, 0.1);
+
+$teal: #31a8c8;
+$tealFaded: rgba(49, 168, 200, 0.5);
+$tealTransparent: rgba(49, 168, 200, 0.1);
+
+$tealBright: #61DBFB;
 $tealDarker: #334040;
 $tealBlack: #202525;

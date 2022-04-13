@@ -27,13 +27,13 @@ body {
         letter-spacing: 2px;
     }
     &:hover {
-        color: $tealDark;
+        color: $teal;
         cursor: pointer;
         .logout-link {
             display: inline-block;
             color: $white;
             &:hover {
-                color: $tealDark;
+                color: $teal;
             }
         }
     }

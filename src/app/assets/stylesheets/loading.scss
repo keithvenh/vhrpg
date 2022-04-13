@@ -17,7 +17,7 @@
 
 // Start text faded and change to unfaded during loading
 .loading-heading {
-    color: $white-fade;
+    color: $whiteTransparent;
 
     // used during javascript changes in Loading.jsx
     .sw {
