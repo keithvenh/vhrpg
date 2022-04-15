@@ -1,3 +1,7 @@
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
 const config = {
     apiKey: process.env.REACT_APP_apiKey,
     authDomain: process.env.REACT_APP_authDomain,
@@ -16,3 +20,7 @@ export default function getFirebaseConfig() {
         return config;
     }
 }
+
+initializeApp(getFirebaseConfig());
+export const db = getFirestore();
+export const auth = getAuth();

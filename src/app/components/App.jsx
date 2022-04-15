@@ -3,12 +3,14 @@ import React from 'react';
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
+import Chat from './chat/Chat';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       view: <Loading updateView={this.changeView}/>,
+      viewName: 'loading',
       user: null
     }
 
@@ -33,7 +35,7 @@ class App extends React.Component {
         break;
     }
 
-    this.setState({view: view, user: user})
+    this.setState({view: view, user: user, viewName: link})
 
   }
 
@@ -42,6 +44,7 @@ class App extends React.Component {
     return (
       <div className="App">
           {this.state.view}
+          <Chat user={this.state.user} currentView={this.state.viewName} />
       </div>
     );
 
