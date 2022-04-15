@@ -1,10 +1,25 @@
-export default function Channels(props) {
+import  React from 'react';
+import { db } from '../../../config/firebase';
+import { collection } from 'firebase/firestore';
 
-    return (
+class Channels extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            messages: []
+        }
+    }
 
-        <div className='currentChannel'>
-            <p>{props.details.name}</p>
+    render() {
 
-        </div>
-    )
+        return (
+            <div className='currentChannel'>
+
+                <p>{this.props.details.name}</p>
+
+            </div>
+        )
+    }
 }
+
+export default Channels;

@@ -1,60 +1,56 @@
 import React from 'react';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, doc, onSnapshot, query, orderBy, limit, setDocs } from 'firebase/firestore';
 import { db } from '../../../config/firebase';
-import Channel from './Channel';
-
-async function getChannels(db) {
-
-    const channels = await getDocs(collection(db, 'channels'));
-    const channelsList = channels.docs.map(doc => doc.data());
-    return channelsList;
-}
+import Message from './Message';
 
 class Chat extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          channels: null,
-          activeChannel: 'Chat',
-          channel: <Channel details={{name: 'Chat'}} />,
-          expanded: true
+        messages: []
       }
-      this.changeChannel = this.changeChannel.bind(this);
+      this.toggleChat = this.toggleChat.bind(this);
+      this.getMessages = this.getMessages.bind(this);
     }
-  
-    changeChannel(channel) {
-        this.setState({
-            activeChannel: channel.name,
-            channel: <Channel details={channel} />
-        })
+
+    async getMessages(db) {
+
+      const q = query(collection(db, 'channels/chat/messages'), orderBy('createdAt'), limit(10));
+    
+      const unsub = onSnapshot(q,(querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          const data = querySnapshot.docs.map(doc => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+    
+          this.setState({messages: data});
+        });
+      } )
+      return unsub;
+    
     }
 
     toggleChat() {
 
         this.setState({expanded: !this.state.expanded})
+
+    }
+
+    componentDidMount() {
+      this.getMessages(db);
     }
 
     render() {
 
-        if(this.state.channels == null) {
-
-            getChannels(db).then((res) => {this.setState({channels: res})})
-
-        }
-
-        let channels;
-        if (this.state.channels != null) {
-            channels = this.state.channels.map((channel) => <p className={`channelName ${this.state.activeChannel == channel.name ? 'active' : 'inactive'}`} key={channel.name} onClick={() => this.changeChannel(channel)}>{channel.name}</p>);
-        }
-
       return (
         <div className={`userChat ${this.state.expanded ? 'expanded' : 'collapsed'} ${this.props.currentView == 'loading' ? 'hidden' : ''}`} id='userChat'>
-            <i className='toggle' onClick={() => this.toggleChat()}>{this.state.expanded ? String.fromCharCode(8722) : String.fromCharCode(43)}</i>
-            <div className='channelLinks'>
-                {channels}
+            <i className='toggle' onClick={() => this.toggleChat()}>{this.state.expanded ? String.fromCharCode(9660) : String.fromCharCode(9650)}</i>
+            <div className='messages-container'>
+              {this.state.messages.map(message => (<Message key={message.id} data={message} />))}
             </div>
-            {this.state.channel}
-            <input className='userChatInput' placeholder={`Message ${this.state.activeChannel}`} autoFocus />
+            <input className='userChatInput' placeholder='Message' autoFocus />
         </div>
       );
   

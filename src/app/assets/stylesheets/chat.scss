@@ -12,6 +12,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 40px;
+    box-sizing: border-box;
 }
 
 .userChat.expanded {
@@ -26,28 +28,13 @@
     display: flex;
 }
 
-.channelName {
-    border: 2px solid $tealFaded;
-    background-color: $tealTransparent;
-    color: $whiteFaded;
-    font-size: 20px;
-    padding: 6px;
-    margin: 6px;
-    &:hover {
-        cursor: pointer;
-        color: $white;
-        outline: 1px solid $tealFaded;
+.collapsed {
+    .messages-container {
+        display: none;
     }
-}
-
-.channelName.active {
-    color: $white;
-    border: 2px solid $teal;
-}
-
-.currentChannel {
-    padding: 12px;
-    flex-grow: 1;
+    .userChatInput {
+        display: none;
+    }
 }
 
 .userChatInput {
@@ -61,13 +48,58 @@
 }
 
 .toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
+    text-align: center;
+    color: $whiteFaded;
     padding: 10px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     &:hover {
         cursor: pointer;
+        color: $white;
+        background-color: $whiteInvisible;
     }
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.message {
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 65%;
+    border: 1px solid $tealFaded;
+    background-color: $tealTransparent;
+    margin: 8px;
+    border-radius: 2px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    .message-sender {
+        color: $tealFaded;
+    }
+}
+
+.message.true {
+    background-color: $orangeTransparent;
+    border-color: $orangeFaded;
+    align-self: flex-end;
+    .message-sender {
+        color: $orangeFaded;
+    }
+}
+
+.message-text {
+    padding: 12px;
+}
+
+.message-sender {
+    font-size: 0.8em;
+    padding: 4px;
 }
