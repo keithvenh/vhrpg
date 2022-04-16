@@ -9,7 +9,7 @@ class Chat extends React.Component {
       this.state = {
         messages: [],
         messageInput: '',
-        expanded: true
+        expanded: false
       }
       this.toggleChat = this.toggleChat.bind(this);
       this.getMessages = this.getMessages.bind(this);
@@ -76,7 +76,7 @@ class Chat extends React.Component {
 
       return (
         <div className={`userChat ${this.state.expanded ? 'expanded' : 'collapsed'} ${this.props.currentView == 'loading' ? 'hidden' : ''}`} id='userChat'>
-            <i className='toggle' onClick={() => this.toggleChat()}>{this.state.expanded ? String.fromCharCode(9660) : String.fromCharCode(9650)}</i>
+            <i className='toggle' onClick={() => this.toggleChat()}>{this.state.expanded ? String.fromCharCode(9660) : String.fromCharCode(9700)}</i>
             <div className='messages-container' id='messages-container'>
               <div className='messages' id='messages'>
                 {this.state.messages.map(message => (<Message key={message.id} data={message} />))}
