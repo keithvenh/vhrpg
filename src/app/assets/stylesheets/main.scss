@@ -39,3 +39,36 @@ body {
         }
     }
 }
+
+
+.diceIcon {
+    display: inline;
+    height: 14px;
+}
+.diceIcon.yellow {
+    color: #d6d600;
+}
+
+.diceIcon.green {
+    color: #009900;
+}
+
+.diceIcon.blue {
+    color: #00ccff;
+}
+
+.diceIcon.red {
+    color: #d60000;
+}
+
+.diceIcon.purple {
+    color: #9900d6;
+}
+
+.diceIcon.black {
+    color: #000;
+}
+
+.diceIcon.white {
+    color: #fff;
+}

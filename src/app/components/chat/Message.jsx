@@ -1,14 +1,7 @@
 import React from 'react';
 import { auth, db } from '../../../config/firebase';
 import { doc, getDoc } from 'firebase/firestore';
-
-async function getSender(id) {
-
-    const messageSender = await getDoc(doc(db, 'users', id));
-
-    return messageSender.data();
-
-}
+import replaceDice from '../../helpers/chat/replaceDice';
 
 class Message extends React.Component {
     constructor(props) {
@@ -42,7 +35,7 @@ class Message extends React.Component {
             <div className={`message ${this.state.currentUser}`}>
     
                 <p className='message-sender' id='message-sender'>{this.state.messageSender.username}</p>
-                <p className='message-text'>{this.state.messageText}</p>
+                <p className='message-text' dangerouslySetInnerHTML={{ __html: replaceDice(this.state.messageText) }}></p>
     
             </div>
     

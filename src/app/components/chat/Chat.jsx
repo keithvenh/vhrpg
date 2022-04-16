@@ -2,6 +2,7 @@ import React from 'react';
 import { getDocs, collection, doc, onSnapshot, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db, auth } from '../../../config/firebase';
 import Message from './Message';
+import replaceDice from '../../helpers/chat/replaceDice';
 
 class Chat extends React.Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class Chat extends React.Component {
     }
 
     validateMessage(e) {
+
       this.setState({messageInput: e.target.value})
     }
 
