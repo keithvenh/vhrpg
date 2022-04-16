@@ -7,7 +7,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 25vw;
+    width: 35vw;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -61,11 +61,20 @@
 }
 
 .messages-container {
+    width: 100%;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
+.messages {
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: flex-end;
-    flex-grow: 1;
+}
+
+.messagesEnd {
+    width: 100%;
+    height: 1px;
 }
 
 .message {
@@ -80,7 +89,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
     .message-sender {
         color: $tealFaded;
     }
