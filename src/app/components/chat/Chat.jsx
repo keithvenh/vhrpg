@@ -20,7 +20,7 @@ class Chat extends React.Component {
 
     async getMessages(db) {
 
-      const q = query(collection(db, 'channels/chat/messages'), orderBy('createdAt'), limit(10));
+      const q = query(collection(db, 'channels/chat/messages'), orderBy('createdAt'));
     
       const unsub = onSnapshot(q,(querySnapshot) => {
         querySnapshot.forEach((doc) => {
