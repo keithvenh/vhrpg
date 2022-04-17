@@ -20,7 +20,7 @@ class Chat extends React.Component {
 
     async getMessages(db) {
 
-      const q = query(collection(db, 'channels/chat/messages'), orderBy('createdAt'));
+      const q = query(collection(db, 'channels/chat/messages'), orderBy('createdAt', 'desc'), limit(50));
     
       const unsub = onSnapshot(q,(querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -81,8 +81,9 @@ class Chat extends React.Component {
             <i className='toggle' onClick={() => this.toggleChat()}>{this.state.expanded ? String.fromCharCode(9660) : String.fromCharCode(9700)}</i>
             <div className='messages-container' id='messages-container'>
               <div className='messages' id='messages'>
-                {this.state.messages.map(message => (<Message key={message.id} data={message} />))}
                 <div className='messagesEnd' id='messagesEnd'></div>
+                {this.state.messages.map(message => (<Message key={message.id} data={message} />))}
+                <div className='messagesStart' id='messagesStart'></div>
               </div>
             </div>
             <input 
