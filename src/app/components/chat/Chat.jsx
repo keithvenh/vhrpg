@@ -86,13 +86,16 @@ class Chat extends React.Component {
                 <div className='messagesStart' id='messagesStart'></div>
               </div>
             </div>
-            <input 
-              className='userChatInput' 
-              placeholder='Message' 
-              value={this.state.messageInput} 
-              onChange={(e) => this.validateMessage(e)}
-              onKeyPress={(e) => this.handleSubmit(e)} 
-              autoFocus />
+            <div className='userChatInputContainer'>
+              <span 
+                className='userChatInput' 
+                placeholder='Message' 
+                value={this.state.messageInput} 
+                onChange={(e) => this.validateMessage(e)}
+                onKeyPress={(e) => this.handleSubmit(e)} 
+                autoFocus ></span>
+
+            </div>
         </div>
       );
   
