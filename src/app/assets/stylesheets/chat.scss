@@ -81,11 +81,12 @@
 .message {
     font-size: 14px;
     letter-spacing: 1px;
-    width: 65%;
+    max-width: 65%;
     border: 1px solid $tealFaded;
     background-color: $tealTransparent;
     margin: 8px;
-    border-radius: 2px;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
@@ -99,6 +100,8 @@
     background-color: $orangeTransparent;
     border-color: $orangeFaded;
     align-self: flex-end;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0px;
     .message-sender {
         color: $orangeFaded;
     }

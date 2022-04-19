@@ -34,7 +34,6 @@ class Message extends React.Component {
     
             <div className={`message ${this.state.currentUser}`}>
     
-                <p className='message-sender' id='message-sender'>{this.state.messageSender.username}</p>
                 <p className='message-text' dangerouslySetInnerHTML={{ __html: replaceDice(this.state.messageText) }}></p>
     
             </div>
