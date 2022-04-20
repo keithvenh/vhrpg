@@ -1,0 +1,8 @@
+@import 'variables';
+
+.current-mission {
+  display: flex;
+  background-image: url('../images/mission-background.png');
+  background-repeat: no-repeat;
+  align-items: top;
+}

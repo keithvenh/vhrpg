@@ -3,6 +3,7 @@ import React from 'react';
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
+import CurrentMission from './currentMission/CurrentMission';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,9 @@ class App extends React.Component {
         break;
       case 'login':
         view = <Login updateView={this.changeView}/>;
+        break;
+      case 'currentMission':
+        view = <CurrentMission updateView={this.changeView} user={user} />;
         break;
       default:
         view = <Loading updateView={this.changeView}/>;
