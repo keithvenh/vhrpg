@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Loading from './loading/Loading';

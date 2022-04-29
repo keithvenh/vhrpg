@@ -1,11 +1,14 @@
 import React from 'react';
 import logout from '../../helpers/auth/logout';
-import '../../assets/stylesheets/current-mission.scss'
-import '../../assets/stylesheets/character-hud.scss'
 import CharacterHUD from './CharacterHUD';
 
 export default function CurrentMission (props) {
   
+    const wt = 16;
+    const currentWounds = 3;
+    
+    const health = Array.from(Array(wt - currentWounds).keys());
+    const wounds = Array.from(Array(currentWounds).keys());
 
   return (
     <div id='current-mission' className='current-mission'>
@@ -17,8 +20,10 @@ export default function CurrentMission (props) {
         <div className='primary-container'>
             <div className='primary-hud' id='primary-hud'>
                 <div className='hudTitle'>
-                    <h2 className='title'>Primary Character</h2>
-                    <p className='sw'>Primary Character</p>
+                    <div className='status-bar-container'>
+                        {health.map(i => <div className='wt' />)}
+                        {wounds.map(i => <div className='wt' style={{'background-color': 'white'}} />)}                        
+                    </div>
                 </div>
             </div>
         </div>
