@@ -21,6 +21,7 @@ export default function CurrentMission (props) {
             <div className='primary-hud' id='primary-hud'>
                 <div className='hudTitle'>
                     <div className='status-bar-container'>
+                        WT
                         {health.map(i => <div className='wt' />)}
                         {wounds.map(i => <div className='wt' style={{'background-color': 'white'}} />)}                        
                     </div>
