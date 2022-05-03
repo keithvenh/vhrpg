@@ -46,6 +46,11 @@ class Chat extends React.Component {
     validateMessage(e) {
 
       this.setState({messageInput: e.target.value})
+      const userInput = document.getElementById('userChatInput');
+      userInput.style.height = 0;
+      userInput.style.height = userInput.scrollHeight + 24 + "px";
+      console.log(userInput.style.height);
+      console.log(userInput.scrollHeight);
     }
 
     async submitMessage(message) {
@@ -86,16 +91,15 @@ class Chat extends React.Component {
                 <div className='messagesStart' id='messagesStart'></div>
               </div>
             </div>
-            <div className='userChatInputContainer'>
-              <span 
-                className='userChatInput' 
-                placeholder='Message' 
-                value={this.state.messageInput} 
-                onChange={(e) => this.validateMessage(e)}
-                onKeyPress={(e) => this.handleSubmit(e)} 
-                autoFocus ></span>
-
-            </div>
+            <textarea 
+              className='userChatInput'
+              id='userChatInput' 
+              placeholder='Message' 
+              value={this.state.messageInput} 
+              onChange={(e) => this.validateMessage(e)}
+              onKeyPress={(e) => this.handleSubmit(e)} 
+              type='text'
+              autoFocus ></textarea>
         </div>
       );
   

@@ -38,22 +38,19 @@
     }
 }
 
-.userChatInputContainer {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid red;
-}
-
 .userChatInput {
-    font-size: 20px;
+    resize: none;
+    min-height: 24px;
     padding: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
     outline: none;
     background: none;
     color: $white;
     border: 1px solid $whiteTransparent;
     margin: 4px;
-    width: 100%;
-    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.2em;
 }
 
 .toggle {
