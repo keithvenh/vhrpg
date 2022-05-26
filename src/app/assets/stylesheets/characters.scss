@@ -1,0 +1,9 @@
+@import 'variables';
+
+.charName {
+    padding: 6px 12px;
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    }
+}

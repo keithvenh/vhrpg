@@ -16,7 +16,7 @@ function Loading(props) {
         } else {
           props.updateView('login');
         }
-    })}, 4000);
+    })}, 100);
 
     // randomly choose a character to display on screen
     // this is purely cosmetic

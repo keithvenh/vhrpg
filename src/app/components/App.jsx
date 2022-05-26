@@ -1,8 +1,9 @@
 import React from 'react';
-
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Loading from './loading/Loading';
+import Characters from './characters/Characters';
+import Character from './characters/Character';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,10 +16,16 @@ class App extends React.Component {
     this.changeView = this.changeView.bind(this);
   }
 
-  changeView = (link, user=null) => {
+  changeView = (link, user=null, char=null) => {
 
     let view = <Loading updateView={this.changeView} />;
     switch(link) {
+      case 'characterManagement':
+        view = <Characters updateView={this.changeView} />;
+        break;
+      case 'character':
+        view = <Character updateView={this.changeView} character={char}/>;
+        break;
       case 'mission control':
         view = <MissionControl updateView={this.changeView} user={user} />;
         break;
