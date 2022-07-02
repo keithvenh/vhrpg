@@ -28,12 +28,17 @@
         color: $white;
         outline: 2px solid $redFaded;
     }
+    .hudImg {
+        height: 13vh;
+        left: 40px;
+        position: absolute;
+    }
     .hudTitle {
-        font-size: 3.5vh;
+        font-size: 3vh;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
-        text-align: center;
+        text-align: right;
         margin-top: 12px;
         .sw {
             font-size: 0.25em;
@@ -50,7 +55,10 @@
 .status-bar-container {
     display: grid;
     height: 20px;
-    width: 18vw;
+    width: 17vw;
+    bottom: -9.5vh;
+    position: relative;
+    margin-bottom: 5px;
     background-color: green;
     border: 2px solid black;
     border-radius: 8px;

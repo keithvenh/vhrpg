@@ -5,10 +5,17 @@ import CharacterHUD from './CharacterHUD';
 export default function CurrentMission (props) {
   
     const wt = 16;
-    const currentWounds = 3;
-    
+    const currentWounds = 14;
     const health = Array.from(Array(wt - currentWounds).keys());
     const wounds = Array.from(Array(currentWounds).keys());
+    
+    const st = 12;
+    const currentStrain = 6;
+    const stress = Array.from(Array(st - currentStrain).keys());
+    const strain = Array.from(Array(currentStrain).keys());
+    
+    let char = "Ru"
+    const image = require('../../assets/images/' + char + '-Goes-Walking.gif');
 
   return (
     <div id='current-mission' className='current-mission'>
@@ -19,11 +26,16 @@ export default function CurrentMission (props) {
         
         <div className='primary-container'>
             <div className='primary-hud' id='primary-hud'>
+                <img className='hudImg' src={image} alt='' />
                 <div className='hudTitle'>
+                    Ajairu Kogiti
                     <div className='status-bar-container'>
-                        WT
                         {health.map(i => <div className='wt' />)}
-                        {wounds.map(i => <div className='wt' style={{'background-color': 'white'}} />)}                        
+                        {wounds.map(i => <div className='wt' style={{'background-color': 'white'}} />)}
+                    </div>
+                    <div className='status-bar-container'>
+                        {stress.map(i => <div className='wt' style={{'background-color': 'blue'}}/>)}
+                        {strain.map(i => <div className='wt' style={{'background-color': 'white'}} />)}
                     </div>
                 </div>
             </div>
