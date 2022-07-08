@@ -7,3 +7,52 @@
         color: $orange;
     }
 }
+
+.character-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid red;
+    box-sizing: border-box;
+    .character-image {
+        height: 100%;
+        width: 20%;
+        border: 1px solid blue;
+        box-sizing: border-box;
+    }
+    
+    .character-details {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid yellow;
+        width: 40%;
+        box-sizing: border-box;
+
+        .character-overview {
+            border: 1px solid green;
+
+            .character-name {
+                font-size: 2em;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 6px;
+                letter-spacing: 3px;
+                font-weight: 100;
+            }
+        }
+
+        .character-characteristics {
+            border: 1px solid white;
+        }
+
+        .character-skills {
+            border: 1px solid white;
+        }
+    }
+
+    .character-talents {
+        border: 1px solid magenta;
+        width: 40%;
+        box-sizing: border-box;
+    }
+}
