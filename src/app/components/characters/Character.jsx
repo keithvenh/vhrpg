@@ -2,7 +2,14 @@
 // WE WILL DEFINITELY NEED HELPER FUNCTIONS TO LOOP THROUGH AND DISPLAY DIFFERENT ASPECTS LIKE SKILLS AND TALENTS
 // I NEED TO RESEARCH HOW TO RETURN CHUNKS OF JSX WITH A STANDARD FUNCTION AND PLUG IT INTO OTHER SECTIONS
 
+import React from "react";
+
 function Character(props) {
+    
+    const skillList = Object.entries(props.character.skills).map(([key])=>(
+        <div>{key}: {key.rank}</div>
+    ))
+
     return(
         <div className='character-container'>
             <div className='character-image'>
@@ -24,7 +31,7 @@ function Character(props) {
                 </div>
                 <div className='character-skills'>
                     {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.skills */}
-
+                    <p className='brawn'> {skillList} </p>
                 </div>
             </div>
             <div className='character-talents'>
