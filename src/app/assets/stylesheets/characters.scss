@@ -43,10 +43,25 @@
 
         .character-characteristics {
             border: 1px solid white;
+
+            .rank {
+                position: fixed;
+                left: 505px
+            }
         }
 
         .character-skills {
             border: 1px solid white;
+
+            .rank {
+                position: fixed;
+                left: 505px
+            }
+
+            .xp {
+                position: fixed;
+                left: 550px;
+            }
         }
     }
 
