@@ -3,12 +3,12 @@
 // I NEED TO RESEARCH HOW TO RETURN CHUNKS OF JSX WITH A STANDARD FUNCTION AND PLUG IT INTO OTHER SECTIONS
 
 import React from "react";
+import iterateObject from "../../helpers/characters/iterateObject";
 
 function Character(props) {
-    
-    const skillList = Object.entries(props.character.skills).map(([key])=>(
-        <div>{key}: {key.rank}</div>
-    ))
+
+    let skillList = iterateObject(props.character.skills);
+    console.log(skillList);
 
     return(
         <div className='character-container'>
@@ -31,7 +31,7 @@ function Character(props) {
                 </div>
                 <div className='character-skills'>
                     {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.skills */}
-                    <p className='brawn'> {skillList} </p>
+                    {skillList.map((skill) => <p className='brawn'>{skill.title + ': ' + skill.rank}</p>)}
                 </div>
             </div>
             <div className='character-talents'>
