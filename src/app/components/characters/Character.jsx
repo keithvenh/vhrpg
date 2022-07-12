@@ -7,6 +7,8 @@ import iterateObject from "../../helpers/characters/iterateObject";
 
 function Character(props) {
 
+    //Gets array of objects within the provided ojbect
+    //i.e. provided props.character.skills, returned array of child objects
     let skillList = iterateObject(props.character.skills);
     console.log(skillList);
 
@@ -30,7 +32,7 @@ function Character(props) {
                     <p className='brawn'>Presence: {props.character.characteristics.presence}</p>
                 </div>
                 <div className='character-skills'>
-                    {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.skills */}
+                    {/*map over array and return list of skills and their ranks.*/}
                     {skillList.map((skill) => <p className='brawn'>{skill.title + ': ' + skill.rank}</p>)}
                 </div>
             </div>
