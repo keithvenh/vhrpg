@@ -71,3 +71,35 @@
         box-sizing: border-box;
     }
 }
+
+.character-add {
+    font-weight: bold;
+    font-size: larger;
+    margin-left: 15px;
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    };
+}
+
+.new-character {
+    display: flex;
+    margin-left: 25px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+    .name {
+        margin-right: 25px;
+    }
+    .species {
+        margin-right: 92px;
+    }
+    .type {
+        margin-right: 25px;
+    }
+}
+
+.submit {
+    margin-left: 25px;
+    margin-top: 10px;
+}

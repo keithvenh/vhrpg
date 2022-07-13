@@ -42,7 +42,7 @@ class Characters extends React.Component {
 
         return (
             <div className='characters'>
-                <h1>Characters</h1>
+                <h1>Characters<span className='character-add' onClick={() => this.props.updateView('characterAdd','','')}>+</span></h1>
                 {this.state.characters.map((char) => (<CharacterLink key={char.id} character={char} updateView={this.props.updateView} />))}
             </div>
         )
