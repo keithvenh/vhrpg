@@ -52,6 +52,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
+          <div className="home-icon" onClick={() => this.changeView('mission control')}><i className="fas fa-home"></i></div>
           {this.state.view}
       </div>
     );

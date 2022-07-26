@@ -1,5 +1,9 @@
 @import 'variables';
 
+.characters {
+    padding-top: 48px;
+}
+
 .charName {
     padding: 6px 12px;
     &:hover {
@@ -9,35 +13,50 @@
 }
 
 .character-container {
+    padding-top: 48px;
     display: flex;
     height: 100vh;
     width: 100vw;
     border: 1px solid red;
     box-sizing: border-box;
-    .character-image {
-        height: 100%;
-        width: 20%;
-        border: 1px solid blue;
-        box-sizing: border-box;
-    }
+    background-image: url('../images/grid.jpeg');
+    background-repeat: repeat;
+    font-family: $teko;
     
     .character-details {
         display: flex;
         flex-direction: column;
         border: 1px solid yellow;
-        width: 40%;
+        width: 50%;
         box-sizing: border-box;
+        font-size: 18px;
+        text-transform: uppercase;
 
         .character-overview {
             border: 1px solid green;
 
             .character-name {
-                font-size: 2em;
+                font-size: 1.7em;
                 text-transform: uppercase;
-                text-align: center;
                 padding: 6px;
                 letter-spacing: 3px;
                 font-weight: 100;
+                font-family: $teko;
+            }
+
+            .character-species {
+                padding-left: 18px;
+                padding-bottom: 6px;
+            }
+
+            .character-career {
+                padding-bottom: 6px;
+                padding-left: 18px;
+            }
+
+            .character-specializations {
+                padding-left: 24px;
+                padding-bottom: 6px;
             }
         }
 
@@ -67,7 +86,7 @@
 
     .character-talents {
         border: 1px solid magenta;
-        width: 40%;
+        width: 50%;
         box-sizing: border-box;
     }
 }

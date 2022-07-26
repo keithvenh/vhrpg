@@ -13,8 +13,8 @@ function Character(props) {
     
     //Sort alphabetically
     skillList.sort((a,b) => {
-        let fa = a.title.toLowerCase(),
-            fb = b.title.toLowerCase();
+        let fa = a.name.toLowerCase(),
+            fb = b.name.toLowerCase();
 
         if (fa < fb) {
             return -1;
@@ -35,24 +35,32 @@ function Character(props) {
                 <div className='character-overview'>
 
                     <h1 className='character-name'>{props.character.displayName}</h1>
+                    <h2 className="character-species">{props.character.background.species}</h2>
+                    <h2 className="character-career">{props.character.career.name}</h2>
+                    <h3 className="character-specializations">{iterateObject(props.character.career.specializations).map((spec) => <p key={spec.name}>{spec.name}</p>)}</h3>
 
                 </div>
                 <div className='character-characteristics'>
-                    <p className='brawn'>Brawn <span className='rank'>{props.character.characteristics.brawn}</span></p>
-                    <p className='brawn'>Agility <span className='rank'>{props.character.characteristics.agility}</span></p>
-                    <p className='brawn'>Intellect <span className='rank'>{props.character.characteristics.intellect}</span></p>
-                    <p className='brawn'>Cunning <span className='rank'>{props.character.characteristics.cunning}</span></p>
-                    <p className='brawn'>Willpower <span className='rank'> {props.character.characteristics.willpower}</span></p>
-                    <p className='brawn'>Presence <span className='rank'>{props.character.characteristics.presence}</span></p>
+                    <div className='derived'>
+
+                    </div>
+                    <div className='characteristics'>
+                        <p className='brawn'>Brawn <span className='rank'>{props.character.characteristics.brawn}</span></p>
+                        <p className='brawn'>Agility <span className='rank'>{props.character.characteristics.agility}</span></p>
+                        <p className='brawn'>Intellect <span className='rank'>{props.character.characteristics.intellect}</span></p>
+                        <p className='brawn'>Cunning <span className='rank'>{props.character.characteristics.cunning}</span></p>
+                        <p className='brawn'>Willpower <span className='rank'> {props.character.characteristics.willpower}</span></p>
+                        <p className='brawn'>Presence <span className='rank'>{props.character.characteristics.presence}</span></p>
+                    </div>
                 </div>
                 <div className='character-skills'>
                     {/*map over array and return list of skills and their ranks.*/}
                     {skillList.map((skill) =>
-                        <p className='brawn'>
-                            {skill.title}
+                        <div className='brawn' key={skill.name} >
+                            {skill.name}
                             <span className='rank'>{skill.rank}</span>
                             <span className='xp'>XP: {skill.xp}</span>
-                        </p>
+                        </div>
                     )}
                 </div>
             </div>
