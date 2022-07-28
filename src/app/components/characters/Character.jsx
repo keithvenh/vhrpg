@@ -40,9 +40,60 @@ function Character(props) {
                     <h3 className="character-specializations">{iterateObject(props.character.career.specializations).map((spec) => <p key={spec.name}>{spec.name}</p>)}</h3>
 
                 </div>
-                <div className='character-characteristics'>
+                <div className='character-attributes'>
                     <div className='derived'>
+                        <div className="attribute-container soak">
+                            <div className="label">Soak</div>
+                            <div className="values">
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.soak}</p>
+                                    <div className="sublabel">Current</div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div className="attribute-container wounds">
+                            <div className="label">Wounds</div>
+                            <div className="values">
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.woundThreshold}</p>
+                                    <div className="sublabel">Current</div>
+                                </div>
+                                <div className='threshold'>
+                                    <p className='value'>{props.character.attributes.wounds}</p>
+                                    <div className="sublabel">Threshold</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div className="attribute-container strain">
+                            <div className="label">Strain</div>
+                            <div className="values">
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.strainThreshold}</p>
+                                    <div className="sublabel">Current</div>
+                                </div>
+                                <div className='threshold'>
+                                    <p className='value'>{props.character.attributes.strain}</p>
+                                    <div className="sublabel">Threshold</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="attribute-container defense">
+                            <div className="label">Defense</div>
+                            <div className="values">
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.meleeDefense}</p>
+                                    <div className="sublabel">Melee</div>
+                                </div>
+                                <div className='threshold'>
+                                    <p className='value'>{props.character.attributes.rangedDefense}</p>
+                                    <div className="sublabel">Ranged</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className='characteristics'>
                         <p className='brawn'>Brawn <span className='rank'>{props.character.characteristics.brawn}</span></p>

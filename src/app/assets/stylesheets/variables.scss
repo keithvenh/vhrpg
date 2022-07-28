@@ -18,6 +18,8 @@ $teko: 'Teko', $primary;
 
 $black: #232323;
 $trueBlack: #000;
+$blackFaded: rgba(35, 35, 35, 0.3);
+$blackTransparent: rgba(35, 35, 35, 0.1);
 
 $white: #fafafa;
 $trueWhite: #fff;
@@ -36,6 +38,10 @@ $greenTransparent: rgba(0, 153, 0, 0.1);
 $blue: #000099;
 $blueFaded: rgba(0, 0, 153, 0.5);
 $blueTransparent: rgba(0, 0, 153, 0.1);
+
+$navy: #1c3144;
+
+$maroon: #800000;
 
 $yellow: #d6d600;
 $yellowFaded: rgba(214, 214, 0, 0.5);
