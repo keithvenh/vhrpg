@@ -95,13 +95,45 @@ function Character(props) {
                             </div>
                         </div>
                     </div>
+
+                    <div className="divider">
+                        <hr className="dividerLine"></hr>
+                        <p className="dividerLabel">Characteristics</p>
+                        <hr className="dividerLine"></hr>
+                    </div>
+
                     <div className='characteristics'>
-                        <p className='brawn'>Brawn <span className='rank'>{props.character.characteristics.brawn}</span></p>
-                        <p className='brawn'>Agility <span className='rank'>{props.character.characteristics.agility}</span></p>
-                        <p className='brawn'>Intellect <span className='rank'>{props.character.characteristics.intellect}</span></p>
-                        <p className='brawn'>Cunning <span className='rank'>{props.character.characteristics.cunning}</span></p>
-                        <p className='brawn'>Willpower <span className='rank'> {props.character.characteristics.willpower}</span></p>
-                        <p className='brawn'>Presence <span className='rank'>{props.character.characteristics.presence}</span></p>
+
+                        <div  className='characteristic brawn'>
+                            <p className='rank'>{ props.character.characteristics.brawn }</p>
+                            <p className='label'>Brawn</p>
+                        </div>
+
+                        <div  className='characteristic agility'>
+                            <p className='rank'>{ props.character.characteristics.agility }</p>
+                            <p className='label'>Agility</p>
+                        </div>
+
+                        <div  className='characteristic intellect'>
+                            <p className='rank'>{ props.character.characteristics.intellect }</p>
+                            <p className='label'>Intellect</p>
+                        </div>
+
+                        <div  className='characteristic cunning'>
+                            <p className='rank'>{ props.character.characteristics.cunning }</p>
+                            <p className='label'>Cunning</p>
+                        </div>
+
+                        <div  className='characteristic willpower'>
+                            <p className='rank'>{ props.character.characteristics.willpower }</p>
+                            <p className='label'>Willpower</p>
+                        </div>
+
+                        <div  className='characteristic presence'>
+                            <p className='rank'>{ props.character.characteristics.presence }</p>
+                            <p className='label'>Presence</p>
+                        </div>
+
                     </div>
                 </div>
                 <div className='character-skills'>
