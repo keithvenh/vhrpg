@@ -4,6 +4,7 @@
 
 import React from "react";
 import iterateObject from "../../helpers/characters/iterateObject";
+import CharacterSkill from "./CharacterSkill";
 
 function Character(props) {
 
@@ -24,6 +25,10 @@ function Character(props) {
         }
         return 0;
     });
+
+    let generalSkills = skillList.filter(skill => skill.category === "General");
+    let combatSkills = skillList.filter(skill => skill.category === "Combat");
+    let knowledgeSkills = skillList.filter(skill => skill.category === "Knowledge")
     console.log(skillList);
 
     return(
@@ -55,13 +60,13 @@ function Character(props) {
                         <div className="attribute-container wounds">
                             <div className="label">Wounds</div>
                             <div className="values">
-                                <div className='current'>
-                                    <p className='value'>{props.character.attributes.woundThreshold}</p>
-                                    <div className="sublabel">Current</div>
-                                </div>
                                 <div className='threshold'>
-                                    <p className='value'>{props.character.attributes.wounds}</p>
+                                    <p className='value'>{props.character.attributes.woundThreshold}</p>
                                     <div className="sublabel">Threshold</div>
+                                </div>
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.wounds}</p>
+                                    <div className="sublabel">Current</div>
                                 </div>
                             </div>
                             
@@ -70,13 +75,13 @@ function Character(props) {
                         <div className="attribute-container strain">
                             <div className="label">Strain</div>
                             <div className="values">
-                                <div className='current'>
-                                    <p className='value'>{props.character.attributes.strainThreshold}</p>
-                                    <div className="sublabel">Current</div>
-                                </div>
                                 <div className='threshold'>
-                                    <p className='value'>{props.character.attributes.strain}</p>
+                                    <p className='value'>{props.character.attributes.strainThreshold}</p>
                                     <div className="sublabel">Threshold</div>
+                                </div>
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.strain}</p>
+                                    <div className="sublabel">Current</div>
                                 </div>
                             </div>
                         </div>
@@ -84,13 +89,13 @@ function Character(props) {
                         <div className="attribute-container defense">
                             <div className="label">Defense</div>
                             <div className="values">
-                                <div className='current'>
-                                    <p className='value'>{props.character.attributes.meleeDefense}</p>
-                                    <div className="sublabel">Melee</div>
-                                </div>
                                 <div className='threshold'>
                                     <p className='value'>{props.character.attributes.rangedDefense}</p>
                                     <div className="sublabel">Ranged</div>
+                                </div>
+                                <div className='current'>
+                                    <p className='value'>{props.character.attributes.meleeDefense}</p>
+                                    <div className="sublabel">Melee</div>
                                 </div>
                             </div>
                         </div>
@@ -136,15 +141,35 @@ function Character(props) {
 
                     </div>
                 </div>
+
+                <div className="divider">
+                    <hr className="dividerLine"></hr>
+                    <p className="dividerLabel">Skills</p>
+                    <hr className="dividerLine"></hr>
+                </div>
                 <div className='character-skills'>
                     {/*map over array and return list of skills and their ranks.*/}
-                    {skillList.map((skill) =>
-                        <div className='brawn' key={skill.name} >
-                            {skill.name}
-                            <span className='rank'>{skill.rank}</span>
-                            <span className='xp'>XP: {skill.xp}</span>
+                    <div className='skillsRow'>
+                        <div className='generalSkills'>
+
+                            {generalSkills.map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
+
                         </div>
-                    )}
+                    </div>
+
+                    <div className='skillsRow'>
+                        <div className='combatSkills'>
+                            
+                            {combatSkills.map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
+
+                        </div>
+
+                        <div className='knowledgeSkills'>
+                            
+                            {knowledgeSkills.map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='character-talents'>

@@ -13,12 +13,13 @@
 }
 
 .character-container {
+    padding: 12px;
     padding-top: 48px;
     display: flex;
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
-    background-image: url('../images/swrpg-bg-2.jpeg');
+    background-image: url('../images/swrpg-bg-5.jpeg');
     background-size: cover;
     font-family: $teko;
     color: $black;
@@ -88,6 +89,7 @@
                         width: 100%;
                         color: $white;
                         text-align: center;
+                        font-size: 0.8em;
                     }
 
                     .values {
@@ -101,24 +103,18 @@
                         }
 
                         .current {
+                            border-left: 1px solid $blackFaded;
                             .sublabel {
                                 background-color: $eoteTeal;
-                                text-align: center;
                                 color: $black;
-                                font-size: 0.8em;
-                                padding: 3px;
                             }
                         }
 
                         .threshold {
-                            border-left: 1px solid $blackFaded;
+                            
                             .sublabel {
                                 background-color: $eoteMaroon;
-                                text-align: center;
                                 color: $white;
-                                font-size: 0.8em;
-                                box-sizing: border-box;
-                                padding: 3px;
                             }
                         }
 
@@ -128,27 +124,16 @@
                             padding: 12px 6px;
                             text-align: center;
                         }
-                    }
-                }
-            }
 
-            .divider {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                .dividerLine {
-                    border: 6px solid $eoteTan;
-                    border-radius: 6px;
-                    flex: 1;
-                }
-                .dividerLabel {
-                    background-color: $eoteNavy;
-                    color: $eoteTan;
-                    font-size: 12px;
-                    height: 18px;
-                    border-radius:  9px;
-                    line-height: 18px;
-                    padding: 0 18px;
+                        .sublabel {
+                            text-align: center;
+                            font-size: 0.8em;
+                            padding: 3px;
+                            padding-top: 6px;
+                            box-sizing: border-box;
+                            line-height: 0.8em;
+                        }
+                    }
                 }
             }
 
@@ -198,15 +183,95 @@
 
         .character-skills {
             border: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-            .rank {
-                position: fixed;
-                left: 505px
+            .generalSkills {
+                display: flex;
+                flex-wrap: wrap;
+                .skill {
+                    width: 50%;
+                }
             }
 
-            .xp {
-                position: fixed;
-                left: 550px;
+            .combatSkills, .knowledgeSkills {
+                width: 50%;
+                .skill {
+                    width: 100%;
+                }
+            }
+
+            .skillsRow {
+                background-color: $blackTransparent;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 6px;
+                padding: 6px;
+                display: flex;
+            }
+
+            .skill {
+                height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+
+                .skillName {
+                    text-transform: none;
+                    font-size: 16px;
+                }
+                &.true {
+                    font-weight: bold;
+                    font-style: italic;
+                }
+
+                .skillRanks {
+                    display: flex;
+
+                    .skillRank {
+                        background-color: $whiteTransparent;
+                        height: 10px;
+                        width: 20px;
+                        border-left: 1px solid $blackFaded;
+                    }
+
+                    .one {
+                        background-color:  $redTransparent;
+                        &.true {
+                            background-color: $redFaded;
+                        }
+                    }
+
+                    .two {
+                        background-color: $orangeTransparent;
+                        &.true {
+                            background-color: $orangeFaded;
+                        }
+                    }
+
+                    .three {
+                        background-color: $yellowTransparent;
+                        &.true {
+                            background-color: $yellowFaded;
+                        }
+                    }
+
+                    .four {
+                        background-color: $greenTransparent;
+                        &.true {
+                            background-color: $greenFaded;
+                        }
+                    }
+
+                    .five {
+                        background-color: $tealTransparent;
+                        &.true {
+                            background-color: $tealFaded;
+                        }
+                    }
+                }
             }
         }
     }
@@ -214,6 +279,28 @@
     .character-talents {
         width: 50%;
         box-sizing: border-box;
+    }
+}
+
+.divider {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .dividerLine {
+        border: 6px solid $eoteTan;
+        border-radius: 6px;
+        flex: 1;
+    }
+    .dividerLabel {
+        background-color: $eoteNavy;
+        color: $eoteTan;
+        font-size: 12px;
+        height: 18px;
+        border-radius:  9px;
+        line-height: 18px;
+        padding: 0 18px;
+        width: 15%;
+        text-align: center;
     }
 }
 
