@@ -1,4 +1,5 @@
 import React from "react";
+import AddCharacter from "../../helpers/characters/addCharacter";
 
 class NewCharacter extends React.Component {
     constructor(props) {
@@ -6,7 +7,7 @@ class NewCharacter extends React.Component {
         this.state = {
             name: '',
             species: '',
-            charType: 'pc'
+            chartype: 'pc'
 
         }
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -22,13 +23,12 @@ class NewCharacter extends React.Component {
         this.setState({species: event.target.value});
     }
     handleTypeChange(event) {
-        this.setState({charType: event.target.value});
+        this.setState({chartype: event.target.value});
     }
     
     handleSubmit(event) {
         //import function to create new character in DB
-        alert('New ' + this.state.charType + ' submitted with the name, \'' + this.state.name + '\'. They are a ' + this.state.species + '.');
-        event.preventDefault();
+        AddCharacter(this.state.name,this.state.species,this.state.chartype);
     }
 
     render () {
@@ -52,7 +52,7 @@ class NewCharacter extends React.Component {
                 <div>
                     <label className='new-character'>
                         <div className='type'>Character Type:</div>
-                        <select charType={this.state.charType} onChange={this.handleTypeChange}>
+                        <select chartype={this.state.chartype} onChange={this.handleTypeChange}>
                             <option value='pc'>Player Character</option>
                             <option value='npc'>Non-Player Character</option>
                             <option value='minion'>Minion</option>

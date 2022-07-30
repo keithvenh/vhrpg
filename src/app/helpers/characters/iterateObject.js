@@ -5,5 +5,6 @@ export default function iterateObject(obj) {
         
         myArray.push(obj[key])
     })
+    
     return myArray
 }
