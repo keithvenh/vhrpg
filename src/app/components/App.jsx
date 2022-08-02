@@ -52,8 +52,23 @@ class App extends React.Component {
 
     return (
       <div className="App">
-          <div className="home-icon" onClick={() => this.changeView('mission control')}><i className="fas fa-home"></i></div>
-          {this.state.view}
+
+          <div className='navigationContainer'>
+
+            <div className="home-icon" onClick={() => this.changeView('mission control')}><i className="fas fa-home"></i></div>
+
+          </div>
+
+          <div className='viewScreen'>
+
+            {this.state.view}
+
+          </div>
+
+          <div className='chatContainer'>
+
+          </div>
+
       </div>
     );
 
