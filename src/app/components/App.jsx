@@ -5,6 +5,7 @@ import Loading from './loading/Loading';
 import Characters from './characters/Characters';
 import Character from './characters/Character';
 import NewCharacter from './characters/NewCharacter';
+import logout from '../helpers/auth/logout';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,6 +57,10 @@ class App extends React.Component {
           <div className='navigationContainer'>
 
             <div className="home-icon" onClick={() => this.changeView('mission control')}><i className="fas fa-home"></i></div>
+            <div className='settings-cog'>
+                <p><i className='fas fa-cog'></i></p>
+                <p className='logout-link' onClick={logout}>Logout</p>
+            </div>
 
           </div>
 

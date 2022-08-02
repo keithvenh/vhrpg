@@ -1,13 +1,7 @@
-import logout from '../../helpers/auth/logout';
-
 function MissionControl(props) {
 
     return (
         <div id='mission-control' className='mission-control'>
-            <div className='settings-cog'>
-                <p><i className='fas fa-cog'></i></p>
-                <p className='logout-link' onClick={logout}>Logout</p>
-            </div>
 
             <div className='screen-container'>
                 <div className='screen orange characterManagement' id='characterManagement' onClick={() => props.updateView('characterManagement')}>
