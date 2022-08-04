@@ -22,27 +22,29 @@ body {
 .App {
     align-items: center;
     background-image: url('../images/grid.jpeg');
+    box-sizing: border-box;
     display: flex;
     height: 100vh;
     justify-content: center;
+    padding: 2vh 0;
     width: 100vw;
 
     .navigationContainer {
         box-sizing: border-box;
-        height: 100vh;
-        width: 5vw;
+        height: 100%;
+        width: 5%;
     }
 
     .viewScreen {
         box-sizing: border-box;
-        height: 100vh;
-        width: 75vw;
+        height: 100%;
+        width: 75%;
     }
 
     .chatContainer {
         border:  1px solid blue;
         box-sizing: border-box;
-        height: 100vh;
-        width: 20vw;
+        height: 100%;
+        width: 20%;
     }
 }
