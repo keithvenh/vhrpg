@@ -42,8 +42,23 @@ class Characters extends React.Component {
 
         return (
             <div className='characters'>
-                <h1>Characters<span className='character-add' onClick={() => this.props.updateView('characterAdd','','')}>+</span></h1>
-                {this.state.characters.map((char) => (<CharacterLink key={char.id} character={char} updateView={this.props.updateView} />))}
+
+                <div className='charactersFilter'>
+                    <p className='allFilter true'>All</p>
+                    <p className='pcFilter'>PCs</p>
+                    <p className='npcFilter'>NPCs</p>
+                    <p className='nemesisFilter'>Nemeses</p>
+                    <p className='rivalFilter'>Rivals</p>
+                    <p className='minionFilter'>Minions</p>
+                </div>
+
+                <h1 className='newCharacter' ><i className='fas fa-plus' onClick={() => this.props.updateView('newCharacter','','')}></i> New</h1>
+                
+                <div className='characterLinks'>
+
+                    {this.state.characters.map((char) => (<CharacterLink key={char.id} character={char} updateView={this.props.updateView} />))}
+
+                </div>
             </div>
         )
 

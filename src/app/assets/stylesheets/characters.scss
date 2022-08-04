@@ -1,16 +1,96 @@
 @import 'variables';
 
 .characters {
-    padding-top: 48px;
+    padding-top: 25px;
+    text-align: center;
+    position: relative;
 }
 
-.charName {
-    padding: 6px 12px;
-    &:hover {
-        cursor: pointer;
-        color: $orange;
+.charactersFilter {
+    display: flex;
+    padding: 0 20px;
+    border-bottom: 2px solid $whiteFaded;
+    p {
+        flex: 1;
+        text-align: center;
+        padding: 6px 12px;
+        border: 1px solid $whiteFaded;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 6px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .allFilter {
+        border-color: $tealFaded;
+        &.true {
+            background-color: $tealFaded;
+        }
+    }
+
+    .pcFilter {
+        border-color: $blueFaded;
+        &.true {
+            background-color: $blueFaded;
+        }
+    }
+
+    .npcFilter {
+        border-color: $greenFaded;
+        &.true {
+            background-color: $greenFaded;
+        }
+    }
+
+    .nemesisFilter {
+        border-color: $yellowFaded;
+        &.true {
+            background-color: $yellowFaded;
+        }
+    }
+
+    .rivalFilter {
+        border-color: $orangeFaded;
+        &.true {
+            background-color: $orangeFaded;
+        }
+    }
+
+    .minionFilter {
+        border-color: $redFaded;
+        &.true {
+            background-color: $redFaded;
+        }
     }
 }
+
+.newCharacter {
+    height: 24px;
+    font-size: 16px;
+    padding: 4px;
+    background-color: $green;
+    position: absolute;
+    top: 72px;
+    left: 20px;
+    width:  72px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.characterLinks {
+    margin-top: 12px;
+    .charName {
+        padding: 6px 12px;
+        &:hover {
+            cursor: pointer;
+            color: $orange;
+        }
+    }
+}
+
 
 .character-container {
     padding: 12px;

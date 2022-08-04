@@ -29,17 +29,17 @@ class App extends React.Component {
       case 'character':
         view = <Character updateView={this.changeView} character={char}/>;
         break;
-      case 'characterAdd':
-        view = <NewCharacter updateView={this.changeView}/>;
-        break;
-      case 'mission control':
-        view = <MissionControl updateView={this.changeView} user={user} />;
-        break;
       case 'loading':
         view = <Loading updateView={this.changeView}/>;
         break;
       case 'login':
         view = <Login updateView={this.changeView}/>;
+        break;
+      case 'missionControl':
+        view = <MissionControl updateView={this.changeView} user={user} />;
+        break;
+      case 'newCharacter':
+        view = <NewCharacter updateView={this.changeView}/>;
         break;
       case 'user':
         view = <User updateView={this.changeView} />;
