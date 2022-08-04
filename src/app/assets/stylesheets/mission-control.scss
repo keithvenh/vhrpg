@@ -6,6 +6,8 @@
     align-items: center;
     background-repeat: repeat;
     height: 100%;
+    padding: 2vh 4vh;
+    box-sizing: border-box;
 }
 
 .screen-container {
@@ -20,8 +22,8 @@
 
 .screen {
     border: 2px solid $redFaded;
-    height: 225px;
-    width: 360px;
+    height: 28vh;
+    width: 45vh;
     border-radius: 3px;
     padding: 6px;
     box-sizing: border-box;
@@ -55,7 +57,7 @@
 }
 
 .screen.square {
-    width: 225px;
+    width: 28vh;
 }
 
 .screen.red {

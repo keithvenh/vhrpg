@@ -5,7 +5,8 @@ import Loading from './loading/Loading';
 import Characters from './characters/Characters';
 import Character from './characters/Character';
 import NewCharacter from './characters/NewCharacter';
-import logout from '../helpers/auth/logout';
+import Navigation from './navigation/Navigation';
+import User from './user/User';
 
 class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,9 @@ class App extends React.Component {
       case 'login':
         view = <Login updateView={this.changeView}/>;
         break;
+      case 'user':
+        view = <User updateView={this.changeView} />;
+        break;
       default:
         view = <Loading updateView={this.changeView}/>;
         break;
@@ -56,11 +60,7 @@ class App extends React.Component {
 
           <div className='navigationContainer'>
 
-            <div className="home-icon" onClick={() => this.changeView('mission control')}><i className="fas fa-home"></i></div>
-            <div className='settings-cog'>
-                <p><i className='fas fa-cog'></i></p>
-                <p className='logout-link' onClick={logout}>Logout</p>
-            </div>
+            <Navigation updateView={this.changeView} />
 
           </div>
 
