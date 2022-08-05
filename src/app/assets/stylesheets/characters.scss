@@ -275,102 +275,91 @@
     }
 }
 
+.characterSkills {
+    display: flex;
+    justify-content: space-between;
 
+    .skillsRow {
+        margin: 0 12px;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
 
-//         .character-skills {
-//             border: 1px solid white;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-between;
+    .generalSkills, .combatSkills, .knowledgeSkills {
+        display: flex;
+        flex-direction: column;
+    }
 
-//             .generalSkills {
-//                 display: flex;
-//                 flex-wrap: wrap;
-//                 .skill {
-//                     width: 50%;
-//                 }
-//             }
+    .skill {
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
 
-//             .combatSkills, .knowledgeSkills {
-//                 width: 50%;
-//                 .skill {
-//                     width: 100%;
-//                 }
-//             }
+        .skillName {
+            font-size: 16px;
+            width: 50%;
+            text-align: right;
+            padding-right: 12px;
+            box-sizing: border-box;
+        }
+        &.true {
+            font-weight: bold;
+            font-style: italic;
+        }
 
-//             .skillsRow {
-//                 background-color: $blackTransparent;
-//                 width: 100%;
-//                 box-sizing: border-box;
-//                 margin: 6px;
-//                 padding: 6px;
-//                 display: flex;
-//             }
+        .skillRanks {
+            display: flex;
+            width: 50%;
+            box-sizing: border-box;
+            padding-left: 12px;
+            .skillRank {
+                background-color: $whiteTransparent;
+                height: 10px;
+                width: 20px;
+                margin-left: 2px;
+            }
 
-//             .skill {
-//                 height: 18px;
-//                 display: flex;
-//                 align-items: center;
-//                 justify-content: space-between;
-                
+            .one {
+                background-color:  $redTransparent;
+                &.true {
+                    background-color: $red;
+                }
+            }
 
-//                 .skillName {
-//                     text-transform: none;
-//                     font-size: 16px;
-//                 }
-//                 &.true {
-//                     font-weight: bold;
-//                     font-style: italic;
-//                 }
+            .two {
+                background-color: $orangeTransparent;
+                &.true {
+                    background-color: $orange;
+                }
+            }
 
-//                 .skillRanks {
-//                     display: flex;
+            .three {
+                background-color: $yellowTransparent;
+                &.true {
+                    background-color: $yellow;
+                }
+            }
 
-//                     .skillRank {
-//                         background-color: $whiteTransparent;
-//                         height: 10px;
-//                         width: 20px;
-//                         border-left: 1px solid $blackFaded;
-//                     }
+            .four {
+                background-color: $greenTransparent;
+                &.true {
+                    background-color: $green;
+                }
+            }
 
-//                     .one {
-//                         background-color:  $redTransparent;
-//                         &.true {
-//                             background-color: $redFaded;
-//                         }
-//                     }
-
-//                     .two {
-//                         background-color: $orangeTransparent;
-//                         &.true {
-//                             background-color: $orangeFaded;
-//                         }
-//                     }
-
-//                     .three {
-//                         background-color: $yellowTransparent;
-//                         &.true {
-//                             background-color: $yellowFaded;
-//                         }
-//                     }
-
-//                     .four {
-//                         background-color: $greenTransparent;
-//                         &.true {
-//                             background-color: $greenFaded;
-//                         }
-//                     }
-
-//                     .five {
-//                         background-color: $tealTransparent;
-//                         &.true {
-//                             background-color: $tealFaded;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
+            .five {
+                background-color: $tealTransparent;
+                &.true {
+                    background-color: $teal;
+                }
+            }
+        }
+    }
+}
 
 //     .character-talents {
 //         width: 50%;
@@ -396,18 +385,11 @@
         width: 15%;
         text-align: center;
         text-transform: uppercase;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
-
-// .character-add {
-//     font-weight: bold;
-//     font-size: larger;
-//     margin-left: 15px;
-//     &:hover {
-//         cursor: pointer;
-//         color: $orange;
-//     };
-// }
 
 // .new-character {
 //     display: flex;

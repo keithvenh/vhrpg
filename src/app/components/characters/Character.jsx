@@ -20,14 +20,23 @@ class Character extends React.Component {
             knowledgeSkills: [],
             image: require('../../assets/images/' + props.character.id + '-headshot.jpeg')
         }
+        this.collapseElement = this.collapseElement.bind(this);
     }
 
     //Gets array of objects within the provided ojbect
     //i.e. provided props.character.skills, returned array of child objects
-
+    collapseElement(event) {
+        const elem = document.getElementById(event.target.innerText.toLowerCase());
+        if(elem.style.display == 'none') {
+            elem.style.display = 'flex';
+        } else {
+            elem.style.display = 'none';
+        }
+    }
+    
     componentDidMount() {
         this.setState({
-            skillList: iterateObject(this.props.character.skills)
+            skillList: iterateObject(this.props.character.skills).filter((skill) => (skill.rank > 0 || skill.career === true))
         });
     }
 
@@ -67,8 +76,13 @@ class Character extends React.Component {
                         </div>
 
                     </div>
+                    <div className="divider">
+                        <hr className="dividerLine"></hr>
+                        <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>Attributes</p>
+                        <hr className="dividerLine"></hr>
+                    </div>
                     <div className='characterAttributes'>
-                        <div className='derived'>
+                        <div className='derived' id="attributes">
                             <div className="attributeContainer soak">
                                 <div className="label">Soak</div>
                                 <div className="values">
@@ -135,11 +149,11 @@ class Character extends React.Component {
 
                         <div className="divider">
                             <hr className="dividerLine"></hr>
-                            <p className="dividerLabel">Characteristics</p>
+                            <p className="dividerLabel"  onClick={(e) => this.collapseElement(e)}>Characteristics</p>
                             <hr className="dividerLine"></hr>
                         </div>
 
-                        <div className='characteristics'>
+                        <div className='characteristics' id='characteristics'>
 
                             <div  className='characteristic brawn'>
                                 <p className='rank'>{this.props.character.characteristics.brawn }</p>
@@ -176,13 +190,18 @@ class Character extends React.Component {
 
                     <div className="divider">
                         <hr className="dividerLine"></hr>
-                        <p className="dividerLabel">Skills</p>
+                        <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>Skills</p>
                         <hr className="dividerLine"></hr>
                     </div>
-                    <div className='character-skills'>
+                    <div className='characterSkills' id='skills'>
                         {/*map over array and return list of skills and their ranks.*/}
                         <div className='skillsRow'>
-                            <div className='generalSkills'>
+                            <div className="divider">
+                                <hr className="dividerLine"></hr>
+                                <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>General</p>
+                                <hr className="dividerLine"></hr>
+                            </div>
+                            <div className='generalSkills'  id='general'>
 
                                 {this.state.skillList.filter(skill => skill.category === "General").map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
 
@@ -190,13 +209,24 @@ class Character extends React.Component {
                         </div>
 
                         <div className='skillsRow'>
-                            <div className='combatSkills'>
+                            <div className="divider">
+                                <hr className="dividerLine"></hr>
+                                <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>Combat</p>
+                                <hr className="dividerLine"></hr>
+                            </div>
+                            <div className='combatSkills' id='combat'>
                                 
                                 {this.state.skillList.filter(skill => skill.category === "Combat").map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
 
                             </div>
 
-                            <div className='knowledgeSkills'>
+                            <div className="divider">
+                                <hr className="dividerLine"></hr>
+                                <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>Knowledge</p>
+                                <hr className="dividerLine"></hr>
+                            </div>
+
+                            <div className='knowledgeSkills' id='knowledge'>
                                 
                                 {this.state.skillList.filter(skill => skill.category === "Knowledge").map((skill) => <CharacterSkill skill={skill} key={skill.name} /> )}
 
@@ -204,7 +234,12 @@ class Character extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className='character-talents'>
+                <div className="divider">
+                    <hr className="dividerLine"></hr>
+                    <p className="dividerLabel" onClick={(e) => this.collapseElement(e)}>Talents</p>
+                    <hr className="dividerLine"></hr>
+                </div>
+                <div className='character-talents' id='talentsß'>
                     {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.talents */}
                 </div>
             </div>
