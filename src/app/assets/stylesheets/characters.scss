@@ -92,119 +92,132 @@
 }
 
 
-.character-container {
+.characterContainer {
     padding: 12px;
-    padding-top: 48px;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-    background-image: url('../images/swrpg-bg-5.jpeg');
-    background-size: cover;
-    font-family: $teko;
-    color: $black;
-    
-    .character-details {
+
+    .characterDetails {
         display: flex;
         flex-direction: column;
-        width: 50%;
-        box-sizing: border-box;
-        font-size: 18px;
-        text-transform: uppercase;
 
-        .character-overview {
-            width: 50%;
-            background-color: $blackTransparent;
-            margin: 12px;
-            margin-left: 24px;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
+        .characterOverview {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
 
-            .character-name {
-                font-size: 1.7em;
-                text-transform: uppercase;
-                padding: 12px;
-                letter-spacing: 3px;
-                font-weight: 100;
-                font-family: $teko;
+            .characterImageContainer {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                
+                .characterImage {
+                    height: 100%;
+                    border-radius: 50%;
+                }
+
             }
+            
+            .characterTitle {
+                flex: 1;
+                text-align: center;
 
-            .character-species {
-                padding-left: 18px;
-                padding-bottom: 6px;
-            }
+                .characterName {
+                    font-size: 2em;
+                    text-transform: uppercase;
+                    margin-bottom:  12px;
+                    .sw {
+                        font-size: 0.5em;
+                    }
+                }
 
-            .character-career {
-                padding-bottom: 6px;
-                padding-left: 18px;
-            }
+                .characterSpecies, .characterCareer, .characterSpecializations {
+                    margin: 6px;
 
-            .character-specializations {
-                padding-left: 24px;
-                padding-bottom: 6px;
+                    .label {
+                        font-size: 0.8em;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        font-weight: bold;
+                    }
+                }
+
+                .characterSpecializations {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p {
+                        padding: 0 6px;
+                        border-right: 2px double $white;
+                        &:first-child,  &:last-child {
+                            border: none;
+                        }
+                    } 
+                }
             }
         }
-
-        .character-attributes {
+        
+        .characterAttributes {
+            margin: 6px 0;
 
             .derived {
                 display: flex;
                 justify-content: space-evenly;
-                .attribute-container {
-                    border: 4px solid $eoteNavy;
-                    background-color: $white;
+
+                .attributeContainer {
+                    border: 2px solid $tealFaded;
+                    border-radius: 3px;
+                    background-color: $tealTransparent;
                     flex: 1;
                     margin: 6px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     box-sizing: border-box;
-
+        
                     .label {
-                        border-bottom-left-radius: 8px;
-                        border-bottom-right-radius: 8px;
-                        background-color: $eoteNavy;
+                        background-color: $tealDark;
                         width: 100%;
                         color: $white;
                         text-align: center;
                         font-size: 0.8em;
+                        padding: 4px  0;
+                        text-transform: uppercase;
                     }
-
+        
                     .values {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
                         width: 100%;
-
+        
                         .current, .threshold {
                             flex: 1;
                         }
-
-                        .current {
-                            border-left: 1px solid $blackFaded;
-                            .sublabel {
-                                background-color: $eoteTeal;
-                                color: $black;
-                            }
+        
+                        .threshold {
+                            border-right: 1px solid $whiteFaded;
                         }
 
+                        .sublabel {
+                            background-color: $teal;
+                            color: $black;
+                            text-transform: uppercase;
+                            padding: 4px 0;
+                        }
+        
                         .threshold {
                             
                             .sublabel {
-                                background-color: $eoteMaroon;
-                                color: $white;
+                                background-color: $orange;
                             }
                         }
-
+        
                         .value {
                             font-size: 1.3em;
                             font-family: $aurebesh;
                             padding: 12px 6px;
                             text-align: center;
                         }
-
+        
                         .sublabel {
                             text-align: center;
                             font-size: 0.8em;
@@ -216,202 +229,204 @@
                     }
                 }
             }
-
             .characteristics {
                 display: flex;
-                justify-content: space-between;
-
+                justify-content: center;
+            
                 .characteristic {
-                    background-color:  $eoteOlive;
+                    border: 2px solid $tealFaded;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    flex: 1;
-                    margin: 0 6px;
-                    border-radius: 6px;
-
+                    justify-content: space-between;
+                    margin: 0 18px;
+                    border-radius: 3px;
+                    width: 7vw;
+            
                     .rank {
-                        border: 2px double $black;
-                        background-color: $white;
+                        border: 2px double $tealFaded;
+                        background-color: $tealTransparent;
                         text-align: center;
                         font-family: $aurebesh;
-                        font-size: 1.3em;
+                        font-size: 1.5em;
                         border-radius: 50%;
                         padding: 6px;
-                        width: 1.5em;
-                        height: 1.5em;
-                        line-height: 1.5em;
-                        margin: 3px 6px;
+                        width: 3vw;
+                        height: 3vw;
+                        line-height: 3vw;
+                        margin: 6px 6px;
                     }
-
+            
                     .label {
-                        background-color: $eoteMaroon;
-                        color: $eoteTan;
+                        background-color: $orange;
+                        color: $black;
                         text-align: center;
-                        font-size: 12px;
-                        height: 18px;
-                        line-height: 18px;
-                        border-radius: 6px;
-                        width: 95%;
-                        margin: 3px;
-                        margin-top: 0;
+                        font-size: 0.8em;
+                        padding: 4px 12px;
+                        text-transform: uppercase;
+                        width: 100%;
+                        box-sizing: border-box;
+                        align-self: flex-end
                     }
                 }
             }
-
+            
         }
-
-        .character-skills {
-            border: 1px solid white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .generalSkills {
-                display: flex;
-                flex-wrap: wrap;
-                .skill {
-                    width: 50%;
-                }
-            }
-
-            .combatSkills, .knowledgeSkills {
-                width: 50%;
-                .skill {
-                    width: 100%;
-                }
-            }
-
-            .skillsRow {
-                background-color: $blackTransparent;
-                width: 100%;
-                box-sizing: border-box;
-                margin: 6px;
-                padding: 6px;
-                display: flex;
-            }
-
-            .skill {
-                height: 18px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                
-
-                .skillName {
-                    text-transform: none;
-                    font-size: 16px;
-                }
-                &.true {
-                    font-weight: bold;
-                    font-style: italic;
-                }
-
-                .skillRanks {
-                    display: flex;
-
-                    .skillRank {
-                        background-color: $whiteTransparent;
-                        height: 10px;
-                        width: 20px;
-                        border-left: 1px solid $blackFaded;
-                    }
-
-                    .one {
-                        background-color:  $redTransparent;
-                        &.true {
-                            background-color: $redFaded;
-                        }
-                    }
-
-                    .two {
-                        background-color: $orangeTransparent;
-                        &.true {
-                            background-color: $orangeFaded;
-                        }
-                    }
-
-                    .three {
-                        background-color: $yellowTransparent;
-                        &.true {
-                            background-color: $yellowFaded;
-                        }
-                    }
-
-                    .four {
-                        background-color: $greenTransparent;
-                        &.true {
-                            background-color: $greenFaded;
-                        }
-                    }
-
-                    .five {
-                        background-color: $tealTransparent;
-                        &.true {
-                            background-color: $tealFaded;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .character-talents {
-        width: 50%;
-        box-sizing: border-box;
     }
 }
+
+
+
+//         .character-skills {
+//             border: 1px solid white;
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: space-between;
+
+//             .generalSkills {
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 .skill {
+//                     width: 50%;
+//                 }
+//             }
+
+//             .combatSkills, .knowledgeSkills {
+//                 width: 50%;
+//                 .skill {
+//                     width: 100%;
+//                 }
+//             }
+
+//             .skillsRow {
+//                 background-color: $blackTransparent;
+//                 width: 100%;
+//                 box-sizing: border-box;
+//                 margin: 6px;
+//                 padding: 6px;
+//                 display: flex;
+//             }
+
+//             .skill {
+//                 height: 18px;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: space-between;
+                
+
+//                 .skillName {
+//                     text-transform: none;
+//                     font-size: 16px;
+//                 }
+//                 &.true {
+//                     font-weight: bold;
+//                     font-style: italic;
+//                 }
+
+//                 .skillRanks {
+//                     display: flex;
+
+//                     .skillRank {
+//                         background-color: $whiteTransparent;
+//                         height: 10px;
+//                         width: 20px;
+//                         border-left: 1px solid $blackFaded;
+//                     }
+
+//                     .one {
+//                         background-color:  $redTransparent;
+//                         &.true {
+//                             background-color: $redFaded;
+//                         }
+//                     }
+
+//                     .two {
+//                         background-color: $orangeTransparent;
+//                         &.true {
+//                             background-color: $orangeFaded;
+//                         }
+//                     }
+
+//                     .three {
+//                         background-color: $yellowTransparent;
+//                         &.true {
+//                             background-color: $yellowFaded;
+//                         }
+//                     }
+
+//                     .four {
+//                         background-color: $greenTransparent;
+//                         &.true {
+//                             background-color: $greenFaded;
+//                         }
+//                     }
+
+//                     .five {
+//                         background-color: $tealTransparent;
+//                         &.true {
+//                             background-color: $tealFaded;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .character-talents {
+//         width: 50%;
+//         box-sizing: border-box;
+//     }
+// }
 
 .divider {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 6px 0;
     .dividerLine {
-        border: 6px solid $eoteTan;
-        border-radius: 6px;
+        border: 3px solid $orangeFaded;
         flex: 1;
     }
     .dividerLabel {
-        background-color: $eoteNavy;
-        color: $eoteTan;
+        background-color: $tealFaded;
         font-size: 12px;
         height: 18px;
-        border-radius:  9px;
         line-height: 18px;
         padding: 0 18px;
         width: 15%;
         text-align: center;
+        text-transform: uppercase;
     }
 }
 
-.character-add {
-    font-weight: bold;
-    font-size: larger;
-    margin-left: 15px;
-    &:hover {
-        cursor: pointer;
-        color: $orange;
-    };
-}
+// .character-add {
+//     font-weight: bold;
+//     font-size: larger;
+//     margin-left: 15px;
+//     &:hover {
+//         cursor: pointer;
+//         color: $orange;
+//     };
+// }
 
-.new-character {
-    display: flex;
-    margin-left: 25px;
-    padding-top: 10px;
-    margin-bottom: 10px;
+// .new-character {
+//     display: flex;
+//     margin-left: 25px;
+//     padding-top: 10px;
+//     margin-bottom: 10px;
 
-    .name {
-        margin-right: 25px;
-    }
-    .species {
-        margin-right: 92px;
-    }
-    .type {
-        margin-right: 25px;
-    }
-}
+//     .name {
+//         margin-right: 25px;
+//     }
+//     .species {
+//         margin-right: 92px;
+//     }
+//     .type {
+//         margin-right: 25px;
+//     }
+// }
 
-.submit {
-    margin-left: 25px;
-    margin-top: 10px;
-}
+// .submit {
+//     margin-left: 25px;
+//     margin-top: 10px;
+// }

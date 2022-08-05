@@ -10,13 +10,15 @@ class Character extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            character: props.character,
             skill: '',
             currentRank: 0,
             direction: '',
             skillList: [],
             generalSkills: [],
             combatSkills: [],
-            knowledgeSkills: []
+            knowledgeSkills: [],
+            image: require('../../assets/images/' + props.character.id + '-headshot.jpeg')
         }
     }
 
@@ -32,22 +34,42 @@ class Character extends React.Component {
     render () {
 
         return(
-            <div className='character-container'>
-                <div className='character-image'>
-                    {/* TRYING TO DECIDE WHAT TYPE AND HOW TO DISPLAY A CHARACTER IMAGE */}
-                </div>
-                <div className='character-details'>
-                    <div className='character-overview'>
+            <div className='characterContainer'>
+            
+                <div className='characterDetails'>
 
-                        <h1 className='character-name'>{this.props.character.displayName}</h1>
-                        <h2 className="character-species">{this.props.character.background.species}</h2>
-                        <h2 className="character-career">{this.props.character.career.name}</h2>
-                        <h3 className="character-specializations">{iterateObject(this.props.character.career.specializations).map((spec) => <p key={spec.name}>{spec.name}</p>)}</h3>
+
+                    <div className='characterOverview'>
+
+                        <div className='characterImageContainer'>
+                            <img className='characterImage' src={this.state.image} alt='' />
+                        </div>
+
+                        <div className='characterTitle'>
+                            <div className='characterName'>
+                                <h1>{this.state.character.displayName}</h1>
+                                <p className='sw'>{this.state.character.displayName}</p>
+                            </div>
+                            <h2 className="characterSpecies">
+                                <span className='label'>Species: </span>
+                                {this.state.character.background.species}
+                            </h2>
+                            <h2 className="characterCareer">
+                                <span className='label'>Career: </span>
+                                {this.state.character.career.name}
+                            </h2>
+                            <h3 className="characterSpecializations">
+                                <p className='label'>Specializations: </p>
+                                {iterateObject(this.state.character.career.specializations).map(
+                                    (spec) => <p key={spec.name}>{spec.name}</p>
+                                )}
+                            </h3>
+                        </div>
 
                     </div>
-                    <div className='character-attributes'>
+                    <div className='characterAttributes'>
                         <div className='derived'>
-                            <div className="attribute-container soak">
+                            <div className="attributeContainer soak">
                                 <div className="label">Soak</div>
                                 <div className="values">
                                     <div className='current'>
@@ -57,7 +79,7 @@ class Character extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="attribute-container wounds">
+                            <div className="attributeContainer wounds">
                                 <div className="label">Wounds</div>
                                 <div className="values">
                                     <div className='threshold'>
@@ -72,7 +94,7 @@ class Character extends React.Component {
                                 
                             </div>
 
-                            <div className="attribute-container strain">
+                            <div className="attributeContainer strain">
                                 <div className="label">Strain</div>
                                 <div className="values">
                                     <div className='threshold'>
@@ -86,7 +108,7 @@ class Character extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="attribute-container defense">
+                            <div className="attributeContainer defense">
                                 <div className="label">Defense</div>
                                 <div className="values">
                                     <div className='threshold'>
@@ -96,6 +118,16 @@ class Character extends React.Component {
                                     <div className='current'>
                                         <p className='value'>{this.props.character.attributes.meleeDefense}</p>
                                         <div className="sublabel">Melee</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="attributeContainer forceRating">
+                                <div className="label">Force Rating</div>
+                                <div className="values">
+                                    <div className='current'>
+                                        <p className='value'>{this.props.character.attributes.forceRating}</p>
+                                        <div className="sublabel">Current</div>
                                     </div>
                                 </div>
                             </div>
