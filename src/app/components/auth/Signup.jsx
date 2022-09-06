@@ -71,7 +71,7 @@ class Signup extends Component {
                                         birthdate: this.state.birthdate,
                                         role: this.state.role
                             }).catch((e) => {console.log(e)})
-            this.props.changeView('dashboard');
+            this.props.changeView('missionControl');
         } else {
             this.setState({error: "Passwords Don't Match."})
         }

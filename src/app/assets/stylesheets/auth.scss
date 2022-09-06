@@ -5,7 +5,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     box-sizing: border-box;
 }
 
@@ -17,13 +16,35 @@
         color: $whiteFaded;
         font-size: 20px;
         outline: none;
-        padding: 12px 12px;
+        padding: 12px;
         width: 25vw;
         margin-bottom: 24px;
         border-radius: 3px;
         &.button {
             display: none;
         }
+        &.warning {
+            background-color: $redTransparent;
+            border: 2px solid $redFaded;
+        }
+    }
+
+    button.warning {
+        background-color: $redTransparent;
+        border: 2px solid $redFaded;
+        color: $whiteFaded;
+        padding: 12px;
+        text-transform: uppercase;
+        border-radius: 3px;
+        width: 25vw;
+        font-size: 16px;
+        &:hover {
+            cursor: pointer;
+            background-color: $redFaded;
+            border: 2px solid $red;
+            color: $white;
+        }
+
     }
 
 }
@@ -31,4 +52,19 @@
 .authentication-errors {
     color: $red;
     margin: 6px;
+}
+
+.Delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .warningText {
+        text-align: center;
+        width: 75%;
+        color: $red;
+        font-size: 16px;
+        line-height: 1.2em;
+    }
 }

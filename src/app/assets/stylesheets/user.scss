@@ -2,16 +2,25 @@
 
 .User {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .profileButtons {
+        display: flex;
+        p {
+            margin: 24px;
+            padding: 12px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+    }
 
     .logoutLink {
         border: 1px solid $yellowFaded;
-        padding: 12px;
         background-color: $yellowTransparent;
-        text-transform: uppercase;
-        letter-spacing: 2px;
         &:hover {
             background-color: $yellowFaded;
             border: 1px solid $yellow;
@@ -21,14 +30,40 @@
 
     .deleteUserLink {
         border: 1px solid $redFaded;
-        padding: 12px;
         background-color: $redTransparent;
-        text-transform: uppercase;
-        letter-spacing: 2px;
         &:hover {
             background-color: $redFaded;
             border: 1px solid $red;
             cursor: pointer;
         }
+    }
+
+    .profileDetail {
+        display: flex;
+        margin: 24px;
+        .icon {
+            height: 70px;
+            width: 70px;
+            border: 2px solid $white;
+            color: $white;
+            p {
+                font-size: 50px;
+                line-height: 70px;
+                text-align: center;
+            }
+        }
+        .value p {
+            background-color: $white;
+            color: $black;
+            height: 25px;
+            width: 280px;
+            line-height: 25px;
+            text-transform: uppercase;
+            padding: 0 12px;
+            &.sw {
+                background: none;
+                color: $yellowFaded;
+            }
+        }   
     }
 }

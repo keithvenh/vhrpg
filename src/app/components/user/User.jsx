@@ -24,12 +24,40 @@ function User(props) {
     return (
 
         <div className='User'>
-            <p className='username'>{profile.username}</p>
-            <p className='name'>{profile.firstName} {profile.lastName}</p>
-            <p className='role'>{profile.role}</p>
-            <p className='age'>{getAge(profile.birthdate)} Years Old</p>
-            <p className='logoutLink' onClick={logoutUser }><i className='fas fa-right-from-bracket'></i> Logout</p>
-            <p className='deleteUserLink' onClick={() => props.changeView('delete')}><i className='fas fa-user-xmark'></i> Delete</p>
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fas fa-at'></i></p></div>
+                <div className='value'>
+                    <p className='username'>{profile.username}</p>
+                    <p className='username sw'>{profile.username}</p>
+                </div>
+            </div>
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fas fa-address-card'></i></p></div>
+                <div className='value'>
+                    <p className='name'>{profile.firstName} {profile.lastName}</p>
+                    <p className='name sw'>{profile.firstName} {profile.lastName}</p>
+                </div>
+            </div>
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fas fa-fingerprint'></i></p></div>
+                <div className='value'>
+                    <p className='age'>{getAge(profile.birthdate)} Rotations</p>
+                    <p className='age sw'>{getAge(profile.birthdate)} Rotations</p>
+                </div>
+            </div>
+
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
+                <div className='value'>
+                    <p className='name'>{profile.role}</p>
+                    <p className='name sw'>{profile.role}</p>
+                </div>
+            </div>
+
+            <div  className='profileButtons'>
+                <p className='logoutLink' onClick={logoutUser }><i className='fas fa-right-from-bracket'></i> Logout</p>
+                <p className='deleteUserLink' onClick={() => props.changeView('delete')}><i className='fas fa-user-xmark'></i> Delete</p>
+            </div>
         </div>
 
     )

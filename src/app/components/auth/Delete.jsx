@@ -1,26 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import { getAuth, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from '../../../db/application/db';
+import { destroyUser } from '../../helpers/auth/delete';
 
 export default function Delete(props) {
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
-
-    function validateEmail(event) {
-        setEmail(event.target.value);
-    }
+    const auth = getAuth();
 
     function validatePassword(event) {
         setPassword(event.target.value);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        props.changeView('missionControl');
+        const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
+        reauthenticateWithCredential(auth.currentUser, credential).then((result) => {
+            deleteDoc(doc(db, 'users', auth.currentUser.uid)).then(() => {
+                destroyUser(auth.currentUser).then((result) => {
+                    console.log(result);
+                }).catch((error) => {
+                    console.log(error);
+                })
+            }).catch((error) => {
+                console.log(error);
+            })
+
+        }).catch((error) => {
+            console.log(error);
+        })
+        props.changeView('login');
     }
 
     return (
         <div className='Delete'>
-            <p className='warning'>By entering your email and password you are about to delete your user account. This action cannot be undone.</p>
+            <p className='warningText'>Deleting your user account require re-entering your password.<br />This action cannot be undone.</p>
 
             <form className='login' onSubmit={handleSubmit} >
 
@@ -28,20 +43,14 @@ export default function Delete(props) {
                     {errors}
                 </div>
 
-                <div className='formField email'>
-
-                    <input id='email' className="email" type="email" value={email} placeholder="EMAIL" onChange={validateEmail} autoFocus />
-
-                </div>
-
                 <div className='formField password' id='login-password-container'>
 
-                    <input id='password' className="password" type="password" value={password} placeholder="PASSWORD" onChange={validatePassword}/> 
+                    <input id='password' className="password warning" type="password" value={password} placeholder="PASSWORD" onChange={validatePassword}/> 
                     
                 </div>
 
                 <div className='formField button'>
-                    <button type='submit' id='submit' className='submit'>Delete User</button>
+                    <button type='submit' id='submit' className='submit warning'>Delete User</button>
                 </div>
             </form>
         </div>
