@@ -34,8 +34,8 @@ function User(props) {
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-address-card'></i></p></div>
                 <div className='value'>
-                    <p className='name'>{profile.firstName} {profile.lastName}</p>
-                    <p className='name sw'>{profile.firstName} {profile.lastName}</p>
+                    <p className='name'>{profile.name}</p>
+                    <p className='name sw'>{profile.name}</p>
                 </div>
             </div>
             <div className='profileDetail'>

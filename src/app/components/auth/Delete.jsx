@@ -35,23 +35,32 @@ export default function Delete(props) {
 
     return (
         <div className='Delete'>
-            <p className='warningText'>Deleting your user account require re-entering your password.<br />This action cannot be undone.</p>
+            <div className='formTitle'>
+                <p className='title'>Delete User</p>
+                <p className='subtitle sw'>Delete User</p>
+            </div>
+            <p className='warningText'>Deleting your user account requires re-entering your password.<br />This action cannot be undone.</p>
 
-            <form className='login' onSubmit={handleSubmit} >
+            <form className='deleteUserForm' onSubmit={handleSubmit} >
 
                 <div className='authentication-errors'>
                     {errors}
                 </div>
 
-                <div className='formField password' id='login-password-container'>
+                <div className='formFieldContainer password'>
 
-                    <input id='password' className="password warning" type="password" value={password} placeholder="PASSWORD" onChange={validatePassword}/> 
-                    
+                    <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Password</p>
+                        <input id='password' className="password warning" type="password" value={password} onChange={validatePassword} autoFocus/>
+                    </div>
+
                 </div>
 
-                <div className='formField button'>
+                <div className='formFieldContainer button'>
                     <button type='submit' id='submit' className='submit warning'>Delete User</button>
                 </div>
+
             </form>
         </div>
     )

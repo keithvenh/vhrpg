@@ -7,8 +7,7 @@ class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fName: '',
-            lName: '',
+            name: '',
             email: '',
             username: '',
             favTeam: '',
@@ -28,11 +27,8 @@ class Signup extends Component {
         const value = e.target.value;
 
         switch(e.target.id) {
-            case 'firstName':
-                this.setState({fName: value});
-                break;
-            case 'lastName':
-                this.setState({lName: value})
+            case 'name':
+                this.setState({name: value});
                 break;
             case 'email':
                 this.setState({email: value});
@@ -65,8 +61,7 @@ class Signup extends Component {
             const user = await createUser(this.state.email, this.state.pass);
 
             await setDoc(doc(db, 'users', user.uid), {
-                                        firstName: this.state.fName,
-                                        lastName: this.state.lName,
+                                        name: this.state.name,
                                         username: this.state.username,
                                         birthdate: this.state.birthdate,
                                         role: this.state.role
@@ -80,51 +75,81 @@ class Signup extends Component {
     render() {
 
         return (
-            <form className='Signup' onSubmit={this.handleSubmit}>
-                <div className='formField'>
-                    <p className='errors'>{this.state.errors}</p>
+            <div className='Signup'>
+                <div className='formTitle'>
+                    <p className='title'>Signup</p>
+                    <p className='subtitle sw'>Signup</p>
                 </div>
-
-                <div className='formField name'>
+                <form className='signupForm' onSubmit={this.handleSubmit}>
                     <div className='formField'>
-                        <p className='label'>First Name</p>
-                        <input type='text' onChange={this.handleInput} id='firstName' value={this.state.fName} />
+                        <p className='errors'>{this.state.errors}</p>
                     </div>
-                    <div className='formField'>
-                        <p className='label'>Last Name</p>
-                        <input type='text' onChange={this.handleInput} id='lastName' value={this.state.lName} />
+
+                    <div className='formFieldContainer name'>
+
+                        <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Full Name</p>
+                            <input id='name' className="name" type="name" value={this.state.name} onChange={this.handleInput} autoFocus/>
+                        </div>
+
                     </div>
-                </div>
 
-                <div className='formField'>
-                    <p className='label'>Email</p>
-                    <input type='email' onChange={this.handleInput} id='email' value={this.state.email}/>
-                </div>
+                    <div className='formFieldContainer email'>
 
-                <div className='formField'>
-                    <p className='label'>Username</p>
-                    <input type='username' onChange={this.handleInput} id='username' />
-                </div>
+                        <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Email</p>
+                            <input id='email' className="email" type="email" value={this.state.email} onChange={this.handleInput} />
+                        </div>
 
-                <div className='formField'>
-                    <p className='label'>Birthdate</p>
-                    <input type='date' onChange={this.handleInput} id='birthdate' value={this.state.birthdate} />
-                </div>
+                    </div>
 
-                <div className='formField'>
-                    <p className='label'>Password</p>
-                    <input type='password' onChange={(e) => this.handleInput(e)} id='password' value={this.state.pass} />
-                </div>
+                    <div className='formFieldContainer username'>
 
-                <div className='formField'>
-                    <p className='label'>Confirm Password</p>
-                    <input type='password' onChange={(e) => this.handleInput(e)} id='confirmPassword' value={this.state.confirmPass} />
-                </div>
+                        <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Username</p>
+                            <input id='username' className="username" type="username" value={this.state.username} onChange={this.handleInput} />
+                        </div>
 
-                <div className='formField button'>
-                    <input type='submit' id='submit' className='button submit'/>
-                </div>
-            </form>
+                    </div>
+
+                    <div className='formFieldContainer birthdate'>
+
+                        <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Birthdate</p>
+                            <input id='birthdate' className="birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput} />
+                        </div>
+
+                    </div>
+
+                    <div className='formFieldContainer password'>
+
+                        <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Password</p>
+                            <input id='password' className="password" type="password" value={this.state.pass} onChange={this.handleInput} />
+                        </div>
+
+                    </div>
+
+                    <div className='formFieldContainer password'>
+
+                        <div className='iconBox'><p><i className='fas fa-unlock-keyhole'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Confirm Password</p>
+                            <input id='confirmPassword' className="password" type="password" value={this.state.confirmPass} onChange={this.handleInput} />
+                        </div>
+
+                    </div>
+
+                    <div className='formFieldContainer button'>
+                        <input type='submit' id='submit' className='button submit'/>
+                    </div>
+                </form>
+            </div>
         )
     }
 }

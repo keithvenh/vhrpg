@@ -21,27 +21,41 @@ export default function Login(props) {
     }
 
     return (
-        <form className='login' onSubmit={handleSubmit} >
-
-            <div className='authentication-errors'>
-                {errors}
+        <div className='Login'>
+            <div className='formTitle'>
+                <p className='title'>Login</p>
+                <p className='subtitle sw'>Login</p>
             </div>
+            <form className='loginForm' onSubmit={handleSubmit} >
 
-            <div className='formField email'>
+                <div className='authentication-errors'>
+                    {errors}
+                </div>
 
-                <input id='email' className="email" type="email" value={email} placeholder="EMAIL" onChange={validateEmail} autoFocus />
+                <div className='formFieldContainer email'>
 
-            </div>
+                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Email</p>
+                        <input id='email' className="email" type="email" value={email} onChange={validateEmail} autoFocus />
+                    </div>
 
-            <div className='formField password' id='login-password-container'>
+                </div>
 
-                <input id='password' className="password" type="password" value={password} placeholder="PASSWORD" onChange={validatePassword}/> 
-                
-            </div>
+                <div className='formFieldContainer password'>
 
-            <div className='formField button'>
-                <input type='submit' id='submit' className='button submit'/>
-            </div>
-        </form>
+                    <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Password</p>
+                        <input id='password' className="password" type="password" value={password} onChange={validatePassword} />
+                    </div>
+
+                </div>
+
+                <div className='formFieldContainer button'>
+                    <input type='submit' id='submit' className='button submit'/>
+                </div>
+            </form>
+        </div>
     )
 }
