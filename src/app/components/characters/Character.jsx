@@ -75,6 +75,10 @@ class Character extends React.Component {
                             </h3>
                         </div>
 
+                        <div className='characterImageContainer'>
+                            <img className='characterImage' src={this.state.image} alt='' />
+                        </div>
+
                     </div>
                     <div className="divider">
                         <hr className="dividerLine"></hr>
