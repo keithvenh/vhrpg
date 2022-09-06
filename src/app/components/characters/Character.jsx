@@ -27,7 +27,7 @@ class Character extends React.Component {
     //i.e. provided props.character.skills, returned array of child objects
     collapseElement(event) {
         const elem = document.getElementById(event.target.innerText.toLowerCase());
-        if(elem.style.display == 'none') {
+        if(elem.style.display === 'none') {
             elem.style.display = 'flex';
         } else {
             elem.style.display = 'none';
