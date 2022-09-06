@@ -1,69 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import login from '../../helpers/auth/login';
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            errors: ''
-        }
-        this.validateEmail = this.validateEmail.bind(this);
-        this.validatePassword = this.validatePassword.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
+export default function Login(props) {
+    const [email, setEmail]  = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState();
+
+    function validateEmail(event) {
+        setEmail(event.target.value);
     }
 
-    validateEmail(event) {
-        this.setState({email: event.target.value})
+    function validatePassword(event) {
+        setPassword(event.target.value);
     }
 
-    validatePassword(event) {
-        this.setState({password: event.target.value})
+    function handleSubmit(event) {
+        event.preventDefault();
+        login(email, password);
+        props.changeView('missionControl');
     }
 
-    //On 'Enter' run loginButton
-    handleKeyPress(event) {
-
-        if (event.charCode === 13) {
-
-            if(event.target.id == 'login-email') {
-
-                document.getElementById('login-password-container').style="display: inline-block";
-                document.getElementById('login-password').focus();
-
-            } else if(event.target.id == 'login-password') {
-
-                login(this.state.email, this.state.password);
-            }
-        }
-    };
-
-    render() {
-        return (
-            <div className="login">
+    return (
+        <div className='Login'>
+            <div className='formTitle'>
+                <p className='title'>Login</p>
+                <p className='subtitle sw'>Login</p>
+            </div>
+            <form className='loginForm' onSubmit={handleSubmit} >
 
                 <div className='authentication-errors'>
-                    {this.state.errors}
+                    {errors}
                 </div>
 
-                <div className='login-input-container email'>
+                <div className='formFieldContainer email'>
 
-                    <span className="input-leader"> &gt; </span>
-                    <input id='login-email' className="login-email" type="email" value={this.state.email} placeholder="EMAIL" onChange={(event) => this.validateEmail(event)} onKeyPress={this.handleKeyPress} autoFocus/>
+                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Email</p>
+                        <input id='email' className="email" type="email" value={email} onChange={validateEmail} autoFocus />
+                    </div>
 
                 </div>
 
-                <div className='login-input-container password' id='login-password-container'>
+                <div className='formFieldContainer password'>
 
-                    <span className="input-leader"> &gt; </span>
-                    <input id='login-password' className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} onKeyPress={this.handleKeyPress}/> 
-                    
+                    <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Password</p>
+                        <input id='password' className="password" type="password" value={password} onChange={validatePassword} />
+                    </div>
+
                 </div>
 
-            </div>
-        )
-    }
+                <div className='formFieldContainer button'>
+                    <input type='submit' id='submit' className='button submit'/>
+                </div>
+            </form>
+        </div>
+    )
 }
-
-export default Login;
