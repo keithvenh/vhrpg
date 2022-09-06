@@ -2,6 +2,14 @@ import logout from '../../helpers/auth/logout';
 
 export default function Navigation(props) {
 
+    if(!props.user) {
+        return (
+            <ul className='navbar'>
+                <li className='signupIcon navItem' onClick={() => props.changeView('login')}><i className="fas fa-right-to-bracket"></i></li>
+                <li className='loginIcon navItem' onClick={() => props.changeView('signup')}><i className="fas fa-user-plus"></i></li>
+            </ul>
+        )
+    }
     return (
 
         <ul className='navbar'>
@@ -14,7 +22,7 @@ export default function Navigation(props) {
 
             <li className="organizationIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-chart-pie"></i></li>
             <li className="libraryIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-book-journal-whills"></i></li>
-            <li className="userIcon navItem" onClick={() => props.changeView('user')}><i className="fas fa-cog"></i></li>
+            <li className="userIcon navItem" onClick={() => props.changeView('user')}><i className="fas fa-user-gear"></i></li>
 
         </ul>
     )

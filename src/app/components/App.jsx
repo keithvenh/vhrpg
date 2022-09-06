@@ -4,12 +4,14 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../db/application/db';
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
+import Signup from './auth/Signup';
 import Loading from './loading/Loading';
 import Characters from './characters/Characters';
 import Character from './characters/Character';
 import NewCharacter from './characters/NewCharacter';
 import Navigation from './navigation/Navigation';
 import User from './user/User';
+import Delete from './auth/Delete';
 
 export default function App() {
   const [initializing, setInitializing] = useState(true);
@@ -38,7 +40,13 @@ export default function App() {
     let view;
     switch(page) {
       case 'login':
-        view = <Login changeView={this.changeView}/>;
+        view = <Login changeView={this.changeView} user={user} />;
+        break;
+      case 'signup':
+        view = <Signup changeView={this.changeView} user={user} />;
+        break;
+      case 'delete':
+        view = <Delete changeView={this.changeView} user={user} />;
         break;
       case 'characterManagement':
         view = <Characters updateView={this.changeView} />;
@@ -56,7 +64,7 @@ export default function App() {
         view = <NewCharacter updateView={this.changeView}/>;
         break;
       case 'user':
-        view = <User updateView={this.changeView} />;
+        view = <User changeView={this.changeView} user={{user: user, profile: profile}}/>;
         break;
       default:
         view = <Loading updateView={this.changeView}/>;
@@ -76,7 +84,9 @@ export default function App() {
   if (!user) {
     return (
       <div className='App'>
-        {view}
+        <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
+        <div className='viewScreen'>{view}</div>
+        <div className='chatContainer'></div>
       </div>
     );
   }
@@ -84,7 +94,7 @@ export default function App() {
   return (
     <div className='App'>
       <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
-      {view}
+      <div className='viewScreen'>{view}</div>
       <div className='chatContainer'></div>
     </div>
   );

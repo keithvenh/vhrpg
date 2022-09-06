@@ -1,0 +1,34 @@
+@import 'variables';
+
+.User {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logoutLink {
+        border: 1px solid $yellowFaded;
+        padding: 12px;
+        background-color: $yellowTransparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        &:hover {
+            background-color: $yellowFaded;
+            border: 1px solid $yellow;
+            cursor: pointer;
+        }
+    }
+
+    .deleteUserLink {
+        border: 1px solid $redFaded;
+        padding: 12px;
+        background-color: $redTransparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        &:hover {
+            background-color: $redFaded;
+            border: 1px solid $red;
+            cursor: pointer;
+        }
+    }
+}
