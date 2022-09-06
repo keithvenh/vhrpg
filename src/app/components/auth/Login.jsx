@@ -1,69 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import login from '../../helpers/auth/login';
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            errors: ''
-        }
-        this.validateEmail = this.validateEmail.bind(this);
-        this.validatePassword = this.validatePassword.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
+export default function Login(props) {
+    const [email, setEmail]  = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState();
+
+    function validateEmail(event) {
+        setEmail(event.target.value);
     }
 
-    validateEmail(event) {
-        this.setState({email: event.target.value})
+    function validatePassword(event) {
+        setPassword(event.target.value);
     }
 
-    validatePassword(event) {
-        this.setState({password: event.target.value})
+    function handleSubmit(event) {
+        event.preventDefault();
+        login(email, password);
+        props.changeView('missionControl');
     }
 
-    //On 'Enter' run loginButton
-    handleKeyPress(event) {
+    return (
+        <form className='login' onSubmit={handleSubmit} >
 
-        if (event.charCode === 13) {
+            <div className='authentication-errors'>
+                {errors}
+            </div>
 
-            if(event.target.id == 'login-email') {
+            <div className='formField email'>
 
-                document.getElementById('login-password-container').style="display: inline-block";
-                document.getElementById('login-password').focus();
-
-            } else if(event.target.id == 'login-password') {
-
-                login(this.state.email, this.state.password);
-            }
-        }
-    };
-
-    render() {
-        return (
-            <div className="login">
-
-                <div className='authentication-errors'>
-                    {this.state.errors}
-                </div>
-
-                <div className='login-input-container email'>
-
-                    <span className="input-leader"> &gt; </span>
-                    <input id='login-email' className="login-email" type="email" value={this.state.email} placeholder="EMAIL" onChange={(event) => this.validateEmail(event)} onKeyPress={this.handleKeyPress} autoFocus/>
-
-                </div>
-
-                <div className='login-input-container password' id='login-password-container'>
-
-                    <span className="input-leader"> &gt; </span>
-                    <input id='login-password' className="login-password" type="password" value={this.state.password} placeholder="PASSWORD" onChange={(event) => this.validatePassword(event)} onKeyPress={this.handleKeyPress}/> 
-                    
-                </div>
+                <input id='email' className="email" type="email" value={email} placeholder="EMAIL" onChange={validateEmail} autoFocus />
 
             </div>
-        )
-    }
-}
 
-export default Login;
+            <div className='formField password' id='login-password-container'>
+
+                <input id='password' className="password" type="password" value={password} placeholder="PASSWORD" onChange={validatePassword}/> 
+                
+            </div>
+
+            <div className='formField button'>
+                <input type='submit' id='submit' className='button submit'/>
+            </div>
+        </form>
+    )
+}

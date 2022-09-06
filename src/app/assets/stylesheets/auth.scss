@@ -9,27 +9,23 @@
     box-sizing: border-box;
 }
 
-.login-input-container {
+.formField {
 
     input {
-        background: none;
-        border: none;
-        color: $white;
+        background: $greenTransparent;
+        border: 2px solid $greenFaded;
+        color: $whiteFaded;
         font-size: 20px;
         outline: none;
-        padding: 6px 12px;
+        padding: 12px 12px;
         width: 25vw;
+        margin-bottom: 24px;
+        border-radius: 3px;
+        &.button {
+            display: none;
+        }
     }
 
-    .input-leader {
-        font-size: 26px;
-        line-height: 32px;
-    }
-
-}
-
-.login-input-container.password {
-    display: none;
 }
 
 .authentication-errors {
