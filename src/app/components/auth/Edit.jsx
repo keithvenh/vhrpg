@@ -69,10 +69,10 @@ class Edit extends Component {
         // this will require currentPass for reauthentication (See Delete for reauthentication process)
         if(this.state.newPass) {
             if(this.state.newPass === this.state.confirmNewPass) {
-                const credential = EmailAuthProvider.credential(auth.currentUser.email, this.state.currentPass);
+                const credential = EmailAuthProvider.credential(this.state.auth.currentUser.email, this.state.currentPass);
                 reauthenticateWithCredential(this.state.auth.currentUser, credential).then((result) => {
                     //Replace this next section with code to update password
-                    deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
+                    /*deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
                         destroyUser(this.state.auth.currentUser).then((result) => {
                             console.log(result);
                         }).catch((error) => {
@@ -83,7 +83,7 @@ class Edit extends Component {
                     })
         
                 }).catch((error) => {
-                    console.log(error);
+                    console.log(error);*/
                 })
                 this.props.changeView('login');
             } else {
@@ -93,10 +93,10 @@ class Edit extends Component {
 
         //if email has changed, require currentPass for reauthentication
         if(this.state.email != this.props.user.email) {
-            const credential = EmailAuthProvider.credential(auth.currentUser.email, this.state.currentPass);
+            const credential = EmailAuthProvider.credential(this.state.auth.currentUser.email, this.state.currentPass);
                 reauthenticateWithCredential(this.state.auth.currentUser, credential).then((result) => {
                     //Replace this next section with code to update email
-                    deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
+                    /*deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
                         destroyUser(this.state.auth.currentUser).then((result) => {
                             console.log(result);
                         }).catch((error) => {
@@ -107,7 +107,7 @@ class Edit extends Component {
                     })
         
                 }).catch((error) => {
-                    console.log(error);
+                    console.log(error);*/
                 })
                 this.props.changeView('login');
             } else {
@@ -118,7 +118,7 @@ class Edit extends Component {
         //force non-empty fields for name, role, username
         if(this.state.name && this.state.role && this.state.username) {
             //updateDoc()
-            await updateDoc(doc(db, 'users', user.uid), {
+            await updateDoc(doc(db, 'users', this.props.user.uid), {
                 name: this.state.name,
                 username: this.state.username,
                 birthdate: this.state.birthdate,
