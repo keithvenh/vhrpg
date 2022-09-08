@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { getAuth, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import createUser from '../../helpers/auth/signup';
 import { db } from '../../../db/application/db';
 import { doc, updateDoc } from 'firebase/firestore';
@@ -7,6 +8,7 @@ class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            auth: getAuth(),
             name: props.user.profile.name,
             email: props.user.user.email,
             username: props.user.profile.username,
@@ -65,28 +67,68 @@ class Edit extends Component {
 
         //if newPassword is filled in, make sure confirmNewPassword matches, then attempt to update password
         // this will require currentPass for reauthentication (See Delete for reauthentication process)
+        if(this.state.newPass) {
+            if(this.state.newPass === this.state.confirmNewPass) {
+                const credential = EmailAuthProvider.credential(auth.currentUser.email, this.state.currentPass);
+                reauthenticateWithCredential(this.state.auth.currentUser, credential).then((result) => {
+                    //Replace this next section with code to update password
+                    deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
+                        destroyUser(this.state.auth.currentUser).then((result) => {
+                            console.log(result);
+                        }).catch((error) => {
+                            console.log(error);
+                        })
+                    }).catch((error) => {
+                        console.log(error);
+                    })
+        
+                }).catch((error) => {
+                    console.log(error);
+                })
+                this.props.changeView('login');
+            } else {
+                this.setState({error: "Passwords Don't Match."})
+            }
+        }
 
         //if email has changed, require currentPass for reauthentication
-
+        if(this.state.email != this.props.user.email) {
+            const credential = EmailAuthProvider.credential(auth.currentUser.email, this.state.currentPass);
+                reauthenticateWithCredential(this.state.auth.currentUser, credential).then((result) => {
+                    //Replace this next section with code to update email
+                    deleteDoc(doc(db, 'users', this.state.auth.currentUser.uid)).then(() => {
+                        destroyUser(this.state.auth.currentUser).then((result) => {
+                            console.log(result);
+                        }).catch((error) => {
+                            console.log(error);
+                        })
+                    }).catch((error) => {
+                        console.log(error);
+                    })
+        
+                }).catch((error) => {
+                    console.log(error);
+                })
+                this.props.changeView('login');
+            } else {
+                this.setState({error: "You must enter current password to change Email."})
+        }
+        
         //update all other fields whether currentPass was given or not.
-
-        //force non-empty fields for name, role, username, 
-
-        if(this.state.pass === this.state.confirmPass) {
-
-            const user = await createUser(this.state.email, this.state.pass);
-
+        //force non-empty fields for name, role, username
+        if(this.state.name && this.state.role && this.state.username) {
+            //updateDoc()
             await updateDoc(doc(db, 'users', user.uid), {
-                                        name: this.state.name,
-                                        username: this.state.username,
-                                        birthdate: this.state.birthdate,
-                                        role: this.state.role
-                            }).catch((e) => {console.log(e)})
+                name: this.state.name,
+                username: this.state.username,
+                birthdate: this.state.birthdate,
+                role: this.state.role
+            }).catch((e) => {console.log(e)})
             this.props.changeView('missionControl');
         } else {
-            this.setState({error: "Passwords Don't Match."})
+            this.setState({error: "Name, Username and Role must be filled in."})
         }
-    }
+    };
 
     render() {
 
