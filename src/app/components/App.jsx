@@ -11,7 +11,8 @@ import Character from './characters/Character';
 import NewCharacter from './characters/NewCharacter';
 import Navigation from './navigation/Navigation';
 import User from './user/User';
-import Delete from './auth/Delete';
+import DeleteUser from './auth/Delete';
+import EditUser from './auth/Edit';
 
 export default function App() {
   const [initializing, setInitializing] = useState(true);
@@ -45,8 +46,11 @@ export default function App() {
       case 'signup':
         view = <Signup changeView={this.changeView} user={user} />;
         break;
+      case 'editUser':
+        view = <EditUser changeView={this.changeView} user={{user: user, profile: profile}} />
+        break;
       case 'delete':
-        view = <Delete changeView={this.changeView} user={user} />;
+        view = <DeleteUser changeView={this.changeView} user={user} />;
         break;
       case 'characterManagement':
         view = <Characters updateView={this.changeView} />;

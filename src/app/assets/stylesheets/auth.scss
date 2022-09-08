@@ -1,7 +1,7 @@
 @import 'variables';
 
 
-.Login, .Signup, .Delete {
+.Login, .Signup, .Delete, .Edit {
     display: flex;
     height: 100%;
     align-items: center;
@@ -57,7 +57,7 @@
             padding-left: 6px;
             width: 300px;
         }
-        input {
+        input, select {
             color: $yellow;
             height: 30px;
             font-size: 18px;

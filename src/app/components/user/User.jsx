@@ -55,6 +55,7 @@ function User(props) {
             </div>
 
             <div  className='profileButtons'>
+                <p className='editLink' onClick={() => props.changeView('editUser')}><i className='fas fa-user-pen'> Edit</i></p>
                 <p className='logoutLink' onClick={logoutUser }><i className='fas fa-right-from-bracket'></i> Logout</p>
                 <p className='deleteUserLink' onClick={() => props.changeView('delete')}><i className='fas fa-user-xmark'></i> Delete</p>
             </div>

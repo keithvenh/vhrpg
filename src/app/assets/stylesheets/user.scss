@@ -23,7 +23,7 @@
         background-color: $yellowTransparent;
         &:hover {
             background-color: $yellowFaded;
-            border: 1px solid $yellow;
+            border-color: $yellow;
             cursor: pointer;
         }
     }
@@ -33,7 +33,17 @@
         background-color: $redTransparent;
         &:hover {
             background-color: $redFaded;
-            border: 1px solid $red;
+            border-color: $red;
+            cursor: pointer;
+        }
+    }
+
+    .editLink {
+        border: 1px solid $greenFaded;
+        background-color: $greenTransparent;
+        &:hover {
+            background-color: $greenFaded;
+            border-color: $green;
             cursor: pointer;
         }
     }

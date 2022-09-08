@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import createUser from '../../helpers/auth/signup';
 import { db } from '../../../db/application/db';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 
-class Signup extends Component {
+class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            email: '',
-            username: '',
-            birthdate: '',
-            pass: '',
-            confirmPass: '',
-            errors: '',
-            role: 'Padawan'
+            name: props.user.profile.name,
+            email: props.user.user.email,
+            username: props.user.profile.username,
+            birthdate: props.user.profile.birthdate,
+            role: props.user.profile.role,
+            currentPass: '',
+            newPass: '',
+            confirmNewPass: '',
+            errors: ''
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -35,17 +36,23 @@ class Signup extends Component {
             case 'username':
                 this.setState({username: value});
                 break;
+            case 'role': 
+                this.setState({role: value});
+                break;
             case 'birthdate':
                 this.setState({birthdate: value});
                 break;
             case 'favTeam':
                 this.setState({favTeam: value});
                 break;
-            case 'password':
-                this.setState({pass: value});
+            case 'currentPassword':
+                this.setState({currentPass: value});
                 break;
-            case 'confirmPassword':
-                this.setState({confirmPass: value});
+            case 'newPassword':
+                this.setState({newPass: value});
+                break;
+            case 'confirmNewPassword':
+                this.setState({confirmNewPass: value});
                 break;
             default:
                 console.log('Error ' + e.target.id + ' does not exist');
@@ -55,11 +62,21 @@ class Signup extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+
+        //if newPassword is filled in, make sure confirmNewPassword matches, then attempt to update password
+        // this will require currentPass for reauthentication (See Delete for reauthentication process)
+
+        //if email has changed, require currentPass for reauthentication
+
+        //update all other fields whether currentPass was given or not.
+
+        //force non-empty fields for name, role, username, 
+
         if(this.state.pass === this.state.confirmPass) {
 
             const user = await createUser(this.state.email, this.state.pass);
 
-            await setDoc(doc(db, 'users', user.uid), {
+            await updateDoc(doc(db, 'users', user.uid), {
                                         name: this.state.name,
                                         username: this.state.username,
                                         birthdate: this.state.birthdate,
@@ -74,12 +91,13 @@ class Signup extends Component {
     render() {
 
         return (
-            <div className='Signup'>
+            <div className='Edit'>
                 <div className='formTitle'>
-                    <p className='title'>Signup</p>
-                    <p className='subtitle sw'>Signup</p>
+                    <p className='title'>Edit User</p>
+                    <p className='subtitle sw'>Edit User</p>
+                    <p className='userId sw'>{this.props.user.user.uid}</p>
                 </div>
-                <form className='signupForm' onSubmit={this.handleSubmit}>
+                <form className='editForm' onSubmit={this.handleSubmit}>
                     <div className='formField'>
                         <p className='errors'>{this.state.errors}</p>
                     </div>
@@ -114,6 +132,25 @@ class Signup extends Component {
 
                     </div>
 
+                    <div className='formFieldContainer name'>
+
+                        <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Role</p>
+                            <select name="role" id="role" className='role' value={this.state.role} onChange={this.handleInput} >
+                                <option value="Youngling">Youngling</option>
+                                <option value="Padawan">Padawan</option>
+                                <option value="Jedi Knight">Jedi Knight</option>
+                                <option value="Jedi Master">Jedi Master</option>
+                                <option value="Jedi Grand Master">Jedi Grand Master</option>
+                                <option value="Droid">Droid</option>
+                                <option value="Sith Apprentice">Sith Apprentice</option>
+                                <option value="Sith Master">Sith Master</option>
+                            </select>
+                        </div>
+
+                    </div>
+
                     <div className='formFieldContainer birthdate'>
 
                         <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
@@ -126,10 +163,20 @@ class Signup extends Component {
 
                     <div className='formFieldContainer password'>
 
+                        <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Current Password</p>
+                            <input id='currentPassword' className="password" type="password" value={this.state.currentPass} onChange={this.handleInput} />
+                        </div>
+
+                    </div>
+
+                    <div className='formFieldContainer password'>
+
                         <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
                         <div className='formField'>
-                            <p className='label'>Password</p>
-                            <input id='password' className="password" type="password" value={this.state.pass} onChange={this.handleInput} />
+                            <p className='label'>New Password</p>
+                            <input id='newPassword' className="password" type="password" value={this.state.newPass} onChange={this.handleInput} />
                         </div>
 
                     </div>
@@ -138,8 +185,8 @@ class Signup extends Component {
 
                         <div className='iconBox'><p><i className='fas fa-unlock-keyhole'></i></p></div>
                         <div className='formField'>
-                            <p className='label'>Confirm Password</p>
-                            <input id='confirmPassword' className="password" type="password" value={this.state.confirmPass} onChange={this.handleInput} />
+                            <p className='label'>Confirm New Password</p>
+                            <input id='confirmNewPassword' className="password" type="password" value={this.state.confirmNewPass} onChange={this.handleInput} />
                         </div>
 
                     </div>
@@ -153,4 +200,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default Edit;

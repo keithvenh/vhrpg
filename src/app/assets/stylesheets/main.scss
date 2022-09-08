@@ -18,6 +18,9 @@ body {
 
 .sw {
     font-family: $aurebesh;
+    &.userId:hover {
+        font-family: $primary;
+    }
 }
 
 .App {
