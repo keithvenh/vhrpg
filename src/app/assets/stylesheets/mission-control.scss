@@ -1,109 +1,126 @@
 @import 'variables';
 
-.mission-control {
+
+.missionControl {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: repeat;
-    height: 100%;
     padding: 2vh 4vh;
-    box-sizing: border-box;
 }
 
-.screen-container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
-    align-content: center;
-}
-
-.screen {
-    border: 2px solid $redFaded;
-    height: 28vh;
-    width: 40%;
-    border-radius: 3px;
-    padding: 6px;
-    box-sizing: border-box;
-    background-color: $redTransparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 12px;
-    color: $whiteFaded;
+.campaigns {
+    padding: 12px;
+    border: 1px solid $tealFaded;
+    background-color: $tealTransparent;
+    text-align: center;
     &:hover {
         cursor: pointer;
-        color: $white;
-    }
-    .screenTitle {
-        font-size: 3.5vh;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-align: center;
-        margin-top: 12px;
-        .sw {
-            font-size: 0.25em;
-        }
-    }
-    .missionDetails p {
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.9em;
+        background-color: $tealFaded;
+        border-color: $teal;
     }
 }
+// .mission-control {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-repeat: repeat;
+//     height: 100%;
+//     padding: 2vh 4vh;
+//     box-sizing: border-box;
+// }
 
-.screen.square {
-    width: 28vh;
-}
+// .screen-container {
+//     display: flex;
+//     flex-wrap: wrap;
+//     height: 100%;
+//     width: 100%;
+//     justify-content: center;
+//     box-sizing: border-box;
+//     align-content: center;
+// }
 
-.screen.red {
-    border: 2px solid $redFaded;
-    background-color: $redTransparent;
-    &:hover {
-        outline: 2px solid $redFaded;
-    }
-}
+// .screen {
+//     border: 2px solid $redFaded;
+//     height: 28vh;
+//     width: 40%;
+//     border-radius: 3px;
+//     padding: 6px;
+//     box-sizing: border-box;
+//     background-color: $redTransparent;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-evenly;
+//     margin: 12px;
+//     color: $whiteFaded;
+//     &:hover {
+//         cursor: pointer;
+//         color: $white;
+//     }
+//     .screenTitle {
+//         font-size: 3.5vh;
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         letter-spacing: 2px;
+//         text-align: center;
+//         margin-top: 12px;
+//         .sw {
+//             font-size: 0.25em;
+//         }
+//     }
+//     .missionDetails p {
+//         text-align: center;
+//         text-transform: uppercase;
+//         letter-spacing: 2px;
+//         font-size: 0.9em;
+//     }
+// }
 
-.screen.blue {
-    border: 2px solid $blueFaded;
-    background-color: $blueTransparent;
-    &:hover {
-        outline: 2px solid $blueFaded;
-    }
-}
+// .screen.square {
+//     width: 28vh;
+// }
 
-.screen.green {
-    border: 2px solid $greenFaded;
-    background-color: $greenTransparent;
-    &:hover {
-        outline: 2px solid $greenFaded;
-    }
-}
+// .screen.red {
+//     border: 2px solid $redFaded;
+//     background-color: $redTransparent;
+//     &:hover {
+//         outline: 2px solid $redFaded;
+//     }
+// }
 
-.screen.yellow {
-    border: 2px solid $yellowFaded;
-    background-color: $yellowTransparent;
-    &:hover {
-        outline: 2px solid $yellowFaded;
-    }
-}
+// .screen.blue {
+//     border: 2px solid $blueFaded;
+//     background-color: $blueTransparent;
+//     &:hover {
+//         outline: 2px solid $blueFaded;
+//     }
+// }
 
-.screen.teal {
-    border: 2px solid $tealFaded;
-    background-color: $tealTransparent;
-    &:hover {
-        outline: 2px solid $tealFaded;
-    }
-}
+// .screen.green {
+//     border: 2px solid $greenFaded;
+//     background-color: $greenTransparent;
+//     &:hover {
+//         outline: 2px solid $greenFaded;
+//     }
+// }
 
-.screen.orange {
-    border: 2px solid $orangeFaded;
-    background-color: $orangeTransparent;
-    &:hover {
-        outline: 2px solid $orangeFaded;
-    }
-}
+// .screen.yellow {
+//     border: 2px solid $yellowFaded;
+//     background-color: $yellowTransparent;
+//     &:hover {
+//         outline: 2px solid $yellowFaded;
+//     }
+// }
+
+// .screen.teal {
+//     border: 2px solid $tealFaded;
+//     background-color: $tealTransparent;
+//     &:hover {
+//         outline: 2px solid $tealFaded;
+//     }
+// }
+
+// .screen.orange {
+//     border: 2px solid $orangeFaded;
+//     background-color: $orangeTransparent;
+//     &:hover {
+//         outline: 2px solid $orangeFaded;
+//     }
+// }

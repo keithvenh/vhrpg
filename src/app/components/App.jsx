@@ -13,6 +13,7 @@ import Navigation from './navigation/Navigation';
 import User from './user/User';
 import DeleteUser from './auth/Delete';
 import EditUser from './auth/Edit';
+import Campaigns from './campaigns/Campaigns';
 
 export default function App() {
   const [initializing, setInitializing] = useState(true);
@@ -55,6 +56,9 @@ export default function App() {
       case 'delete':
         view = <DeleteUser changeView={this.changeView} user={user} />;
         break;
+      case 'campaigns':
+        view = <Campaigns changeView={this.changeView} user={user} />;
+        break;
       case 'characterManagement':
         view = <Characters updateView={this.changeView} />;
         break;
@@ -65,7 +69,7 @@ export default function App() {
         view = <Loading updateView={this.changeView}/>;
         break;
       case 'missionControl':
-        view = <MissionControl updateView={this.changeView} user={user} />;
+        view = <MissionControl changeView={this.changeView} user={user} />;
         break;
       case 'newCharacter':
         view = <NewCharacter updateView={this.changeView}/>;

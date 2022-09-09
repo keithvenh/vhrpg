@@ -1,0 +1,84 @@
+@import 'variables';
+
+.Campaigns {
+    padding-top: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.campaignsFilter {
+    display: flex;
+    padding: 0 20px;
+    border-bottom: 2px solid $whiteFaded;
+    p {
+        flex: 1;
+        text-align: center;
+        padding: 6px 12px;
+        border: 1px solid $whiteFaded;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 6px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .allFilter {
+        border-color: $greenFaded;
+        &.true {
+            background-color: $greenFaded;
+        }
+    }
+
+    .myFilter {
+        border-color: $blueFaded;
+        &.true {
+            background-color: $blueFaded;
+        }
+    }
+}
+
+.newCampaign {
+    height: 24px;
+    font-size: 16px;
+    padding: 4px;
+    background-color: $green;
+    position: absolute;
+    top: 72px;
+    left: 20px;
+    width:  72px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.formField {
+    .radioContainer {
+        display: flex;
+        justify-content: space-evenly;
+        .radioSelect {
+            .openGroup, .privateGroup {
+                display: none;
+                &:checked+label {
+                    background-color: $yellowFaded;
+                    border-color: $yellow;
+                    color: $white;
+                }
+            }
+            .openGroup+label, .privateGroup+label {
+                background-color: $yellowTransparent;
+                border: 1px solid $yellowFaded;
+                color: $whiteFaded;
+                padding: 3px 12px;
+                margin-top: 3px;
+                display: inline-block;
+                width: 115px;
+                border-radius: 3px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
