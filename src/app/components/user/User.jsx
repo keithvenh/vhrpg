@@ -45,19 +45,27 @@ function User(props) {
 
         <div className='User'>
             <div className='profileDetail'>
-                <div className='icon'><p><i className='fas fa-at'></i></p></div>
-                <div className='value'>
-                    <p className='username'>{user.username}</p>
-                    <p className='username sw'>{user.username}</p>
-                </div>
-            </div>
-            <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-address-card'></i></p></div>
                 <div className='value'>
                     <p className='name'>{user.name}</p>
                     <p className='name sw'>{user.name}</p>
                 </div>
             </div>
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fa-regular fa-envelope'></i></p></div>
+                <div className='value'>
+                    <p className='email'>{user.email}</p>
+                    <p className='email sw'>{user.email}</p>
+                </div>
+            </div>
+            <div className='profileDetail'>
+                <div className='icon'><p><i className='fas fa-at'></i></p></div>
+                <div className='value'>
+                    <p className='username'>{user.username}</p>
+                    <p className='username sw'>{user.username}</p>
+                </div>
+            </div>
+            
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-fingerprint'></i></p></div>
                 <div className='value'>
