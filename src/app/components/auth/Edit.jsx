@@ -2,26 +2,40 @@ import React, {Component} from 'react';
 import { getAuth, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import createUser from '../../helpers/auth/signup';
 import { db } from '../../../db/application/db';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import Loading from '../loading/Loading';
 
 class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
             auth: getAuth(),
-            name: props.user.profile.name,
-            email: props.user.user.email,
-            username: props.user.profile.username,
-            birthdate: props.user.profile.birthdate,
-            role: props.user.profile.role,
+            name: '',
+            email: props.user.email,
+            username: '',
+            birthdate: '',
+            role: '',
             currentPass: '',
             newPass: '',
             confirmNewPass: '',
-            errors: ''
+            errors: '',
+            initializing: true
         }
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.fetchProfile = this.fetchProfile.bind(this);
+    }
+
+    async fetchProfile(user) {
+        const profile = await getDoc(doc(db, 'users', user.uid));
+        this.setState({
+            name: profile.data().name,
+            username: profile.data().username,
+            birthdate: profile.data().birthdate,
+            role: profile.data().role
+        })
+        this.setState({initializing: false})
     }
 
     handleInput(e) {
@@ -124,20 +138,27 @@ class Edit extends Component {
                 birthdate: this.state.birthdate,
                 role: this.state.role
             }).catch((e) => {console.log(e)})
-            this.props.changeView('missionControl');
+            this.props.changeView('user');
         } else {
             this.setState({error: "Name, Username and Role must be filled in."})
         }
     };
 
-    render() {
+    componentDidMount() {
+        this.fetchProfile(this.props.user);
+    }
 
+    render() {
+        
+        if(this.state.initializing) {
+            return (<Loading />)
+        }
         return (
             <div className='Edit'>
                 <div className='formTitle'>
                     <p className='title'>Edit User</p>
                     <p className='subtitle sw'>Edit User</p>
-                    <p className='userId sw'>{this.props.user.user.uid}</p>
+                    <p className='userId sw'>{this.props.user.uid}</p>
                 </div>
                 <form className='editForm' onSubmit={this.handleSubmit}>
                     <div className='formField'>

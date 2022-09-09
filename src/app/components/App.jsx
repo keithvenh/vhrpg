@@ -24,12 +24,15 @@ export default function App() {
   // Handle user state changes
   async function onAuthStateChanged(user) {
     setUser(user);
-    let profile;
+    updateProfile(user);
+    if (initializing) setInitializing(false);
+  }
+
+  async function updateProfile(user) {
     if(user) {
-      profile = await getDoc(doc(db, 'users', user.uid))
+      const profile = await getDoc(doc(db, 'users', user.uid))
       setProfile(profile.data());
     }
-    if (initializing) setInitializing(false);
   }
 
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function App() {
         view = <Signup changeView={this.changeView} user={user} />;
         break;
       case 'editUser':
-        view = <EditUser changeView={this.changeView} user={{user: user, profile: profile}} />
+        view = <EditUser changeView={this.changeView} user={user} />
         break;
       case 'delete':
         view = <DeleteUser changeView={this.changeView} user={user} />;
@@ -68,7 +71,7 @@ export default function App() {
         view = <NewCharacter updateView={this.changeView}/>;
         break;
       case 'user':
-        view = <User changeView={this.changeView} user={{user: user, profile: profile}}/>;
+        view = <User changeView={this.changeView} user={user}/>;
         break;
       default:
         view = <Loading updateView={this.changeView}/>;

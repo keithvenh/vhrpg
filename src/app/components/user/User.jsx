@@ -1,9 +1,13 @@
+import {useState, useEffect} from 'react';
+import {doc, getDoc} from 'firebase/firestore';
+import {db} from '../../../db/application/db';
 import logout from '../../helpers/auth/logout';
+import Loading from '../loading/Loading';
 
 function User(props) {
 
-    const user = props.user.user;
-    const profile = props.user.profile;
+    const [user, setUser] = useState(props.user);
+    const [initializing, setInitializing] = useState(true);
 
     function getAge(dateString) {
         var today = new Date();
@@ -16,9 +20,25 @@ function User(props) {
         return age;
     }
 
+    async function fetchProfile(user) {
+        const profile = await getDoc(doc(db, 'users', user.uid));
+        setUser({...user, ...profile.data()})
+        if (initializing) setInitializing(false);
+    }
+
     function logoutUser() {
         logout();
         props.changeView('login');
+    }
+
+    useEffect(() => {
+        fetchProfile(user);
+    }, [])
+
+    if(initializing) {
+        return (
+            <Loading />
+        )
     }
 
     return (
@@ -27,30 +47,30 @@ function User(props) {
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-at'></i></p></div>
                 <div className='value'>
-                    <p className='username'>{profile.username}</p>
-                    <p className='username sw'>{profile.username}</p>
+                    <p className='username'>{user.username}</p>
+                    <p className='username sw'>{user.username}</p>
                 </div>
             </div>
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-address-card'></i></p></div>
                 <div className='value'>
-                    <p className='name'>{profile.name}</p>
-                    <p className='name sw'>{profile.name}</p>
+                    <p className='name'>{user.name}</p>
+                    <p className='name sw'>{user.name}</p>
                 </div>
             </div>
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-fingerprint'></i></p></div>
                 <div className='value'>
-                    <p className='age'>{getAge(profile.birthdate)} Rotations</p>
-                    <p className='age sw'>{getAge(profile.birthdate)} Rotations</p>
+                    <p className='age'>{getAge(user.birthdate)} Rotations</p>
+                    <p className='age sw'>{getAge(user.birthdate)} Rotations</p>
                 </div>
             </div>
 
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
                 <div className='value'>
-                    <p className='name'>{profile.role}</p>
-                    <p className='name sw'>{profile.role}</p>
+                    <p className='name'>{user.role}</p>
+                    <p className='name sw'>{user.role}</p>
                 </div>
             </div>
 
