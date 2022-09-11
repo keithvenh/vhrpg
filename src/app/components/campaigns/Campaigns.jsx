@@ -12,7 +12,6 @@ export default function Campaigns(props) {
 
     async function fetchCampaigns(filter) {
 
-
         let qSnap = await getDocs(collection(db, 'campaigns'));
         let campaigns = qSnap.docs.map((doc) => {
             return {
@@ -20,8 +19,9 @@ export default function Campaigns(props) {
                 id: doc.id
             }
         })
+        console.log(campaigns);
+
         setCampaigns(campaigns);
-        setFilterView(campaigns.map((c) => {<p>{c.title}</p>}))
         if (initializing) setInitializing(false);
     }
     
@@ -41,9 +41,8 @@ export default function Campaigns(props) {
                 <p className='myFilter'>My Campaigns</p>
             </div>
 
-            <h1 className='newCampaign' onClick={() => setFilterView(<NewCampaign user={props.user}/>)} ><i className='fas fa-plus'></i> New</h1>
-            
-            {filterView}
+            <h1 className='newCampaign' onClick={() => setFilterView(<NewCampaign user={props.user}/>)}><i className='fas fa-plus'></i> New</h1>
+            {campaigns.map((c) => (<p key={c.id}>{c.title}</p>))}
 
         </div>
     )

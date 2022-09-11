@@ -54,6 +54,9 @@ class NewCampaign extends Component {
                 startDate: this.state.startDate,
                 open: this.state.open,
                 gameMaster: this.state.gameMaster.uid
+            }).then(function(result) {
+                return result ? alert("Campaign Created") : alert('Error');
+                    //change view
             }).catch((e) => {console.log(e)})
     }
 
@@ -140,7 +143,7 @@ class NewCampaign extends Component {
                     </div>
 
                     <div className='formFieldContainer button'>
-                        <input type='submit' id='submit' className='button submit'/>
+                        <button type='submit' id='submit' className='button submit' onClick={this.handleSubmit}>Submit</button>
                     </div>
 
                 </form>
