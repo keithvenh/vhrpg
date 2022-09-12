@@ -38,7 +38,10 @@ export default function Campaigns(props) {
         return c.map(obj => {
 
             //const { gameMaster,open,startDate,title } = obj;
-            console.log(obj)
+            //NOTE: that the 'Fragment' is returning the entire object in the order
+            //that it is in the database. In order to return only specific elements
+            //of the object or elements in a certain order, use the 'const{}=obj' syntax above.
+
             return (
                 <Fragment className='grid-row' onClick={() => campaignDetail(obj)}>
                     <div className='grid-master'>{obj.gameMaster}</div>
@@ -68,8 +71,8 @@ export default function Campaigns(props) {
             <div className='grid-container'>
                 <div className='heading'>Game Master</div>
                 <div className='heading'>Title</div>
-                <div className='heading'>Private?</div>
                 <div className='heading'>Open?</div>
+                <div className='heading'>Private?</div>
                 <div className='heading'>Start Date</div>
                 {campaignListing(campaigns)}
             </div>
