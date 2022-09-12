@@ -148,7 +148,6 @@ class NewCampaign extends Component {
 
                 </form>
             </div>
-            
         )
     }
 }

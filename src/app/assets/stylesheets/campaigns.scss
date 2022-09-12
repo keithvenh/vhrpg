@@ -82,3 +82,38 @@
         }
     }
 }
+
+.grid-container {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    padding: 0.5em;
+    gap: 1em;
+
+    .heading {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #efefef;
+    }
+
+    .grid-master, .grid-title {
+        text-align: left;
+    }
+
+    .grid-open, .grid-private, .grid-date {
+        text-align: center;
+    }
+
+    .grid-row {
+        color: $white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $white;
+            color: black;
+        }
+    }
+}

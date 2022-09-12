@@ -14,6 +14,7 @@ import User from './user/User';
 import DeleteUser from './auth/Delete';
 import EditUser from './auth/Edit';
 import Campaigns from './campaigns/Campaigns';
+import NewCampaign from './campaigns/NewCampaign';
 
 export default function App() {
   const [initializing, setInitializing] = useState(true);
@@ -58,6 +59,9 @@ export default function App() {
         break;
       case 'campaigns':
         view = <Campaigns changeView={this.changeView} user={user} />;
+        break;
+      case 'newCampaign':
+        view = <NewCampaign changeView={this.changeView} user={user} />;
         break;
       case 'characterManagement':
         view = <Characters updateView={this.changeView} />;
