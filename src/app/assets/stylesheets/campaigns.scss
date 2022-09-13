@@ -108,12 +108,11 @@
     }
 
     .grid-row {
+        display: contents;
         color: $white;
 
         &:hover {
             cursor: pointer;
-            background-color: $white;
-            color: black;
         }
     }
 }

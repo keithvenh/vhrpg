@@ -1,10 +1,10 @@
-import { Fragment, useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import {collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
 
 export default function Campaigns(props) {
-    const [filterView, setFilterView] = useState();
     const [campaigns, setCampaigns] = useState();
     const [initializing, setInitializing] = useState(true);
 
@@ -35,6 +35,7 @@ export default function Campaigns(props) {
     }
 
     function campaignListing(c) {
+
         return c.map(obj => {
 
             //const { gameMaster,open,startDate,title } = obj;
@@ -43,19 +44,21 @@ export default function Campaigns(props) {
             //of the object or elements in a certain order, use the 'const{}=obj' syntax above.
 
             return (
-                <Fragment className='grid-row' onClick={() => campaignDetail(obj)}>
+                <div key={obj.id} className='grid-row' onClick={() => campaignDetail(obj)}>
                     <div className='grid-master'>{obj.gameMaster}</div>
                     <div className='grid-title'>{obj.title}</div>
                     <div className='grid-open'>{obj.open}</div>
                     <div className='grid-private'>{obj.private}</div>
                     <div className='grid-date'>{obj.startDate}</div>
-                </Fragment>
+                </div>
             );
         });
     }
 
     function campaignDetail(campaign) {
-        //Code to show campaign details
+        console.log('Zack, you are a genius: ' + campaign.title);
+        console.log('Keith, I can\'t wait to play SWRPG this week!');
+
     }
 
     return (
