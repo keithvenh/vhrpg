@@ -46,10 +46,11 @@ export default function Campaigns(props) {
             return (
                 <div key={obj.id} className='grid-row' onClick={() => campaignDetail(obj)}>
                     <div className='grid-master'>{obj.gameMaster}</div>
-                    <div className='grid-title'>{obj.title}</div>
-                    <div className='grid-open'>{obj.open}</div>
-                    <div className='grid-private'>{obj.private}</div>
-                    <div className='grid-date'>{obj.startDate}</div>
+                    <div className='grid-master'>{obj.title}</div>
+                    <div className='grid-item2'>{obj.open}</div>
+                    <div className='grid-item2'>{obj.private}</div>
+                    <div className='grid-item2'>{obj.startDate}</div>
+                    <div className='grid-item2'></div>
                 </div>
             );
         });
@@ -77,6 +78,7 @@ export default function Campaigns(props) {
                 <div className='heading'>Open?</div>
                 <div className='heading'>Private?</div>
                 <div className='heading'>Start Date</div>
+                <div className='heading'></div>
                 {campaignListing(campaigns)}
             </div>
 
