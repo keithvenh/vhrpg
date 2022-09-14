@@ -6,6 +6,11 @@
     position: relative;
 }
 
+.NewCampaign {
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
 .campaignsFilter {
     display: flex;
     padding: 0 20px;
@@ -54,11 +59,11 @@
 }
 
 .formField {
-    .radioContainer {
+    .radioContainer, .checkboxContainer {
         display: flex;
         justify-content: space-evenly;
-        .radioSelect {
-            .openGroup, .privateGroup, .userGMGroup {
+        .radioSelect, .checkboxSelect {
+            .openGroup, .privateGroup, .userGMGroup, .addGMGroup, .pcCreationGroup, .bookGroup, .obligationGroup, .gmApprovalGroup {
                 display: none;
                 &:checked+label {
                     background-color: $yellowFaded;
@@ -66,7 +71,7 @@
                     color: $white;
                 }
             }
-            .openGroup+label, .privateGroup+label, .userGMGroup+label {
+            .openGroup+label, .privateGroup+label, .userGMGroup+label, .addGMGroup+label, .pcCreationGroup+label, .bookGroup+label, .obligationGroup+label, .gmApprovalGroup+label {
                 background-color: $yellowTransparent;
                 border: 1px solid $yellowFaded;
                 color: $whiteFaded;
@@ -79,7 +84,14 @@
                     cursor: pointer;
                 }
             }
+            .bookGroup+label, .obligationGroup+label {
+                width: 275px;
+            }
         }
+    }
+    .checkboxContainer {
+        flex-direction: column;
+        padding-left: 3px;
     }
 }
 
