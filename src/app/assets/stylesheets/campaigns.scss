@@ -58,7 +58,7 @@
         display: flex;
         justify-content: space-evenly;
         .radioSelect {
-            .openGroup, .privateGroup {
+            .openGroup, .privateGroup, .userGMGroup {
                 display: none;
                 &:checked+label {
                     background-color: $yellowFaded;
@@ -66,7 +66,7 @@
                     color: $white;
                 }
             }
-            .openGroup+label, .privateGroup+label {
+            .openGroup+label, .privateGroup+label, .userGMGroup+label {
                 background-color: $yellowTransparent;
                 border: 1px solid $yellowFaded;
                 color: $whiteFaded;

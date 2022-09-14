@@ -58,10 +58,10 @@ export default function App() {
         view = <DeleteUser changeView={this.changeView} user={user} />;
         break;
       case 'campaigns':
-        view = <Campaigns changeView={this.changeView} user={user} />;
+        view = <Campaigns changeView={this.changeView} user={user} profile={profile}/>;
         break;
       case 'newCampaign':
-        view = <NewCampaign changeView={this.changeView} user={user} />;
+        view = <NewCampaign changeView={this.changeView} user={user} profile={profile}/>;
         break;
       case 'characterManagement':
         view = <Characters updateView={this.changeView} />;
