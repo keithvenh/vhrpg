@@ -6,11 +6,11 @@ class NewCampaign extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            creator: props.profile,
+            creator: this.props.profile,
             title: '',
             userGM: true,
             addGM: false,
-            gameMaster: props.profile,
+            gameMaster: this.props.profile,
             maxPlayers: 4,
             players: [],
             open: true,
@@ -40,10 +40,10 @@ class NewCampaign extends Component {
                 this.setState({title: value});
                 break;
             case 'userGMYes':
-                this.setState({userGM: true, gameMaster: this.props.profile});
+                this.setState({userGM: true, gameMaster: this.props.profile, players: []});
                 break;
             case 'userGMNo':
-                this.setState({userGM: false, gameMaster: ''});
+                this.setState({userGM: false, gameMaster: '', players: [this.props.profile]});
                 break;
             case 'addGMYes':
                 this.setState({addGM: true});
@@ -96,10 +96,7 @@ class NewCampaign extends Component {
             case 'morality':
                 this.setState({morality: !this.state.morality})
                 break;
-            case 'gm':
-                this.setState({gameMaster: value});
-                break;
-            case 'chraacterCreationRules':
+            case 'characterCreationRules':
                 this.setState({characterCreationRules: value});
                 break;
             case 'otherNotes':
@@ -119,7 +116,7 @@ class NewCampaign extends Component {
                 title: this.state.title,
                 gameMaster: this.state.gameMaster,
                 maxPlayers: this.state.maxPlayers,
-                player: this.state.players,
+                players: this.state.players,
                 open: this.state.open,
                 private: this.state.private,
                 startDate: this.state.startDate,
@@ -133,9 +130,10 @@ class NewCampaign extends Component {
                 pcApprovalRequired: this.state.pcApprovalRequired,
                 otherNotes: this.state.otherNotes
             }).then(function(result) {
-                return result ? alert("Campaign Created") : alert('Error');
-                    //change view
-            }).catch((e) => {console.log(e)})
+                this.props.changeView('campaigns');
+            }).catch((e) => {
+                alert("An Error Has Occured");
+                console.log(e)})
     }
 
     render() {
@@ -180,46 +178,6 @@ class NewCampaign extends Component {
 
                     </div>
 
-                    {!this.state.userGM ? (
-                        <div className='formFieldContainer addGM'>
-
-                            <div className='iconBox'><p><i className='fas fa-user-plus'></i></p></div>
-                            <div className='formField'>
-                                <p className='label'>Add a GM Now?</p>
-                                <fieldset className='radioContainer'>
-                                    <div className='radioSelect'>
-                                        <input name='addGMGroup' id='addGMYes' className="addGMGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.addGM}/>
-                                        <label className='label' htmlFor='addGMYes'>Yes</label>
-                                    </div>
-                                    <div className='radioSelect'>
-                                        <input name='addGMGroup' id='addGMNo' className="addGMGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.addGM}/>
-                                        <label className='label' htmlFor='addGMNo'>No</label>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                        </div>
-                    ) : (
-                        ''
-                    )}
-
-                    {this.state.addGM ? (
-                        <div className='formFieldContainer gm'>
-                            {console.log(this.state.addGM)}
-                            <div className='iconBox'><p><i className='fas fa-user-tag'></i></p></div>
-                            <div className='formField'>
-                                <p className='label'>Game Master</p>
-                                <select name="gm" id="gm" className='gm' value={this.state.gameMaster} onChange={this.handleInput} >
-                                    <option value=''></option>
-                                    {/* NEED TO ADD OPTIONS OF USER FRIENDS AND USERS WITH AVAILABLETOGM: TRUE ON THEIR PROFILE AS OPTIONS */}
-                                </select>
-                            </div>
-
-                        </div>
-                        ) : (
-                            ''
-                    )}
-
                     <div className='formFieldContainer maxPlayers'>
                         
                         <div className='iconBox'><p><i className='fas fa-plus-minus'></i></p></div>
@@ -230,34 +188,23 @@ class NewCampaign extends Component {
 
                     </div>
 
-                    {this.state.players.length < this.state.maxPlayers ? (
-                        <div className='playerOptions'>
-                            <i className='fas fa-plus-circle'></i> Add a Player
+                    <div className='formFieldContainer open'>
 
-                            {/* NEED TO ADD ABILITY TO CLICK ADD A PLAYER AND SELECT FROM LIST OF FRIENDS */}
-
-                            <div className='formFieldContainer open'>
-
-                            <div className='iconBox'><p><i className='fas fa-user-lock'></i></p></div>
-                                <div className='formField'>
-                                    <p className='label'>Open Campaign</p>
-                                    <fieldset className='radioContainer'>
-                                        <div className='radioSelect'>
-                                            <input name='openGroup' id='open' className="openGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.open}/>
-                                            <label className='label' htmlFor='open'>Open</label>
-                                        </div>
-                                        <div className='radioSelect'>
-                                            <input name='openGroup' id='closed' className="openGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.open}/>
-                                            <label className='label' htmlFor='closed'>Closed</label>
-                                        </div>
-                                    </fieldset>
+                        <div className='iconBox'><p><i className='fas fa-user-lock'></i></p></div>
+                        <div className='formField'>
+                            <p className='label'>Open Campaign</p>
+                            <fieldset className='radioContainer'>
+                                <div className='radioSelect'>
+                                    <input name='openGroup' id='open' className="openGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.open}/>
+                                    <label className='label' htmlFor='open'>Open</label>
                                 </div>
-
-                            </div>
+                                <div className='radioSelect'>
+                                    <input name='openGroup' id='closed' className="openGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.open}/>
+                                    <label className='label' htmlFor='closed'>Closed</label>
+                                </div>
+                            </fieldset>
                         </div>
-                    ) : (
-                        ''
-                    )}
+                    </div>
 
                     <div className='formFieldContainer private'>
 
@@ -312,7 +259,7 @@ class NewCampaign extends Component {
 
                         <div className='iconBox'><p><i className='fas fa-lightbulb'></i></p></div>
                             <div className='formField'>
-                                <p className='label'>Will Players Create their own PCs?</p>
+                                <p className='label'>Players Create their own PCs?</p>
                                 <fieldset className='radioContainer'>
                                     <div className='radioSelect'>
                                         <input name='pcCreationGroup' id='gmApprovalYes' className="pcCreationGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.playerGeneratedPCs}/>
@@ -321,28 +268,6 @@ class NewCampaign extends Component {
                                     <div className='radioSelect'>
                                         <input name='pcCreationGroup' id='pcCreationNo' className="pcCreationGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.playerGeneratedPCs}/>
                                         <label className='label' htmlFor='pcCreationNo'>No</label>
-                                    </div>
-                                </fieldset>
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer obligations'>
-                        <div className='iconBox'><p><i className='fas fa-wrench'></i></p></div>
-                            <div className='formField'>
-                                <p className='label'>What game mechanics are allowed?</p>
-                                <fieldset className='checkboxContainer'>
-                                    <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='obligation' className="obligationGroup" type="checkbox" value={'Obligation'} onChange={this.handleInput} checked={this.state.obligation}/>
-                                        <label className='label' htmlFor='obligation'>Obligation</label>
-                                    </div>
-                                    <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='duty' className="obligationGroup" type="checkbox" value={"Duty"} onChange={this.handleInput} checked={this.state.duty}/>
-                                        <label className='label' htmlFor='duty'>Duty</label>
-                                    </div>
-                                    <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='morality' className="obligationGroup" type="checkbox" value={"Morality"} onChange={this.handleInput} checked={this.state.morality}/>
-                                        <label className='label' htmlFor='morality'>Morality</label>
                                     </div>
                                 </fieldset>
                         </div>
@@ -367,6 +292,29 @@ class NewCampaign extends Component {
                         </div>
 
                     </div>
+
+                    <div className='formFieldContainer obligations'>
+                        <div className='iconBox'><p><i className='fas fa-wrench'></i></p></div>
+                            <div className='formField'>
+                                <p className='label'>Game Mechanics</p>
+                                <fieldset className='checkboxContainer'>
+                                    <div className='checkboxSelect'>
+                                        <input name='obligationGroup' id='obligation' className="obligationGroup" type="checkbox" value={'Obligation'} onChange={this.handleInput} checked={this.state.obligation}/>
+                                        <label className='label' htmlFor='obligation'>Obligation</label>
+                                    </div>
+                                    <div className='checkboxSelect'>
+                                        <input name='obligationGroup' id='duty' className="obligationGroup" type="checkbox" value={"Duty"} onChange={this.handleInput} checked={this.state.duty}/>
+                                        <label className='label' htmlFor='duty'>Duty</label>
+                                    </div>
+                                    <div className='checkboxSelect'>
+                                        <input name='obligationGroup' id='morality' className="obligationGroup" type="checkbox" value={"Morality"} onChange={this.handleInput} checked={this.state.morality}/>
+                                        <label className='label' htmlFor='morality'>Morality</label>
+                                    </div>
+                                </fieldset>
+                        </div>
+
+                    </div>
+
 
                     <div className='formFieldContainer characterCreationRules'>
                         <div className='iconBox'><p><i className='fas fa-clipboard-list'></i></p></div>

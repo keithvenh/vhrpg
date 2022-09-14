@@ -20,7 +20,7 @@ export default function App() {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
-  const [view, setView] = useState(<Login changeView={changeView} />);
+  const [view, setView] = useState(<MissionControl changeView={changeView} user={user}/>);
   const auth = getAuth();
 
   // Handle user state changes

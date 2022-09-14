@@ -45,10 +45,10 @@ export default function Campaigns(props) {
 
             return (
                 <div key={obj.id} className='grid-row' onClick={() => campaignDetail(obj)}>
-                    <div className='grid-master'>{obj.gameMaster}</div>
+                    <div className='grid-master'>{obj.gameMaster.username}</div>
                     <div className='grid-master'>{obj.title}</div>
-                    <div className='grid-item2'>{obj.open}</div>
-                    <div className='grid-item2'>{obj.private}</div>
+                    <div className='grid-item2'>{obj.open.toString()}</div>
+                    <div className='grid-item2'>{obj.private.toString()}</div>
                     <div className='grid-item2'>{obj.startDate}</div>
                     <div className='grid-item2'></div>
                 </div>
