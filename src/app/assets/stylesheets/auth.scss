@@ -57,7 +57,7 @@
             padding-left: 6px;
             width: 300px;
         }
-        input, select {
+        input, select, textarea {
             color: $yellow;
             height: 30px;
             font-size: 18px;
@@ -70,6 +70,10 @@
             &.warning {
                 color: $red;
             }
+        }
+        textarea {
+            height: 120px;
+            resize: none;
         }
     }
     .button.submit {
