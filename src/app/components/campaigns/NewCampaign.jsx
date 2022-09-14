@@ -16,16 +16,15 @@ class NewCampaign extends Component {
             open: true,
             private: false,
             startDate: '',
+            endDate: '',
             meetingDetails: '',
             playerGeneratedPCs: true,
-            books: [],
             obligation: true,
             duty: false,
             morality: false,
             characterCreationRules: '',
             pcApprovalRequired: true,
-            otherNotes: '',     
-            questionSet: 1,       
+            otherNotes: '',         
             errors: null
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -88,8 +87,23 @@ class NewCampaign extends Component {
             case 'gmApprovalNo':
                 this.setState({pcApprovalRequired: false});
                 break;
+            case 'obligation':
+                this.setState({obligation: !this.state.obligation})
+                break;
+            case 'duty':
+                this.setState({duty: !this.state.duty})
+                break;
+            case 'morality':
+                this.setState({morality: !this.state.morality})
+                break;
             case 'gm':
                 this.setState({gameMaster: value});
+                break;
+            case 'chraacterCreationRules':
+                this.setState({characterCreationRules: value});
+                break;
+            case 'otherNotes':
+                this.setState({otherNotes: value});
                 break;
             default:
                 console.log('Error ' + e.target.id + ' does not exist');
@@ -101,11 +115,23 @@ class NewCampaign extends Component {
         event.preventDefault();
 
         await addDoc(collection(db, 'campaigns'), {
+                creator: this.state.creator,
                 title: this.state.title,
+                gameMaster: this.state.gameMaster,
+                maxPlayers: this.state.maxPlayers,
+                player: this.state.players,
+                open: this.state.open,
                 private: this.state.private,
                 startDate: this.state.startDate,
-                open: this.state.open,
-                gameMaster: this.state.gameMaster.uid
+                endDate: this.state.endDate,
+                meetingDetails: this.state.meetingDetails,
+                playerGeneratedPCs: this.state.playerGeneratedPCs,
+                obligation: this.state.obligation,
+                duty: this.state.duty,
+                morality: this.state.morality,
+                characterCreationRules: this.state.characterCreationRules,
+                pcApprovalRequired: this.state.pcApprovalRequired,
+                otherNotes: this.state.otherNotes
             }).then(function(result) {
                 return result ? alert("Campaign Created") : alert('Error');
                     //change view
@@ -301,42 +327,21 @@ class NewCampaign extends Component {
 
                     </div>
 
-                    <div className='formFieldContainer books'>
-                        {/* IDEALLY GENERATE THIS FIELD AUTOMATICALLY WITH BOOKS FROM DATABASE */}
-                        {/* THIS IS NOT BEING HANDLE BY ONCHANGE OR BY STATE YET */}
-                        <div className='iconBox'><p><i className='fas fa-book'></i></p></div>
-                            <div className='formField'>
-                                <p className='label'>What books are allowed?</p>
-                                <fieldset className='checkboxContainer'>
-                                    <div className='checkboxSelect'>
-                                        <input name='bookGroup' id='eoteCore' className="bookGroup" type="checkbox" value={'Edge of the Empire Core Rulebook'} onChange={this.handleInput} />
-                                        <label className='label' htmlFor='eoteCore'>EOTE Core</label>
-                                    </div>
-                                    <div className='checkboxSelect'>
-                                        <input name='bookGroup' id='fndCore' className="bookGroup" type="checkbox" value={"Force and Destiny Core Rulebook"} onChange={this.handleInput} />
-                                        <label className='label' htmlFor='fndCore'>FnD Core</label>
-                                    </div>
-                                </fieldset>
-                        </div>
-
-                    </div>
-
                     <div className='formFieldContainer obligations'>
-                        {/* THIS IS NOT BEING HANDLE BY ONCHANGE OR BY STATE YET */}
                         <div className='iconBox'><p><i className='fas fa-wrench'></i></p></div>
                             <div className='formField'>
                                 <p className='label'>What game mechanics are allowed?</p>
                                 <fieldset className='checkboxContainer'>
                                     <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='obligation' className="obligationGroup" type="checkbox" value={'Obligation'} onChange={this.handleInput} />
+                                        <input name='obligationGroup' id='obligation' className="obligationGroup" type="checkbox" value={'Obligation'} onChange={this.handleInput} checked={this.state.obligation}/>
                                         <label className='label' htmlFor='obligation'>Obligation</label>
                                     </div>
                                     <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='duty' className="obligationGroup" type="checkbox" value={"Duty"} onChange={this.handleInput} />
+                                        <input name='obligationGroup' id='duty' className="obligationGroup" type="checkbox" value={"Duty"} onChange={this.handleInput} checked={this.state.duty}/>
                                         <label className='label' htmlFor='duty'>Duty</label>
                                     </div>
                                     <div className='checkboxSelect'>
-                                        <input name='obligationGroup' id='morality' className="obligationGroup" type="checkbox" value={"Morality"} onChange={this.handleInput} />
+                                        <input name='obligationGroup' id='morality' className="obligationGroup" type="checkbox" value={"Morality"} onChange={this.handleInput} checked={this.state.morality}/>
                                         <label className='label' htmlFor='morality'>Morality</label>
                                     </div>
                                 </fieldset>
@@ -364,7 +369,6 @@ class NewCampaign extends Component {
                     </div>
 
                     <div className='formFieldContainer characterCreationRules'>
-                        {/* THIS IS NOT BEING HANDLE BY ONCHANGE OR BY STATE YET */}
                         <div className='iconBox'><p><i className='fas fa-clipboard-list'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Other Character Creation Rules</p>
@@ -374,7 +378,6 @@ class NewCampaign extends Component {
                     </div>
 
                     <div className='formFieldContainer otherNotes'>
-                        {/* THIS IS NOT BEING HANDLE BY ONCHANGE OR BY STATE YET */}
                         <div className='iconBox'><p><i className='fas fa-info-circle'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Other Relevant Information</p>
