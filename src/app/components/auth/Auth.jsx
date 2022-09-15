@@ -9,28 +9,43 @@ import MyAccount from './MyAccount';
 import Loading from '../loading/Loading';
 import { useEffect } from 'react';
 
-export default function Auth() {
+export default function Auth(props) {
     const context = useContext(UserContext);
     const [view, setView] = useState(<Loading />);
     const [link, setLink] = useState();
-
-    const authView = (link, view) => {
+    
+    const authView = (link) => {
+        setView(views[link]);
         setLink(link);
-        setView(view);
+    }
+
+    const views = {
+        myAccount: <MyAccount />,
+        signup: <Signup appView={props.appView} />,
+        edit: <Edit authView={authView} />,
+        delete: <Delete authView={authView}/>,
+        login: <Login appView={props.appView} />,
     }
 
     function logoutUser() {
         logout();
+        authView('login');
     }
 
     useEffect(() => {
-        setLink('myAccount');
-        setView(<MyAccount changeView={authView} />);
+        context.user ? authView('myAccount') : authView('login');
     },[])
 
     if(!context.user) {
         return (
-            <Login />
+            <div className='Auth'>
+                <ul className='AuthNav'>
+
+                    <li className={`AuthNavItem navItem ${link === 'login'}`} onClick={() => {authView('login')}}>Login</li>
+                    <li className={`AuthNavItem navItem ${link === 'signup'}`} onClick={() => {authView('signup')}}>Signup</li>
+                </ul>
+                {view}
+            </div>
         )
     }
 
@@ -38,10 +53,9 @@ export default function Auth() {
         <div className='Auth'>
             <ul className='AuthNav'>
 
-                <li className={`AuthNavItem navItem ${link === 'myAccount'}`} onClick={() => {setView(<MyAccount changeView={authView}/>); setLink('myAccount')}}>My Account</li>
-                <li className={`AuthNavItem navItem ${link === 'edit'}`} onClick={() => {setView(<Edit />); setLink('edit')}}>Edit Profile</li>
+                <li className={`AuthNavItem navItem ${link === 'myAccount'}`} onClick={() => {authView('myAccount')}}>My Account</li>
+                <li className={`AuthNavItem navItem ${link === 'edit'}`} onClick={() => {authView('edit')}}>Edit Profile</li>
                 <li className='AuthNavItem navItem logout' onClick={logoutUser}>Logout</li>
-
             </ul>
             {view}
         </div>

@@ -1,156 +1,151 @@
-import React, {Component} from 'react';
-import createUser from '../../helpers/auth/signup';
-import { db } from '../../../db/application/db';
 import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../../db/application/db';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
+import createUser from '../../helpers/auth/signup';
 
-class Signup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-            username: '',
-            birthdate: '',
-            pass: '',
-            confirmPass: '',
-            errors: '',
-            role: 'Padawan'
-        }
+export default function Signup(props) {
 
-        this.handleInput = this.handleInput.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    const context = useContext(UserContext);
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        username: '',
+        birthdate: '',
+        role: '',
+        password: '',
+        confirmPassword: '',
+        errors: ''
+    });
 
-    handleInput(e) {
+    const handleInput = (event) => {
+        setForm({...form, [event.target.name]: event.target.value});
+    };
 
-        const value = e.target.value;
-
-        switch(e.target.id) {
-            case 'name':
-                this.setState({name: value});
-                break;
-            case 'email':
-                this.setState({email: value});
-                break;
-            case 'username':
-                this.setState({username: value});
-                break;
-            case 'birthdate':
-                this.setState({birthdate: value});
-                break;
-            case 'favTeam':
-                this.setState({favTeam: value});
-                break;
-            case 'password':
-                this.setState({pass: value});
-                break;
-            case 'confirmPassword':
-                this.setState({confirmPass: value});
-                break;
-            default:
-                console.log('Error ' + e.target.id + ' does not exist');
-
-        }
-    }
-
-    async handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        if(this.state.pass === this.state.confirmPass) {
+        if(form.password === form.confirmPassword) {
 
-            const user = await createUser(this.state.email, this.state.pass);
-
-            await setDoc(doc(db, 'users', user.uid), {
-                                        name: this.state.name,
-                                        username: this.state.username,
-                                        birthdate: this.state.birthdate,
-                                        role: this.state.role
-                            }).catch((e) => {console.log(e)})
-            this.props.changeView('missionControl');
+            createUser(form.email, form.password).then((result) => {
+                console.log(result);
+                if(result.error) {
+                    setForm({...form, errors: "There is an error on your Form"})
+                } else {
+                    props.appView('loading');
+                    context.setUser(result);
+                    const profile = {
+                        name: form.name,
+                        username: form.username,
+                        birthdate: form.birthdate,
+                        role: form.role,
+                        uid: result.uid
+                    }
+                    setDoc(doc(db, 'users', result.uid), {
+                        ...profile
+                    }).then(() => {
+                        context.setProfile({...profile});
+                        props.appView('missionControl');
+                    }).catch((error) => {
+                        console.log(error)
+                    })
+                }
+            }).catch((error) => {
+                setForm({...form, errors: error.code})
+            })
         } else {
-            this.setState({error: "Passwords Don't Match."})
+            setForm({...form, errors: "Passwords Don't Match."})
         }
     }
 
-    render() {
+    return (
+        <div className='Edit'>
 
-        return (
-            <div className='Signup'>
-                <div className='formTitle'>
-                    <p className='title'>Signup</p>
-                    <p className='subtitle sw'>Signup</p>
+            <form className='editForm' onSubmit={handleSubmit}>
+                <div className='formField'>
+                    <p className='errors'>{form.errors}</p>
                 </div>
-                <form className='signupForm' onSubmit={this.handleSubmit}>
+
+                <div className='formFieldContainer name'>
+
+                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
                     <div className='formField'>
-                        <p className='errors'>{this.state.errors}</p>
+                        <p className='label'>Full Name</p>
+                        <input name='name' id='name' className="name" type="name" value={form.name} onChange={handleInput} autoFocus/>
                     </div>
 
-                    <div className='formFieldContainer name'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Full Name</p>
-                            <input id='name' className="name" type="name" value={this.state.name} onChange={this.handleInput} autoFocus/>
-                        </div>
+                <div className='formFieldContainer email'>
 
+                    <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Email</p>
+                        <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
                     </div>
 
-                    <div className='formFieldContainer email'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Email</p>
-                            <input id='email' className="email" type="email" value={this.state.email} onChange={this.handleInput} />
-                        </div>
+                <div className='formFieldContainer username'>
 
+                    <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Username</p>
+                        <input name='username' id='username' className="username" type="username" value={form.username} onChange={handleInput} />
                     </div>
 
-                    <div className='formFieldContainer username'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Username</p>
-                            <input id='username' className="username" type="username" value={this.state.username} onChange={this.handleInput} />
-                        </div>
+                <div className='formFieldContainer role'>
 
+                    <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Role</p>
+                        <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
+                            <option value="Youngling">Youngling</option>
+                            <option value="Padawan">Padawan</option>
+                            <option value="Droid">Droid</option>
+                            <option value="Sith Apprentice">Sith Apprentice</option>
+                        </select>
                     </div>
 
-                    <div className='formFieldContainer birthdate'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Birthdate</p>
-                            <input id='birthdate' className="birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput} />
-                        </div>
+                <div className='formFieldContainer birthdate'>
 
+                    <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Birthdate</p>
+                        <input name='birthdate' id='birthdate' className="birthdate" type="date" value={form.birthdate} onChange={handleInput} />
                     </div>
 
-                    <div className='formFieldContainer password'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Password</p>
-                            <input id='password' className="password" type="password" value={this.state.pass} onChange={this.handleInput} />
-                        </div>
+                <div className='formFieldContainer password'>
 
+                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Password</p>
+                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
                     </div>
 
-                    <div className='formFieldContainer password'>
+                </div>
 
-                        <div className='iconBox'><p><i className='fas fa-unlock-keyhole'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Confirm Password</p>
-                            <input id='confirmPassword' className="password" type="password" value={this.state.confirmPass} onChange={this.handleInput} />
-                        </div>
+                <div className='formFieldContainer password'>
 
+                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Confirm Password</p>
+                        <input name='confirmPassword' id='confirmPassword' className="password" type="password" value={form.confirmPassword} onChange={handleInput} />
                     </div>
 
-                    <div className='formFieldContainer button'>
-                        <input type='submit' id='submit' className='button submit'/>
-                    </div>
-                </form>
-            </div>
-        )
-    }
+                </div>
+
+                <div className='formFieldContainer button'>
+                    <input type='submit' id='submit' className='button submit' value='Signup' />
+                </div> 
+            </form>
+
+        </div>
+    )
+
 }
-
-export default Signup;

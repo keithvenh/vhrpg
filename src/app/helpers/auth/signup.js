@@ -15,6 +15,7 @@ export default async function createUser(email, password) {
         const errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+        return {error};
       });
     
     return user;

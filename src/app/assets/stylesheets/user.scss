@@ -18,13 +18,6 @@
         }
     }
 
-    .deleteUserLink {
-        color: $red;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
     .editLink {
         border: 1px solid $greenFaded;
         background-color: $greenTransparent;
@@ -62,5 +55,13 @@
                 color: $yellowFaded;
             }
         }   
+    }
+}
+
+.deleteUserLink {
+    color: $red;
+    margin-top: 24px;
+    &:hover {
+        cursor: pointer;
     }
 }

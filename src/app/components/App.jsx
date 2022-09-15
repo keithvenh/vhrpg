@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../db/application/db';
@@ -15,12 +15,15 @@ import User from './user/User';
 import DeleteUser from './auth/Delete';
 import EditUser from './auth/Edit';
 import { UserContext } from '../contexts/userContext';
+import getProfile from '../helpers/users/getProfile';
 
 export default function App() {
+  const context = useContext(UserContext);
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
-  const [view, setView] = useState(<Login changeView={changeView} />);
+  const [view, setView] = useState(<Auth appView={appView}/>);
+  const [link, setLink] = useState();
   const auth = getAuth();
 
   // Handle user state changes
@@ -32,7 +35,7 @@ export default function App() {
 
   async function updateProfile(user) {
     if(user) {
-      const profile = await getDoc(doc(db, 'users', user.uid))
+      const profile = await getProfile(user);
       setProfile(profile.data());
     }
   }
@@ -42,44 +45,16 @@ export default function App() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  function changeView(page) {
-    // let view;
-    // switch(page) {
-    //   case 'login':
-    //     view = <Login changeView={this.changeView} user={user} />;
-    //     break;
-    //   case 'signup':
-    //     view = <Signup changeView={this.changeView} user={user} />;
-    //     break;
-    //   case 'delete':
-    //     view = <DeleteUser changeView={this.changeView} user={user} />;
-    //     break;
-    //   case 'characterManagement':
-    //     view = <Characters updateView={this.changeView} />;
-    //     break;
-    //   case 'character':
-    //     view = <Character updateView={this.changeView}/>;
-    //     break;
-    //   case 'loading':
-    //     view = <Loading updateView={this.changeView}/>;
-    //     break;
-    //   case 'missionControl':
-    //     view = <MissionControl updateView={this.changeView} user={user} />;
-    //     break;
-    //   case 'newCharacter':
-    //     view = <NewCharacter updateView={this.changeView}/>;
-    //     break;
-    //   case 'user':
-    //     view = <User changeView={this.changeView} user={user}/>;
-    //     break;
-    //   case 'auth':
-    //     view = <Auth />
-    //   break;
-    //   default:
-    //     view = <Loading updateView={this.changeView}/>;
-    //     break;
-    // }
-    setView(page);
+  function appView(link) {
+
+    setView(views[link]);
+    setLink(link);
+  }
+
+  const views = {
+    auth: <Auth appView={appView} />,
+    loading: <Loading />,
+    missionControl: <MissionControl />
   }
 
   if (initializing) {
@@ -93,7 +68,7 @@ export default function App() {
   return (
     <UserContext.Provider value={{user, setUser, profile, setProfile}}>
       <div className='App'>
-        <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
+        <div className='navigationContainer'><Navigation changeView={appView} appView={appView} /></div>
         <div className='viewScreen'>{view}</div>
         <div className='chatContainer'></div>
       </div>

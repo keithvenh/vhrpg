@@ -73,7 +73,22 @@
         }
     }
     .button.submit {
-        display: none;
+        width: 368px;
+        background: none;
+        background-color: $greenTransparent;
+        color: $whiteFaded;
+        border: 2px solid $greenFaded;
+        outline: none;
+        padding: 6px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8em;
+        &:hover {
+            color: $white;
+            background-color: $greenFaded;
+            border-color: $green;
+            cursor: pointer;
+        }
     }
     button.warning {
         width: 300px;

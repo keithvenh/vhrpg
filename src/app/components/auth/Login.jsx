@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import login from '../../helpers/auth/login';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
+import getProfile from '../../helpers/users/getProfile';
 
 export default function Login(props) {
+    const context = useContext(UserContext);
     const [email, setEmail]  = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState();
@@ -14,10 +18,19 @@ export default function Login(props) {
         setPassword(event.target.value);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        login(email, password);
-        props.changeView('missionControl');
+        login(email, password).then((result) => {
+            if(result.error) {
+                setErrors("Username or Password do not match.")
+            } else {
+                props.appView('loading');
+                getProfile(result.user).then((profile) => {
+                    context.setProfile(profile.data());
+                    props.appView('missionControl');
+                });
+            }
+        })
     }
 
     return (
@@ -53,7 +66,7 @@ export default function Login(props) {
                 </div>
 
                 <div className='formFieldContainer button'>
-                    <input type='submit' id='submit' className='button submit'/>
+                    <input type='submit' id='submit' className='button submit' value='Login'/>
                 </div>
             </form>
         </div>

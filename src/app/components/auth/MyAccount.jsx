@@ -7,7 +7,7 @@ import logout from '../../helpers/auth/logout';
 import Loading from '../loading/Loading';
 import Edit from './Edit';
 
-function User(props) {
+function MyAccount() {
 
     const context = useContext(UserContext);
 
@@ -20,6 +20,10 @@ function User(props) {
             age--;
         }
         return age;
+    }
+
+    if(!context.user || !context.profile) {
+        <Loading />
     }
 
     return (
@@ -63,12 +67,9 @@ function User(props) {
                 </div>
             </div>
 
-            <div  className='profileButtons'>
-                <p className='deleteUserLink' onClick={() => props.changeView('delete', <Delete />)}><i className='fas fa-user-xmark'></i> Delete Account</p>
-            </div>
         </div>
 
     )
 }
 
-export default User;
+export default MyAccount;

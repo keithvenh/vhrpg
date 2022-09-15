@@ -19,6 +19,7 @@ export default function Delete(props) {
         reauthenticateWithCredential(auth.currentUser, credential).then((result) => {
             deleteDoc(doc(db, 'users', auth.currentUser.uid)).then(() => {
                 destroyUser(auth.currentUser).then((result) => {
+                    props.authView('login');
                     console.log(result);
                 }).catch((error) => {
                     console.log(error);
@@ -30,7 +31,6 @@ export default function Delete(props) {
         }).catch((error) => {
             console.log(error);
         })
-        props.changeView('login');
     }
 
     return (

@@ -3,7 +3,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import MyAccount from './MyAccount';
+import Delete from './Delete';
 
 export default function Edit(props) {
 
@@ -21,7 +21,6 @@ export default function Edit(props) {
     });
 
     const handleInput = (event) => {
-        console.log(event.target.name)
         setForm({...form, [event.target.name]: event.target.value});
     };
 
@@ -79,7 +78,7 @@ export default function Edit(props) {
             await updateDoc(doc(db, 'users', context.user.uid), {...profile}).catch((e) => {console.log(e)})
 
             context.setProfile({...context.profile, ...profile})
-            props.changeView(<MyAccount changeView={props.changeView} />);
+            props.authView('myAccount');
         } else {
             setForm({errors: "Name, Username, Role and Birthdate must be filled in."})
         }
@@ -123,7 +122,7 @@ export default function Edit(props) {
 
                     </div>
 
-                    <div className='formFieldContainer name'>
+                    <div className='formFieldContainer role'>
 
                         <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
                         <div className='formField'>
@@ -183,9 +182,13 @@ export default function Edit(props) {
                     </div>
 
                     <div className='formFieldContainer button'>
-                        <input type='submit' id='submit' className='button submit'/>
+                        <input type='submit' id='submit' className='button submit' value='Save'/>
                     </div> 
             </form>
+
+            <div  className='profileButtons'>
+                <p className='deleteUserLink' onClick={() => props.authView('delete')}><i className='fas fa-user-xmark'></i> Delete Account</p>
+            </div>
         </div>
     )
 
