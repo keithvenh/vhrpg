@@ -1,8 +1,9 @@
-import logout from '../../helpers/auth/logout';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 
 export default function Navigation(props) {
-
-    if(!props.user) {
+    const context = useContext(UserContext);
+    if(!context.user) {
         return (
             <ul className='navbar'>
                 <li className='signupIcon navItem' onClick={() => props.changeView('login')}><i className="fas fa-right-to-bracket"></i></li>

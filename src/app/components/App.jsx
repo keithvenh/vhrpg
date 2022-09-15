@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../db/application/db';
+import { UserContext } from '../contexts/userContext';
 import MissionControl from './missionControl/MissionControl';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -61,6 +62,8 @@ export default function App() {
         view = <Campaigns changeView={this.changeView} user={user} profile={profile}/>;
         break;
       case 'newCampaign':
+        console.log(user);
+        console.log(profile);
         view = <NewCampaign changeView={this.changeView} user={user} profile={profile}/>;
         break;
       case 'characterManagement':
@@ -96,22 +99,16 @@ export default function App() {
     );
   }
 
-  if (!user) {
-    return (
+  return (
+    <UserContext.Provider value={{user, setUser, profile, setProfile}}>
+
       <div className='App'>
         <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
         <div className='viewScreen'>{view}</div>
         <div className='chatContainer'></div>
       </div>
-    );
-  }
 
-  return (
-    <div className='App'>
-      <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
-      <div className='viewScreen'>{view}</div>
-      <div className='chatContainer'></div>
-    </div>
+    </UserContext.Provider>
   );
 
 }
