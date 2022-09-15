@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Router from './app/components/Routing';
 import './app/assets/stylesheets/main.scss';
 import App from './app/components/App';
 import reportWebVitals from './app/helpers/application/reportWebVitals';
@@ -10,7 +11,9 @@ initializeApp(getFirebaseConfig());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

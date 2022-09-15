@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { pagesMapping, RoutingContext } from './Routing';
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../db/application/db';
@@ -23,6 +24,8 @@ export default function App() {
   const [profile, setProfile] = useState();
   const [view, setView] = useState(<MissionControl changeView={changeView} user={user}/>);
   const auth = getAuth();
+
+  const { page } = useContext(RoutingContext)
 
   // Handle user state changes
   async function onAuthStateChanged(user) {
@@ -101,11 +104,19 @@ export default function App() {
 
   return (
     <UserContext.Provider value={{user, setUser, profile, setProfile}}>
-
+      
       <div className='App'>
-        <div className='navigationContainer'><Navigation user={user} changeView={changeView} /></div>
-        <div className='viewScreen'>{view}</div>
-        <div className='chatContainer'></div>
+        
+        <div className='navigationContainer'>
+          <Navigation user={user} changeView={changeView} />
+        </div>
+        
+        {/*<div className='viewScreen'>{view}</div>*/}
+        {(pagesMapping.missionControl === page) && <MissionControl /> }
+        {(pagesMapping.campaigns      === page) && <Campaigns />      }
+        {(pagesMapping.newCampaign    === page) && <NewCampaign />    }
+        
+        <div className='chatContainer' />
       </div>
 
     </UserContext.Provider>

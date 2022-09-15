@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext }from 'react';
+import { RoutingContext, pagesMapping } from '../../components/Routing';
 import { useState, useEffect } from 'react';
 import {collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
@@ -7,6 +8,8 @@ import Loading from '../loading/Loading';
 export default function Campaigns(props) {
     const [campaigns, setCampaigns] = useState();
     const [initializing, setInitializing] = useState(true);
+
+    const { setPage } = useContext(RoutingContext);
 
     //Change to only get campaigns that are public
     //Add query to get private campaigns that this user has created/joined.
@@ -57,8 +60,7 @@ export default function Campaigns(props) {
     }
 
     function campaignDetail(campaign) {
-        console.log('Zack, you are a genius: ' + campaign.title);
-        console.log('Keith, I can\'t wait to play SWRPG this week!');
+        console.log(campaign.title);
 
     }
 
@@ -70,7 +72,9 @@ export default function Campaigns(props) {
                 <p className='myFilter'>My Campaigns</p>
             </div>
 
-            <div className='newCampaign' onClick={()  => props.changeView('newCampaign')}><i className='fas fa-plus'></i> New</div>
+            <div className='newCampaign' onClick={()  => setPage(pagesMapping.newCampaign)}>
+                <i className='fas fa-plus' /> New
+            </div>
             
             <div className='grid-container'>
                 <div className='heading'>Game Master</div>

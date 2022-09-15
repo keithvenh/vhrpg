@@ -1,8 +1,13 @@
-function MissionControl(props) {
+import { useContext } from 'react';
+import { RoutingContext, pagesMapping } from '../../components/Routing';
+
+export default function MissionControl(props) {
+
+    const { setPage } = useContext(RoutingContext);
 
     return (
         <div className="missionControl">
-            <div className='campaigns' onClick={()  => props.changeView('campaigns')}>
+            <div className='campaigns' onClick={()  => setPage(pagesMapping.campaigns)}>
                 <p>Campaigns</p>
             </div>
         </div>
@@ -81,5 +86,3 @@ function MissionControl(props) {
     //     </div>
     // )
 }
-
-export default MissionControl;
