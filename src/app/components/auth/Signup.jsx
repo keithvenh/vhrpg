@@ -25,7 +25,7 @@ export default function Signup(props) {
     });
 
 // ===== Manage User Input on Forms ===== //
-    const handleInput = (event) => {
+    function handleInput(event) {
         // Spread current form state, then override changed value based on target
         setForm({...form, [event.target.name]: event.target.value});
     };

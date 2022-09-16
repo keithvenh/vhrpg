@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import {UserContext} from '../../contexts/userContext';
 import { Component } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
@@ -7,8 +8,15 @@ import Campaigns from './Campaigns'
 
 export default function NewCampaign(props) {
 
+// ===== UserContext for Creator profile ===== //
+    const context = useContext(UserContext);
+
+// ===== Catch Errors for Form ===== //
+    const [errors, setErrors] = useState([]);
+
+// ===== Use form for controlled inputs ===== //
     const [form,setForm] = useState({
-        creator: props.profile,
+        creator: context.profile,
         title: '',
         userGM: true,
         addGM: false,
@@ -26,104 +34,42 @@ export default function NewCampaign(props) {
         morality: false,
         characterCreationRules: '',
         pcApprovalRequired: true,
-        otherNotes: '',
-        errors: null
+        otherNotes: ''
     })
 
-    
-    // function handleInput(e) {
+// ===== Manage User Input on Forms ===== //
+    function handleInput(event) {
+        // Setup list of checkboxes
+        const checkboxes = ['obligation', 'duty', 'morality'];
 
-    //     const value = e.target.value;
+        // Setup Value for form submission
+        let value;
 
-    //     switch(e.target.id) {
-    //         case 'title':
-    //             this.setState({title: value});
-    //             break;
-    //         case 'userGMYes':
-    //             this.setState({userGM: true, gameMaster: profile, players: []});
-    //             break;
-    //         case 'userGMNo':
-    //             this.setState({userGM: false, gameMaster: '', players: [profile]});
-    //             break;
-    //         case 'addGMYes':
-    //             this.setState({addGM: true});
-    //             break;
-    //         case 'addGMNo':
-    //             this.setState({addGM: false});
-    //             break;
-    //         case 'maxPlayers':
-    //             this.setState({maxPlayers: value});
-    //             break;
-    //         case 'open':
-    //             this.setState({isOpen: true});
-    //             break;
-    //         case 'closed':
-    //             this.setState({isOpen: false});
-    //             break;
-    //         case 'private':
-    //             this.setState({isPrivate: true});
-    //             break;
-    //         case 'public':
-    //             this.setState({isPrivate: false});
-    //             break;
-    //         case 'startDate':
-    //             this.setState({startDate: value});
-    //             break;
-    //         case 'endDate':
-    //             this.setState({endDate: value});
-    //             break;
-    //         case 'meetingDetails':
-    //             this.setState({meetingDetails: value});
-    //             break;
-    //         case 'pcCreationYes':
-    //             this.setState({playerGeneratedPCs: true});
-    //             break;
-    //         case 'pcCreationNo':
-    //             this.setState({playerGeneratedPCs: false});
-    //             break;
-    //         case 'gmApprovalYes':
-    //             this.setState({pcApprovalRequired: true});
-    //             break;
-    //         case 'gmApprovalNo':
-    //             this.setState({pcApprovalRequired: false});
-    //             break;
-    //         case 'obligation':
-    //             this.setState({obligation: !obligation})
-    //             break;
-    //         case 'duty':
-    //             this.setState({duty: !duty})
-    //             break;
-    //         case 'morality':
-    //             this.setState({morality: !morality})
-    //             break;
-    //         case 'characterCreationRules':
-    //             this.setState({characterCreationRules: value});
-    //             break;
-    //         case 'otherNotes':
-    //             this.setState({otherNotes: value});
-    //             break;
-    //         default:
-    //             console.log('Error ' + e.target.id + ' does not exist');
+        // If value is true or false, return boolean instead of string
+        event.target.value === 'true' ? value = true : event.target.value === 'false' ? value = false : value = event.target.value;
 
-    //     }
-    // }
-
-    function handleInput(e) {
-        const value = e.target.value
-        const field = e.target.getAttribute('statename');
-
-        if(e.target.id === 'userGMYes') {
-            const updatedForm = { ...form, userGM: true, gameMaster: props.profile, players: []}
-            setForm(updatedForm);
-        } else if(e.target.id === 'userGMNo') {
-            const updatedForm = { ...form, userGM: false, gameMaster: '', players: [props.profile]}
-            setForm(updatedForm);
+        // If target is a checkbox
+        if(checkboxes.includes(event.target.value)) {
+            // If target is a checkbox use value for field name and flip the boolean for the value
+            value = setForm({...form, [event.target.value]: !form[event.target.value]})
         } else {
-            const updatedForm = { ...form, [field]: value }
-            setForm(updatedForm);
+            // If target is not a checkbox, set the field using name and value
+            setForm({...form, [event.target.name]: value});
         }
+        // const value = e.target.value
+        // const field = e.target.getAttribute('statename');
+
+        // if(e.target.id === 'userGMYes') {
+        //     const updatedForm = { ...form, userGM: true, gameMaster: props.profile, players: []}
+        //     setForm(updatedForm);
+        // } else if(e.target.id === 'userGMNo') {
+        //     const updatedForm = { ...form, userGM: false, gameMaster: '', players: [props.profile]}
+        //     setForm(updatedForm);
+        // } else {
+        //     const updatedForm = { ...form, [field]: value }
+        //     setForm(updatedForm);
+        // }
     }
-    console.log(form)
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -160,8 +106,13 @@ export default function NewCampaign(props) {
                 <p className='subtitle sw'>New Campaign</p>
             </div>
             <form className='signupForm' onSubmit={handleSubmit}>
-                <div className='formField'>
-                    <p className='errors'>{form.errors}</p>
+                <div className='formFieldContainer errors'>
+                    
+                    <div className='formField'>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='formFieldContainer title'>
@@ -171,7 +122,7 @@ export default function NewCampaign(props) {
                         <p className='label'>Campaign Title</p>
                         <input 
                             id='title'
-                            statename='title'
+                            name='title'
                             className="title"
                             type="text"
                             value={form.title}
@@ -190,10 +141,9 @@ export default function NewCampaign(props) {
                         <fieldset className='radioContainer'>
                             <div className='radioSelect'>
                                 <input 
-                                    name='userGMGroup'
-                                    statename='userGM'
+                                    name='userGM'
                                     id='userGMYes'
-                                    className="userGMGroup"
+                                    className="radioInput userGM"
                                     type="radio"
                                     value={true}
                                     onChange={handleInput}
@@ -203,10 +153,9 @@ export default function NewCampaign(props) {
                             </div>
                             <div className='radioSelect'>
                                 <input 
-                                    name='userGMGroup'
-                                    statename='userGM'
+                                    name='userGM'
                                     id='userGMNo'
-                                    className="userGMGroup"
+                                    className="radioInput userGM"
                                     type="radio"
                                     value={false}
                                     onChange={handleInput}
@@ -226,8 +175,8 @@ export default function NewCampaign(props) {
                         <p className='label'>Maximum Number of Players</p>
                         <input 
                             id='maxPlayers'
-                            statename='maxPlayers'
-                            className="maxPlayers"
+                            name='maxPlayers'
+                            className="input numberInput maxPlayers"
                             type="number"
                             value={form.maxPlayers}
                             onChange={handleInput}
@@ -244,10 +193,9 @@ export default function NewCampaign(props) {
                         <fieldset className='radioContainer'>
                             <div className='radioSelect'>
                                 <input
-                                    name='openGroup'
-                                    statename='isOpen'
+                                    name='isOpen'
                                     id='open'
-                                    className="openGroup"
+                                    className="input radioInput isOpen"
                                     type="radio"
                                     value={true}
                                     onChange={handleInput}
@@ -257,10 +205,9 @@ export default function NewCampaign(props) {
                             </div>
                             <div className='radioSelect'>
                                 <input
-                                    name='openGroup'
-                                    statename='isOpen'
+                                    name='isOpen'
                                     id='closed'
-                                    className="openGroup"
+                                    className="input radioInput isOpen"
                                     type="radio"
                                     value={false}
                                     onChange={handleInput}
@@ -280,10 +227,9 @@ export default function NewCampaign(props) {
                             <fieldset className='radioContainer'>
                                 <div className='radioSelect'>
                                     <input
-                                        name='privateGroup'
-                                        statename='isPrivate'
+                                        name='isPrivate'
                                         id='private'
-                                        className="privateGroup"
+                                        className="input radioInput isPrivate"
                                         type="radio"
                                         value={true}
                                         onChange={handleInput}
@@ -293,10 +239,9 @@ export default function NewCampaign(props) {
                                 </div>
                                 <div className='radioSelect'>
                                     <input
-                                        name='privateGroup'
-                                        statename='isPrivate'
+                                        name='isPrivate'
                                         id='public'
-                                        className="privateGroup"
+                                        className="input radioInput isPrivate"
                                         type="radio"
                                         value={false}
                                         onChange={handleInput}
@@ -316,8 +261,8 @@ export default function NewCampaign(props) {
                         <p className='label'>Start Date</p>
                         <input
                             id='startDate'
-                            statename='startDate'
-                            className="startDate"
+                            name='startDate'
+                            className="input dateInput startDate"
                             type="date"
                             value={form.startDate}
                             onChange={handleInput}
@@ -333,8 +278,8 @@ export default function NewCampaign(props) {
                         <p className='label'>End Date</p>
                         <input
                             id='endDate'
-                            statename='endDate'
-                            className="endDate"
+                            name='endDate'
+                            className="input dateInput endDate"
                             type="date"
                             value={form.endDate}
                             onChange={handleInput}
@@ -350,8 +295,8 @@ export default function NewCampaign(props) {
                         <p className='label'>Campaign Meeting Details</p>
                         <textarea
                             id='meetingDetails'
-                            statename='meetingDetails'
-                            className="meetingDetails"
+                            name='meetingDetails'
+                            className="input textfieldInput meetingDetails"
                             type="textField"
                             value={form.meetingDetails}
                             onChange={handleInput}
@@ -369,10 +314,9 @@ export default function NewCampaign(props) {
                             <fieldset className='radioContainer'>
                                 <div className='radioSelect'>
                                     <input
-                                        name='pcCreationGroup'
-                                        statename='playerGeneratedPCs'
-                                        id='gmApprovalYes'
-                                        className="pcCreationGroup"
+                                        name='playerGeneratedPCs'
+                                        id='pcCreationYes'
+                                        className="input radioInput playerGeneradedPCs"
                                         type="radio"
                                         value={true}
                                         onChange={handleInput}
@@ -382,10 +326,9 @@ export default function NewCampaign(props) {
                                 </div>
                                 <div className='radioSelect'>
                                     <input
-                                        name='pcCreationGroup'
-                                        statename='playerGeneratedPCs'
+                                        name='playerGeneratedPCs'
                                         id='pcCreationNo'
-                                        className="pcCreationGroup"
+                                        className="input radioInput playerGeneradedPCs"
                                         type="radio"
                                         value={false}
                                         onChange={handleInput}
@@ -406,10 +349,9 @@ export default function NewCampaign(props) {
                         <fieldset className='radioContainer'>
                             <div className='radioSelect'>
                                 <input
-                                    name='gmApprovalGroup'
-                                    statename='pcApprovalRequired'
+                                    name='pcApprovalRequired'
                                     id='gmApprovalYes'
-                                    className="gmApprovalGroup"
+                                    className="input radioInput gmApprovalGroup"
                                     type="radio"
                                     value={true}
                                     onChange={handleInput}
@@ -419,10 +361,9 @@ export default function NewCampaign(props) {
                             </div>
                             <div className='radioSelect'>
                                 <input
-                                    name='gmApprovalGroup'
-                                    statename='pcApprovalRequired'
+                                    name='pcApprovalRequired'
                                     id='gmApprovalNo'
-                                    className="gmApprovalGroup"
+                                    className="input radioInput gmApprovalGroup"
                                     type="radio"
                                     value={false}
                                     onChange={handleInput}
@@ -442,12 +383,11 @@ export default function NewCampaign(props) {
                             <fieldset className='checkboxContainer'>
                                 <div className='checkboxSelect'>
                                     <input
-                                        name='obligationGroup'
-                                        statename='obligation'
+                                        name='gameMechanics'
                                         id='obligation'
-                                        className="obligationGroup"
+                                        className="input checkboxInput gameMechanics"
                                         type="checkbox"
-                                        value={'Obligation'}
+                                        value={'obligation'}
                                         onChange={handleInput}
                                         checked={form.obligation}
                                     />
@@ -455,12 +395,11 @@ export default function NewCampaign(props) {
                                 </div>
                                 <div className='checkboxSelect'>
                                     <input
-                                        name='obligationGroup'
-                                        statename='duty'
+                                        name='gameMechanics'
                                         id='duty'
-                                        className="obligationGroup"
+                                        className="input checkboxInput gameMechanics"
                                         type="checkbox"
-                                        value={"Duty"}
+                                        value={"duty"}
                                         onChange={handleInput}
                                         checked={form.duty}
                                     />
@@ -468,12 +407,11 @@ export default function NewCampaign(props) {
                                 </div>
                                 <div className='checkboxSelect'>
                                     <input
-                                        name='obligationGroup'
-                                        statename='morality'
+                                        name='gameMechanics'
                                         id='morality'
-                                        className="obligationGroup"
+                                        className="input checkboxInput gameMechanics"
                                         type="checkbox"
-                                        value={"Morality"}
+                                        value={"morality"}
                                         onChange={handleInput}
                                         checked={form.morality}
                                     />
@@ -491,8 +429,7 @@ export default function NewCampaign(props) {
                         <p className='label'>Other Character Creation Rules</p>
                         <textarea
                             id='characterCreationRules'
-                            statename='characterCreationRules'
-                            className="characterCreationRules"
+                            className="input textfieldInput characterCreationRules"
                             type="textField"
                             value={form.characterCreationRules}
                             onChange={handleInput}
@@ -507,8 +444,7 @@ export default function NewCampaign(props) {
                         <p className='label'>Other Relevant Information</p>
                         <textarea
                             id='otherNotes'
-                            statename='otherNotes'
-                            className="otherNotes"
+                            className="input textfieldInput otherNotes"
                             type="textField"
                             value={form.otherNotes}
                             onChange={handleInput}
@@ -526,344 +462,3 @@ export default function NewCampaign(props) {
         </div>
     )
 }
-// class NewCampaign1 extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             creator: this.props.profile,
-//             title: '',
-//             userGM: true,
-//             addGM: false,
-//             gameMaster: this.props.profile,
-//             maxPlayers: 4,
-//             players: [],
-//             open: true,
-//             private: false,
-//             startDate: '',
-//             endDate: '',
-//             meetingDetails: '',
-//             playerGeneratedPCs: true,
-//             obligation: true,
-//             duty: false,
-//             morality: false,
-//             characterCreationRules: '',
-//             pcApprovalRequired: true,
-//             otherNotes: '',         
-//             errors: null
-//         }
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.handleInput = this.handleInput.bind(this);
-//     }
-
-//     handleInput(e) {
-
-//         const value = e.target.value;
-
-//         switch(e.target.id) {
-//             case 'title':
-//                 this.setState({title: value});
-//                 break;
-//             case 'userGMYes':
-//                 this.setState({userGM: true, gameMaster: this.props.profile, players: []});
-//                 break;
-//             case 'userGMNo':
-//                 this.setState({userGM: false, gameMaster: '', players: [this.props.profile]});
-//                 break;
-//             case 'addGMYes':
-//                 this.setState({addGM: true});
-//                 break;
-//             case 'addGMNo':
-//                 this.setState({addGM: false});
-//                 break;
-//             case 'maxPlayers':
-//                 this.setState({maxPlayers: value});
-//                 break;
-//             case 'open':
-//                 this.setState({open: true});
-//                 break;
-//             case 'closed':
-//                 this.setState({open: false});
-//                 break;
-//             case 'private':
-//                 this.setState({private: true});
-//                 break;
-//             case 'public':
-//                 this.setState({private: false});
-//                 break;
-//             case 'startDate':
-//                 this.setState({startDate: value});
-//                 break;
-//             case 'endDate':
-//                 this.setState({endDate: value});
-//                 break;
-//             case 'meetingDetails':
-//                 this.setState({meetingDetails: value});
-//                 break;
-//             case 'pcCreationYes':
-//                 this.setState({playerGeneratedPCs: true});
-//                 break;
-//             case 'pcCreationNo':
-//                 this.setState({playerGeneratedPCs: false});
-//                 break;
-//             case 'gmApprovalYes':
-//                 this.setState({pcApprovalRequired: true});
-//                 break;
-//             case 'gmApprovalNo':
-//                 this.setState({pcApprovalRequired: false});
-//                 break;
-//             case 'obligation':
-//                 this.setState({obligation: !this.state.obligation})
-//                 break;
-//             case 'duty':
-//                 this.setState({duty: !this.state.duty})
-//                 break;
-//             case 'morality':
-//                 this.setState({morality: !this.state.morality})
-//                 break;
-//             case 'characterCreationRules':
-//                 this.setState({characterCreationRules: value});
-//                 break;
-//             case 'otherNotes':
-//                 this.setState({otherNotes: value});
-//                 break;
-//             default:
-//                 console.log('Error ' + e.target.id + ' does not exist');
-
-//         }
-//     }
-
-//     async handleSubmit(event) {
-//         event.preventDefault();
-
-//         await addDoc(collection(db, 'campaigns'), {
-//                 creator: this.state.creator,
-//                 title: this.state.title,
-//                 gameMaster: this.state.gameMaster,
-//                 maxPlayers: this.state.maxPlayers,
-//                 players: this.state.players,
-//                 open: this.state.open,
-//                 private: this.state.private,
-//                 startDate: this.state.startDate,
-//                 endDate: this.state.endDate,
-//                 meetingDetails: this.state.meetingDetails,
-//                 playerGeneratedPCs: this.state.playerGeneratedPCs,
-//                 obligation: this.state.obligation,
-//                 duty: this.state.duty,
-//                 morality: this.state.morality,
-//                 characterCreationRules: this.state.characterCreationRules,
-//                 pcApprovalRequired: this.state.pcApprovalRequired,
-//                 otherNotes: this.state.otherNotes
-//             }).then(function(result) {
-//                 this.props.changeView('campaigns');
-//             }).catch((e) => {
-//                 alert("An Error Has Occured");
-//                 console.log(e)})
-//     }
-
-//     render() {
-
-//         return (
-//             <div className='NewCampaign'>
-//                 <div className='formTitle'>
-//                     <p className='title'>New Campaign</p>
-//                     <p className='subtitle sw'>New Campaign</p>
-//                 </div>
-//                 <form className='signupForm' onSubmit={this.handleSubmit}>
-//                     <div className='formField'>
-//                         <p className='errors'>{this.state.errors}</p>
-//                     </div>
-    
-//                     <div className='formFieldContainer title'>
-    
-//                         <div className='iconBox'><p><i className='fas fa-t'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Campaign Title</p>
-//                             <input id='title' className="title" type="text" value={this.state.title} onChange={this.handleInput} autoFocus/>
-//                         </div>
-    
-//                     </div>
-
-//                     <div className='formFieldContainer userGM'>
-
-//                         <div className='iconBox'><p><i className='fas fa-crown'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Will you be the GM?</p>
-//                             <fieldset className='radioContainer'>
-//                                 <div className='radioSelect'>
-//                                     <input name='userGMGroup' id='userGMYes' className="userGMGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.userGM}/>
-//                                     <label className='label' htmlFor='userGMYes'>Yes</label>
-//                                 </div>
-//                                 <div className='radioSelect'>
-//                                     <input name='userGMGroup' id='userGMNo' className="userGMGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.userGM}/>
-//                                     <label className='label' htmlFor='userGMNo'>No</label>
-//                                 </div>
-//                             </fieldset>
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer maxPlayers'>
-                        
-//                         <div className='iconBox'><p><i className='fas fa-plus-minus'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Maximum Number of Players</p>
-//                             <input id='maxPlayers' className="maxPlayers" type="number" value={this.state.maxPlayers} onChange={this.handleInput} />
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer open'>
-
-//                         <div className='iconBox'><p><i className='fas fa-user-lock'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Open Campaign</p>
-//                             <fieldset className='radioContainer'>
-//                                 <div className='radioSelect'>
-//                                     <input name='openGroup' id='open' className="openGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.open}/>
-//                                     <label className='label' htmlFor='open'>Open</label>
-//                                 </div>
-//                                 <div className='radioSelect'>
-//                                     <input name='openGroup' id='closed' className="openGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.open}/>
-//                                     <label className='label' htmlFor='closed'>Closed</label>
-//                                 </div>
-//                             </fieldset>
-//                         </div>
-//                     </div>
-
-//                     <div className='formFieldContainer private'>
-
-//                         <div className='iconBox'><p><i className='fas fa-eye-slash'></i></p></div>
-//                             <div className='formField'>
-//                                 <p className='label'>Private Campaign</p>
-//                                 <fieldset className='radioContainer'>
-//                                     <div className='radioSelect'>
-//                                         <input name='privateGroup' id='private' className="privateGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.private}/>
-//                                         <label className='label' htmlFor='private'>Private</label>
-//                                     </div>
-//                                     <div className='radioSelect'>
-//                                         <input name='privateGroup' id='public' className="privateGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.private}/>
-//                                         <label className='label' htmlFor='public'>Public</label>
-//                                     </div>
-//                                 </fieldset>
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer startDate'>
-
-//                         <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Start Date</p>
-//                             <input id='startDate' className="startDate" type="date" value={this.state.startDate} onChange={this.handleInput} />
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer endDate'>
-
-//                         <div className='iconBox'><p><i className='fas fa-calendar-days'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>End Date</p>
-//                             <input id='endDate' className="endDate" type="date" value={this.state.endDate} onChange={this.handleInput} />
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer meetingDetails'>
-    
-//                         <div className='iconBox'><p><i className='fas fa-info'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Campaign Meeting Details</p>
-//                             <textarea id='meetingDetails' className="meetingDetails" type="textField" value={this.state.meetingDetails} onChange={this.handleInput} placeholder="Include details such as frequency, location, start time and end time" />
-//                         </div>
-    
-//                     </div>
-
-//                     <div className='formFieldContainer pcCreation'>
-
-//                         <div className='iconBox'><p><i className='fas fa-lightbulb'></i></p></div>
-//                             <div className='formField'>
-//                                 <p className='label'>Players Create their own PCs?</p>
-//                                 <fieldset className='radioContainer'>
-//                                     <div className='radioSelect'>
-//                                         <input name='pcCreationGroup' id='gmApprovalYes' className="pcCreationGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.playerGeneratedPCs}/>
-//                                         <label className='label' htmlFor='pcCreationYes'>Yes</label>
-//                                     </div>
-//                                     <div className='radioSelect'>
-//                                         <input name='pcCreationGroup' id='pcCreationNo' className="pcCreationGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.playerGeneratedPCs}/>
-//                                         <label className='label' htmlFor='pcCreationNo'>No</label>
-//                                     </div>
-//                                 </fieldset>
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer gmApproval'>
-
-//                         <div className='iconBox'><p><i className='fas fa-check'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>PCs require GM Approval?</p>
-//                             <fieldset className='radioContainer'>
-//                                 <div className='radioSelect'>
-//                                     <input name='gmApprovalGroup' id='gmApprovalYes' className="gmApprovalGroup" type="radio" value={true} onChange={this.handleInput} checked={this.state.pcApprovalRequired}/>
-//                                     <label className='label' htmlFor='gmApprovalYes'>Yes</label>
-//                                 </div>
-//                                 <div className='radioSelect'>
-//                                     <input name='gmApprovalGroup' id='gmApprovalNo' className="gmApprovalGroup" type="radio" value={false} onChange={this.handleInput} checked={!this.state.pcApprovalRequired}/>
-//                                     <label className='label' htmlFor='gmApprovalNo'>No</label>
-//                                 </div>
-//                             </fieldset>
-//                         </div>
-
-//                     </div>
-
-//                     <div className='formFieldContainer obligations'>
-//                         <div className='iconBox'><p><i className='fas fa-wrench'></i></p></div>
-//                             <div className='formField'>
-//                                 <p className='label'>Game Mechanics</p>
-//                                 <fieldset className='checkboxContainer'>
-//                                     <div className='checkboxSelect'>
-//                                         <input name='obligationGroup' id='obligation' className="obligationGroup" type="checkbox" value={'Obligation'} onChange={this.handleInput} checked={this.state.obligation}/>
-//                                         <label className='label' htmlFor='obligation'>Obligation</label>
-//                                     </div>
-//                                     <div className='checkboxSelect'>
-//                                         <input name='obligationGroup' id='duty' className="obligationGroup" type="checkbox" value={"Duty"} onChange={this.handleInput} checked={this.state.duty}/>
-//                                         <label className='label' htmlFor='duty'>Duty</label>
-//                                     </div>
-//                                     <div className='checkboxSelect'>
-//                                         <input name='obligationGroup' id='morality' className="obligationGroup" type="checkbox" value={"Morality"} onChange={this.handleInput} checked={this.state.morality}/>
-//                                         <label className='label' htmlFor='morality'>Morality</label>
-//                                     </div>
-//                                 </fieldset>
-//                         </div>
-
-//                     </div>
-
-
-//                     <div className='formFieldContainer characterCreationRules'>
-//                         <div className='iconBox'><p><i className='fas fa-clipboard-list'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Other Character Creation Rules</p>
-//                             <textarea id='characterCreationRules' className="characterCreationRules" type="textField" value={this.state.characterCreationRules} onChange={this.handleInput} placeholder="Include things like Knight-Level player for example." />
-//                         </div>
-    
-//                     </div>
-
-//                     <div className='formFieldContainer otherNotes'>
-//                         <div className='iconBox'><p><i className='fas fa-info-circle'></i></p></div>
-//                         <div className='formField'>
-//                             <p className='label'>Other Relevant Information</p>
-//                             <textarea id='otherNotes' className="otherNotes" type="textField" value={this.state.otherNotes} onChange={this.handleInput} placeholder="Include things like language or age restrictions for example." />
-//                         </div>
-    
-//                     </div>
-
-//                     <div className='formFieldContainer button'>
-//                         <button type='submit' id='submit' className='button submit' onClick={this.handleSubmit}>Submit</button>
-//                     </div>
-
-//                 </form>
-//             </div>
-//         )
-//     }
-// }

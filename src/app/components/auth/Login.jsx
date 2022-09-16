@@ -32,7 +32,7 @@ export default function Login(props) {
         login(form.email, form.password).then((result) => {
 
             // Check if user is returned
-            if(result.user.uid) {
+            if(result.user) {
                 // Show loading page while loading Profile
                 props.appView('loading');
 
@@ -45,7 +45,7 @@ export default function Login(props) {
                 });
             } else {
                 // User was not able to be logged in
-                setErrors(["Username or Password do not match."])
+                setErrors(["Email or Password do not match."])
             }
         })
     }

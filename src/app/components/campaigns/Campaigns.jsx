@@ -1,19 +1,38 @@
 import React, { useContext }from 'react';
-import { RoutingContext, pagesMapping } from '../../components/Routing';
 import { useState, useEffect } from 'react';
 import {collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
+import NewCampaign from './NewCampaign';
 
 export default function Campaigns(props) {
     const [campaigns, setCampaigns] = useState();
+    const [view, setView] = useState(<Loading />);
+    const [link, setLink] = useState();
     const [initializing, setInitializing] = useState(true);
-
-    const { setPage } = useContext(RoutingContext);
 
     //Change to only get campaigns that are public
     //Add query to get private campaigns that this user has created/joined.
     //Set campaigns to both queries above
+    function campaignView(link) {
+        setLink(link);
+        setView(views[link]);
+    }
+
+    const views = {
+        new: <NewCampaign />,
+        list: (
+            <div className='grid-container'>
+                <div className='heading'>Game Master</div>
+                <div className='heading'>Title</div>
+                <div className='heading'>Open?</div>
+                <div className='heading'>Private?</div>
+                <div className='heading'>Start Date</div>
+                <div className='heading'></div>
+                {/*campaignListing(campaigns)*/}
+            </div>
+        )
+    }
     async function fetchCampaigns(filter) {
 
         let qSnap = await getDocs(collection(db, 'campaigns'));
@@ -26,6 +45,7 @@ export default function Campaigns(props) {
         console.log(campaigns);
 
         setCampaigns(campaigns);
+        campaignView('list');
         if (initializing) setInitializing(false);
     }
 
@@ -72,19 +92,11 @@ export default function Campaigns(props) {
                 <p className='myFilter'>My Campaigns</p>
             </div>
 
-            <div className='newCampaign' onClick={()  => setPage(pagesMapping.newCampaign)}>
+            <div className='newCampaign' onClick={()  => campaignView('new')}>
                 <i className='fas fa-plus' /> New
             </div>
-            
-            <div className='grid-container'>
-                <div className='heading'>Game Master</div>
-                <div className='heading'>Title</div>
-                <div className='heading'>Open?</div>
-                <div className='heading'>Private?</div>
-                <div className='heading'>Start Date</div>
-                <div className='heading'></div>
-                {campaignListing(campaigns)}
-            </div>
+
+            {view}
 
         </div>
     );

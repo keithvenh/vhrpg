@@ -54,10 +54,12 @@ export default function Edit(props) {
                     validPassword = true;
                 } else {
                     // Passwords Don't Match
+                    validPassword = false;
                     formErrors = [...formErrors, "Passwords Don't Match"];
                 }
             } else {
                 // Password is invalid
+                validPassword = false;
                 formErrors = [...formErrors, "Invalid Password. Password must be at least 8 characters"];
             }
         }
@@ -70,6 +72,7 @@ export default function Edit(props) {
                 validEmail = true;
             } else {
                 // Email is invalid
+                validEmail = false;
                 formErrors = [...formErrors, "Invalid Email"];
             }
         }
@@ -80,6 +83,7 @@ export default function Edit(props) {
             noEmptyFields = true;
         } else {
             // There is an Empty Field in the Form
+            noEmptyFields = false;
             formErrors = [...formErrors, "All Fields Are Required"];
         }
 

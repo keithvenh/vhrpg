@@ -56,7 +56,8 @@ export default function App() {
   const views = {
     auth: <Auth appView={appView} />,
     loading: <Loading />,
-    missionControl: <MissionControl />
+    missionControl: <MissionControl appView={appView}/>,
+    campaigns: <Campaigns />
   }
 
   if (initializing) {

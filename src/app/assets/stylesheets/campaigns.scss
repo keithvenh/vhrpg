@@ -63,7 +63,7 @@
         display: flex;
         justify-content: space-evenly;
         .radioSelect, .checkboxSelect {
-            .openGroup, .privateGroup, .userGMGroup, .addGMGroup, .pcCreationGroup, .bookGroup, .obligationGroup, .gmApprovalGroup {
+            .radioInput, .checkboxInput {
                 display: none;
                 &:checked+label {
                     background-color: $yellowFaded;
@@ -71,7 +71,7 @@
                     color: $white;
                 }
             }
-            .openGroup+label, .privateGroup+label, .userGMGroup+label, .addGMGroup+label, .pcCreationGroup+label, .bookGroup+label, .obligationGroup+label, .gmApprovalGroup+label {
+            .radioInput+label, .checkboxInput+label {
                 background-color: $yellowTransparent;
                 border: 1px solid $yellowFaded;
                 color: $whiteFaded;
@@ -84,7 +84,7 @@
                     cursor: pointer;
                 }
             }
-            .bookGroup+label, .obligationGroup+label {
+            .checkboxInput+label {
                 width: 275px;
             }
         }
