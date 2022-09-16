@@ -18,26 +18,6 @@
         }
     }
 
-    .logoutLink {
-        border: 1px solid $yellowFaded;
-        background-color: $yellowTransparent;
-        &:hover {
-            background-color: $yellowFaded;
-            border-color: $yellow;
-            cursor: pointer;
-        }
-    }
-
-    .deleteUserLink {
-        border: 1px solid $redFaded;
-        background-color: $redTransparent;
-        &:hover {
-            background-color: $redFaded;
-            border-color: $red;
-            cursor: pointer;
-        }
-    }
-
     .editLink {
         border: 1px solid $greenFaded;
         background-color: $greenTransparent;
@@ -75,5 +55,13 @@
                 color: $yellowFaded;
             }
         }   
+    }
+}
+
+.deleteUserLink {
+    color: $red;
+    margin: 24px 0;
+    &:hover {
+        cursor: pointer;
     }
 }

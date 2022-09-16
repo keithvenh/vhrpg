@@ -1,23 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 import login from '../../helpers/auth/login';
+import getProfile from '../../helpers/users/getProfile';
 
 export default function Login(props) {
-    const [email, setEmail]  = useState('');
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState();
 
-    function validateEmail(event) {
-        setEmail(event.target.value);
-    }
+// ===== Use UserContext to update user and profile upon successful Login ===== //
+    const context = useContext(UserContext);
 
-    function validatePassword(event) {
-        setPassword(event.target.value);
-    }
+// ===== Catch Errors for Form ===== //
+    const [errors, setErrors] = useState([]);
 
-    function handleSubmit(event) {
+// ===== User form for controlled Inputs ===== //
+    const [form, setForm] = useState({
+        email: '',
+        password: ''
+    })
+
+// ===== Manage User Input on Forms ===== //
+    const handleInput = (event) => {
+        // Spread current form state, then override changed value based on target
+        setForm({...form, [event.target.name]: event.target.value});
+    };
+
+// ===== Handle Submisson of Login Form ===== //
+    async function handleSubmit(event) {
+        // Prevent browser submission handling
         event.preventDefault();
-        login(email, password);
-        props.changeView('missionControl');
+
+        // Attempt to Login User
+        login(form.email, form.password).then((result) => {
+
+            // Check if user is returned
+            if(result.user.uid) {
+                // Show loading page while loading Profile
+                props.appView('loading');
+
+                // Load profile from database
+                getProfile(result.user).then((profile) => {
+                    // set profile UserContext
+                    context.setProfile(profile.data());
+                    // Change View to Home Page
+                    props.appView('missionControl');
+                });
+            } else {
+                // User was not able to be logged in
+                setErrors(["Username or Password do not match."])
+            }
+        })
     }
 
     return (
@@ -28,32 +58,37 @@ export default function Login(props) {
             </div>
             <form className='loginForm' onSubmit={handleSubmit} >
 
-                <div className='authentication-errors'>
-                    {errors}
+                <div className='formFieldContainer errors'>
+                    
+                    <div className='formField'>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='formFieldContainer email'>
 
-                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
+                    <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
                     <div className='formField'>
                         <p className='label'>Email</p>
-                        <input id='email' className="email" type="email" value={email} onChange={validateEmail} autoFocus />
+                        <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
                     </div>
 
                 </div>
 
                 <div className='formFieldContainer password'>
 
-                    <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
                     <div className='formField'>
                         <p className='label'>Password</p>
-                        <input id='password' className="password" type="password" value={password} onChange={validatePassword} />
+                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
                     </div>
 
                 </div>
 
                 <div className='formFieldContainer button'>
-                    <input type='submit' id='submit' className='button submit'/>
+                    <input type='submit' id='submit' className='button submit' value='Login'/>
                 </div>
             </form>
         </div>

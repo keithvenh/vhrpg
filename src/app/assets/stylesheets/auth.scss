@@ -8,7 +8,9 @@
     justify-content: center;
     flex-direction: column;
 }
-.loginForm, .signupForm, .deleteUserForm, .newCampaignForm {
+
+.loginForm, .signupForm, .deleteUserForm, .editForm, .newCampaignForm {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,15 +80,28 @@
             line-height: 24px;
         }
     }
+    .errors {
+        .error {
+            color: red;
+            text-align: center;
+            padding: 3px;
+        }
+    }
     .button.submit {
-        display: flex;
-        justify-content: space-evenly;
+        width: 368px;
+        background: none;
         background-color: $greenTransparent;
-        border: 1px solid $greenFaded;
         color: $whiteFaded;
-        padding: 3px 12px;
-        margin-top: 3px;
+        border: 2px solid $greenFaded;
+        outline: none;
+        padding: 6px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8em;
         &:hover {
+            color: $white;
+            background-color: $greenFaded;
+            border-color: $green;
             cursor: pointer;
         }
     }

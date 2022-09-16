@@ -1,178 +1,184 @@
-import React, {Component} from 'react';
-import { getAuth, EmailAuthProvider, reauthenticateWithCredential, updatePassword, updateEmail } from 'firebase/auth';
-import createUser from '../../helpers/auth/signup';
+import { EmailAuthProvider, reauthenticateWithCredential, updatePassword, updateEmail } from 'firebase/auth';
+import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
-import Loading from '../loading/Loading';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
+import Delete from './Delete';
+import { validateEmail, validatePassword, checkEmptyFields } from '../../helpers/auth/formValidation';
 
-class Edit extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: props.user.email,
-            username: '',
-            birthdate: '',
-            role: '',
-            currentPass: '',
-            newPass: '',
-            confirmNewPass: '',
-            errors: '',
-            initializing: true
-        }
+export default function Edit(props) {
 
-        this.handleInput = this.handleInput.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.fetchProfile = this.fetchProfile.bind(this);
-    }
+// ===== Use UserContext to find and update the User and Profile ===== //
+    const context = useContext(UserContext);
+  
+// ===== Catch Errors for the Form ===== //
+    // Initialize with empty array for map in return
+    const [errors, setErrors] = useState([]);
 
-    async fetchProfile(user) {
-        const profile = await getDoc(doc(db, 'users', user.uid));
-        this.setState({
-            name: profile.data().name,
-            username: profile.data().username,
-            birthdate: profile.data().birthdate,
-            role: profile.data().role
-        })
-        this.setState({initializing: false})
-    }
+// ==== user form for controlled inputs ===== //
+    const [form, setForm] = useState({
+        name: context.profile.name,
+        email: context.user.email,
+        username: context.profile.username,
+        birthdate: context.profile.birthdate,
+        role: context.profile.role,
+        currentPassword: '',
+        newPassword: '',
+        confirmNewPassword: '',
+    });
 
-    handleInput(e) {
+// ===== Manage User Input on Forms ===== //
+    const handleInput = (event) => {
+        // Spread current form state, then override changed value base on target
+        setForm({...form, [event.target.name]: event.target.value});
+    };
 
-        const value = e.target.value;
-
-        switch(e.target.id) {
-            case 'name':
-                this.setState({name: value});
-                break;
-            case 'email':
-                this.setState({email: value});
-                break;
-            case 'username':
-                this.setState({username: value});
-                break;
-            case 'role': 
-                this.setState({role: value});
-                break;
-            case 'birthdate':
-                this.setState({birthdate: value});
-                break;
-            case 'favTeam':
-                this.setState({favTeam: value});
-                break;
-            case 'currentPassword':
-                this.setState({currentPass: value});
-                break;
-            case 'newPassword':
-                this.setState({newPass: value});
-                break;
-            case 'confirmNewPassword':
-                this.setState({confirmNewPass: value});
-                break;
-            default:
-                console.log('Error ' + e.target.id + ' does not exist');
-
-        }
-    }
-
-    async handleSubmit(event) {
+// ===== Handle Submission of Edit form ===== //
+    async function handleSubmit(event) {
+        // Prevent browser submission handling
         event.preventDefault();
-        const auth = getAuth();
-        //if newPassword is filled in, make sure confirmNewPassword matches, then attempt to update password
-        // this will require currentPass for reauthentication (See Delete for reauthentication process)
-        if(this.state.newPass) {
 
-            if(this.state.newPass === this.state.confirmNewPass) {
+        // Setup Error Tracking
+        let formErrors = [];
+        var validPassword = true;
+        let validEmail = true;
+        let noEmptyFields = true;
 
-                const credential = EmailAuthProvider.credential(this.props.user.email, this.state.currentPass);
+        // Validate Password if New Password Field is not empty
+        if(form.newPassword) {
 
-                await reauthenticateWithCredential(auth.currentUser, credential).then(() => {
-
-                    updatePassword(auth.currentUser, this.state.newPass).then(() => {
-
-                    }).catch((error) => {console.log(error)})
-
-                }).catch((error) => console.log(error))
-
+            if(validatePassword(form.newPassword)) {
+                // Check that Passwords Match
+                if (form.newPassword  === form.confirmNewPassword) {
+                    // New Password is valid
+                    validPassword = true;
+                } else {
+                    // Passwords Don't Match
+                    formErrors = [...formErrors, "Passwords Don't Match"];
+                }
             } else {
-
-                this.setState({error: "Passwords Don't Match."})
-
+                // Password is invalid
+                formErrors = [...formErrors, "Invalid Password. Password must be at least 8 characters"];
             }
         }
 
-        //if email has changed, require currentPass for reauthentication
-        if(this.state.email != auth.currentUser.email) {
-
-            const credential = EmailAuthProvider.credential(auth.currentUser.email, this.state.currentPass);
-
-            await reauthenticateWithCredential(auth.currentUser, credential).then(() => {
-                
-                updateEmail(auth.currentUser, this.state.email).then(() => {
-
-                }).catch((error) => {console.log(error)});
-
-            }).catch((error) => {console.log(error)})
-
+        // Validate Email if it has changed
+        if(form.email !== context.user.email) {
+            // Check for a valid Email
+            if (validateEmail(form.email)) {
+                // Email is valid
+                validEmail = true;
+            } else {
+                // Email is invalid
+                formErrors = [...formErrors, "Invalid Email"];
+            }
         }
-        
-        //update all other fields whether currentPass was given or not.
-        //force non-empty fields for name, role, username
-        if(this.state.name && this.state.role && this.state.username && this.state.birthdate) {
-            //updateDoc()
-            await updateDoc(doc(db, 'users', this.props.user.uid), {
 
-                name: this.state.name,
-                username: this.state.username,
-                birthdate: this.state.birthdate,
-                role: this.state.role
-
-            }).catch((e) => {console.log(e)})
-
-            this.props.changeView('user');
-
+        // Check for Empty Fields
+        if (checkEmptyFields(form)) {
+            // No Fields are Empty, Validation Pass
+            noEmptyFields = true;
         } else {
-            this.setState({error: "Name, Username, Role and Birthdate must be filled in."})
+            // There is an Empty Field in the Form
+            formErrors = [...formErrors, "All Fields Are Required"];
+        }
+
+        // Submit form if all valudations Pass
+        if (validPassword && validEmail && noEmptyFields) {
+
+            // Update the iteams that don't need authentication
+            // Create the profile
+            const profile = {
+                name: form.name,
+                username: form.username,
+                birthdate: form.birthdate,
+                role: form.role
+            }
+
+            // Update the document in the database
+            updateDoc(doc(db, 'users', context.user.uid), {
+                ...profile
+            }).then(() => {
+                // Set the profile in UserContext
+                // Spead in current profile to avoid complete override
+                context.setProfile({...context.profile, ...profile})
+
+            }).catch((error) => {
+                // An unexpected error occured when creating the user doc.
+                formErrors = [...formErrors, "There was an unexpoected Error when creating your account."]
+            })
+
+            // Update Email or Password with New Credential if Changed
+            if(form.email !== context.user.email || form.newPassword) {
+                // get a new Auth Credential
+                const credential = EmailAuthProvider.credential(context.user.email, form.currentPassword);
+
+                // Reauthenticate User
+                await reauthenticateWithCredential(context.user, credential).then(() => {
+
+                    // Update Password if Changed
+                    if(form.newPassword) {
+                        updatePassword(context.user, form.newPassword).catch((error) => {
+                            // Something went wrong updating the Password
+                            formErrors =  [...formErrors, "Password Authentication Error"];
+                        });
+                    }
+
+                    // Update Email if Changed
+                    if(form.email !== context.user.email) {
+                        updateEmail(context.user, form.email).catch((error) => {
+                            // Something went wrong updating the Email
+                            formErrors =  [...formErrors, "Email Authentication Error"];
+                        })
+                    }
+
+
+                }).catch((error) => {
+                    // Something went wrong during Authentication
+                    formErrors =  [...formErrors, "Incorrect Current Password"];
+                })
+            }
+            
+        }
+
+        // Add Errors to State
+        setErrors(formErrors);
+
+        // Switch back to Account if there were no errors
+        if(formErrors.length === 0) {
+            props.authView('myAccount');
         }
     };
 
-    componentDidMount() {
-        this.fetchProfile(this.props.user);
-    }
+    return (
+        <div className='Edit'>
 
-    render() {
-        
-        if(this.state.initializing) {
-            return (<Loading />)
-        }
-        return (
-            <div className='Edit'>
-                <div className='formTitle'>
-                    <p className='title'>Edit User</p>
-                    <p className='subtitle sw'>Edit User</p>
-                    <p className='userId sw'>{this.props.user.uid}</p>
-                </div>
-                <form className='editForm' onSubmit={this.handleSubmit}>
+            <form className='editForm' onSubmit={handleSubmit}>
+                <div className='formFieldContainer errors'>
+                    
                     <div className='formField'>
-                        <p className='errors'>{this.state.errors}</p>
-                    </div>
-
-                    <div className='formFieldContainer name'>
-
-                        <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Full Name</p>
-                            <input id='name' className="name" type="name" value={this.state.name} onChange={this.handleInput} autoFocus/>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
                         </div>
+                    </div>
+                </div>
 
+                <div className='formFieldContainer name'>
+
+                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
+                    <div className='formField'>
+                        <p className='label'>Full Name</p>
+                        <input name='name' id='name' className="name" type="name" value={form.name} onChange={handleInput} autoFocus/>
                     </div>
 
-                    <div className='formFieldContainer email'>
+                </div>
+
+                <div className='formFieldContainer email'>
 
                         <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Email</p>
-                            <input id='email' className="email" type="email" value={this.state.email} onChange={this.handleInput} />
+                            <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
                         </div>
 
                     </div>
@@ -182,17 +188,17 @@ class Edit extends Component {
                         <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Username</p>
-                            <input id='username' className="username" type="username" value={this.state.username} onChange={this.handleInput} />
+                            <input name='username' id='username' className="username" type="username" value={form.username} onChange={handleInput} />
                         </div>
 
                     </div>
 
-                    <div className='formFieldContainer name'>
+                    <div className='formFieldContainer role'>
 
                         <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Role</p>
-                            <select name="role" id="role" className='role' value={this.state.role} onChange={this.handleInput} >
+                            <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
                                 <option value="Youngling">Youngling</option>
                                 <option value="Padawan">Padawan</option>
                                 <option value="Jedi Knight">Jedi Knight</option>
@@ -211,7 +217,7 @@ class Edit extends Component {
                         <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Birthdate</p>
-                            <input id='birthdate' className="birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput} />
+                            <input name='birthdate' id='birthdate' className="birthdate" type="date" value={form.birthdate} onChange={handleInput} />
                         </div>
 
                     </div>
@@ -221,7 +227,7 @@ class Edit extends Component {
                         <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Current Password</p>
-                            <input id='currentPassword' className="password" type="password" value={this.state.currentPass} onChange={this.handleInput} />
+                            <input name='currentPassword' id='currentPassword' className="password" type="password" value={form.currentPassword} onChange={handleInput} />
                         </div>
 
                     </div>
@@ -231,7 +237,7 @@ class Edit extends Component {
                         <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
                         <div className='formField'>
                             <p className='label'>New Password</p>
-                            <input id='newPassword' className="password" type="password" value={this.state.newPass} onChange={this.handleInput} />
+                            <input name='newPassword' id='newPassword' className="password" type="password" value={form.newPassword} onChange={handleInput} />
                         </div>
 
                     </div>
@@ -241,18 +247,20 @@ class Edit extends Component {
                         <div className='iconBox'><p><i className='fas fa-unlock-keyhole'></i></p></div>
                         <div className='formField'>
                             <p className='label'>Confirm New Password</p>
-                            <input id='confirmNewPassword' className="password" type="password" value={this.state.confirmNewPass} onChange={this.handleInput} />
+                            <input name='confirmNewPassword' id='confirmNewPassword' className="password" type="password" value={form.confirmNewPassword} onChange={handleInput} />
                         </div>
 
                     </div>
 
                     <div className='formFieldContainer button'>
-                        <input type='submit' id='submit' className='button submit'/>
-                    </div>
-                </form>
-            </div>
-        )
-    }
-}
+                        <input type='submit' id='submit' className='button submit' value='Save'/>
+                    </div> 
+            </form>
 
-export default Edit;
+            <div  className='profileButtons'>
+                <p className='deleteUserLink' onClick={() => props.authView('delete')}><i className='fas fa-user-xmark'></i> Delete Account</p>
+            </div>
+        </div>
+    )
+
+}

@@ -1,25 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { getAuth, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from '../../../db/application/db';
 import { destroyUser } from '../../helpers/auth/delete';
+import { UserContext } from '../../contexts/userContext';
 
 export default function Delete(props) {
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState('');
-    const auth = getAuth();
 
-    function validatePassword(event) {
-        setPassword(event.target.value);
-    }
+// ===== Use UserContext for validation and deletion ===== //
+    const context = useContext(UserContext);
 
+// ===== Catch Errors for Form ===== //
+    const [errors, setErrors] = useState([]);
+
+// ===== Use form for controlled Inputs ===== //
+    const [form, setForm] = useState({
+        password: ''
+    })
+// ===== Manage User Input on Forms ===== //
+    const handleInput = (event) => {
+        // Spread current form state, then override changed value based on target
+        setForm({...form, [event.target.name]: event.target.value});
+    };
+
+// =====  Handle Submission of Delete User Form ===== //
     async function handleSubmit(event) {
+        // Prevent browser submission handling
         event.preventDefault();
-        const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
-        reauthenticateWithCredential(auth.currentUser, credential).then((result) => {
-            deleteDoc(doc(db, 'users', auth.currentUser.uid)).then(() => {
-                destroyUser(auth.currentUser).then((result) => {
-                    console.log(result);
+
+        // setup form Errors
+        let formErrors = [];
+
+        // get a new Auth Credential
+        const credential = EmailAuthProvider.credential(context.user.email, form.password);
+
+        // Reauthenticate User
+        await reauthenticateWithCredential(context.user, credential).then(() => {
+
+            // Delete Profile Document
+            deleteDoc(doc(db, 'users', context.user.uid)).then(() => {
+
+                // Reset Profile in UserContext
+                context.setProfile(null);
+                // Delete User once User Doc is Deleted
+                destroyUser(context.user).then(() => {
+
+                    // Reset User in UserContext
+                    context.setUser(null);
+
+                    // Change view to Signup Page
+                    props.authView('signup');
                 }).catch((error) => {
                     console.log(error);
                 })
@@ -28,9 +58,11 @@ export default function Delete(props) {
             })
 
         }).catch((error) => {
-            console.log(error);
+            // Something went wrong during authentication
+            formErrors =  ["Incorrect Password"];
         })
-        props.changeView('login');
+
+        setErrors(formErrors);
     }
 
     return (
@@ -43,16 +75,21 @@ export default function Delete(props) {
 
             <form className='deleteUserForm' onSubmit={handleSubmit} >
 
-                <div className='authentication-errors'>
-                    {errors}
+                <div className='formFieldContainer errors'>
+                    
+                    <div className='formField'>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='formFieldContainer password'>
 
-                    <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
+                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
                     <div className='formField'>
                         <p className='label'>Password</p>
-                        <input id='password' className="password warning" type="password" value={password} onChange={validatePassword} autoFocus/>
+                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
                     </div>
 
                 </div>
