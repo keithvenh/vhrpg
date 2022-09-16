@@ -3,10 +3,17 @@ import { db } from '../../../db/application/db';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import createUser from '../../helpers/auth/signup';
+import { validatePassword, validateEmail, checkEmptyFields } from '../../helpers/auth/formValidation';
 
 export default function Signup(props) {
 
+// ===== Use UserContext to update user and profile upon successful registration ===== //
     const context = useContext(UserContext);
+
+// ===== Catch Errors for Form ===== // 
+    const [errors, setErrors] = useState([]);
+
+// ===== Use form for controlled form inputs ===== //
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -15,24 +22,75 @@ export default function Signup(props) {
         role: '',
         password: '',
         confirmPassword: '',
-        errors: ''
     });
 
+// ===== Manage User Input on Forms ===== //
     const handleInput = (event) => {
+        // Spread current form state, then override changed value based on target
         setForm({...form, [event.target.name]: event.target.value});
     };
 
+// ===== Handle submission of Signup Form ===== //
     async function handleSubmit(event) {
+        // Prevent browser submission handling
         event.preventDefault();
-        if(form.password === form.confirmPassword) {
 
+        // Setup Errors
+        let formErrors = [];
+
+        let validPassword, validEmail, noEmptyFields;
+
+        // check for valid Password
+        if (validatePassword(form.password)) {
+            // check that Passwords Match
+            if(form.password === form.confirmPassword) {
+                // Password is valid
+                validPassword = true;
+            } else {
+                // Paswords Don't Match
+                formErrors = [...formErrors, "Passwords Don't Match"];
+            }
+        } else {
+            // Password is invalid
+            formErrors = [...formErrors, "Invalid Password. Password must be at least 8 characters"];
+        }
+
+        // Check for a valid Email
+        if (validateEmail(form.email)) {
+            // Email is valid
+            validEmail = true;
+        } else {
+            // Email is invalid
+            formErrors = [...formErrors, "Invalid Email"];
+        }
+
+        // Check for Empty Fields
+        if (checkEmptyFields(form)) {
+            // No Fields are Empty, Validation Pass
+            noEmptyFields = true;
+        } else {
+            // There is an Empty Field in the Form
+            formErrors = [...formErrors, "All Fields Are Required"];
+        }
+
+        // Add Errors to State
+        setErrors(formErrors);
+
+        // Submit form if all validations Pass
+        if(validPassword && validEmail && noEmptyFields) {
+
+            // Create User Authentication Account
             createUser(form.email, form.password).then((result) => {
-                console.log(result);
-                if(result.error) {
-                    setForm({...form, errors: "There is an error on your Form"})
-                } else {
+
+                // Confirm User Creation
+                if(result.uid) {
+                    // Show Loading Page while creating User
                     props.appView('loading');
+
+                    // Set the user in the User Context
                     context.setUser(result);
+
+                    // Create the profile
                     const profile = {
                         name: form.name,
                         username: form.username,
@@ -40,29 +98,40 @@ export default function Signup(props) {
                         role: form.role,
                         uid: result.uid
                     }
+
+                    // Create the Document in the Database
+                    // Use uid as the document id
                     setDoc(doc(db, 'users', result.uid), {
                         ...profile
                     }).then(() => {
+                        // Set the profile in UserContext
                         context.setProfile({...profile});
+
+                        // Change View from Loading to Mission Control
                         props.appView('missionControl');
                     }).catch((error) => {
-                        console.log(error)
+                        // An unexpected error occured when creating the user doc.
+                        formErrors = [...formErrors, "There was an unexpoected Error when creating your account."]
                     })
+                } else {
+                    // An unexpoected error occured with the database
+                    formErrors = [...formErrors, "There was an enexpected Error when submitting the form. Please try again later."]
                 }
-            }).catch((error) => {
-                setForm({...form, errors: error.code})
             })
-        } else {
-            setForm({...form, errors: "Passwords Don't Match."})
         }
     }
 
     return (
         <div className='Edit'>
 
-            <form className='editForm' onSubmit={handleSubmit}>
-                <div className='formField'>
-                    <p className='errors'>{form.errors}</p>
+            <form className='signupForm' onSubmit={handleSubmit}>
+                <div className='formFieldContainer errors'>
+                
+                    <div className='formField'>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='formFieldContainer name'>
@@ -101,6 +170,7 @@ export default function Signup(props) {
                     <div className='formField'>
                         <p className='label'>Role</p>
                         <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
+                            <option value=''></option>
                             <option value="Youngling">Youngling</option>
                             <option value="Padawan">Padawan</option>
                             <option value="Droid">Droid</option>

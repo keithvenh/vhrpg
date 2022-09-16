@@ -4,10 +4,18 @@ import { db } from '../../../db/application/db';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import Delete from './Delete';
+import { validateEmail, validatePassword, checkEmptyFields } from '../../helpers/auth/formValidation';
 
 export default function Edit(props) {
 
+// ===== Use UserContext to find and update the User and Profile ===== //
     const context = useContext(UserContext);
+  
+// ===== Catch Errors for the Form ===== //
+    // Initialize with empty array for map in return
+    const [errors, setErrors] = useState([]);
+
+// ==== user form for controlled inputs ===== //
     const [form, setForm] = useState({
         name: context.profile.name,
         email: context.user.email,
@@ -17,70 +25,128 @@ export default function Edit(props) {
         currentPassword: '',
         newPassword: '',
         confirmNewPassword: '',
-        errors: ''
     });
 
+// ===== Manage User Input on Forms ===== //
     const handleInput = (event) => {
+        // Spread current form state, then override changed value base on target
         setForm({...form, [event.target.name]: event.target.value});
     };
 
+// ===== Handle Submission of Edit form ===== //
     async function handleSubmit(event) {
-
+        // Prevent browser submission handling
         event.preventDefault();
-        // if newPassword is filled in, make sure confirmNewPassword matches, then attempt to update password
-        // this will require currentPass for reauthentication (See Delete for reauthentication process)
+
+        // Setup Error Tracking
+        let formErrors = [];
+        var validPassword = true;
+        let validEmail = true;
+        let noEmptyFields = true;
+
+        // Validate Password if New Password Field is not empty
         if(form.newPassword) {
 
-            if(form.newPassword === form.confirmNewPassword) {
-
-                const credential = EmailAuthProvider.credential(context.user.email, form.currentPassword);
-
-                await reauthenticateWithCredential(context.user, credential).then(() => {
-
-                    updatePassword(context.user, form.newPassword).then(() => {
-
-                    }).catch((error) => {console.log(error)})
-
-                }).catch((error) => console.log(error))
-
+            if(validatePassword(form.newPassword)) {
+                // Check that Passwords Match
+                if (form.newPassword  === form.confirmNewPassword) {
+                    // New Password is valid
+                    validPassword = true;
+                } else {
+                    // Passwords Don't Match
+                    formErrors = [...formErrors, "Passwords Don't Match"];
+                }
             } else {
-
-                setForm({...form, errors: "New Password and Confirm New Password Must Match."})
-
+                // Password is invalid
+                formErrors = [...formErrors, "Invalid Password. Password must be at least 8 characters"];
             }
         }
 
-        //if email has changed, require currentPass for reauthentication
+        // Validate Email if it has changed
         if(form.email !== context.user.email) {
-
-            const credential = EmailAuthProvider.credential(context.user.email, form.currentPassword);
-
-            await reauthenticateWithCredential(context.user, credential).then(() => {
-                
-                updateEmail(context.user, form.email).then(() => {
-
-                }).catch((error) => {console.log(error)});
-
-            }).catch((error) => {console.log(error)})
-
+            // Check for a valid Email
+            if (validateEmail(form.email)) {
+                // Email is valid
+                validEmail = true;
+            } else {
+                // Email is invalid
+                formErrors = [...formErrors, "Invalid Email"];
+            }
         }
-        
-        //update all other fields whether currentPass was given or not.
-        //force non-empty fields for name, role, username
-        if(form.name && form.role && form.username && form.birthdate) {
-            //updateDoc()
+
+        // Check for Empty Fields
+        if (checkEmptyFields(form)) {
+            // No Fields are Empty, Validation Pass
+            noEmptyFields = true;
+        } else {
+            // There is an Empty Field in the Form
+            formErrors = [...formErrors, "All Fields Are Required"];
+        }
+
+        // Submit form if all valudations Pass
+        if (validPassword && validEmail && noEmptyFields) {
+
+            // Update the iteams that don't need authentication
+            // Create the profile
             const profile = {
                 name: form.name,
                 username: form.username,
                 birthdate: form.birthdate,
-                role: form.role,
+                role: form.role
             }
-            await updateDoc(doc(db, 'users', context.user.uid), {...profile}).catch((e) => {console.log(e)})
 
-            context.setProfile({...context.profile, ...profile})
+            // Update the document in the database
+            updateDoc(doc(db, 'users', context.user.uid), {
+                ...profile
+            }).then(() => {
+                // Set the profile in UserContext
+                // Spead in current profile to avoid complete override
+                context.setProfile({...context.profile, ...profile})
+
+            }).catch((error) => {
+                // An unexpected error occured when creating the user doc.
+                formErrors = [...formErrors, "There was an unexpoected Error when creating your account."]
+            })
+
+            // Update Email or Password with New Credential if Changed
+            if(form.email !== context.user.email || form.newPassword) {
+                // get a new Auth Credential
+                const credential = EmailAuthProvider.credential(context.user.email, form.currentPassword);
+
+                // Reauthenticate User
+                await reauthenticateWithCredential(context.user, credential).then(() => {
+
+                    // Update Password if Changed
+                    if(form.newPassword) {
+                        updatePassword(context.user, form.newPassword).catch((error) => {
+                            // Something went wrong updating the Password
+                            formErrors =  [...formErrors, "Password Authentication Error"];
+                        });
+                    }
+
+                    // Update Email if Changed
+                    if(form.email !== context.user.email) {
+                        updateEmail(context.user, form.email).catch((error) => {
+                            // Something went wrong updating the Email
+                            formErrors =  [...formErrors, "Email Authentication Error"];
+                        })
+                    }
+
+
+                }).catch((error) => {
+                    // Something went wrong during Authentication
+                    formErrors =  [...formErrors, "Incorrect Current Password"];
+                })
+            }
+            
+        }
+
+        // Add Errors to State
+        setErrors(formErrors);
+
+        // Switch back to Account if there were no errors
+        if(formErrors.length === 0) {
             props.authView('myAccount');
-        } else {
-            setForm({errors: "Name, Username, Role and Birthdate must be filled in."})
         }
     };
 
@@ -88,8 +154,13 @@ export default function Edit(props) {
         <div className='Edit'>
 
             <form className='editForm' onSubmit={handleSubmit}>
-                <div className='formField'>
-                    <p className='errors'>{form.errors}</p>
+                <div className='formFieldContainer errors'>
+                    
+                    <div className='formField'>
+                        <div className='errors'>
+                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='formFieldContainer name'>

@@ -29,7 +29,7 @@ export default function App() {
   // Handle user state changes
   async function onAuthStateChanged(user) {
     setUser(user);
-    updateProfile(user);
+    await updateProfile(user);
     if (initializing) setInitializing(false);
   }
 
