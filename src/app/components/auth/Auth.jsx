@@ -7,6 +7,7 @@ import Delete from './Delete';
 import Signup from './Signup';
 import MyAccount from './MyAccount';
 import Loading from '../loading/Loading';
+import PageNav from '../navigation/PageNav';
 import { useEffect } from 'react';
 
 export default function Auth(props) {
@@ -22,9 +23,9 @@ export default function Auth(props) {
     const views = {
         myAccount: <MyAccount />,
         signup: <Signup appView={props.appView} />,
-        edit: <Edit authView={authView} />,
+        editProfile: <Edit authView={authView} />,
         delete: <Delete authView={authView}/>,
-        login: <Login appView={props.appView} />,
+        login: <Login appView={props.appView} />
     }
 
     function logoutUser() {
@@ -39,11 +40,7 @@ export default function Auth(props) {
     if(!context.user) {
         return (
             <div className='Auth'>
-                <ul className='AuthNav'>
-
-                    <li className={`AuthNavItem navItem ${link === 'login'}`} onClick={() => {authView('login')}}>Login</li>
-                    <li className={`AuthNavItem navItem ${link === 'signup'}`} onClick={() => {authView('signup')}}>Signup</li>
-                </ul>
+                <PageNav links={['login', 'signup']} page="Auth" handler={authView} activeLink={link} /> 
                 {view}
             </div>
         )
@@ -51,12 +48,9 @@ export default function Auth(props) {
 
     return (
         <div className='Auth'>
-            <ul className='AuthNav'>
-
-                <li className={`AuthNavItem navItem ${link === 'myAccount'}`} onClick={() => {authView('myAccount')}}>My Account</li>
-                <li className={`AuthNavItem navItem ${link === 'edit'}`} onClick={() => {authView('edit')}}>Edit Profile</li>
-                <li className='AuthNavItem navItem logout' onClick={logoutUser}>Logout</li>
-            </ul>
+            <PageNav links={['myAccount', 'editProfile']} page="Auth" handler={authView} activeLink={link} >
+                <li className='AuthNavItem pageNavItem logout' onClick={logoutUser}>Logout</li>
+            </PageNav>
             {view}
         </div>
     )
