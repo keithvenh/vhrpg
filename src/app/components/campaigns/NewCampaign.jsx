@@ -9,7 +9,8 @@ import FormErrors from '../forms/FormErrors';
 import FormInput from '../forms/FormInput';
 import FormButton from '../forms/FormButton';
 import FormRadio from '../forms/FormRadio';
-
+import FormCheckbox from '../forms/FormCheckbox';
+import FormTextarea from '../forms/FormTextarea';
 
 export default function NewCampaign(props) {
 
@@ -20,38 +21,48 @@ export default function NewCampaign(props) {
     const [errors, setErrors] = useState([]);
 
 // ===== Use form for controlled inputs ===== //
-    const [form,setForm] = useState({
+    const [form, setForm] = useState({
         creator: context.profile,
         title: '',
-        userGM: true,
-        addGM: false,
-        gameMaster: props.profile,
+        startDate: '',
         maxPlayers: 4,
-        players: [],
+        userGM: true,
         isOpen: true,
         isPrivate: false,
-        startDate: '',
-        endDate: '',
-        meetingDetails: '',
-        playerGeneratedPCs: true,
-        obligation: true,
+        obligation: false,
         duty: false,
         morality: false,
+        meetingDetails: '',
         characterCreationRules: '',
-        pcApprovalRequired: true,
         otherNotes: ''
     })
 
 // ===== Form Options ===== //
-    const userGMOptions = [
-        {id: 'userGMYes', value: true, label: "Yes"},
-        {id: 'userGMNo', value: false, label: "No"}
-    ]
+    const radioOptions = {
+        userGM: [
+            {id: 'userGMYes', value: true, label: "Yes"},
+            {id: 'userGMNo', value: false, label: "No"}
+        ],
+        isOpen: [
+            {id: 'open', value: true, label: "Open"},
+            {id: 'closed', value: false, label: "Closed"}
+        ],
+        isPrivate: [
+            {id: 'public', value: false, label: "Public"},
+            {id: 'private', value: true, label: "Private" }
+        ],
+        gameMechanics: [
+            {id: 'obligation', value: 'Obligation', label: 'Obligation'},
+            {id: 'duty', value: 'Duty', label: 'Duty'},
+            {id: 'morality', value: 'Morality', label: 'Morality'}
+        ]
+
+    }
 
 // ===== Manage User Input on Forms ===== //
     function handleInput(event) {
         // Setup list of checkboxes
-        const checkboxes = ['obligation', 'duty', 'morality'];
+        const checkboxes = ['Obligation', 'Duty', 'Morality'];
 
         // Setup Value for form submission
         let value;
@@ -67,44 +78,29 @@ export default function NewCampaign(props) {
             // If target is not a checkbox, set the field using name and value
             setForm({...form, [event.target.name]: value});
         }
-        // const value = e.target.value
-        // const field = e.target.getAttribute('statename');
-
-        // if(e.target.id === 'userGMYes') {
-        //     const updatedForm = { ...form, userGM: true, gameMaster: props.profile, players: []}
-        //     setForm(updatedForm);
-        // } else if(e.target.id === 'userGMNo') {
-        //     const updatedForm = { ...form, userGM: false, gameMaster: '', players: [props.profile]}
-        //     setForm(updatedForm);
-        // } else {
-        //     const updatedForm = { ...form, [field]: value }
-        //     setForm(updatedForm);
-        // }
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
 
         await addDoc(collection(db, 'campaigns'), {
-                creator: form.creator,
+                creator: context.profile,
                 title: form.title,
-                gameMaster: form.gameMaster,
+                startDate: form.startDate,
+                endDate: '',
                 maxPlayers: form.maxPlayers,
-                players: form.players,
+                gameMaster: form.userGM ? context.profile : '',
+                players: !form.userGM ? [context.profile] : [],
                 open: form.isOpen,
                 private: form.isPrivate,
-                startDate: form.startDate,
-                endDate: form.endDate,
-                meetingDetails: form.meetingDetails,
-                playerGeneratedPCs: form.playerGeneratedPCs,
                 obligation: form.obligation,
                 duty: form.duty,
                 morality: form.morality,
+                meetingDetails: form.meetingDetails,
                 characterCreationRules: form.characterCreationRules,
-                pcApprovalRequired: form.pcApprovalRequired,
                 otherNotes: form.otherNotes
             }).then(function(result) {
-                props.changeView(<Campaigns changeView={props.changeView} />);
+                props.campaignsView('show', result.id);
             }).catch((e) => {
                 alert("An Error Has Occured");
                 console.log(e)})
@@ -113,250 +109,88 @@ export default function NewCampaign(props) {
     return (
         <div className='NewCampaign'>
             <Form title='New Campaign' handler={handleSubmit} >
+
                 <FormErrors errors={errors} />
 
-                <FormInput name='title' type='text' label='Campaign Title' value={form.title} handler={handleInput} autoFocus={true} />
+                <FormInput 
+                    name='title' 
+                    type='text' 
+                    label='Campaign Title' 
+                    value={form.title} 
+                    handler={handleInput} 
+                    autoFocus={true} 
+                />
 
-                <FormRadio name='userGM' label='Will you be the GM?' options={userGMOptions} value={form.userGM} handler={handleInput} />
+                <FormInput 
+                    name='startDate' 
+                    type='date' 
+                    label='Start Date' 
+                    value={form.startDate} 
+                    handler={handleInput} 
+                />
 
-                <FormInput name='maxPlayers' type='number' label='Maximum Number of Players' value={form.maxPlayers} handler={handleInput} />
+                <FormInput 
+                    name='maxPlayers' 
+                    type='number' 
+                    label='Maximum Number of Players' 
+                    value={form.maxPlayers} 
+                    handler={handleInput} 
+                />
 
-                <div className='formFieldContainer open'>
+                <FormRadio 
+                    name='userGM' 
+                    label='Will you be the GM?' 
+                    options={radioOptions.userGM} 
+                    value={form.userGM} 
+                    handler={handleInput} 
+                />
 
-                    <div className='iconBox'><p><i className='fas fa-user-lock'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Open Campaign</p>
-                        <fieldset className='radioContainer'>
-                            <div className='radioSelect'>
-                                <input
-                                    name='isOpen'
-                                    id='open'
-                                    className="input radioInput isOpen"
-                                    type="radio"
-                                    value={true}
-                                    onChange={handleInput}
-                                    checked={form.isOpen}
-                                />
-                                <label className='label' htmlFor='open'>Open</label>
-                            </div>
-                            <div className='radioSelect'>
-                                <input
-                                    name='isOpen'
-                                    id='closed'
-                                    className="input radioInput isOpen"
-                                    type="radio"
-                                    value={false}
-                                    onChange={handleInput}
-                                    checked={!form.isOpen}
-                                />
-                                <label className='label' htmlFor='closed'>Closed</label>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
+                <FormRadio 
+                    name='isOpen' 
+                    label='Campaign Open to Join' 
+                    options={radioOptions.isOpen} 
+                    value={form.isOpen} 
+                    handler={handleInput} 
+                />
 
-                <div className='formFieldContainer private'>
+                <FormRadio 
+                    name='isPrivate' 
+                    label='Campaign Privacy' 
+                    options={radioOptions.isPrivate} 
+                    value={form.isPrivate} 
+                    handler={handleInput} 
+                />
 
-                    <div className='iconBox'><p><i className='fas fa-eye-slash'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Private Campaign</p>
-                            <fieldset className='radioContainer'>
-                                <div className='radioSelect'>
-                                    <input
-                                        name='isPrivate'
-                                        id='private'
-                                        className="input radioInput isPrivate"
-                                        type="radio"
-                                        value={true}
-                                        onChange={handleInput}
-                                        checked={form.isPrivate}
-                                    />
-                                    <label className='label' htmlFor='private'>Private</label>
-                                </div>
-                                <div className='radioSelect'>
-                                    <input
-                                        name='isPrivate'
-                                        id='public'
-                                        className="input radioInput isPrivate"
-                                        type="radio"
-                                        value={false}
-                                        onChange={handleInput}
-                                        checked={!form.isPrivate}
-                                    />
-                                    <label className='label' htmlFor='public'>Public</label>
-                                </div>
-                            </fieldset>
-                    </div>
+                <FormCheckbox 
+                    name='gameMechanics' 
+                    label='Game Mechanics' 
+                    options={radioOptions.gameMechanics} 
+                    handler={handleInput} 
+                />
 
-                </div>
+                <FormTextarea 
+                    name='meetingDetails' 
+                    label='Campaign Meeting Details' 
+                    value={form.meetingDetails} 
+                    handler={handleInput} 
+                    placeholder="Include details such as frequency, location, start time and end time" 
+                />
+                
+                <FormTextarea 
+                    name='characterCreationRules' 
+                    label='Character Creation Ruls' 
+                    value={form.characterCreationRules} 
+                    handler={handleInput}
+                    placeholder="Include things like Knight-Level player for example."
+                />
 
-                <FormInput name='startDate' type='date' label='Start Date' value={form.startDate} handler={handleInput} />
-
-                <div className='formFieldContainer meetingDetails'>
-
-                    <div className='iconBox'><p><i className='fas fa-info'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Campaign Meeting Details</p>
-                        <textarea
-                            id='meetingDetails'
-                            name='meetingDetails'
-                            className="input textfieldInput meetingDetails"
-                            type="textField"
-                            value={form.meetingDetails}
-                            onChange={handleInput}
-                            placeholder="Include details such as frequency, location, start time and end time"
-                        />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer pcCreation'>
-
-                    <div className='iconBox'><p><i className='fas fa-lightbulb'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Players Create their own PCs?</p>
-                            <fieldset className='radioContainer'>
-                                <div className='radioSelect'>
-                                    <input
-                                        name='playerGeneratedPCs'
-                                        id='pcCreationYes'
-                                        className="input radioInput playerGeneradedPCs"
-                                        type="radio"
-                                        value={true}
-                                        onChange={handleInput}
-                                        checked={form.playerGeneratedPCs}
-                                    />
-                                    <label className='label' htmlFor='pcCreationYes'>Yes</label>
-                                </div>
-                                <div className='radioSelect'>
-                                    <input
-                                        name='playerGeneratedPCs'
-                                        id='pcCreationNo'
-                                        className="input radioInput playerGeneradedPCs"
-                                        type="radio"
-                                        value={false}
-                                        onChange={handleInput}
-                                        checked={!form.playerGeneratedPCs}
-                                    />
-                                    <label className='label' htmlFor='pcCreationNo'>No</label>
-                                </div>
-                            </fieldset>
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer gmApproval'>
-
-                    <div className='iconBox'><p><i className='fas fa-check'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>PCs require GM Approval?</p>
-                        <fieldset className='radioContainer'>
-                            <div className='radioSelect'>
-                                <input
-                                    name='pcApprovalRequired'
-                                    id='gmApprovalYes'
-                                    className="input radioInput gmApprovalGroup"
-                                    type="radio"
-                                    value={true}
-                                    onChange={handleInput}
-                                    checked={form.pcApprovalRequired}
-                                />
-                                <label className='label' htmlFor='gmApprovalYes'>Yes</label>
-                            </div>
-                            <div className='radioSelect'>
-                                <input
-                                    name='pcApprovalRequired'
-                                    id='gmApprovalNo'
-                                    className="input radioInput gmApprovalGroup"
-                                    type="radio"
-                                    value={false}
-                                    onChange={handleInput}
-                                    checked={!form.pcApprovalRequired}
-                                />
-                                <label className='label' htmlFor='gmApprovalNo'>No</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer obligations'>
-                    <div className='iconBox'><p><i className='fas fa-wrench'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Game Mechanics</p>
-                            <fieldset className='checkboxContainer'>
-                                <div className='checkboxSelect'>
-                                    <input
-                                        name='gameMechanics'
-                                        id='obligation'
-                                        className="input checkboxInput gameMechanics"
-                                        type="checkbox"
-                                        value={'obligation'}
-                                        onChange={handleInput}
-                                        checked={form.obligation}
-                                    />
-                                    <label className='label' htmlFor='obligation'>Obligation</label>
-                                </div>
-                                <div className='checkboxSelect'>
-                                    <input
-                                        name='gameMechanics'
-                                        id='duty'
-                                        className="input checkboxInput gameMechanics"
-                                        type="checkbox"
-                                        value={"duty"}
-                                        onChange={handleInput}
-                                        checked={form.duty}
-                                    />
-                                    <label className='label' htmlFor='duty'>Duty</label>
-                                </div>
-                                <div className='checkboxSelect'>
-                                    <input
-                                        name='gameMechanics'
-                                        id='morality'
-                                        className="input checkboxInput gameMechanics"
-                                        type="checkbox"
-                                        value={"morality"}
-                                        onChange={handleInput}
-                                        checked={form.morality}
-                                    />
-                                    <label className='label' htmlFor='morality'>Morality</label>
-                                </div>
-                            </fieldset>
-                    </div>
-
-                </div>
-
-
-                <div className='formFieldContainer characterCreationRules'>
-                    <div className='iconBox'><p><i className='fas fa-clipboard-list'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Other Character Creation Rules</p>
-                        <textarea
-                            id='characterCreationRules'
-                            className="input textfieldInput characterCreationRules"
-                            type="textField"
-                            value={form.characterCreationRules}
-                            onChange={handleInput}
-                            placeholder="Include things like Knight-Level player for example."
-                        />
-                    </div>
-                </div>
-
-                <div className='formFieldContainer otherNotes'>
-                    <div className='iconBox'><p><i className='fas fa-info-circle'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Other Relevant Information</p>
-                        <textarea
-                            id='otherNotes'
-                            className="input textfieldInput otherNotes"
-                            type="textField"
-                            value={form.otherNotes}
-                            onChange={handleInput}
-                            placeholder="Include things like language or age restrictions for example."
-                        />
-                    </div>
-
-                </div>
+                <FormTextarea
+                    name='otherNotes'
+                    label="Other Notes"
+                    value={form.otherNotes}
+                    handler={handleInput}
+                    placeholder="Include things like language or age restrictions for example."
+                />
 
                 <FormButton value='Create Campaign' />
 

@@ -1,24 +1,23 @@
 
-export default function FormRadio(props) {
+export default function FormCheckbox(props) {
 
     return(
         <div className={`formFieldContainer ${props.name}Container`}>
-            <div className='formField radioFormField'>
+            <div className='formField checkboxFormField'>
                 {props.options.map((option) =>
-                    (<div key={option.id} className={`radioContainer ${props.name}RadioContainer}`}>
+                    (<div key={option.id} className={`checkboxContainer ${props.name}CheckboxContainer}`}>
                         <input
                             name={props.name}
                             id={option.id}
-                            className={`input radioInput ${props.name}RadioInput`}
-                            type='radio'
+                            className={`input checkboxInput ${props.name}CheckboxInput`}
+                            type='checkbox'
                             value={option.value}
                             onChange={props.handler}
-                            checked={props.value === option.value}
                         />
                         <label 
-                            className={`radioLabel ${props.name}RadioLabel`}
+                            className={`checkboxLabel ${props.name}CheckboxLabel`}
                             htmlFor={option.id}
-                        ><i className='radioSelector fa-brands fa-galactic-republic'></i> {option.label}</label>
+                        ><i className='checkboxSelector fa-brands fa-galactic-republic'></i> {option.label}</label>
                     </div>
                 ))}
                 <p className='label'>{props.label}</p>

@@ -93,10 +93,6 @@ export default function CampaignFilter(props) {
                 <p className='myFilter'>My Campaigns</p>
             </div>
 
-            <div className='newCampaign' onClick={()  => campaignView('new')}>
-                <i className='fas fa-plus' /> New
-            </div>
-
             {view}
 
         </div>

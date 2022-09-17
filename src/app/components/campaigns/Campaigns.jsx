@@ -6,19 +6,26 @@ import NewCampaign from "./NewCampaign";
 import EditCampaign from './EditCampaign';
 import MyCampaigns from "./MyCampaigns";
 import CampaignFilter from "./CampaignFilter";
+import Campaign from './Campaign';
 
 export default function Campaigns(props) {
 
     const [view, setView] = useState();
     const [link, setLink] = useState();
 
-    function campaignsView(link) {
-        setView(views[link]);
-        setLink(link);
+    function campaignsView(link, options = null) {
+
+        if(link === 'show') {
+            setView(<Campaign id={options} />);
+            setLink('show');
+        } else {
+            setView(views[link]);
+            setLink(link);
+        }
     }
 
     const views = {
-        new: <NewCampaign />,
+        new: <NewCampaign campaignsView={campaignsView} />,
         edit: <EditCampaign />,
         myCampaigns: <MyCampaigns />,
         filter: <CampaignFilter />

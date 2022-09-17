@@ -33,13 +33,12 @@
     flex: 1 1 0;
     padding: 12px;
     .input {
-        flex: 1 1 0;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid $white;
         color: $white;
         font-size: 16px;
         letter-spacing: 2px;
         padding-left: 6px;
-        width: auto;
+        text-align: center;
         &:focus + p {
             font-family: $primary;
         }
@@ -56,8 +55,53 @@
     }
 }
 
+.radioFormField, .checkboxFormField {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .label {
+        width: 100%;
+        font-family: $primary;
+    }
+    .radioContainer, .checkboxContainer {
+        width: auto;
+        border: 1px solid $white;
+        text-transform: uppercase;
+        padding: 6px;   
+        margin: 3px;
+        text-align: left;
+        .radioInput, .checkboxInput {
+            display: none;
+            &:checked + label {
+                color: $white;
+                .radioSelector, .checkboxSelector {
+                    display: inline;
+                }
+            }
+        }
+        .radioLabel, .checkboxLabel {
+            color: $whiteTransparent;
+            width: auto;
+            padding: 0 12px;
+            &:hover {
+                cursor: pointer;
+            }
+            .radioSelector, .checkboxSelector {
+                display: none;
+            }
+        }
+    }
+}
+
+.textareaInput {
+    height: 80px;
+    resize: none;
+    border: 2px solid $white;
+}
+
+
 .formButton {
-    border: 2px solid white;
+    border: 2px solid $white;
     font-family: $aurebesh;
     color: $white;
     line-height: 24px;
