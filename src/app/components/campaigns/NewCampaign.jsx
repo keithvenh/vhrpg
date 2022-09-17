@@ -6,6 +6,9 @@ import { db } from '../../../db/application/db';
 import Campaigns from './Campaigns'
 import Form from '../forms/Form';
 import FormErrors from '../forms/FormErrors';
+import FormInput from '../forms/FormInput';
+import FormButton from '../forms/FormButton';
+import FormRadio from '../forms/FormRadio';
 
 
 export default function NewCampaign(props) {
@@ -38,6 +41,12 @@ export default function NewCampaign(props) {
         pcApprovalRequired: true,
         otherNotes: ''
     })
+
+// ===== Form Options ===== //
+    const userGMOptions = [
+        {id: 'userGMYes', value: true, label: "Yes"},
+        {id: 'userGMNo', value: false, label: "No"}
+    ]
 
 // ===== Manage User Input on Forms ===== //
     function handleInput(event) {
@@ -105,75 +114,12 @@ export default function NewCampaign(props) {
         <div className='NewCampaign'>
             <Form title='New Campaign' handler={handleSubmit} >
                 <FormErrors errors={errors} />
-                <div className='formFieldContainer title'>
 
-                    <div className='iconBox'><p><i className='fas fa-t'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Campaign Title</p>
-                        <input 
-                            id='title'
-                            name='title'
-                            className="title"
-                            type="text"
-                            value={form.title}
-                            onChange={handleInput}
-                            autoFocus
-                        />
-                    </div>
+                <FormInput name='title' type='text' label='Campaign Title' value={form.title} handler={handleInput} autoFocus={true} />
 
-                </div>
+                <FormRadio name='userGM' label='Will you be the GM?' options={userGMOptions} value={form.userGM} handler={handleInput} />
 
-                <div className='formFieldContainer userGM'>
-
-                    <div className='iconBox'><p><i className='fas fa-crown'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Will you be the GM?</p>
-                        <fieldset className='radioContainer'>
-                            <div className='radioSelect'>
-                                <input 
-                                    name='userGM'
-                                    id='userGMYes'
-                                    className="radioInput userGM"
-                                    type="radio"
-                                    value={true}
-                                    onChange={handleInput}
-                                    checked={form.userGM}
-                                />
-                                <label className='label' htmlFor='userGMYes'>Yes</label>
-                            </div>
-                            <div className='radioSelect'>
-                                <input 
-                                    name='userGM'
-                                    id='userGMNo'
-                                    className="radioInput userGM"
-                                    type="radio"
-                                    value={false}
-                                    onChange={handleInput}
-                                    checked={!form.userGM}
-                                />
-                                <label className='label' htmlFor='userGMNo'>No</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer maxPlayers'>
-                    
-                    <div className='iconBox'><p><i className='fas fa-plus-minus'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Maximum Number of Players</p>
-                        <input 
-                            id='maxPlayers'
-                            name='maxPlayers'
-                            className="input numberInput maxPlayers"
-                            type="number"
-                            value={form.maxPlayers}
-                            onChange={handleInput}
-                        />
-                    </div>
-
-                </div>
+                <FormInput name='maxPlayers' type='number' label='Maximum Number of Players' value={form.maxPlayers} handler={handleInput} />
 
                 <div className='formFieldContainer open'>
 
@@ -244,39 +190,7 @@ export default function NewCampaign(props) {
 
                 </div>
 
-                <div className='formFieldContainer startDate'>
-
-                    <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Start Date</p>
-                        <input
-                            id='startDate'
-                            name='startDate'
-                            className="input dateInput startDate"
-                            type="date"
-                            value={form.startDate}
-                            onChange={handleInput}
-                        />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer endDate'>
-
-                    <div className='iconBox'><p><i className='fas fa-calendar-days'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>End Date</p>
-                        <input
-                            id='endDate'
-                            name='endDate'
-                            className="input dateInput endDate"
-                            type="date"
-                            value={form.endDate}
-                            onChange={handleInput}
-                        />
-                    </div>
-
-                </div>
+                <FormInput name='startDate' type='date' label='Start Date' value={form.startDate} handler={handleInput} />
 
                 <div className='formFieldContainer meetingDetails'>
 
@@ -444,9 +358,8 @@ export default function NewCampaign(props) {
 
                 </div>
 
-                <div className='formFieldContainer button'>
-                    <button type='submit' id='submit' className='button submit' onClick={handleSubmit}>Submit</button>
-                </div>
+                <FormButton value='Create Campaign' />
+
             </Form>
 
         </div>

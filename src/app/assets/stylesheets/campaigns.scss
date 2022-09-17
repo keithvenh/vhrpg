@@ -58,43 +58,6 @@
     }
 }
 
-.formField {
-    .radioContainer, .checkboxContainer {
-        display: flex;
-        justify-content: space-evenly;
-        .radioSelect, .checkboxSelect {
-            .radioInput, .checkboxInput {
-                display: none;
-                &:checked+label {
-                    background-color: $yellowFaded;
-                    border-color: $yellow;
-                    color: $white;
-                }
-            }
-            .radioInput+label, .checkboxInput+label {
-                background-color: $yellowTransparent;
-                border: 1px solid $yellowFaded;
-                color: $whiteFaded;
-                padding: 3px 12px;
-                margin-top: 3px;
-                display: inline-block;
-                width: 115px;
-                border-radius: 3px;
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-            .checkboxInput+label {
-                width: 275px;
-            }
-        }
-    }
-    .checkboxContainer {
-        flex-direction: column;
-        padding-left: 3px;
-    }
-}
-
 .grid-container {
     display: grid;
     margin-top: 50px;
