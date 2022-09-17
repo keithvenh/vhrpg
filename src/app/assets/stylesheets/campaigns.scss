@@ -11,6 +11,101 @@
     max-height: 100%;
 }
 
+// ===== CAMPAIGN SHOW PAGE ===== //
+
+.Campaign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campaignHeader {
+    .title {
+        font-size: 1.3em;
+        letter-spacing: 2px;
+    }
+    .subtitle {
+        font-size: 0.8em;
+        letter-spacing: 1px;
+        font-family: $aurebesh;
+    }
+}
+
+.campaignDivider {
+    width: 90%;
+    margin: 12px 0;
+}
+
+.campaignStatus {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    .campaignOpen, .campaignPrivacy {
+        margin: 0 12px;
+        font-size: 0.8em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        .indicator {
+            color: $green;
+        }
+        &.false {
+            .indicator {
+                color: $red;
+            }
+        }
+    }
+}
+
+.campaignPlayerCount, .campaignStartDate, .campaignEndDate {
+    padding: 6px;
+}
+
+.campaignDetails {
+    display: flex;
+    margin-top: 12px;
+    .sectionHeader {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+        font-weight: bold;
+        text-align: center;
+    }
+    section {
+        box-sizing: border-box;
+        padding: 0 12px;
+        text-align: left;
+        border-right: 1px solid $white;
+        &:last-child {
+            border: none;
+        }
+    }
+    .campaignLinks {
+        width: 25%;
+    }
+    .campaignOverview {
+        width: 35%;
+    }
+    .campaignInformationContainer {
+        width: 40%;
+    }
+    .overviewDetailHeading, .overviewInformationHeading {
+        text-transform: uppercase;
+        font-weight: light;
+        letter-spacing: 1px;
+        margin: 12px 0 6px 0;
+    }
+    .overviewDetail, .informationDetail {
+        padding-left: 32px;
+        font-weight: light;
+    }
+    .informationDetail {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+// ===== CAMPAIGN FILTER PAGE ===== //
+
 .campaignsFilter {
     display: flex;
     padding: 0 20px;

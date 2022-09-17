@@ -1,4 +1,3 @@
-
 import React, { useContext }from 'react';
 import { useState, useEffect } from 'react';
 import {collection, getDocs } from 'firebase/firestore';
@@ -30,7 +29,7 @@ export default function CampaignFilter(props) {
                 <div className='heading'>Private?</div>
                 <div className='heading'>Start Date</div>
                 <div className='heading'></div>
-                {/*campaignListing(campaigns)*/}
+                {campaignListing(campaigns)}
             </div>
         )
     }
@@ -54,35 +53,31 @@ export default function CampaignFilter(props) {
         fetchCampaigns();
     },[])
 
-    if(initializing) {
-        return (<Loading />)
-    }
-
+    
     function campaignListing(c) {
-
+        
         return c.map(obj => {
-
+            
             //const { gameMaster,open,startDate,title } = obj;
             //NOTE: that the 'Fragment' is returning the entire object in the order
             //that it is in the database. In order to return only specific elements
             //of the object or elements in a certain order, use the 'const{}=obj' syntax above.
-
+            
             return (
                 <div key={obj.id} className='grid-row' onClick={() => campaignDetail(obj)}>
-                    <div className='grid-master'>{obj.gameMaster.username}</div>
                     <div className='grid-master'>{obj.title}</div>
-                    <div className='grid-item2'>{obj.open.toString()}</div>
-                    <div className='grid-item2'>{obj.private.toString()}</div>
-                    <div className='grid-item2'>{obj.startDate}</div>
-                    <div className='grid-item2'></div>
                 </div>
             );
         });
     }
-
+    
     function campaignDetail(campaign) {
         console.log(campaign.title);
-
+        
+    }
+    
+    if(initializing) {
+        return (<Loading />)
     }
 
     return (
