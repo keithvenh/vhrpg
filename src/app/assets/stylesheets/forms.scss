@@ -1,5 +1,11 @@
 @import 'variables';
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .formTitleContainer {
     text-transform: uppercase;
     margin: 0;
@@ -11,5 +17,57 @@
     .formSubtitle {
         font-size: 0.8em;
         font-family: $aurebesh;
+    }
+}
+
+.formFieldContainer {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    flex: 1;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    padding: 12px;
+    .input {
+        flex: 1 1 0;
+        border-bottom: 2px solid white;
+        color: $white;
+        font-size: 16px;
+        letter-spacing: 2px;
+        padding-left: 6px;
+        width: auto;
+        &:focus + p {
+            font-family: $primary;
+        }
+    }
+    .label {
+        text-transform: uppercase;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        padding-left: 6px;
+        font-family: $aurebesh;
+        &:hover {
+            font-family: $primary;
+        }
+    }
+}
+
+.formButton {
+    border: 2px solid white;
+    font-family: $aurebesh;
+    color: $white;
+    line-height: 24px;
+    font-size: 16px;
+    padding: 3px;
+    text-transform: uppercase;
+    &:hover {
+        font-family: $primary;
+        cursor: pointer;
+        background-color: $white;
+        color: $black;
     }
 }

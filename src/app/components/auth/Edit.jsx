@@ -8,6 +8,8 @@ import { validateEmail, validatePassword, checkEmptyFields } from '../../helpers
 import Form from '../forms/Form';
 import FormErrors from '../forms/FormErrors';
 import FormInput from '../forms/FormInput';
+import FormSelect from '../forms/FormSelect';
+import FormButton from '../forms/FormButton';
 
 export default function Edit(props) {
 
@@ -29,6 +31,20 @@ export default function Edit(props) {
         newPassword: '',
         confirmNewPassword: '',
     });
+
+// ===== Options for Select Input ===== //
+    const roleOptions = [
+        {value: 'Youngling', display: "Youngling"},
+        {value: 'Padawan', display: "Padawan"},
+        {value: 'Jedi Knight', display: "Jedi Knight"},
+        {value: 'Jedi Master', display: "Jedi Master"},
+        {value: 'Jedi Grand Master', display: "Jedi Grand Master"},
+        {value: 'Protocol Droid', display: "Protocol Droid"},
+        {value: 'Astromech Droid', display: "Astromech Droid"},
+        {value: 'Security Droid', display: "Security Droid"},
+        {value: 'Sith Apprentice', display: "Sith Apprentice"},
+        {value: 'Sith Master', display: "Sith Master"},
+    ]
 
 // ===== Manage User Input on Forms ===== //
     const handleInput = (event) => {
@@ -163,72 +179,27 @@ export default function Edit(props) {
             <Form title='Edit Profile' handler={handleSubmit} >
                 <FormErrors errors={errors} />
 
-                <FormInput name='name' label='Full Name' type='name' value={form.name} handler={handleInput} />
+                <FormInput name='name' label='Full Name' type='name' value={form.name} handler={handleInput} autoFocus={true}/>
 
                 <FormInput name='email' label='Email' type='email' value={form.email} handler={handleInput} />
                 
                 <FormInput name='username' label='Username' type='username' value={form.username} handler={handleInput} />
 
-
-                <div className='formFieldContainer role'>
-
-                    <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Role</p>
-                        <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
-                            <option value="Youngling">Youngling</option>
-                            <option value="Padawan">Padawan</option>
-                            <option value="Jedi Knight">Jedi Knight</option>
-                            <option value="Jedi Master">Jedi Master</option>
-                            <option value="Jedi Grand Master">Jedi Grand Master</option>
-                            <option value="Droid">Droid</option>
-                            <option value="Sith Apprentice">Sith Apprentice</option>
-                            <option value="Sith Master">Sith Master</option>
-                        </select>
-                    </div>
-
-                </div>
+                <FormSelect name='role' label='Role' value={form.role} options={roleOptions} handler={handleInput} />
 
                 <FormInput name='birthdate' label='Birthdate' type='date' value={form.birthdate} handler={handleInput} />
 
-                    <div className='formFieldContainer password'>
+                <FormInput name='currentPassword' label='Current Password' type='password' value={form.currentPassword} handler={handleInput} />
 
-                        <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Current Password</p>
-                            <input name='currentPassword' id='currentPassword' className="password" type="password" value={form.currentPassword} onChange={handleInput} />
-                        </div>
+                <FormInput name='newPassword' label='New Password' type='password' value={form.newPassword} handler={handleInput} />
 
-                    </div>
+                <FormInput name='confirmNewPassword' label='Confirm New Password' type='password' value={form.confirmNewPassword} handler={handleInput} />
 
-                    <div className='formFieldContainer password'>
-
-                        <div className='iconBox'><p><i className='fas fa-key'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>New Password</p>
-                            <input name='newPassword' id='newPassword' className="password" type="password" value={form.newPassword} onChange={handleInput} />
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer password'>
-
-                        <div className='iconBox'><p><i className='fas fa-unlock-keyhole'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Confirm New Password</p>
-                            <input name='confirmNewPassword' id='confirmNewPassword' className="password" type="password" value={form.confirmNewPassword} onChange={handleInput} />
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer button'>
-                        <input type='submit' id='submit' className='button submit' value='Save'/>
-                    </div> 
+                <FormButton label='Save' />
             </Form>
 
-            <div  className='profileButtons'>
-                <p className='deleteUserLink' onClick={() => props.authView('delete')}><i className='fas fa-user-xmark'></i> Delete Account</p>
-            </div>
+            <p className='deleteUserLink' onClick={() => props.authView('delete')}><i className='fas fa-user-xmark'></i> Delete Account</p>
+
         </div>
     )
 
