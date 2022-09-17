@@ -1,9 +1,7 @@
 import React, { useState, useContext } from 'react';
 import {UserContext} from '../../contexts/userContext';
-import { Component } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
-import Campaigns from './Campaigns'
 import Form from '../forms/Form';
 import FormErrors from '../forms/FormErrors';
 import FormInput from '../forms/FormInput';
@@ -22,11 +20,10 @@ export default function NewCampaign(props) {
 
 // ===== Use form for controlled inputs ===== //
     const [form, setForm] = useState({
-        creator: context.profile,
         title: '',
         startDate: '',
         maxPlayers: 4,
-        userGM: true,
+        gameMaster: true,
         isOpen: true,
         isPrivate: false,
         obligation: false,
@@ -61,22 +58,12 @@ export default function NewCampaign(props) {
 
 // ===== Manage User Input on Forms ===== //
     function handleInput(event) {
-        // Setup list of checkboxes
-        const checkboxes = ['Obligation', 'Duty', 'Morality'];
-
-        // Setup Value for form submission
-        let value;
-
-        // If value is true or false, return boolean instead of string
-        event.target.value === 'true' ? value = true : event.target.value === 'false' ? value = false : value = event.target.value;
-
-        // If target is a checkbox
-        if(checkboxes.includes(event.target.value)) {
-            // If target is a checkbox use value for field name and flip the boolean for the value
-            value = setForm({...form, [event.target.value]: !form[event.target.value]})
+        if(event.target.type === 'checkbox') {
+            setForm({...form, [event.target.id]: event.target.checked});
+        } else if(event.target.type === 'radio') {
+            setForm({...form, [event.target.name]: event.target.value === 'true'})
         } else {
-            // If target is not a checkbox, set the field using name and value
-            setForm({...form, [event.target.name]: value});
+            setForm({...form, [event.target.name]: event.target.value})
         }
     }
 
@@ -84,21 +71,11 @@ export default function NewCampaign(props) {
         event.preventDefault();
 
         await addDoc(collection(db, 'campaigns'), {
-                creator: context.profile,
-                title: form.title,
-                startDate: form.startDate,
+                ...form,
+                creator: context.profile.public,
                 endDate: '',
-                maxPlayers: form.maxPlayers,
-                gameMaster: form.userGM ? context.profile : '',
-                players: !form.userGM ? [context.profile] : [],
-                open: form.isOpen,
-                private: form.isPrivate,
-                obligation: form.obligation,
-                duty: form.duty,
-                morality: form.morality,
-                meetingDetails: form.meetingDetails,
-                characterCreationRules: form.characterCreationRules,
-                otherNotes: form.otherNotes
+                gameMaster: form.gameMaster ? context.profile.public : '',
+                players: !form.gameMaster ? [context.profile.public] : []
             }).then(function(result) {
                 props.campaignsView('show', result.id);
             }).catch((e) => {
@@ -138,10 +115,10 @@ export default function NewCampaign(props) {
                 />
 
                 <FormRadio 
-                    name='userGM' 
+                    name='gameMaster' 
                     label='Will you be the GM?' 
                     options={radioOptions.userGM} 
-                    value={form.userGM} 
+                    value={form.gameMaster} 
                     handler={handleInput} 
                 />
 

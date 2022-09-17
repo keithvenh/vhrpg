@@ -22,11 +22,11 @@ export default function Edit(props) {
 
 // ==== user form for controlled inputs ===== //
     const [form, setForm] = useState({
-        name: context.profile.name,
+        name: context.profile.private.name,
         email: context.user.email,
-        username: context.profile.username,
-        birthdate: context.profile.birthdate,
-        role: context.profile.role,
+        username: context.profile.public.username,
+        birthdate: context.profile.private.birthdate,
+        role: context.profile.public.role,
         currentPassword: '',
         newPassword: '',
         confirmNewPassword: '',
@@ -44,6 +44,9 @@ export default function Edit(props) {
         {value: 'Security Droid', display: "Security Droid"},
         {value: 'Sith Apprentice', display: "Sith Apprentice"},
         {value: 'Sith Master', display: "Sith Master"},
+        {value: 'Inquisitor', display: 'Inquisitor'},
+        {value: 'Grand Inquisitor', display: 'Grand Inquisitor'},
+        {value: 'Bounty Hunter', display: 'Bounty Hunter'}
     ]
 
 // ===== Manage User Input on Forms ===== //
@@ -112,10 +115,16 @@ export default function Edit(props) {
             // Update the iteams that don't need authentication
             // Create the profile
             const profile = {
-                name: form.name,
-                username: form.username,
-                birthdate: form.birthdate,
-                role: form.role
+                public: {
+                    ...context.profile.public,
+                    username: form.username,
+                    role: form.role
+                },
+                private: {
+                    ...context.profile.private,
+                    name: form.name,
+                    birthdate: form.birthdate
+                }
             }
 
             // Update the document in the database

@@ -32,8 +32,8 @@ function MyAccount() {
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-address-card'></i></p></div>
                 <div className='value'>
-                    <p className='name'>{context.profile.name}</p>
-                    <p className='name sw'>{context.profile.name}</p>
+                    <p className='name'>{context.profile.private.name}</p>
+                    <p className='name sw'>{context.profile.private.name}</p>
                 </div>
             </div>
             <div className='profileDetail'>
@@ -46,24 +46,24 @@ function MyAccount() {
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-at'></i></p></div>
                 <div className='value'>
-                    <p className='username'>{context.profile.username}</p>
-                    <p className='username sw'>{context.profile.username}</p>
+                    <p className='username'>{context.profile.public.username}</p>
+                    <p className='username sw'>{context.profile.public.username}</p>
                 </div>
             </div>
             
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fas fa-fingerprint'></i></p></div>
                 <div className='value'>
-                    <p className='age'>{getAge(context.profile.birthdate)} Rotations</p>
-                    <p className='age sw'>{getAge(context.profile.birthdate)} Rotations</p>
+                    <p className='age'>{getAge(context.profile.private.birthdate)} Rotations</p>
+                    <p className='age sw'>{getAge(context.profile.private.birthdate)} Rotations</p>
                 </div>
             </div>
 
             <div className='profileDetail'>
                 <div className='icon'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
                 <div className='value'>
-                    <p className='name'>{context.profile.role}</p>
-                    <p className='name sw'>{context.profile.role}</p>
+                    <p className='name'>{context.profile.public.role}</p>
+                    <p className='name sw'>{context.profile.public.role}</p>
                 </div>
             </div>
 

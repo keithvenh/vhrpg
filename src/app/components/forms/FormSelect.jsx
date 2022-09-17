@@ -12,7 +12,7 @@ export default function FormSelect(props) {
                     onChange={props.handler}
                 >
                     {props.options.map((option) => (
-                        <option value={option.value}>
+                        <option key={option.value} value={option.value}>
                             {option.display}
                         </option>
                     ))}

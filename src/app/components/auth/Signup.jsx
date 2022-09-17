@@ -92,11 +92,18 @@ export default function Signup(props) {
 
                     // Create the profile
                     const profile = {
-                        name: form.name,
-                        username: form.username,
-                        birthdate: form.birthdate,
-                        role: form.role,
-                        uid: result.uid
+                        public: {
+                            username: form.username,
+                            role: form.role,
+                            uid: result.uid,
+                        },
+                        private: {
+                            birthdate: form.birthdate,
+                            name: form.name,
+                        },
+                        settings: {
+                            customTheme: false
+                        }
                     }
 
                     // Create the Document in the Database
