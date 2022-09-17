@@ -1,0 +1,15 @@
+@import 'variables';
+
+.formTitleContainer {
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 2px;
+    text-align: center;
+    .formTitle {
+        font-size: 1.3em;
+    }
+    .formSubtitle {
+        font-size: 0.8em;
+        font-family: $aurebesh;
+    }
+}

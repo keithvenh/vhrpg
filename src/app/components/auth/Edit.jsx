@@ -5,6 +5,9 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import Delete from './Delete';
 import { validateEmail, validatePassword, checkEmptyFields } from '../../helpers/auth/formValidation';
+import Form from '../forms/Form';
+import FormErrors from '../forms/FormErrors';
+import FormInput from '../forms/FormInput';
 
 export default function Edit(props) {
 
@@ -157,74 +160,36 @@ export default function Edit(props) {
     return (
         <div className='Edit'>
 
-            <form className='editForm' onSubmit={handleSubmit}>
-                <div className='formFieldContainer errors'>
-                    
+            <Form title='Edit Profile' handler={handleSubmit} >
+                <FormErrors errors={errors} />
+
+                <FormInput name='name' label='Full Name' type='name' value={form.name} handler={handleInput} />
+
+                <FormInput name='email' label='Email' type='email' value={form.email} handler={handleInput} />
+                
+                <FormInput name='username' label='Username' type='username' value={form.username} handler={handleInput} />
+
+
+                <div className='formFieldContainer role'>
+
+                    <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
                     <div className='formField'>
-                        <div className='errors'>
-                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
-                        </div>
+                        <p className='label'>Role</p>
+                        <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
+                            <option value="Youngling">Youngling</option>
+                            <option value="Padawan">Padawan</option>
+                            <option value="Jedi Knight">Jedi Knight</option>
+                            <option value="Jedi Master">Jedi Master</option>
+                            <option value="Jedi Grand Master">Jedi Grand Master</option>
+                            <option value="Droid">Droid</option>
+                            <option value="Sith Apprentice">Sith Apprentice</option>
+                            <option value="Sith Master">Sith Master</option>
+                        </select>
                     </div>
+
                 </div>
 
-                <div className='formFieldContainer name'>
-
-                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Full Name</p>
-                        <input name='name' id='name' className="name" type="name" value={form.name} onChange={handleInput} autoFocus/>
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer email'>
-
-                        <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Email</p>
-                            <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer username'>
-
-                        <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Username</p>
-                            <input name='username' id='username' className="username" type="username" value={form.username} onChange={handleInput} />
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer role'>
-
-                        <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Role</p>
-                            <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
-                                <option value="Youngling">Youngling</option>
-                                <option value="Padawan">Padawan</option>
-                                <option value="Jedi Knight">Jedi Knight</option>
-                                <option value="Jedi Master">Jedi Master</option>
-                                <option value="Jedi Grand Master">Jedi Grand Master</option>
-                                <option value="Droid">Droid</option>
-                                <option value="Sith Apprentice">Sith Apprentice</option>
-                                <option value="Sith Master">Sith Master</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div className='formFieldContainer birthdate'>
-
-                        <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
-                        <div className='formField'>
-                            <p className='label'>Birthdate</p>
-                            <input name='birthdate' id='birthdate' className="birthdate" type="date" value={form.birthdate} onChange={handleInput} />
-                        </div>
-
-                    </div>
+                <FormInput name='birthdate' label='Birthdate' type='date' value={form.birthdate} handler={handleInput} />
 
                     <div className='formFieldContainer password'>
 
@@ -259,7 +224,7 @@ export default function Edit(props) {
                     <div className='formFieldContainer button'>
                         <input type='submit' id='submit' className='button submit' value='Save'/>
                     </div> 
-            </form>
+            </Form>
 
             <div  className='profileButtons'>
                 <p className='deleteUserLink' onClick={() => props.authView('delete')}><i className='fas fa-user-xmark'></i> Delete Account</p>

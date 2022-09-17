@@ -4,6 +4,8 @@ import { Component } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Campaigns from './Campaigns'
+import Form from '../forms/Form';
+import FormErrors from '../forms/FormErrors';
 
 
 export default function NewCampaign(props) {
@@ -101,20 +103,8 @@ export default function NewCampaign(props) {
     
     return (
         <div className='NewCampaign'>
-            <div className='formTitle'>
-                <p className='title'>New Campaign</p>
-                <p className='subtitle sw'>New Campaign</p>
-            </div>
-            <form className='signupForm' onSubmit={handleSubmit}>
-                <div className='formFieldContainer errors'>
-                    
-                    <div className='formField'>
-                        <div className='errors'>
-                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
-                        </div>
-                    </div>
-                </div>
-
+            <Form title='New Campaign' handler={handleSubmit} >
+                <FormErrors errors={errors} />
                 <div className='formFieldContainer title'>
 
                     <div className='iconBox'><p><i className='fas fa-t'></i></p></div>
@@ -457,8 +447,8 @@ export default function NewCampaign(props) {
                 <div className='formFieldContainer button'>
                     <button type='submit' id='submit' className='button submit' onClick={handleSubmit}>Submit</button>
                 </div>
+            </Form>
 
-            </form>
         </div>
     )
 }
