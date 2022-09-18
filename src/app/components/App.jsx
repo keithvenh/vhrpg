@@ -12,7 +12,7 @@ import Characters from './characters/Characters';
 import Character from './characters/Character';
 import NewCharacter from './characters/NewCharacter';
 import Navigation from './navigation/Navigation';
-import User from './user/User';
+import Users from './users/Users';
 import DeleteUser from './auth/Delete';
 import EditUser from './auth/Edit';
 import Campaigns from './campaigns/Campaigns';
@@ -47,9 +47,17 @@ export default function App() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  function appView(link) {
+  function appView(link, options = null) {
 
-    setView(views[link]);
+    if(link === 'users') {
+        if(options && options.user.uid !== options.requestor.uid) {
+          setView(<Users user={options.user} />)
+        } else  {
+          appView('auth')
+        }
+    } else {
+      setView(views[link]);
+    }
     setLink(link);
   }
 
@@ -57,7 +65,7 @@ export default function App() {
     auth: <Auth appView={appView} />,
     loading: <Loading />,
     missionControl: <MissionControl appView={appView}/>,
-    campaigns: <Campaigns />
+    campaigns: <Campaigns appView={appView} />
   }
 
   if (initializing) {

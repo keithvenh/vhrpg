@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/userContext';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
+import UserLink from '../users/UserLink';
 
 export default function Campaign(props) {
 
@@ -83,7 +84,11 @@ export default function Campaign(props) {
                     </div>
                     <div className='campaignPlayers'>
                         <p className='playersHeading overviewDetailHeading'>Players ({campaign.players.length}/{campaign.maxPlayers})</p>
-                        {campaign.players.map((player, index) => <p key={index} className='player overviewDetail'>{player.username}</p>)}
+                        {campaign.players.map((player, index) => (
+                            <p key={index} className='player overviewDetail'>
+                                <UserLink user={player} requestor={context.profile.public} handler={props.appView} />
+                            </p>
+                        ))}
                     </div>
                     <div className='campaignMechanics'>
                         <p className='mechanicsHeading overviewDetailHeading'>Game Mechanics</p>
@@ -113,7 +118,7 @@ export default function Campaign(props) {
             <hr className='campaignDivider' />
 
             <div className='campaignFooter'>
-                <p className='campaignCreator'>Created By {campaign.creator.username}</p>
+                <p className='campaignCreator'>Created By <UserLink user={campaign.creator} requestor={context.profile.public} handler={props.appView} /></p>
             </div>
         </div>
     )

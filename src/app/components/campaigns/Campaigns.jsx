@@ -16,8 +16,7 @@ export default function Campaigns(props) {
     function campaignsView(link, campaign = null) {
 
         if(link === 'show') {
-            console.log('in show')
-            setView(<Campaign campaignsView={campaignsView} campaign={campaign} />);
+            setView(<Campaign campaignsView={campaignsView} campaign={campaign} appView={props.appView} />);
             setLink('show');
         } else if(link === 'edit') {
             setView(<EditCampaign campaign={campaign} campaignsView={campaignsView}/>)
