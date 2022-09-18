@@ -2,6 +2,10 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import login from '../../helpers/auth/login';
 import getProfile from '../../helpers/users/getProfile';
+import Form from '../forms/Form';
+import FormErrors from '../forms/FormErrors';
+import FormInput from '../forms/FormInput';
+import FormButton from '../forms/FormButton';
 
 export default function Login(props) {
 
@@ -51,46 +55,29 @@ export default function Login(props) {
     }
 
     return (
-        <div className='Login'>
-            <div className='formTitle'>
-                <p className='title'>Login</p>
-                <p className='subtitle sw'>Login</p>
-            </div>
-            <form className='loginForm' onSubmit={handleSubmit} >
+        <Form title='Login' handler={handleSubmit} >
 
-                <div className='formFieldContainer errors'>
-                    
-                    <div className='formField'>
-                        <div className='errors'>
-                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
-                        </div>
-                    </div>
-                </div>
+            <FormErrors errors={errors} />
 
-                <div className='formFieldContainer email'>
+            <FormInput
+                name='email'
+                type='email'
+                label='Email'
+                value={form.email}
+                handler={handleInput}
+                autoFocus={true}
+            />
 
-                    <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Email</p>
-                        <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
-                    </div>
+            <FormInput
+                name='password'
+                type='password'
+                label='Password'
+                value={form.password}
+                handler={handleInput}
+            />
 
-                </div>
+            <FormButton value='Login' />
 
-                <div className='formFieldContainer password'>
-
-                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Password</p>
-                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer button'>
-                    <input type='submit' id='submit' className='button submit' value='Login'/>
-                </div>
-            </form>
-        </div>
+        </Form>
     )
 }

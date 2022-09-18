@@ -56,8 +56,22 @@
     }
 }
 
-.campaignPlayerCount, .campaignStartDate, .campaignEndDate {
+.campaignStartDate, .campaignEndDate {
     padding: 6px;
+}
+
+.campaignJoined {
+    background-color: $green;
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    &.false {
+        background-color: $teal;
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .campaignLinkItem {
