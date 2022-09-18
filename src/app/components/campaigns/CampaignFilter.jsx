@@ -43,7 +43,7 @@ export default function CampaignFilter(props) {
     return (
         <div className='CampaignFilter'>
 
-            {campaigns.map((c) => <CampaignLink key={c.id} campaign={c} clickHandler={() => props.campaignsView('show', c.id)}/>)}
+            {campaigns.map((c) => <CampaignLink key={c.id} campaign={c} clickHandler={() => props.campaignsView('show', c)}/>)}
 
         </div>
     );

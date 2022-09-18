@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {UserContext} from '../../contexts/userContext';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, setDoc, doc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Form from '../forms/Form';
 import FormErrors from '../forms/FormErrors';
@@ -70,14 +70,16 @@ export default function NewCampaign(props) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        await addDoc(collection(db, 'campaigns'), {
+        const newCampaignRef = collection('campaigns').doc();
+        await setDoc(newCampaignRef, {
                 ...form,
                 creator: context.profile.public,
                 endDate: '',
                 gameMaster: form.gameMaster ? context.profile.public : '',
-                players: !form.gameMaster ? [context.profile.public] : []
-            }).then(function(result) {
-                props.campaignsView('show', result.id);
+                players: !form.gameMaster ? [context.profile.public] : [],
+                id: newCampaignRef.id
+            }).then(() => {
+                props.campaignsView('show', newCampaignRef);
             }).catch((e) => {
                 alert("An Error Has Occured");
                 console.log(e)})

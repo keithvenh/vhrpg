@@ -20,7 +20,7 @@ export default function Navigation(props) {
 
             <li className="characterIcon navItem" onClick={() => props.changeView('characterManagement')}><i className="fas fa-user-group"></i></li>
             <li className="vehiclesIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jet-fighter-up"></i></li>
-            <li className="missionIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jedi"></i></li>
+            <li className="missionIcon navItem" onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li>
 
             <li className="homeIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-home"></i></li>
 
