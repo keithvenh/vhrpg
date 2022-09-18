@@ -4,6 +4,11 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import createUser from '../../helpers/auth/signup';
 import { validatePassword, validateEmail, checkEmptyFields } from '../../helpers/auth/formValidation';
+import Form from '../forms/Form';
+import FormErrors from '../forms/FormErrors';
+import FormInput from '../forms/FormInput';
+import FormButton from '../forms/FormButton';
+import FormSelect from '../forms/FormSelect';
 
 export default function Signup(props) {
 
@@ -23,6 +28,15 @@ export default function Signup(props) {
         password: '',
         confirmPassword: '',
     });
+
+// ===== Setup Role Options for Select
+    const roleOptions = [
+        {value: 'Jedi Youngling', display: 'Jedi Youngling'},
+        {value: 'Protocol Droid', display: 'Protocol Droid'},
+        {value: 'Rebel Recruit', display: 'Rebel Recruit'},
+        {value: 'Imperial Clerk', display: 'Imperial Clerk'},
+        {value: 'Moisture Farmer', display: 'Moisture Farmer'}
+    ]
 
 // ===== Manage User Input on Forms ===== //
     function handleInput(event) {
@@ -129,100 +143,70 @@ export default function Signup(props) {
     }
 
     return (
-        <div className='Edit'>
+        <Form title='Signup' handler={handleSubmit} >
 
-            <form className='signupForm' onSubmit={handleSubmit}>
-                <div className='formFieldContainer errors'>
-                
-                    <div className='formField'>
-                        <div className='errors'>
-                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
-                        </div>
-                    </div>
-                </div>
+            <FormErrors errors={errors} />
 
-                <div className='formFieldContainer name'>
+            <FormInput
+                name='name'
+                type='name'
+                label='Full Name'
+                value={form.name}
+                handler={handleInput}
+                autoFocus={true}
+            />
 
-                    <div className='iconBox'><p><i className='fa-regular fa-envelope'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Full Name</p>
-                        <input name='name' id='name' className="name" type="name" value={form.name} onChange={handleInput} autoFocus/>
-                    </div>
+            <FormInput
+                name='email'
+                type='email'
+                label='Email'
+                value={form.email}
+                handler={handleInput}
+            />
 
-                </div>
+            <FormInput
+                name='username'
+                type='username'
+                label='Username'
+                value={form.username}
+                handler={handleInput}
+            />
 
-                <div className='formFieldContainer email'>
+            <FormSelect
+                name='role'
+                label='Role'
+                value={form.role}
+                handler={handleInput}
+                options={roleOptions}
+            />
 
-                    <div className='iconBox'><p><i className='fa-regular fa-address-card'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Email</p>
-                        <input name='email' id='email' className="email" type="email" value={form.email} onChange={handleInput} />
-                    </div>
+            <FormInput
+                name='birthdate'
+                type='date'
+                label='Birthdate'
+                value={form.birthdate}
+                handler={handleInput}
+            />
 
-                </div>
+            <FormInput
+                name='password'
+                type='password'
+                label='Password'
+                value={form.password}
+                handler={handleInput}
+            />
 
-                <div className='formFieldContainer username'>
+            <FormInput
+                name='confirmPassword'
+                type='password'
+                label='Confirm Password'
+                value={form.confirmPassword}
+                handler={handleInput}
+            />
 
-                    <div className='iconBox'><p><i className='fas fa-at'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Username</p>
-                        <input name='username' id='username' className="username" type="username" value={form.username} onChange={handleInput} />
-                    </div>
+            <FormButton label='Signup' />
 
-                </div>
-
-                <div className='formFieldContainer role'>
-
-                    <div className='iconBox'><p><i className='fa-brands fa-galactic-senate'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Role</p>
-                        <select name="role" id="role" className='role' value={form.role} onChange={handleInput} >
-                            <option value=''></option>
-                            <option value="Youngling">Youngling</option>
-                            <option value="Padawan">Padawan</option>
-                            <option value="Droid">Droid</option>
-                            <option value="Sith Apprentice">Sith Apprentice</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer birthdate'>
-
-                    <div className='iconBox'><p><i className='fa-regular fa-calendar-days'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Birthdate</p>
-                        <input name='birthdate' id='birthdate' className="birthdate" type="date" value={form.birthdate} onChange={handleInput} />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer password'>
-
-                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Password</p>
-                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer password'>
-
-                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Confirm Password</p>
-                        <input name='confirmPassword' id='confirmPassword' className="password" type="password" value={form.confirmPassword} onChange={handleInput} />
-                    </div>
-
-                </div>
-
-                <div className='formFieldContainer button'>
-                    <input type='submit' id='submit' className='button submit' value='Signup' />
-                </div> 
-            </form>
-
-        </div>
+        </Form>
     )
 
 }

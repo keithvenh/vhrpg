@@ -1,21 +1,32 @@
 import { useEffect } from 'react';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
 
 export default function Campaign(props) {
 
-    console.log(props);
     const context = useContext(UserContext);
-    const [initializing, setInitializing] =  useState(true);
     const [campaign, setCampaign] = useState(null);
-//    const startDate = new Date(campaign.startDate).toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })
+    const [joined, setJoined] = useState();
+//  const startDate = new Date(campaign.startDate).toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })
 
     async function getCampaign(id) {
-        const c = await getDoc(doc(db, 'campaigns', id));
-        setCampaign(c.data());
+        const c = (await getDoc(doc(db, 'campaigns', id))).data();
+        setCampaign(c);
+        // check is current user is part of the campaign
+        setJoined((c.gameMaster  !== '' && context.user.uid === c.gameMaster.uid) || c.players.some((player) => player.uid === context.user.uid))
+    }
+
+    async function joinCampaign() {
+        if(!joined) {
+            updateDoc(doc(db, 'campaigns', campaign.id), {players: [...campaign.players, context.profile.public]}).then(() => {
+                getCampaign(campaign.id);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
     }
 
     useEffect(() => {
@@ -43,8 +54,9 @@ export default function Campaign(props) {
                         {campaign.isPrivate ? ' Private' : ' Public'}
                     </p>
                 </div>
-                <p className='campaignPlayerCount'>
-                    Players: {campaign.players.length} of {campaign.maxPlayers}
+                <p className={`campaignJoined ${joined}`} onClick={joinCampaign} >
+                    <i className={`fas fa-${joined ? 'circle-check' : 'circle-plus'}`} ></i>
+                    {joined ? ' Joined' : ' Join'}
                 </p>
                 <p className='campaignStartDate'>
                     Start Date: {campaign.startDate}
@@ -70,7 +82,7 @@ export default function Campaign(props) {
                         <p className='overviewDetail' >{campaign.gameMaster ? campaign.gameMaster.username : 'Needed'}</p>
                     </div>
                     <div className='campaignPlayers'>
-                        <p className='playersHeading overviewDetailHeading'>Players</p>
+                        <p className='playersHeading overviewDetailHeading'>Players ({campaign.players.length}/{campaign.maxPlayers})</p>
                         {campaign.players.map((player, index) => <p key={index} className='player overviewDetail'>{player.username}</p>)}
                     </div>
                     <div className='campaignMechanics'>
@@ -92,7 +104,7 @@ export default function Campaign(props) {
                         <p className='campaignCharacterCreationRules informationDetail'>{campaign.characterCreationRules}</p>
                     </div>
                     <div className='campaignInformation'>
-                        <p className='campaignInformationHeading overviewInformationHeading'></p>
+                        <p className='campaignInformationHeading overviewInformationHeading'>Other Info</p>
                         <p className='campaignOtherNotes informationDetail'>{campaign.otherNotes}</p>
                     </div>
                 </section>
