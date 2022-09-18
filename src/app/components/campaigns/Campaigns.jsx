@@ -13,14 +13,14 @@ export default function Campaigns(props) {
     const [view, setView] = useState();
     const [link, setLink] = useState();
 
-    function campaignsView(link, options = null) {
+    function campaignsView(link, campaign = null) {
 
         if(link === 'show') {
             console.log('in show')
-            setView(<Campaign campaignsView={campaignsView} id={options} />);
+            setView(<Campaign campaignsView={campaignsView} campaign={campaign} />);
             setLink('show');
         } else if(link === 'edit') {
-            setView(<EditCampaign campaign={options} />)
+            setView(<EditCampaign campaign={campaign} campaignsView={campaignsView}/>)
             setLink('edit');
         } else {
             setView(views[link]);
@@ -29,9 +29,9 @@ export default function Campaigns(props) {
     }
 
     const views = {
-        new: <NewCampaign campaignsView={campaignsView} />,
         myCampaigns: <MyCampaigns />,
-        filter: <CampaignFilter campaignsView={campaignsView}/>
+        browseCampaigns: <CampaignFilter campaignsView={campaignsView}/>,
+        newCampaign: <NewCampaign campaignsView={campaignsView} />
     }
 
     return (

@@ -19,7 +19,7 @@ export default function Campaign(props) {
     }
 
     useEffect(() => {
-        getCampaign(props.id);
+        getCampaign(props.campaign.id);
     }, [])
 
     if(!campaign) {
@@ -67,7 +67,7 @@ export default function Campaign(props) {
                     <p className='sectionHeader'>Overview</p>
                     <div className='campaignGameMaster'>
                         <p className='gameMasterHeading overviewDetailHeading'>Game Master</p>
-                        <p className='overviewDetail' >{campaign.gameMaster ? campaign.gameMaster : 'Needed'}</p>
+                        <p className='overviewDetail' >{campaign.gameMaster ? campaign.gameMaster.username : 'Needed'}</p>
                     </div>
                     <div className='campaignPlayers'>
                         <p className='playersHeading overviewDetailHeading'>Players</p>
@@ -75,9 +75,9 @@ export default function Campaign(props) {
                     </div>
                     <div className='campaignMechanics'>
                         <p className='mechanicsHeading overviewDetailHeading'>Game Mechanics</p>
-                        {campaign.obligation ? <p className='campaignMechanic overviewDetail'>Obligation</p> : ''}
-                        {campaign.duty ? <p className='campaignMechanic overviewDetail'>Duty</p> : ''}
-                        {campaign.morality ? <p className='campaignMechanic overviewDetail'>Morality</p> : ''}
+                        {campaign.gameMechanics.map((mechanic) =>
+                            <p key={mechanic} className='campaignMechanic overviewDetail'>{mechanic}</p>
+                        )}
                     </div>
                 </section>
 
