@@ -1,13 +1,8 @@
-import {useState, useEffect, useContext} from 'react';
-import {UserContext} from '../../contexts/userContext';
-import Delete from './Delete';
-import {doc, getDoc} from 'firebase/firestore';
-import {db} from '../../../db/application/db';
-import logout from '../../helpers/auth/logout';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 import Loading from '../loading/Loading';
-import Edit from './Edit';
 
-function MyAccount() {
+export default function MyAccount() {
 
     const context = useContext(UserContext);
 
@@ -71,5 +66,3 @@ function MyAccount() {
 
     )
 }
-
-export default MyAccount;

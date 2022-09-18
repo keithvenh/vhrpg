@@ -27,8 +27,6 @@ export default function CampaignFilter(props) {
     }
     
     function filterCampaigns(campaigns, filter) {
-        console.log(filter);
-        console.log(campaigns);
         setCampaigns(campaigns);
     }
 

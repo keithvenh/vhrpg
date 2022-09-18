@@ -7,27 +7,6 @@
     justify-content: center;
     height: 100%;
 
-    .profileButtons {
-        display: flex;
-        p {
-            margin: 24px;
-            padding: 12px;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-    }
-
-    .editLink {
-        border: 1px solid $greenFaded;
-        background-color: $greenTransparent;
-        &:hover {
-            background-color: $greenFaded;
-            border-color: $green;
-            cursor: pointer;
-        }
-    }
-
     .profileDetail {
         display: flex;
         margin: 24px;
@@ -55,5 +34,11 @@
                 color: $yellowFaded;
             }
         }   
+    }
+}
+
+.userLink {
+    &:hover {
+        cursor: pointer;
     }
 }
