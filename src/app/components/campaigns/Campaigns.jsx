@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import PageNav from "../navigation/PageNav";
 import NewCampaign from "./NewCampaign";
-import EditCampaign from './EditCampaign';
 import MyCampaigns from "./MyCampaigns";
 import CampaignFilter from "./CampaignFilter";
 import Campaign from './Campaign';
+import EditCampaign from './EditCampaign';
 
 export default function Campaigns(props) {
 
@@ -16,8 +16,12 @@ export default function Campaigns(props) {
     function campaignsView(link, options = null) {
 
         if(link === 'show') {
-            setView(<Campaign id={options} />);
+            console.log('in show')
+            setView(<Campaign campaignsView={campaignsView} id={options} />);
             setLink('show');
+        } else if(link === 'edit') {
+            setView(<EditCampaign campaign={options} />)
+            setLink('edit');
         } else {
             setView(views[link]);
             setLink(link);
@@ -26,9 +30,8 @@ export default function Campaigns(props) {
 
     const views = {
         new: <NewCampaign campaignsView={campaignsView} />,
-        edit: <EditCampaign />,
         myCampaigns: <MyCampaigns />,
-        filter: <CampaignFilter />
+        filter: <CampaignFilter campaignsView={campaignsView}/>
     }
 
     return (

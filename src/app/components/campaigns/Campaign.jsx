@@ -7,10 +7,11 @@ import Loading from '../loading/Loading';
 
 export default function Campaign(props) {
 
+    console.log(props);
     const context = useContext(UserContext);
     const [initializing, setInitializing] =  useState(true);
     const [campaign, setCampaign] = useState(null);
-    const startDate = new Date(campaign.startDate).toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })
+//    const startDate = new Date(campaign.startDate).toLocaleString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })
 
     async function getCampaign(id) {
         const c = await getDoc(doc(db, 'campaigns', id));
@@ -46,7 +47,7 @@ export default function Campaign(props) {
                     Players: {campaign.players.length} of {campaign.maxPlayers}
                 </p>
                 <p className='campaignStartDate'>
-                    Start Date: {startDate}
+                    Start Date: {campaign.startDate}
                 </p>
                 {campaign.endDate ? <p className='campaignEndDate'>End Date: {campaign.endDate} </p> : ''}
             </div>
@@ -56,6 +57,10 @@ export default function Campaign(props) {
             <div className='campaignDetails'>
                 <section className='campaignLinks'>
                     <p className='sectionHeader'>Campaign Links</p>
+                    {campaign.creator.uid === context.user.uid 
+                        ? <p className='campaignLinkItem' onClick={() => {props.campaignsView('edit', campaign)}}>Edit Campaign</p>
+                        : ''
+                    }
                 </section>
 
                 <section className='campaignOverview'>
@@ -95,6 +100,9 @@ export default function Campaign(props) {
 
             <hr className='campaignDivider' />
 
+            <div className='campaignFooter'>
+                <p className='campaignCreator'>Created By {campaign.creator.username}</p>
+            </div>
         </div>
     )
 }

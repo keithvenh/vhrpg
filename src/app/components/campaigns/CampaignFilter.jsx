@@ -1,39 +1,18 @@
-import React, { useContext }from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 import {collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
-import NewCampaign from './NewCampaign';
+import CampaignLink from './CampaignLink';
 
 export default function CampaignFilter(props) {
-    const [campaigns, setCampaigns] = useState();
-    const [view, setView] = useState(<Loading />);
-    const [link, setLink] = useState();
+// ===== Use UserContext for filters ===== //
+    const context = useContext(UserContext);
+    const [campaigns, setCampaigns] = useState(null);
+    const [filter, setFilter] = useState()
     const [initializing, setInitializing] = useState(true);
 
-    //Change to only get campaigns that are public
-    //Add query to get private campaigns that this user has created/joined.
-    //Set campaigns to both queries above
-    function campaignView(link) {
-        setLink(link);
-        setView(views[link]);
-    }
-
-    const views = {
-        new: <NewCampaign />,
-        list: (
-            <div className='grid-container'>
-                <div className='heading'>Game Master</div>
-                <div className='heading'>Title</div>
-                <div className='heading'>Open?</div>
-                <div className='heading'>Private?</div>
-                <div className='heading'>Start Date</div>
-                <div className='heading'></div>
-                {campaignListing(campaigns)}
-            </div>
-        )
-    }
-    async function fetchCampaigns(filter) {
+    async function fetchCampaigns() {
 
         let qSnap = await getDocs(collection(db, 'campaigns'));
         let campaigns = qSnap.docs.map((doc) => {
@@ -42,53 +21,29 @@ export default function CampaignFilter(props) {
                 id: doc.id
             }
         })
-        console.log(campaigns);
-
-        setCampaigns(campaigns);
-        campaignView('list');
+        
+        filterCampaigns(campaigns);
         if (initializing) setInitializing(false);
+    }
+    
+    function filterCampaigns(campaigns, filter) {
+        console.log(filter);
+        console.log(campaigns);
+        setCampaigns(campaigns);
     }
 
     useEffect(() => {
         fetchCampaigns();
     },[])
 
-    
-    function campaignListing(c) {
-        
-        return c.map(obj => {
-            
-            //const { gameMaster,open,startDate,title } = obj;
-            //NOTE: that the 'Fragment' is returning the entire object in the order
-            //that it is in the database. In order to return only specific elements
-            //of the object or elements in a certain order, use the 'const{}=obj' syntax above.
-            
-            return (
-                <div key={obj.id} className='grid-row' onClick={() => campaignDetail(obj)}>
-                    <div className='grid-master'>{obj.title}</div>
-                </div>
-            );
-        });
-    }
-    
-    function campaignDetail(campaign) {
-        console.log(campaign.title);
-        
-    }
-    
-    if(initializing) {
+    if(!campaigns) {
         return (<Loading />)
     }
 
     return (
-        <div className='Campaigns'>
+        <div className='CampaignFilter'>
 
-            <div className='campaignsFilter'>
-                <p className='allFilter true'>All</p>
-                <p className='myFilter'>My Campaigns</p>
-            </div>
-
-            {view}
+            {campaigns.map((c) => <CampaignLink key={c.id} campaign={c} clickHandler={() => props.campaignsView('show', c.id)}/>)}
 
         </div>
     );

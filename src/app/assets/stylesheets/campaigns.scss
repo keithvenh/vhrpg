@@ -32,7 +32,7 @@
 }
 
 .campaignDivider {
-    width: 90%;
+    width: 95%;
     margin: 12px 0;
 }
 
@@ -58,6 +58,16 @@
 
 .campaignPlayerCount, .campaignStartDate, .campaignEndDate {
     padding: 6px;
+}
+
+.campaignLinkItem {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    }
 }
 
 .campaignDetails {
@@ -104,8 +114,68 @@
     }
 }
 
-// ===== CAMPAIGN FILTER PAGE ===== //
+.campaignFooter {
+    font-size: 0.8em;
+}
 
+// ===== CAMPAIGN FILTER PAGE ===== //
+.CampaignFilter {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.CampaignLink {
+    border: 1px solid $tealFaded;
+    background-color: $tealTransparent;
+    border-radius: 3px;
+    padding: 12px;
+    margin: 12px;
+    &:hover {
+        cursor: pointer;
+        border-color: $teal;
+        background-color: $tealFaded;
+    }
+    .campaignHeader {
+        .title {
+            font-size: 16px;
+        }
+        .subtitle {
+            font-size: 12px;
+        }
+    }
+    &:nth-of-type(2n)  {
+        border-color: $orangeFaded;
+        background-color: $orangeTransparent;
+        &:hover {
+            border-color: $orange;
+            background-color: $orangeFaded;
+        }
+   }
+   &:nth-of-type(3n)  {
+        border-color: $greenFaded;
+        background-color: $greenTransparent;
+        &:hover {
+            border-color: $green;
+            background-color: $greenFaded;
+        }
+    }
+    &:nth-of-type(4n)  {
+        border-color: $yellowFaded;
+        background-color: $yellowTransparent;
+        &:hover {
+            border-color: $yellow;
+            background-color: $yellowFaded;
+        }
+    }
+    &:nth-of-type(5n)  {
+        border-color: $blueFaded;
+        background-color: $blueTransparent;
+        &:hover {
+            border-color: $blue;
+            background-color: $blueFaded;
+        }
+    }
+}
 .campaignsFilter {
     display: flex;
     padding: 0 20px;
