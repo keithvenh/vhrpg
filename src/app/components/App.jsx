@@ -18,6 +18,7 @@ import EditUser from './auth/Edit';
 import Campaigns from './campaigns/Campaigns';
 import NewCampaign from './campaigns/NewCampaign';
 import getProfile from '../helpers/users/getProfile';
+import CharacterCreation from './characterCreation/CharacterCreation';
 
 export default function App() {
   const context = useContext(UserContext);
@@ -57,7 +58,8 @@ export default function App() {
     auth: <Auth appView={appView} />,
     loading: <Loading />,
     missionControl: <MissionControl appView={appView}/>,
-    campaigns: <Campaigns />
+    campaigns: <Campaigns />,
+    characterCreation: <CharacterCreation />
   }
 
   if (initializing) {
