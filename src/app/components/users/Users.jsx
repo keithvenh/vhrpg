@@ -10,10 +10,10 @@ export default function Users(props) {
     const [view, setView] = useState();
     const [link, setLink] = useState();
 
-    function usersView(link, user = null) {
+    function userView(link, user = null) {
 
         const views = {
-            show: <User usersView={usersView} user={user} />
+            show: <User userView={userView} user={user} />
         }
 
         setView(views[link]);
@@ -22,7 +22,7 @@ export default function Users(props) {
 
 
     useEffect(() => {
-        usersView(props.options.subview, props.options.user)
+        userView(props.options.subview, props.options.user)
     }, [])
 
     return (

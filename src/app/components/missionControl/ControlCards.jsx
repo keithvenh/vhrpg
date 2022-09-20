@@ -1,31 +1,23 @@
 import { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/userContext';
-import { getDocs, where, limit } from 'firebase/firestore';
+import { query, getDocs, where, limit } from 'firebase/firestore';
 import { campaigns } from '../../../db/application/db';
 import { useEffect } from 'react';
+import MiniCard from './MiniCard';
 
 export function CampaignControlCard(props) {
 
     const context = useContext(UserContext);
-    const [userCampaigns, setCampaigns] = useState();
-
-    const newCampaignCard = (
-        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {subview: 'newCampaign'})}>
-            <p><i className='fas fa-circle-plus'></i></p>
-            <p>New Campaign</p>
-        </div>
-    )
-
-    const findCampaignCard = (
-        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {subview: 'browseCampaigns'})}>
-            <p><i className='fas fa-spyglass'></i></p>
-            <p>Find Campaign</p>
-        </div>
-    )
+    const [userCampaigns, setUserCampaigns] = useState([]);
 
     async function fetchCampaigns() {
 
-        let qSnap = await getDocs(campaigns, where("id", 'in', context.profile.campaigns), limit(2));
+        // make sure campaign array isn't empty for query
+        let userCampaignArray = [...context.profile.campaigns, '']
+
+        // match up to 2 campaigns with the campaigns in the users profile
+        const q = query(campaigns, where('id', 'in', userCampaignArray), limit(2));
+        let qSnap = await getDocs(q);
 
         let userCampaigns = qSnap.docs.map((doc) => {
             return {
@@ -34,27 +26,29 @@ export function CampaignControlCard(props) {
             }
         })
 
-        setCampaigns(userCampaigns);
+        setUserCampaigns(userCampaigns);
     }
 
     useEffect(() => {
         fetchCampaigns();
     },  [])
 
-    if(!userCampaigns) {
+    // If no user campaigns, return a new and find mini card
+    if(userCampaigns.length < 1) {
         return (
             <div className='missionControlCard missionControlCardRect CampaignControlCard'>
                 <div className='header' onClick={(() => props.appView('campaigns'))}>
                     <h2 className='title'>Campaigns</h2>
                 </div>
                 <div className='miniCards'>
-                    {newCampaignCard}
-                    {findCampaignCard}
+                    <MiniCard type='new' view='campaigns' label='Create a Campaign' subview='newCampaign' appView={props.appView}/>
+                    <MiniCard type='find' view='campaigns' label='Find a Campaign' subview='browseCampaigns' appView={props.appView}/>
                 </div>
             </div>
         )
     }
 
+    // If at least one user campaign, show the title as a card link
     return(
         <div className='missionControlCard missionControlCardRect CampaignControlCard' >
             <div className='header' onClick={(() => props.appView('campaigns'))} >
@@ -63,11 +57,10 @@ export function CampaignControlCard(props) {
             </div>
             <div className='miniCards'>
                 {userCampaigns.map((c) => (
-                    <div key={c.id} className='miniCard' onClick={() => props.appView('campaigns', {subview: 'show', campaign: c})}>
-                        <p>{c.title}</p>
-                    </div>
+                    <MiniCard key={c.id} type='show' view='campaigns' label={c.title} subview='show' appView={props.appView} options={{campaign: c}}/>
                 ))}
-                {userCampaigns.length < 2 ? newCampaignCard : ''}
+                {/* if only one user campaign show a second card linking to find a campaign to join */}
+                {userCampaigns.length < 2 ? <MiniCard type='find' view='campaigns' label='Find a Campaign' subview='browseCampaigns' appView={props.appView}/> : ''}
             </div>
         </div>
     )

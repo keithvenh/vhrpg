@@ -75,7 +75,7 @@ export default function Campaign(props) {
                 <section className='campaignLinks'>
                     <p className='sectionHeader'>Campaign Links</p>
                     {campaign.creator.uid === context.user.uid 
-                        ? <p className='campaignLinkItem' onClick={() => {props.campaignsView('edit', campaign)}}>Edit Campaign</p>
+                        ? <p className='campaignLinkItem' onClick={() => {props.campaignView('edit', campaign)}}>Edit Campaign</p>
                         : ''
                     }
                 </section>

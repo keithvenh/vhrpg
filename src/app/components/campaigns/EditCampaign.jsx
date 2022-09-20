@@ -88,7 +88,7 @@ export default function EditCampaign(props) {
             ...form,
             gameMaster: form.gameMaster ? context.profile.public : ''
         }).then(() => {
-            props.campaignsView('show', props.campaign);
+            props.campaignView('show', props.campaign);
         })
     }
     
