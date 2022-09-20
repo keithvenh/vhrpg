@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
 import UserLink from '../users/UserLink';
@@ -23,7 +23,11 @@ export default function Campaign(props) {
     async function joinCampaign() {
         if(!joined) {
             updateDoc(doc(db, 'campaigns', campaign.id), {players: [...campaign.players, context.profile.public]}).then(() => {
-                getCampaign(campaign.id);
+                updateDoc(doc(db, 'users', context.user.uid), {
+                    campaigns: arrayUnion(campaign.id)
+                }).then(() => {
+                    getCampaign(campaign.id);
+                })
             }).catch((error) => {
                 console.log(error);
             })

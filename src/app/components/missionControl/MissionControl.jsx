@@ -1,12 +1,13 @@
 import { useContext } from 'react';
+import { CampaignControlCard } from './ControlCards';
 
 export default function MissionControl(props) {
 
     return (
         <div className="missionControl">
-            <div className='campaigns' onClick={()  => props.appView('campaigns')}>
-                <p>Campaigns</p>
-            </div>
+
+            <CampaignControlCard appView={props.appView}/>
+            
         </div>
     )
     // return (
