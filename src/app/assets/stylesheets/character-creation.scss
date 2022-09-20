@@ -37,11 +37,18 @@
         border: 2px solid $whiteTransparent;
         border-radius: 8px;
     }
+
+    .options-list {
+        height: 175px;
+        border: 2px solid $whiteTransparent;
+        border-radius: 8px;
+        list-style-type: none;
+        text-align: left;
+    }
 }
 
 .select {
     display: flex;
-    margin-left: 215px;
     width: 200px;
     border: 2px solid $whiteTransparent;
     border-radius: 8px;

@@ -52,7 +52,38 @@ export default function Species(props) {
     const dropdown = speciesList.map((species) => {
         return <option value={species.name}>{species.name}</option>
     })
-    console.log(dropdown)
+    
+
+    const selectedSpecies = [{
+        name: speciesList[0].name,
+        brawn: speciesList[0].brawn,
+        agility: speciesList[0].agility,
+        cunning: speciesList[0].cunning,
+        willpower: speciesList[0].willpower,
+        intellect: speciesList[0].intellect,
+        presence: speciesList[0].presence
+    }]
+    const speciesOptions = speciesList[0].notes
+    console.log(speciesOptions)
+    const optionsObject = []
+    for(var i=0;i<speciesOptions.length;i++) {
+        optionsObject.push({
+            note: speciesOptions[i]
+        })
+    }
+    console.log(optionsObject)
+
+    const notes = optionsObject.map((el) =>
+        <li>
+            <input
+                type='checkbox'
+                id={`custom-checkbox-${el.note}`}
+                value={el.checked}
+            />
+            {el.note}
+        </li>
+    )
+    console.log(notes)
 
     return (
         <div>
@@ -66,11 +97,17 @@ export default function Species(props) {
                     <Table tableData={speciesList} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower','Notes']} />
                 </div>
             </div>
-            <div>
-                <select className='select' placeholder='Select Species'>
-                    <option></option>
-                    {dropdown}
-                </select>
+            <div className='species-container'>
+                <div className='species-comparison' style={{marginLeft: '215px'}}>
+                    <select className='select' placeholder='Select Species'>
+                        <option></option>
+                        {dropdown}
+                    </select>
+                    <Table tableData={selectedSpecies} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower']} />
+                    <div className='options-list'>
+                        {notes}
+                    </div>
+                </div>
             </div>
 
             <div>
