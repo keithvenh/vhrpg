@@ -10,14 +10,14 @@ export function CampaignControlCard(props) {
     const [userCampaigns, setCampaigns] = useState();
 
     const newCampaignCard = (
-        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {link: 'newCampaign'})}>
+        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {subview: 'newCampaign'})}>
             <p><i className='fas fa-circle-plus'></i></p>
             <p>New Campaign</p>
         </div>
     )
 
     const findCampaignCard = (
-        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {link: 'browseCampaigns'})}>
+        <div className='miniCard newCard' onClick={() => props.appView('campaigns', {subview: 'browseCampaigns'})}>
             <p><i className='fas fa-spyglass'></i></p>
             <p>Find Campaign</p>
         </div>
@@ -26,7 +26,7 @@ export function CampaignControlCard(props) {
     async function fetchCampaigns() {
 
         let qSnap = await getDocs(campaigns, where("id", 'in', context.profile.campaigns), limit(2));
-        console.log(qSnap);
+
         let userCampaigns = qSnap.docs.map((doc) => {
             return {
                 ...doc.data(),
@@ -34,7 +34,6 @@ export function CampaignControlCard(props) {
             }
         })
 
-        console.log(userCampaigns);
         setCampaigns(userCampaigns);
     }
 
@@ -64,7 +63,7 @@ export function CampaignControlCard(props) {
             </div>
             <div className='miniCards'>
                 {userCampaigns.map((c) => (
-                    <div key={c.id} className='miniCard' onClick={() => props.appView('campaigns', {link: 'show', campaign: c})}>
+                    <div key={c.id} className='miniCard' onClick={() => props.appView('campaigns', {subview: 'show', campaign: c})}>
                         <p>{c.title}</p>
                     </div>
                 ))}

@@ -26,8 +26,7 @@ export default function App() {
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
   const [view, setView] = useState(<MissionControl appView={appView}/>);
-  const [link, setLink] = useState('missionControl');
-  const [linkOptions, setLinkOptions] = useState();
+  const [link, setLink] = useState();
   const auth = getAuth();
 
   // Handle user state changes
@@ -52,7 +51,7 @@ export default function App() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  function appView(link, options = {}) {
+  function appView(link, options = {subview: ''}) {
 
     const views = {
       auth: <Auth appView={appView} />,
@@ -63,15 +62,15 @@ export default function App() {
     }
 
     if(link === 'users') {
-        // Return myAccount if current user requestor are the same
-
-// !==========! WE  NEED TO FIGURE OUT WHY CONTEXT IS NOT WORKING IN THIS FUNCTION !==========! //
-        if(options && options.user.uid === options.requestor.uid) {
+      
+      // !==========! WE  NEED TO FIGURE OUT WHY CONTEXT IS NOT WORKING IN THIS FUNCTION !==========! //
+      if(options && options.user.uid === options.requestor.uid) {
+          // Return myAccount if current user requestor are the same
           return appView('auth')
         } 
+
     }
     setView(views[link]);
-    setLinkOptions(options);
     setLink(link);
   }
 
