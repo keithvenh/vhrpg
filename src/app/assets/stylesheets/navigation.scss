@@ -28,6 +28,10 @@
         cursor: pointer;
         background-color: $white;
     }
+    &.true {
+        background-color: $white;
+        color: $tealBlack;
+    }
 }
 
 .settings-cog, .home-icon {
