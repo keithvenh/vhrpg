@@ -25,7 +25,7 @@ export default function App() {
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
   const [view, setView] = useState(<MissionControl appView={appView}/>);
-  const [link, setLink] = useState();
+  const [link, setLink] = useState('missionControl');
   const auth = getAuth();
 
   // Handle user state changes
@@ -86,7 +86,7 @@ export default function App() {
     <UserContext.Provider value={{user, setUser, profile, setProfile}}>
 
       <div className='App'>
-        <div className='navigationContainer'><Navigation changeView={appView} appView={appView} /></div>
+        <div className='navigationContainer'><Navigation changeView={appView} appView={appView} link={link}/></div>
         <div className='viewScreen'>{view}</div>
         <div className='chatContainer'></div>
       </div>
