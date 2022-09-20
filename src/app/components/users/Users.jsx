@@ -26,7 +26,7 @@ export default function Users(props) {
     }
 
     useEffect(() => {
-        usersView('show', props.options.user)
+        usersView(props.options.subview, props.options.user)
     }, [])
 
     return (

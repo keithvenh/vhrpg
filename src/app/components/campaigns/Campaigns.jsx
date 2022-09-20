@@ -13,7 +13,7 @@ export default function Campaigns(props) {
 
     const [view, setView] = useState();
     const [link, setLink] = useState();
-    console.log(props);
+
     function campaignsView(link, campaign = null) {
 
         if(link === 'show') {
@@ -35,7 +35,7 @@ export default function Campaigns(props) {
     }
 
     useEffect(() => {
-        campaignsView(props.options.link, props.options.campaign)
+        campaignsView(props.options.subview, props.options.campaign)
     }, [])
 
     return (
