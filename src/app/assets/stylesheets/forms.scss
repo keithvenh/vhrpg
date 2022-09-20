@@ -114,4 +114,12 @@
         background-color: $white;
         color: $black;
     }
+    &.warningButton {
+        border-color: $red;
+        color: $red;
+        &:hover {
+            background-color: $red;
+            color: $white;
+        }
+    }
 }

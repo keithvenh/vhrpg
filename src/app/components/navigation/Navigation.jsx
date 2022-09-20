@@ -26,7 +26,7 @@ export default function Navigation(props) {
 
             <li className="organizationIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-chart-pie"></i></li>
             <li className="libraryIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-book-journal-whills"></i></li>
-            <li className="userIcon navItem" onClick={() => props.appView('auth')}><i className="fas fa-user-gear"></i></li>
+            <li className={`userIcon navItem ${props.link === 'auth'}`} onClick={() => props.appView('auth')}><i className="fas fa-user-gear"></i></li>
 
         </ul>
     )
