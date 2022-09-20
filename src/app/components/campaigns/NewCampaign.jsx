@@ -80,7 +80,7 @@ export default function NewCampaign(props) {
                 updateDoc(doc(db, 'users', context.user.uid),  {
                     campaigns: arrayUnion(newCampaignRef.id)
                 }).then(() => {
-                    props.campaignsView('show', newCampaignRef);
+                    props.campaignView('show', newCampaignRef);
                 })
             }).catch((e) => {
                 alert("An Error Has Occured");

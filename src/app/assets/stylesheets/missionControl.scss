@@ -37,29 +37,37 @@
         display: flex;
         justify-content: space-evenly;
     }
-    .miniCard {
-        border: 2px solid $orangeFaded;
-        background-color: $orangeTransparent;
-        width: 9vw;
-        height: 5vw;
-        font-size: 0.8em;
-        text-transform: uppercase;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        line-height: 16px;
-        cursor: pointer;
+}
+.miniCard {
+    border: 2px solid $orangeFaded;
+    background-color: $orangeTransparent;
+    width: 9vw;
+    height: 5vw;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 16px;
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+        background-color: $orangeFaded;
+        border-color: $orange;
+    }
+    &.newCard, &.findCard {
+        background-color: $greenTransparent;
+        border-color: $greenFaded;
         &:hover {
-            background-color: $orangeFaded;
-            border-color: $orange;
+            background-color: $greenFaded;
+            border-color: $green;
         }
-        &.newCard, &.joinCard {
-            background-color: $greenTransparent;
-            border-color: $greenFaded;
-            &:hover {
-                background-color: $greenFaded;
-                border-color: $green;
-            }
+    }
+    i {
+        padding-right: 6px;
+        &.fa-hidden {
+            display: none;
         }
     }
 }

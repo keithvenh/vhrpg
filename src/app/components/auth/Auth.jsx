@@ -49,6 +49,10 @@ export default function Auth(props) {
 
     return (
         <div className='Auth'>
+            <div className='viewHeader'>
+                <h1 className='viewTitle title'>Account Management</h1>
+                <h2 className='viewSubtitle subtitle'>Account Management</h2>
+            </div>
             <PageNav links={['myAccount', 'editProfile']} page="Auth" handler={authView} activeLink={link} >
                 <li className='AuthNavItem pageNavItem logout' onClick={logoutUser}>Logout</li>
             </PageNav>

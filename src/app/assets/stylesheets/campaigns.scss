@@ -1,11 +1,6 @@
 @import 'variables';
 
-.Campaigns {
-    padding-top: 25px;
-    text-align: center;
-    position: relative;
-}
-
+// ===== NEW CAMPAIGN PAGE ===== //
 .NewCampaign {
     overflow-y: scroll;
     max-height: 100%;
@@ -60,6 +55,9 @@
     padding: 6px;
 }
 
+.campaignHeader {
+    text-align: center;
+}
 .campaignJoined {
     background-color: $green;
     padding: 6px 12px;
@@ -237,43 +235,26 @@
     }
 }
 
-.grid-container {
-    display: grid;
-    margin-top: 50px;
-    width: calc(28 * 40px);
-    grid-template-columns: 30% 30% 10% 10% 15% 1fr;
-    justify-content: space-evenly;
-    align-content: center;
+// ===== My Campaign Page ===== //
 
-    .heading {
-        font-size: 1.2em;
-        font-weight: 600;
-        color: #efefef;
+.MyCampaigns {
+    display: flex;
+    flex-wrap: wrap;
+    .noCampaignText {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: $yellow;
+        margin-top: 24px;
     }
-
-    .grid-row {
-        
-        display: contents;
-        text-align: left;
-        background-color: none;
-        color: $white;
-
-        .grid-master, .grid-tile {
-            text-align: left;
-            padding-top: .5em;
-            padding-bottom: .5em;
+    .miniCardList {
+        display: flex;
+        justify-content: center;
+        .miniCard {
+            margin: 24px 12px;
         }
-        
-        .grid-item2 {
-            text-align: center;
-            padding-top: .5em;
-            padding-bottom: .5em;
-        }
-
-        &:hover > div {
-            cursor: pointer;
-            background-color: $eoteNavy;
-            color: $eoteTan;
-        }
+    }
+    .campaignList {
+        display: flex;
     }
 }

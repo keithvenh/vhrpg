@@ -63,3 +63,18 @@ body {
 .warningText {
     color: $red;
 }
+
+.viewHeader {
+    text-align: center;
+    margin: 20px;
+}
+
+.viewTitle {
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.viewSubtitle {
+    font-family: $aurebesh;
+}

@@ -14,29 +14,36 @@ export default function Campaigns(props) {
     const [view, setView] = useState();
     const [link, setLink] = useState();
 
-    function campaignsView(link, campaign = null) {
+    function campaignView(link, campaign = null) {
 
         const views = {
-            myCampaigns: <MyCampaigns />,
-            browseCampaigns: <CampaignFilter campaignsView={campaignsView}/>,
-            newCampaign: <NewCampaign campaignsView={campaignsView} />,
-            show: <Campaign campaignsView={campaignsView} campaign={campaign} appView={props.appView} />,
-            edit: <EditCampaign campaign={campaign} campaignsView={campaignsView} />
+            myCampaigns: <MyCampaigns appView={props.appView} campaignView={campaignView} />,
+            browseCampaigns: <CampaignFilter campaignView={campaignView}/>,
+            newCampaign: <NewCampaign campaignView={campaignView} />,
+            show: <Campaign campaignView={campaignView} campaign={campaign} appView={props.appView} />,
+            edit: <EditCampaign campaign={campaign} campaignView={campaignView} />
         }
 
-        setView(views[link]);
-        setLink(link);
+        if(link === '') {
+            campaignView('myCampaigns');
+        } else {
+            setView(views[link]);
+            setLink(link);
+        }
     }
 
     useEffect(() => {
-        campaignsView(props.options.subview, props.options.campaign)
+        campaignView(props.options.subview, props.options.campaign)
     }, [])
 
     return (
         <div className='Campaigns'>
 
-            <h1>Campaigns</h1>
-            <PageNav page="Campaigns" links={["myCampaigns", "browseCampaigns", 'newCampaign']} handler={campaignsView} activeLink={link}/>
+            <div className='viewHeader'>
+                <h1 className='viewTitle title'>Campaigns</h1>
+                <h2 className='viewSubtitle subtitle'>Campaigns</h2>
+            </div>
+            <PageNav page="Campaigns" links={["myCampaigns", "browseCampaigns", 'newCampaign']} handler={campaignView} activeLink={link}/>
             { view }
 
         </div>
