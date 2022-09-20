@@ -16,22 +16,16 @@ export default function Campaigns(props) {
 
     function campaignsView(link, campaign = null) {
 
-        if(link === 'show') {
-            setView(<Campaign campaignsView={campaignsView} campaign={campaign} appView={props.appView} />);
-            setLink('show');
-        } else if(link === 'edit') {
-            setView(<EditCampaign campaign={campaign} campaignsView={campaignsView}/>)
-            setLink('edit');
-        } else {
-            setView(views[link]);
-            setLink(link);
+        const views = {
+            myCampaigns: <MyCampaigns />,
+            browseCampaigns: <CampaignFilter campaignsView={campaignsView}/>,
+            newCampaign: <NewCampaign campaignsView={campaignsView} />,
+            show: <Campaign campaignsView={campaignsView} campaign={campaign} appView={props.appView} />,
+            edit: <EditCampaign campaign={campaign} campaignsView={campaignsView} />
         }
-    }
 
-    const views = {
-        myCampaigns: <MyCampaigns />,
-        browseCampaigns: <CampaignFilter campaignsView={campaignsView}/>,
-        newCampaign: <NewCampaign campaignsView={campaignsView} />
+        setView(views[link]);
+        setLink(link);
     }
 
     useEffect(() => {
@@ -42,7 +36,7 @@ export default function Campaigns(props) {
         <div className='Campaigns'>
 
             <h1>Campaigns</h1>
-            <PageNav page="Campaigns" links={Object.keys(views)} handler={campaignsView} activeLink={link}/>
+            <PageNav page="Campaigns" links={["myCampaigns", "browseCampaigns", 'newCampaign']} handler={campaignsView} activeLink={link}/>
             { view }
 
         </div>

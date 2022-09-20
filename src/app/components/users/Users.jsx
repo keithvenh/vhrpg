@@ -12,18 +12,14 @@ export default function Users(props) {
 
     function usersView(link, user = null) {
 
-        if(link === 'show') {
-            setView(<User usersView={usersView} user={user} />);
-            setLink('show');
-        } else {
-            setView(views[link]);
-            setLink(link);
+        const views = {
+            show: <User usersView={usersView} user={user} />
         }
+
+        setView(views[link]);
+        setLink(link);
     }
 
-    const views = {
-
-    }
 
     useEffect(() => {
         usersView(props.options.subview, props.options.user)

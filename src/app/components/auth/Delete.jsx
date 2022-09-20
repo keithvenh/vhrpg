@@ -4,6 +4,10 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { db } from '../../../db/application/db';
 import { destroyUser } from '../../helpers/auth/delete';
 import { UserContext } from '../../contexts/userContext';
+import Form from '../forms/Form';
+import FormErrors from '../forms/FormErrors';
+import FormInput from '../forms/FormInput';
+import FormButton from '../forms/FormButton';
 
 export default function Delete(props) {
 
@@ -66,39 +70,27 @@ export default function Delete(props) {
     }
 
     return (
+    
         <div className='Delete'>
-            <div className='formTitle'>
-                <p className='title'>Delete User</p>
-                <p className='subtitle sw'>Delete User</p>
-            </div>
-            <p className='warningText'>Deleting your user account requires re-entering your password.<br />This action cannot be undone.</p>
+            <Form title='DeleteUser' handler={handleSubmit} >
 
-            <form className='deleteUserForm' onSubmit={handleSubmit} >
+                <FormErrors errors={errors} />
 
-                <div className='formFieldContainer errors'>
-                    
-                    <div className='formField'>
-                        <div className='errors'>
-                            {errors.map((error, index) => <p className='error' key={index}>{error}</p>)}
-                        </div>
-                    </div>
-                </div>
+                <p className='warningText'>Deleting your user account requires re-entering your password.<br />This action cannot be undone.</p>
 
-                <div className='formFieldContainer password'>
+                <FormInput
+                    name='password'
+                    type='password'
+                    label='Password'
+                    value={form.password}
+                    handler={handleInput}
+                    autoFocus={true}
+                />
 
-                    <div className='iconBox'><p><i className='fas fa-lock'></i></p></div>
-                    <div className='formField'>
-                        <p className='label'>Password</p>
-                        <input name='password' id='password' className="password" type="password" value={form.password} onChange={handleInput} />
-                    </div>
+                <FormButton label='Delete User' type='warning' />
 
-                </div>
+            </Form>
 
-                <div className='formFieldContainer button'>
-                    <button type='submit' id='submit' className='submit warning'>Delete User</button>
-                </div>
-
-            </form>
         </div>
     )
 }

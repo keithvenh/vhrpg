@@ -16,17 +16,18 @@ export default function Auth(props) {
     const [link, setLink] = useState();
     
     const authView = (link) => {
+        const views = {
+            myAccount: <MyAccount />,
+            signup: <Signup appView={props.appView} />,
+            editProfile: <Edit authView={authView} />,
+            delete: <Delete authView={authView}/>,
+            login: <Login appView={props.appView} />
+        }
+        
         setView(views[link]);
         setLink(link);
     }
 
-    const views = {
-        myAccount: <MyAccount />,
-        signup: <Signup appView={props.appView} />,
-        editProfile: <Edit authView={authView} />,
-        delete: <Delete authView={authView}/>,
-        login: <Login appView={props.appView} />
-    }
 
     function logoutUser() {
         logout();
