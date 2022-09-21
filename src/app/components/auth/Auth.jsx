@@ -9,6 +9,7 @@ import MyAccount from './MyAccount';
 import Loading from '../loading/Loading';
 import PageNav from '../navigation/PageNav';
 import { useEffect } from 'react';
+import Inbox from './Inbox';
 
 export default function Auth(props) {
     const context = useContext(UserContext);
@@ -21,7 +22,8 @@ export default function Auth(props) {
             signup: <Signup appView={props.appView} />,
             editProfile: <Edit authView={authView} />,
             delete: <Delete authView={authView}/>,
-            login: <Login appView={props.appView} />
+            login: <Login appView={props.appView} />,
+            inbox: <Inbox appView={props.appView} authView={authView} />
         }
         
         setView(views[link]);
@@ -53,7 +55,7 @@ export default function Auth(props) {
                 <h1 className='viewTitle title'>Account Management</h1>
                 <h2 className='viewSubtitle subtitle'>Account Management</h2>
             </div>
-            <PageNav links={['myAccount', 'editProfile']} page="Auth" handler={authView} activeLink={link} >
+            <PageNav links={['myAccount', 'editProfile', 'inbox']} page="Auth" handler={authView} activeLink={link} >
                 <li className='AuthNavItem pageNavItem logout' onClick={logoutUser}>Logout</li>
             </PageNav>
             {view}
