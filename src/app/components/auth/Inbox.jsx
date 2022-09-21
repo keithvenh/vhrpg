@@ -24,7 +24,6 @@ export default function Inbox(props) {
              }
          })
  
-         console.log(userMessages);
          setUserMessages(userMessages);
     }
 
@@ -40,7 +39,7 @@ export default function Inbox(props) {
 
     return (
         <div className='Inbox'>
-            {userMessages.map((m) => <Message key={m.id} message={m} />)}
+            {userMessages.map((m) => <Message key={m.id} message={m} appView={props.appView} />)}
         </div>
     )
 }

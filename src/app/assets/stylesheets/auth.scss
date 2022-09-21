@@ -32,7 +32,7 @@
     }
     &.expanded {
         .messageBody {
-            display: block;
+            display: flex;
         }
     }
     &:hover {
@@ -62,4 +62,16 @@
     font-size: 14px;
     line-height: 18px;
     display: none;
+    flex-direction: column;
+    .messageLink {
+        background-color: $green;
+        padding: 6px 12px;
+        display: inline-block;
+        border-radius: 3px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        align-self: center;
+        margin: 12px 0;
+    }
 }

@@ -18,7 +18,7 @@ export default function Navigation(props) {
 
         <ul className='navbar'>
 
-            <li className="characterIcon navItem" onClick={() => props.changeView('characterManagement')}><i className="fas fa-user-group"></i></li>
+            <li className="characterIcon navItem" onClick={() => props.appView('users', {subview: 'findFriend'})}><i className="fas fa-user-group"></i></li>
             <li className="vehiclesIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jet-fighter-up"></i></li>
             <li className={`missionIcon navItem ${props.link === 'campaigns'}`} onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li>
 
