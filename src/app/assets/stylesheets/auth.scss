@@ -12,3 +12,54 @@
         text-align: center;
     }
 }
+
+.Inbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    &:first-of-type {
+        border-top: 2px solid $tealDark;
+    }
+    border-bottom: 2px solid $tealDark;
+    margin: 0 24px;
+    &.unread {
+        background-color: $tealTransparent;
+        .messageSnippet {
+            font-weight: bold;
+        }
+    }
+    &.expanded {
+        .messageBody {
+            display: block;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: $tealTransparent;
+    }
+}
+.messageSnippet {
+    display: flex;
+    width: 100%;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    .messageSender {
+        width: 25%;
+    }
+    .messageSubject {
+        width: 55%;
+    }
+    .messageTimestamp {
+        width: 20%;
+        text-align: right;
+    }
+}
+
+.messageBody {
+    padding: 12px 24px;
+    font-size: 14px;
+    line-height: 18px;
+    display: none;
+}
