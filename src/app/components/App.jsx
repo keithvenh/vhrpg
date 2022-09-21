@@ -52,7 +52,7 @@ export default function App() {
       users: <Users options={options} />
     }
 
-    if(link === 'users') {
+    if(link === 'users' && options.subview === 'show') {
       if(options && options.user.uid === options.requestor.uid) {
           // Return myAccount if current user requestor are the same
           return appView('auth')

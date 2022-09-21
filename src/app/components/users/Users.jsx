@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import PageNav from "../navigation/PageNav";
 import User from './User';
+import FindFriend from './FindFriend';
 
 export default function Users(props) {
 
@@ -13,7 +14,8 @@ export default function Users(props) {
     function userView(link, user = null) {
 
         const views = {
-            show: <User userView={userView} user={user} />
+            show: <User userView={userView} user={user} />,
+            findFriend: <FindFriend userView={userView} />
         }
 
         setView(views[link]);
@@ -26,9 +28,7 @@ export default function Users(props) {
     }, [])
 
     return (
-        <div className='Campaigns'>
-
-            <h1>Users</h1>
+        <div className='Users'>
 
             { view }
 

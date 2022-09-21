@@ -1,5 +1,9 @@
 @import 'variables';
 
+.Users {
+    margin-top: 24px;
+}
+
 .User {
     display: flex;
     align-items: center;
@@ -41,5 +45,22 @@
     &:hover {
         cursor: pointer;
         color: $yellow;
+    }
+}
+
+// ===== FIND FRIEND PAGE ===== //
+.friendButton {
+    background-color: $green;
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    &.false {
+        background-color: $teal;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

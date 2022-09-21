@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import MessageSnippet from './MessageSnippet';
-import Loading from '../loading/Loading';
 
 export default function Message(props) {
 
+    const context = useContext(UserContext);
     let expanded = false;
     let read = props.message.read;
 
@@ -34,8 +35,10 @@ export default function Message(props) {
     return (
         <div className={`message ${read ? 'read' : 'unread'}`} onClick={() => expandMessage(props.message.id)} id={props.message.id} >
             <MessageSnippet message={props.message} />
-            <p className='messageBody' id={`${props.message.id}Body`}>{props.message.body}</p>
-            <p className='messageLink'>{props.message.link}</p>
+            <div className='messageBody' id={`${props.message.id}Body`}>
+                <p className='messageBodyText'>{props.message.body}</p>
+                <p className='messageLink' onClick={(() => props.appView(props.message.link.view, {...props.message.link.options, requestor: context.user.uid}))}>Click Here</p>
+            </div>
         </div>
     )
 }
