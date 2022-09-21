@@ -27,7 +27,23 @@ export default function CampaignFilter(props) {
     }
     
     function filterCampaigns(campaigns, filter) {
-        setCampaigns(campaigns);
+        let filteredCampaigns = campaigns.filter((c) => {
+                
+                // Show Joined Campaigns
+                return context.profile.campaigns.includes(c.id) 
+                    ? true 
+                // Show Campaigns User has been invited to join
+                    : context.profile.campaignInvites.includes(c.id)
+                    ? true
+                // Don't show private or closed campaigns
+                    : (c.isPrivate || !c.isOpen)
+                    ? false
+                // Show all other campaigns
+                    : true
+            })
+
+        console.log(filteredCampaigns);
+        setCampaigns(filteredCampaigns);
     }
 
     useEffect(() => {
@@ -40,6 +56,14 @@ export default function CampaignFilter(props) {
 
     return (
         <div className='CampaignFilter'>
+
+            {/* <FormCheckbox 
+                name='campaignFilter' 
+                label='' 
+                options='' 
+                handler={handleInput}
+                checked={form.gameMechanics} 
+            /> */}
 
             {campaigns.map((c) => <CampaignLink key={c.id} campaign={c} clickHandler={() => props.campaignView('show', c)}/>)}
 

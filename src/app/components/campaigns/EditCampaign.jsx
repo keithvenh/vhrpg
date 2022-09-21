@@ -78,7 +78,6 @@ export default function EditCampaign(props) {
         } else {
             setForm({...form, [event.target.name]: event.target.value})
         }
-        console.log(form);
     }
 
     async function handleSubmit(event) {
