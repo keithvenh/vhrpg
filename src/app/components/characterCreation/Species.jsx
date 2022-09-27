@@ -94,7 +94,7 @@ export default function Species(props) {
                     <button onClick={handleComparison}>Compare</button>
                 </div>
                 <div className='species-comparison'>
-                    <Table tableData={speciesList} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower','Notes']} />
+                    <Table type='species' tableData={speciesList} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower','Notes']} />
                 </div>
             </div>
             <div className='species-container'>
@@ -103,9 +103,17 @@ export default function Species(props) {
                         <option></option>
                         {dropdown}
                     </select>
-                    <Table tableData={selectedSpecies} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower']} />
+                    <Table type='species' tableData={selectedSpecies} headerData={['Species','Brawn','Agility','Cunning','Presence','Intellect','Willpower']} />
                     <div className='options-list'>
                         {notes}
+                        <li>
+                            <input
+                                type='checkbox'
+                                id={'custom-checkbox-force'}
+                                value='checked'
+                            />
+                            Begin with Force Rating
+                        </li>
                     </div>
                 </div>
             </div>
