@@ -7,9 +7,9 @@ export default function UserProfile(props) {
 
     const context = useContext(UserContext);
 
-    let [friendOfUser, setFriendOfUser] = useState(context.profile.friends.confirmed.includes(props.profile.public.uid));
-    let [requestSent, setRequestSent] = useState(context.profile.friends.pending.includes(props.profile.public.uid));
-    let [requestReceived, setRequestReceived] = useState(props.profile.friends.pending.includes(context.user.uid));
+    let [friendOfUser, setFriendOfUser] = useState(context.profile.friends.confirmed.some((confirmed) => confirmed.uid === props.profile.public.uid));
+    let [requestSent, setRequestSent] = useState(context.profile.friends.pending.some((pending) => pending.uid === props.profile.public.uid));
+    let [requestReceived, setRequestReceived] = useState(props.profile.friends.pending.some((received) => received.uid === context.profile.public.uid));
 
     async function requestFriend() {
 
@@ -19,15 +19,15 @@ export default function UserProfile(props) {
             updateDoc(doc(db, 'users', context.user.uid), {
                 friends: {
                     ...context.profile.friends,
-                    confirmed: arrayUnion(props.profile.public.uid)
+                    confirmed: arrayUnion(props.profile.public)
                 }
             })
             // Add current user to confirmed friends and remove from pending
             updateDoc(doc(db, 'users', props.profile.public.uid),  {
                 friends: {
                     ...props.profile.friends,
-                    confirmed: arrayUnion(context.user.uid),
-                    pending: arrayRemove(context.user.uid)
+                    confirmed: arrayUnion(context.profile.public),
+                    pending: arrayRemove(context.profile.public)
                 }
             })
             // Send a message to the Original Requestor
@@ -51,7 +51,7 @@ export default function UserProfile(props) {
             updateDoc(doc(db, 'users', context.user.uid), {
                 friends: {
                     ...context.profile.friends, 
-                    pending: arrayUnion(props.profile.public.uid)
+                    pending: arrayUnion(props.profile.public)
             }})
             // Send a message that a friend request has been made
             const newMessageRef = doc(messages);

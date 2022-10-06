@@ -13,8 +13,7 @@ export function CampaignControlCard(props) {
     async function fetchCampaigns() {
 
         // make sure campaign array isn't empty for query
-        let userCampaignArray = [...context.profile.campaigns, '']
-
+        let userCampaignArray = [...context.profile.campaigns.joined, ...context.profile.campaigns.invited, '']
         // match up to 2 campaigns with the campaigns in the users profile
         const q = query(campaigns, where('id', 'in', userCampaignArray), limit(2));
         let qSnap = await getDocs(q);

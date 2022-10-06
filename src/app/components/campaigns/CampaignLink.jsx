@@ -18,7 +18,7 @@ export default function CampaignLink(props) {
                     </p>
                 </div>
                 <p className='campaignPlayerCount'>
-                    Players: {campaign.players.length} of {campaign.maxPlayers}
+                    Players: {campaign.players.joined.length} of {campaign.maxPlayers}
                 </p>
             </div>
         </div>
