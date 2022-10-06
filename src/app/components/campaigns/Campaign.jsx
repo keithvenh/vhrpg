@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import { arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Loading from '../loading/Loading';
 import UserLink from '../users/UserLink';
@@ -17,14 +17,19 @@ export default function Campaign(props) {
         const c = (await getDoc(doc(db, 'campaigns', id))).data();
         setCampaign(c);
         // check is current user is part of the campaign
-        setJoined((c.gameMaster  !== '' && context.user.uid === c.gameMaster.uid) || c.players.some((player) => player.uid === context.user.uid))
+        setJoined((c.gameMaster  !== '' && context.user.uid === c.gameMaster.uid) || c.players.joined.some((player) => player.uid === context.user.uid))
     }
 
     async function joinCampaign() {
         if(!joined) {
-            updateDoc(doc(db, 'campaigns', campaign.id), {players: [...campaign.players, context.profile.public]}).then(() => {
+            updateDoc(doc(db, 'campaigns', campaign.id), {"players.joined": arrayUnion(context.profile.public)})
+                .then(() => {
                 updateDoc(doc(db, 'users', context.user.uid), {
-                    campaigns: arrayUnion(campaign.id)
+                    campaigns: {
+                        ...context.profile.campaigns,
+                        joined: arrayUnion(campaign.id),
+                        invited: arrayRemove(campaign.id)
+                    }
                 }).then(() => {
                     getCampaign(campaign.id);
                 })
@@ -87,8 +92,8 @@ export default function Campaign(props) {
                         <p className='overviewDetail' >{campaign.gameMaster ? campaign.gameMaster.username : 'Needed'}</p>
                     </div>
                     <div className='campaignPlayers'>
-                        <p className='playersHeading overviewDetailHeading'>Players ({campaign.players.length}/{campaign.maxPlayers})</p>
-                        {campaign.players.map((player, index) => (
+                        <p className='playersHeading overviewDetailHeading'>Players ({campaign.players.joined.length}/{campaign.maxPlayers})</p>
+                        {campaign.players.joined.map((player, index) => (
                             <p key={index} className='player overviewDetail'>
                                 <UserLink user={player} requestor={context.profile.public} handler={props.appView} />
                             </p>

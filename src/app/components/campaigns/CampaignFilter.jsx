@@ -30,10 +30,10 @@ export default function CampaignFilter(props) {
         let filteredCampaigns = campaigns.filter((c) => {
                 
                 // Show Joined Campaigns
-                return context.profile.campaigns.includes(c.id) 
+                return context.profile.campaigns.joined.includes(c.id) 
                     ? true 
                 // Show Campaigns User has been invited to join
-                    : context.profile.campaignInvites.includes(c.id)
+                    : context.profile.campaigns.invited.includes(c.id)
                     ? true
                 // Don't show private or closed campaigns
                     : (c.isPrivate || !c.isOpen)
