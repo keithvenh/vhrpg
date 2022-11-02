@@ -1,13 +1,14 @@
-import { useState } from "react"
+import { useContext } from "react";
+import CharacterContext from '../../contexts/characterContext';
 
 export default function Background(props) {
     
-    const [story,setStory] = useState('');
+    const [state, setState] = useContext(CharacterContext);
+    console.log(state.background);
 
-    function handleNext() {
-        props.characterCreationView(props.getNextView('background').nextView);
-        //props.setBackground(story);
-    }
+    function handleChange(e) {
+        setState(state => ({...state, background: e.target.value}))
+    };
 
     return (
         <div>
@@ -16,8 +17,9 @@ export default function Background(props) {
             <div className='formField'>
                 <textarea 
                     className='story-input'
+                    defaultValue={state.background}
                     placeholder='Type your background story . . .'
-                    onChange={setStory}
+                    onChange={handleChange}
                     autoFocus
                 />
             </div>
@@ -27,7 +29,7 @@ export default function Background(props) {
                 id='submit'
                 className='button formButton submitButton'
                 value='Next'
-                onClick={handleNext}
+                onClick={() => props.getNextView('background').nextView}
             />
         </div>
     )

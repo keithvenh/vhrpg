@@ -1,5 +1,6 @@
 // ========== PARENT CONTAINER FOR ALL CHARACTER CREATION VIEWS ========== //
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import CharacterContext from '../../contexts/characterContext';
 import PageNav from "../navigation/PageNav";
 import Background from "./Background";
 import GameMechanics from "./GameMechanics";
@@ -14,6 +15,7 @@ import FinalReview from "./FinalReview";
 
 export default function CharacterCreation(props) {
 
+    const [state, setState] = useState({});
     const [view, setView] = useState(<Background getNextView={getNextView} characterCreationView={characterCreationView}/>);
     const [link, setLink] = useState('background');
     
@@ -47,12 +49,16 @@ export default function CharacterCreation(props) {
 
 
     return (
-        <div className='Campaigns'>
+        <CharacterContext.Provider value={[state,setState]}>
 
-            <h1>New Character</h1>
-            <PageNav page="CharcaterCreation" links={Object.keys(views)} handler={characterCreationView} activeLink={link}/>
-            { view }
+            <div className='Campaigns'>
 
-        </div>
+                <h1>New Character</h1>
+                <PageNav page="CharcaterCreation" links={Object.keys(views)} handler={characterCreationView} activeLink={link}/>
+                { view }
+
+            </div>
+
+        </CharacterContext.Provider>
     )
 }
