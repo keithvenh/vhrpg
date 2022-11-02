@@ -1,5 +1,4 @@
 // ========== PARENT CONTAINER FOR ALL CHARACTER CREATION VIEWS ========== //
-
 import { useState } from 'react';
 import PageNav from "../navigation/PageNav";
 import Background from "./Background";
@@ -12,13 +11,12 @@ import Motivation from "./Motivation";
 import Gear from "./Gear";
 import Appearance from "./Appearance";
 import FinalReview from "./FinalReview";
-import getNextView from '../../helpers/characterCreation/getNextView';
 
 export default function CharacterCreation(props) {
 
     const [view, setView] = useState(<Background getNextView={getNextView} characterCreationView={characterCreationView}/>);
     const [link, setLink] = useState('background');
-
+    
     function characterCreationView(link, options = null) {
         setView(views[link]);
         setLink(link);
@@ -37,11 +35,16 @@ export default function CharacterCreation(props) {
         finalReview: <FinalReview getNextView={getNextView} characterCreationView={characterCreationView}/>
     }
 
+// ========== FUNCTION FOR PREVIOUS AND NEXT BUTTONS PASSED TO CHILDREN ========== //
     const viewsKeys = Object.keys(views);
 
     function getNextView(currentLink) {
         return {priorView: viewsKeys[viewsKeys.indexOf(currentLink) - 1], nextView: viewsKeys[viewsKeys.indexOf(currentLink) + 1]}
     }
+
+// ========== FUNCTIONS PASSED TO EACH CHILD TO GET THEIR STATE PUSHED BACK UP TO THIS PARENT ========== //
+
+
 
     return (
         <div className='Campaigns'>

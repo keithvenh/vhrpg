@@ -1,18 +1,12 @@
 import { useState } from "react"
 
 export default function Background(props) {
-
-    const [story,setStory] = useState('');
     
-    function handleNext() {
-        
-        props.characterCreationView(props.getNextView('background').nextView)
-        //Create code to save text to to a temp state somehow so when you come back
-        //It sticks.
-    }
+    const [story,setStory] = useState('');
 
-    function handleChange(e) {
-        setStory(e.target.value);
+    function handleNext() {
+        props.characterCreationView(props.getNextView('background').nextView);
+        //props.setBackground(story);
     }
 
     return (
@@ -22,8 +16,8 @@ export default function Background(props) {
             <div className='formField'>
                 <textarea 
                     className='story-input'
-                    placeholder='Start typing your background . . .'
-                    onChange={handleChange}
+                    placeholder='Type your background story . . .'
+                    onChange={setStory}
                     autoFocus
                 />
             </div>
@@ -37,4 +31,11 @@ export default function Background(props) {
             />
         </div>
     )
+
 }
+//onClick={handleNext}
+// function handleNext(func,story) {
+    
+//     props.characterCreationView(props.getNextView('background').nextView);
+//     props.getBackground(story);
+// }

@@ -96,7 +96,7 @@ export default function CareerAndSpecialization(props) {
                     <p>Role: <br /> {career.role}</p>
                     <p>Stories: <br /> {career.stories}</p>
                     <p>Extras: <br /> {career.extras}</p>
-                    <Table type='specializations' tableData={specializations} headerData={['Specialization', 'Bonus Career Skills']} handleClick={props.handleSpecClick}/>
+                    <Table type='specializations' tableData={specializations} headerData={['Specialization', 'Bonus Career Skills']} handleClick={handleSpecClick}/>
                 </div>
             );
         } else {
