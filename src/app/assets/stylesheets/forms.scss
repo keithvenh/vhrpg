@@ -27,6 +27,13 @@
     flex: 1;
 }
 
+.newCharacterContainer {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    flex: 1;
+}
+
 .formField {
     display: flex;
     flex-direction: column;
