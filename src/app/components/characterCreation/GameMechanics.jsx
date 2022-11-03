@@ -5,58 +5,35 @@ import CharacterContext from '../../contexts/characterContext';
 export default function GameMechanics(props) {
     
     const [state, setState] = useContext(CharacterContext);
-    if(!state.startingObligation) setState(state => ({...state, startingObligation: 20}))
-    if(!state.startingDuty) setState(state => ({...state, startingDuty: 10}))
 
     const gameMechanics = {
         obligation: [
-            {id: 'oxp5', value: false, label: '+5XP / +5 Obligation'},
-            {id: 'oxp10', value: false, label: '+10XP / +10 Obligation'},
-            {id: 'ocr1000', value: false, label: '+1,000 Credits / +5 Obligation'},
-            {id: 'ocr2500', value: false, label: '+2,500 Credits / +10 Obligation'}
+            {id: 'oxp5', value: state.oxp5, label: '+5XP / +5 Obligation'},
+            {id: 'oxp10', value: state.oxp10, label: '+10XP / +10 Obligation'},
+            {id: 'ocr1000', value: state.ocr1000, label: '+1,000 Credits / +5 Obligation'},
+            {id: 'ocr2500', value: state.ocr2500, label: '+2,500 Credits / +10 Obligation'}
         ],
         duty: [
-            {id: 'dxp5', value: false, label: '+5XP / -5 Duty'},
-            {id: 'dxp10', value: false, label: '+10XP / -10 Duty'},
-            {id: 'dcr1000', value: false, label: '+1,000 Credits / -5 Duty'},
-            {id: 'dcr2500', value: false, label: '+2,500 Credits / -10 Duty'}
+            {id: 'dxp5', value: state.dxp5, label: '+5XP / -5 Duty'},
+            {id: 'dxp10', value: state.dxp10, label: '+10XP / -10 Duty'},
+            {id: 'dcr1000', value: state.dcr1000, label: '+1,000 Credits / -5 Duty'},
+            {id: 'dcr2500', value: state.dcr2500, label: '+2,500 Credits / -10 Duty'}
         ],
         morality: [
-            {id: 'mxp10', value: false, label: '+10XP'},
-            {id: 'mcr2500', value: false, label: '+2,500 Credits'},
-            {id: 'mxp5cr1000', value: false, label: '+5XP & +1,000 Credits'}
+            {id: 'mxp10', value: state.mxp10, label: '+10XP'},
+            {id: 'mcr2500', value: state.mcr2500, label: '+2,500 Credits'},
+            {id: 'mxp5cr1000', value: state.mxp5cr1000, label: '+5XP & +1,000 Credits'}
         ]
-
     }
 
     function handleInput(event) {
 
         const mechanicID = event.target.id;
 
-        let xp, cr, ob, du
-        if(state.xpAdd === undefined) {
-            xp = 0
-        } else {
-            xp = state.xpAdd
-        }
-
-        if(state.creditAdd === undefined) {
-            cr = 0
-        } else {
-            cr = state.creditAdd
-        }
-
-        if(state.totalObligation === undefined) {
-            ob = state.startingObligation
-        } else {
-            ob = state.totalObligation
-        }
-
-        if(state.totalDuty === undefined) {
-            du = state.startingDuty
-        } else {
-            du = state.totalDuty
-        }
+        let xp = state.xpAdd
+        let cr = state.creditAdd
+        let ob = state.totalObligation
+        let du = state.totalDuty
 
         switch(mechanicID) {
             case 'oxp5':
@@ -120,7 +97,8 @@ export default function GameMechanics(props) {
             xpAdd: xp,
             creditAdd: cr,
             totalObligation: ob,
-            totalDuty: du
+            totalDuty: du,
+            [mechanicID]: event.target.checked
         }))
     }
     console.log(state);

@@ -23,6 +23,28 @@ export default function CharacterCreation(props) {
         setView(views[link]);
         setLink(link);
     }
+    if(!state.startingObligation) {
+        setState(state => ({
+            ...state,
+            startingObligation: 20,
+            totalObligation: 20,
+            startingDuty: 10,
+            totalDuty: 10,
+            oxp5: false,
+            oxp10: false,
+            ocr1000: false,
+            ocr2500: false,
+            dxp5: false,
+            dxp10: false,
+            dcr1000: false,
+            dcr2500: false,
+            mxp10: false,
+            mcr2500: false,
+            mxp5cr1000: false,
+            xpAdd: 0,
+            creditAdd: 0
+        }))
+    }
 
     const views = {
         background: <Background getNextView={getNextView} characterCreationView={characterCreationView} />,
