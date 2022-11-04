@@ -29,15 +29,8 @@ export default function Background(props) {
                 id='submit'
                 className='button formButton submitButton'
                 value='Next'
-                onClick={() => props.getNextView('background').nextView}
+                onClick={() => props.characterCreationView(props.getNextView('background').nextView)}
             />
         </div>
     )
-
 }
-//onClick={handleNext}
-// function handleNext(func,story) {
-    
-//     props.characterCreationView(props.getNextView('background').nextView);
-//     props.getBackground(story);
-// }
