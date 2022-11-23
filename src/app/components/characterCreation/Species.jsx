@@ -1,8 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useContext } from 'react';
+import CharacterContext from '../../contexts/characterContext';
 import Table from '../../helpers/characterCreation/table';
-import FormSelect from '../forms/FormSelect';
 
 export default function Species(props) {
+
+    const [state, setState] = useContext(CharacterContext);
 
     const speciesList = [
         {   name: 'Cathar',
