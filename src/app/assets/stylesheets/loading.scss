@@ -1,44 +1,10 @@
 @import 'variables';
 
-.loading {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
+#loading {
+    height: 100%;
     width: 100%;
-
-    h1 {
-        font-size: 3em;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-    }
-}
-
-// Start text faded and change to unfaded during loading
-.loading-heading {
-    color: $whiteTransparent;
-
-    // used during javascript changes in Loading.jsx
-    .sw {
-        color: $white;
-    }
-}
-
-// start off the page left and at the bottom of the screen
-.loading-image {
-    bottom: 0;
-    height: 10vh;
-    left: -100px;
-    position: absolute;
-    transition: all 4s linear;
-
-    img {
-        height: 100%;
-    }
-}
-
-// added to .loading-image by javascript in Loading.jsx
-.march-right {
-    left: 100vw;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,11 +1,9 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { useEffect } from 'react';
-
-export default function Loading(props) {
+import loadingGif from '../../assets/images/star-wars-loading.gif';
+export default function Loading() {
 
     return (
-        <div className='loading'>
-            <h1 className='loading-heading sw' id="loading-heading">Loading</h1>
+        <div className='loading' id='loading'>
+            <img src={loadingGif}></img>
         </div>
     )
    

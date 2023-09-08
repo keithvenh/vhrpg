@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserContext } from '../contexts/userContext';
 import { getAuth } from 'firebase/auth';
 import Navigation from './navigation/Navigation';
 import Auth from './auth/Auth';
 import MissionControl from './missionControl/MissionControl';
 import Loading from './loading/Loading';
+import characterRoutes from './characters/characterRoutes';
 import Campaigns from './campaigns/Campaigns';
 import Users from './users/Users';
 import Characters from './characters/Characters';
@@ -19,6 +21,8 @@ export default function App() {
   const [view, setView] = useState(<MissionControl appView={appView}/>);
   const [link, setLink] = useState('missionControl');
   const auth = getAuth();
+  // run the function to extract the routes
+  const routesForCharacters = characterRoutes();
 
   // Handle user state changes
   async function onAuthStateChanged(user) {
@@ -66,7 +70,7 @@ export default function App() {
 
   if (initializing) {
     return (
-      <div className='App'>
+      <div className='app'>
         <Loading />
       </div>
     );
@@ -74,23 +78,27 @@ export default function App() {
 
   return (
     <UserContext.Provider value={{user, setUser, profile, setProfile}}>
+      <Router>
+        <div className='app'>
+          <header className='headerNav'>
+            <Navigation changeView={appView} appView={appView} link={link}/>
+          </header>
 
-      <div className='App'>
+          <main className='viewScreen'>
+            <Routes>
+              <Route path="/" element={<MissionControl />} />
+              {routesForCharacters}
+            </Routes>
+          </main>
 
-        <div className='navigationContainer'>
-          <Navigation changeView={appView} appView={appView} link={link}/>
+          <section className='chatContainer'>
+
+
+          </section>
+
         </div>
 
-        <div className='viewScreen'>
-          {view}
-        </div>
-
-        <div className='chatContainer'>
-
-
-        </div>
-
-      </div>
+      </Router>
 
     </UserContext.Provider>
   );
