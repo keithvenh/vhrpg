@@ -1,13 +1,14 @@
 @import 'reset';
 @import 'variables';
-@import 'forms';
-@import 'auth';
 @import 'loading';
+@import 'header';
 @import 'navigation';
+// @import 'forms';
+// @import 'auth';
 @import 'missionControl';
-@import 'characters';
-@import 'users';
-@import 'campaigns';
+// @import 'characters';
+// @import 'users';
+// @import 'campaigns';
 
 body {
     background-color: $black;
@@ -15,65 +16,66 @@ body {
     font-family: $primary;
     height: 100vh;
     width: 100vw;
-    
-}
-
-.sw {
-    font-family: $aurebesh;
-    &.userId:hover {
-        font-family: $primary;
-    }
-}
-
-.App {
-    align-items: center;
-    background-image: url('../images/grid.jpeg');
+    background-image: url('../images/grid.jpeg');   
     box-sizing: border-box;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    padding: 2vh 0;
-    width: 100vw;
-
-    .navigationContainer {
-        box-sizing: border-box;
-        height: 100%;
-        width: 5%;
-    }
-
-    .viewScreen {
-        background-color: $tealTransparent;
-        border: 3px solid $tealFaded;
-        border-radius: 50px 10px 50px 10px;
-        box-sizing: border-box;
-        height: 100%;
-        width: 75vw;
-        overflow-y: scroll;
-    }
-
-    .chatContainer {
-        border:  1px solid blue;
-        box-sizing: border-box;
-        height: 100%;
-        width: 20%;
-    }
 }
 
-.warningText {
-    color: $red;
-}
+// .sw {
+//     font-family: $aurebesh;
+//     &.userId:hover {
+//         font-family: $primary;
+//     }
+// }
 
-.viewHeader {
-    text-align: center;
-    margin: 20px;
-}
+// .App {
+//     align-items: center;
+//     background-image: url('../images/grid.jpeg');
+//     box-sizing: border-box;
+//     display: flex;
+//     height: 100vh;
+//     justify-content: center;
+//     padding: 2vh 0;
+//     width: 100vw;
 
-.viewTitle {
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+//     .navigationContainer {
+//         box-sizing: border-box;
+//         height: 100%;
+//         width: 5%;
+//     }
 
-.viewSubtitle {
-    font-family: $aurebesh;
-}
+//     .viewScreen {
+//         background-color: $tealTransparent;
+//         border: 3px solid $tealFaded;
+//         border-radius: 50px 10px 50px 10px;
+//         box-sizing: border-box;
+//         height: 100%;
+//         width: 75vw;
+//         overflow-y: scroll;
+//     }
+
+//     .chatContainer {
+//         border:  1px solid blue;
+//         box-sizing: border-box;
+//         height: 100%;
+//         width: 20%;
+//     }
+// }
+
+// .warningText {
+//     color: $red;
+// }
+
+// .viewHeader {
+//     text-align: center;
+//     margin: 20px;
+// }
+
+// .viewTitle {
+//     font-size: 2em;
+//     text-transform: uppercase;
+//     letter-spacing: 2px;
+// }
+
+// .viewSubtitle {
+//     font-family: $aurebesh;
+// }
