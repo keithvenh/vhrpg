@@ -2,40 +2,49 @@ import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserContext } from '../contexts/userContext';
 import { getAuth } from 'firebase/auth';
+
+import Login from './auth/Login';
 import Navigation from './navigation/Navigation';
-import Auth from './auth/Auth';
 import MissionControl from './missionControl/MissionControl';
 import Loading from './loading/Loading';
+
+// IMPORT ROUTE COMPONENTS
 import characterRoutes from './characters/characterRoutes';
-import Campaigns from './campaigns/Campaigns';
-import Users from './users/Users';
-import Characters from './characters/Characters';
+import authRoutes from './auth/authRoutes';
+
 import getProfile from '../helpers/users/getProfile';
 import CharacterCreation from './characterCreation/CharacterCreation';
 
 export default function App() {
+  
+  // Set up Authentication
+  const auth = getAuth();
+  
+  // Set up User Context
   const context = useContext(UserContext);
-  const [initializing, setInitializing] = useState(true);
+  
+  // ===== USER CONTEXT STATES ===== //
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
-  const [view, setView] = useState(<MissionControl appView={appView}/>);
-  const [link, setLink] = useState('missionControl');
-  const auth = getAuth();
+  
+  // Start app as initializing until auth runs //
+  const [initializing, setInitializing] = useState(true);
+
   // run the function to extract the routes
   const routesForCharacters = characterRoutes();
+  const routesForAuth = authRoutes();
 
   // Handle user state changes
   async function onAuthStateChanged(user) {
     setUser(user);
     await updateProfile(user);
     if (initializing) setInitializing(false);
-    if(!user) {
-      appView('auth')
-    }
   }
 
+  // Update the User profile to match current user in Context
   async function updateProfile(user) {
     if(user) {
+      // Fetch User Profile from the database
       const profile = await getProfile(user);
       setProfile(profile.data());
     }
@@ -46,28 +55,7 @@ export default function App() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  function appView(link, options = {subview: ''}) {
-
-    const views = {
-      auth: <Auth appView={appView} />,
-      loading: <Loading />,
-      missionControl: <MissionControl appView={appView}/>,
-      campaigns: <Campaigns appView={appView} options={options}/>,
-      users: <Users options={options} />
-    }
-
-    if(link === 'users' && options.subview === 'show') {
-      if(options && options.user.uid === options.requestor.uid) {
-          // Return myAccount if current user requestor are the same
-          return appView('auth')
-        } 
-    }
-
-    setView(views[link]);
-    setLink(link);
-  }
-
-
+  // Run the Loading Screen while Initializing the App
   if (initializing) {
     return (
       <div className='app'>
@@ -80,22 +68,30 @@ export default function App() {
     <UserContext.Provider value={{user, setUser, profile, setProfile}}>
       <Router>
         <div className='app'>
-          <header className='headerNav'>
-            <Navigation changeView={appView} appView={appView} link={link}/>
-          </header>
+          {/* If no user, show login screen */}
+          {!user
+            ? <Login />
+            : (
+              <>
+                <header className='headerNav'>
+                  <Navigation />
+                </header>
 
-          <main className='viewScreen'>
-            <Routes>
-              <Route path="/" element={<MissionControl />} />
-              {routesForCharacters}
-            </Routes>
-          </main>
+                <main className='viewScreen'>
+                  <Routes>
+                    {/* Choose View based on Browser Router */}
+                    <Route path="/" element={<MissionControl />} />
+                    {routesForAuth}
+                    {routesForCharacters}
+                  </Routes>
+                </main>
 
-          <section className='chatContainer'>
+                <section className='chatContainer'>
 
 
-          </section>
-
+                </section>
+              </>
+            )}
         </div>
 
       </Router>
