@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 import login from '../../helpers/auth/login';
 import getProfile from '../../helpers/users/getProfile';
 import Form from '../forms/Form';
@@ -11,6 +12,9 @@ export default function Login(props) {
 
 // ===== Use UserContext to update user and profile upon successful Login ===== //
     const context = useContext(UserContext);
+
+// ===== Use Navigate to switch to the user profile on successful logins ===== //
+    const navigate = useNavigate();
 
 // ===== Catch Errors for Form ===== //
     const [errors, setErrors] = useState([]);
@@ -54,30 +58,38 @@ export default function Login(props) {
         })
     }
 
+    useEffect(() => {
+        if (context.user) {
+            navigate(`/users/${context.user.uid}`);
+        }
+    }, [context.user]);
+
     return (
-        <Form title='Login' handler={handleSubmit} >
+        <div className='login'>
+            <Form title='Login' handler={handleSubmit} >
 
-            <FormErrors errors={errors} />
+                <FormErrors errors={errors} />
 
-            <FormInput
-                name='email'
-                type='email'
-                label='Email'
-                value={form.email}
-                handler={handleInput}
-                autoFocus={true}
-            />
+                <FormInput
+                    name='email'
+                    type='email'
+                    label='Email'
+                    value={form.email}
+                    handler={handleInput}
+                    autoFocus={true}
+                />
 
-            <FormInput
-                name='password'
-                type='password'
-                label='Password'
-                value={form.password}
-                handler={handleInput}
-            />
+                <FormInput
+                    name='password'
+                    type='password'
+                    label='Password'
+                    value={form.password}
+                    handler={handleInput}
+                />
 
-            <FormButton value='Login' />
+                <FormButton value='Login' />
 
-        </Form>
+            </Form>
+        </div>
     )
 }
