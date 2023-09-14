@@ -7,6 +7,7 @@ import MyAccount from '../auth/MyAccount';
 export default function Navigation(props) {
     const context = useContext(UserContext);
     const location = useLocation();
+    console.log(location);
 
     if(!context.user) {
         return (
@@ -20,21 +21,30 @@ export default function Navigation(props) {
 
         <ul className='primaryNav'>
 
-            <li className="characterIcon navItem" onClick={() => props.appView('users', {subview: 'findFriend'})}><i className="fas fa-user-group"></i></li>
+            {/* <li className="characterIcon navItem" onClick={() => props.appView('users', {subview: 'findFriend'})}><i className="fas fa-user-group"></i></li>
             <li className="vehiclesIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jet-fighter-up"></i></li>
-            <li className={`missionIcon navItem ${props.link === 'campaigns'}`} onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li>
+            <li className={`missionIcon navItem ${props.link === 'campaigns'}`} onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li> */}
 
-            <li className={`homeIcon navItem ${location.pathname === "/"}`} onClick={() => props.changeView('missionControl')}>
-                <Link to="/">
-                    <i className="fas fa-home"></i>
+            <li className={`navItem ${location.pathname === "/characters"}`}>
+                <Link to="/characters">
+                    <i className='fas fa-user-secret'></i>
+                    <p>Characters</p>
                 </Link>
             </li>
 
-            <li className="organizationIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-chart-pie"></i></li>
-            <li className="libraryIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-book-journal-whills"></i></li>
-            <li className={`userIcon navItem ${props.link === 'auth'}`} onClick={() => props.appView('auth')}>
-                <Link to='/login'>
-                    <i className="fas fa-user-gear"></i>
+            <li className={`navItem ${location.pathname === "/"} homeLink`}>
+                <Link to="/">
+                    <i className='fas fa-home'></i>
+                    <p>Home</p>
+                </Link>
+            </li>
+
+            {/* <li className="organizationIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-chart-pie"></i></li>
+            <li className="libraryIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-book-journal-whills"></i></li> */}
+            <li className={`userIcon navItem ${location.pathname === "/profile"}`}>
+                <Link to={`/profile`}>
+                    <i className='fas fa-id-badge'></i>
+                    <p>Profile</p>
                 </Link>
             </li>
 

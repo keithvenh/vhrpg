@@ -6,9 +6,9 @@
 @import 'forms';
 @import 'auth';
 @import 'missionControl';
-// @import 'characters';
-// @import 'users';
-// @import 'campaigns';
+@import 'users';
+@import 'characters';
+@import 'campaigns';
 
 body {
     background-color: $black;
@@ -18,6 +18,25 @@ body {
     width: 100vw;
     background-image: url('../images/grid.jpeg');   
     box-sizing: border-box;
+}
+
+.app {
+    display: flex;
+    align-items: space-between;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    header {
+        flex: 0;
+    }
+    main {
+        flex: 1;
+        border: 2px solid $teal;
+        background-color: $tealTransparent;
+        margin: 16px;
+        margin-left: 0;
+        border-radius: 5px;
+    }
 }
 
 // .sw {
@@ -65,17 +84,17 @@ body {
 //     color: $red;
 // }
 
-// .viewHeader {
-//     text-align: center;
-//     margin: 20px;
-// }
+.viewHeader {
+    text-align: center;
+    margin: 20px;
+}
 
-// .viewTitle {
-//     font-size: 2em;
-//     text-transform: uppercase;
-//     letter-spacing: 2px;
-// }
+.viewTitle {
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-// .viewSubtitle {
-//     font-family: $aurebesh;
-// }
+.viewSubtitle {
+    font-family: $aurebesh;
+}

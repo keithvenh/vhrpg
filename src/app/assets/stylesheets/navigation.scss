@@ -1,66 +1,114 @@
-.navItem {
-    font-size: 16px;
-    line-height: 32px;
-    height: 32px;
-    width: 32px;
-    border: 2px solid $white;
-    border-radius: 100%;
-    text-align: center;
-    margin: 0 10px;
+// ===== PRIMARY NAVIGATION ===== //
+.primaryNav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    
+    .navItem {
+        padding: 6px;
+        height: 100px;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 2px solid $whiteFaded;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
 
-    a {
-        color: $white;
-    }
-
-    &.homeIcon {
-        font-size: 24px;
-        height: 48px;
-        line-height: 48px;
-        width: 48px;
-    }
-
-    &:hover {
-        color: $tealBlack;
-        cursor: pointer;
-        background-color: $white;
-    }
-    &.true {
-        background-color: $white;
+        &:last-child {
+            border: none; 
+        }
         a {
-            color: $tealBlack;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+            color: $whiteTransparent;
+            text-decoration: none;
+            i {
+                font-size: 40px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            p {
+                justify-self: flex-end;
+            }
+        }
+        &.true {
+            background-color: $orangeTransparent;
+            a {
+                color: $whiteFaded;
+            }
         }
     }
 }
 
-// .settings-cog, .home-icon {
-//     .logout-link {
-//         display: none;
-//         text-transform: uppercase;
-//         font-size: 12px;
-//         letter-spacing: 2px;
+// .navItem {
+//     font-size: 16px;
+//     line-height: 32px;
+//     height: 32px;
+//     width: 32px;
+//     border: 2px solid $white;
+//     border-radius: 100%;
+//     text-align: center;
+//     margin: 0 10px;
+
+//     a {
+//         color: $white;
 //     }
-    
+
+//     &.homeLink {
+//         font-size: 24px;
+//         height: 48px;
+//         line-height: 48px;
+//         width: 48px;
+//     }
+
+//     &:hover {
+//         color: $tealBlack;
+//         cursor: pointer;
+//         background-color: $white;
+//     }
+//     &.true {
+//         background-color: $white;
+//         a {
+//             color: $tealBlack;
+//         }
+//     }
 // }
 
-// .pageNav {
-//     display: flex;
-//     justify-content: center;
-//     margin: 20px;
-//     .pageNavItem {
-//         text-transform: uppercase;
-//         font-size: 0.8em;
-//         margin: 0 12px;
-//         letter-spacing:  2px;
-//         padding: 0 6px;
-//         color: $tealBright;
-//         &.true {
-//             border-bottom: 2px solid $tealBright;
-//             font-weight: bold;
-//         }
-//         &:hover {
-//             color: $teal;
-//             border-color: $teal;
-//             cursor: pointer;
-//         }
-//     }
-// }
+.settings-cog, .home-icon {
+    .logout-link {
+        display: none;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    
+}
+
+.pageNav {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    .pageNavItem {
+        text-transform: uppercase;
+        font-size: 0.8em;
+        margin: 0 12px;
+        letter-spacing:  2px;
+        padding: 0 6px;
+        color: $tealBright;
+        &.true {
+            border-bottom: 2px solid $tealBright;
+            font-weight: bold;
+        }
+        &:hover {
+            color: $teal;
+            border-color: $teal;
+            cursor: pointer;
+        }
+    }
+}
