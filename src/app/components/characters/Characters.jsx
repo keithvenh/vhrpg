@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { query, onSnapshot } from 'firebase/firestore';
 import { characters } from '../../../db/application/db';
 import CharacterLink from './CharacterLink';
@@ -52,7 +53,11 @@ class Characters extends React.Component {
                     <p className='minionFilter'>Minions</p>
                 </div>
 
-                <h1 className='newCharacter' ><i className='fas fa-plus' onClick={() => this.props.updateView('newCharacter','','')}></i> New</h1>
+                <h1 className='newCharacter' >
+                    <Link to='/characters/new'>
+                        <i className='fas fa-plus' onClick={() => this.props.updateView('newCharacter','','')}></i> New
+                    </Link>
+                </h1>
                 
                 <div className='characterLinks'>
 
