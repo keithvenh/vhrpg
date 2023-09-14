@@ -4,6 +4,68 @@
 .missionControl {
     display: flex;
     padding: 2vh 4vh;
+    flex-wrap: wrap;
+}
+
+.missionControlCard {
+    height: 13vw;
+    border: 2px solid $tealFaded;
+    background-color: $tealTransparent;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 6px;
+    .header {
+        &:hover {
+            color: $orange;
+            cursor: pointer;
+        }
+    }
+    .title {
+        font-size: 1.3em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .subtitle {
+        font-size: 0.8em;
+        font-family: $aurebesh;
+    }
+    .miniCards {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .miniCard {
+        border: 2px solid $orangeFaded;
+        background-color: $orangeTransparent;
+        width: 9vw;
+        height: 5vw;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 16px;
+        cursor: pointer;
+        &:hover {
+            background-color: $orangeFaded;
+            border-color: $orange;
+        }
+        &.newCard, &.joinCard {
+            background-color: $greenTransparent;
+            border-color: $greenFaded;
+            &:hover {
+                background-color: $greenFaded;
+                border-color: $green;
+            }
+        }
+    }
+}
+
+.missionControlCardRect {
+    width: 23vw;
 }
 
 .campaigns {

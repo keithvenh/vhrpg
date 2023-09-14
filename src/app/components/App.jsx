@@ -25,8 +25,9 @@ export default function App() {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
   const [profile, setProfile] = useState();
-  const [view, setView] = useState(<Auth appView={appView}/>);
-  const [link, setLink] = useState();
+  const [view, setView] = useState(<MissionControl appView={appView}/>);
+  const [link, setLink] = useState('missionControl');
+  const [linkOptions, setLinkOptions] = useState();
   const auth = getAuth();
 
   // Handle user state changes
@@ -34,6 +35,9 @@ export default function App() {
     setUser(user);
     await updateProfile(user);
     if (initializing) setInitializing(false);
+    if(!user) {
+      appView('auth')
+    }
   }
 
   async function updateProfile(user) {
@@ -48,27 +52,29 @@ export default function App() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  function appView(link, options = null) {
+  function appView(link, options = {}) {
+
+    const views = {
+      auth: <Auth appView={appView} />,
+      loading: <Loading />,
+      missionControl: <MissionControl appView={appView}/>,
+      campaigns: <Campaigns appView={appView} options={options}/>,
+      users: <Users options={options} />
+    }
 
     if(link === 'users') {
-        if(options && options.user.uid !== options.requestor.uid) {
-          setView(<Users user={options.user} />)
-        } else  {
-          appView('auth')
-        }
-    } else {
-      setView(views[link]);
+        // Return myAccount if current user requestor are the same
+
+// !==========! WE  NEED TO FIGURE OUT WHY CONTEXT IS NOT WORKING IN THIS FUNCTION !==========! //
+        if(options && options.user.uid === options.requestor.uid) {
+          return appView('auth')
+        } 
     }
+    setView(views[link]);
+    setLinkOptions(options);
     setLink(link);
   }
 
-  const views = {
-    auth: <Auth appView={appView} />,
-    loading: <Loading />,
-    missionControl: <MissionControl appView={appView}/>,
-    campaigns: <Campaigns />,
-    characterCreation: <CharacterCreation />
-  }
 
   if (initializing) {
     return (

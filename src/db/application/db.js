@@ -8,3 +8,4 @@ initializeApp(getFirebaseConfig());
 export const db = getFirestore();
 export const auth = getAuth();
 export const characters = collection(db, 'characters');
+export const campaigns = collection(db, 'campaigns');

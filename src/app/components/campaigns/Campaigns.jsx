@@ -7,12 +7,13 @@ import MyCampaigns from "./MyCampaigns";
 import CampaignFilter from "./CampaignFilter";
 import Campaign from './Campaign';
 import EditCampaign from './EditCampaign';
+import { useEffect } from 'react';
 
 export default function Campaigns(props) {
 
     const [view, setView] = useState();
     const [link, setLink] = useState();
-
+    console.log(props);
     function campaignsView(link, campaign = null) {
 
         if(link === 'show') {
@@ -32,6 +33,10 @@ export default function Campaigns(props) {
         browseCampaigns: <CampaignFilter campaignsView={campaignsView}/>,
         newCampaign: <NewCampaign campaignsView={campaignsView} />
     }
+
+    useEffect(() => {
+        campaignsView(props.options.link, props.options.campaign)
+    }, [])
 
     return (
         <div className='Campaigns'>

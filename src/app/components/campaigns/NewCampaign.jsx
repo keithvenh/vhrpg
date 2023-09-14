@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {UserContext} from '../../contexts/userContext';
-import { collection, setDoc, doc } from 'firebase/firestore';
+import { collection, setDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../../../db/application/db';
 import Form from '../forms/Form';
 import FormErrors from '../forms/FormErrors';
@@ -26,9 +26,7 @@ export default function NewCampaign(props) {
         gameMaster: true,
         isOpen: true,
         isPrivate: false,
-        obligation: false,
-        duty: false,
-        morality: false,
+        gameMechanics: [],
         meetingDetails: '',
         characterCreationRules: '',
         otherNotes: ''
@@ -79,7 +77,11 @@ export default function NewCampaign(props) {
                 players: !form.gameMaster ? [context.profile.public] : [],
                 id: newCampaignRef.id
             }).then(() => {
-                props.campaignsView('show', newCampaignRef);
+                updateDoc(doc(db, 'users', context.user.uid),  {
+                    campaigns: arrayUnion(newCampaignRef.id)
+                }).then(() => {
+                    props.campaignsView('show', newCampaignRef);
+                })
             }).catch((e) => {
                 alert("An Error Has Occured");
                 console.log(e)})
@@ -144,7 +146,8 @@ export default function NewCampaign(props) {
                     name='gameMechanics' 
                     label='Game Mechanics' 
                     options={radioOptions.gameMechanics} 
-                    handler={handleInput} 
+                    handler={handleInput}
+                    checked={form.gameMechanics} 
                 />
 
                 <FormTextarea 
