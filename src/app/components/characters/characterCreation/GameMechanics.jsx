@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import FormCheckbox from "../forms/FormCheckbox";
-import CharacterContext from '../../contexts/characterContext';
+import FormCheckbox from "../../forms/FormCheckbox";
+import CharacterContext from '../../../contexts/characterContext';
 
 export default function GameMechanics(props) {
     

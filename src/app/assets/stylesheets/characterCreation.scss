@@ -1,4 +1,54 @@
 @import 'variables';
+.characterCreation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// ===== PROGRESS MARKER ===== //
+.progressContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.progressMarker {
+    border: 1px solid $whiteTransparent;
+    height: 14px;
+    width: 48px;
+    background-color: none;
+    margin: 0 8px;
+    box-sizing: border-box;
+    &.true {
+        border-color: $green;
+        background-color: $greenFaded;
+    }
+    &.active {
+        border-color: $yellow;
+        background-color: $yellowFaded;
+    }
+    &:hover {
+        scale: 1.1;
+        cursor: pointer;
+        transition: scale 0.2s;
+    }
+}
+
+// ===== PAGE SETTINGS ===== //
+.pageHeader {
+    text-align: center;
+    margin: 20px;
+}
+
+.pageTitle {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.pageSubtitle {
+    font-family: $aurebesh;
+}
+
 
 .story-input {
     height: 250px;

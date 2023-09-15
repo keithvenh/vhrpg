@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import CharacterContext from '../../contexts/characterContext';
-import Table from '../../helpers/characterCreation/table';
+import CharacterContext from '../../../contexts/characterContext';
+import Table from '../../../helpers/characterCreation/table';
 
 export default function Species(props) {
 

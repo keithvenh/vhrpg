@@ -13,7 +13,6 @@ import characterRoutes from './characters/characterRoutes';
 import authRoutes from './auth/authRoutes';
 
 import getProfile from '../helpers/users/getProfile';
-import CharacterCreation from './characterCreation/CharacterCreation';
 
 export default function App() {
   

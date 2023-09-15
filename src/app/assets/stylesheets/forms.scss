@@ -49,6 +49,7 @@
         &:focus + p {
             font-family: $primary;
         }
+        box-sizing: border-box;
     }
     .label {
         text-transform: uppercase;

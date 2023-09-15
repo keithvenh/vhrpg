@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Table from '../../helpers/characterCreation/table';
+import Table from '../../../helpers/characterCreation/table';
 
 export default function CareerAndSpecialization(props) {
 

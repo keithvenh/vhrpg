@@ -1,7 +1,7 @@
 // ========== PARENT CONTAINER FOR ALL CHARACTER CREATION VIEWS ========== //
 import { useState, useContext } from 'react';
-import CharacterContext from '../../contexts/characterContext';
-import PageNav from "../navigation/PageNav";
+import CharacterContext from '../../../contexts/characterContext';
+import PageNav from "../../navigation/PageNav";
 import Background from "./Background";
 import GameMechanics from "./GameMechanics";
 import Species from "./Species";

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CharacterContext from '../../contexts/characterContext';
+import CharacterContext from '../../../contexts/characterContext';
 
 export default function Background(props) {
     
