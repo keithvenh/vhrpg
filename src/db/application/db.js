@@ -7,7 +7,7 @@ import getFirebaseConfig from '../../config/firebase';
 initializeApp(getFirebaseConfig());
 export const db = getFirestore();
 export const auth = getAuth();
-export const characters = collection(db, 'characters');
+export const charactersCollection = collection(db, 'characters');
 export const campaigns = collection(db, 'campaigns');
 export const messages = collection(db, 'messages');
 export const users = collection(db, 'users');

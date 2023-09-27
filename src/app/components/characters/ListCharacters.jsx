@@ -1,86 +1,88 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, getDocs, orderBy, startAfter, limit } from 'firebase/firestore';
-import { Link } from 'react-router-dom';
-import { characters as charactersCollection } from '../../../db/application/db';
-
+import { Link, useNavigate } from 'react-router-dom';
+import Loading from '../loading/Loading';
+import { fetchCharacters } from '../../helpers/characters/fetchCharacters';
+import FilterCharactersButtons from './FilterCharactersButtons';
 
 function ListCharacters() {
-  const [charactersCache, setCharactersCache] = useState({}); 
-  const [lastVisible, setLastVisible] = useState({});
-  const [hasMore, setHasMore] = useState(true);
-  const [type, setType] = useState(['pc']); 
+  const [characters, setCharacters] = useState([]);
+  const [filteredCharacters, setFilteredCharacters] = useState([])
+  const [initializing, setInitializing] = useState(true);
+  const [filter, setFilter] = useState('all');
 
-  const getCharacters = async (currentType = ['pc'], lastDoc = null) => {
-    let conditions = currentType.length === 1
-      ? where('type', '==', currentType[0])
-      : where('type', 'in', currentType);
-    
-    let q = query(
-        charactersCollection,
-        conditions,
-        orderBy('displayName'),
-        limit(25)
-    );
+  const navigate = useNavigate();
 
-    if (lastDoc) {
-        q = q.startAfter(lastDoc);
+  const changeFilter = (newFilter) => {
+    setFilter(newFilter);
+
+    if(newFilter === 'all') {
+      setFilteredCharacters(characters);
+      return;
     }
-
-    const querySnapshot = await getDocs(q);
-
-    const newCharacters = querySnapshot.docs.map(doc => ({
-        ...doc.data(),
-        id: doc.id,
-    }));
-
-    setCharactersCache(prev => ({
-      ...prev,
-      [currentType.join('|')]: [...(prev[currentType.join('|')] || []), ...newCharacters]
-    }));
-    setLastVisible(prev => ({
-      ...prev,
-      [currentType.join('|')]: querySnapshot.docs[querySnapshot.docs.length - 1]
-    }));
-    setHasMore(newCharacters.length === 25);
-  };
-
-  const loadMore = () => {
-    getCharacters(type, lastVisible[type.join('|')]);
-  };
-
-  const changeType = (newType) => {
-    setType(newType);
-    // You can check if the newType exists in the cache and decide whether to fetch
-    if (!charactersCache[newType.join('|')]) {
-      getCharacters(newType);
+    if(newFilter === 'npc') {
+      const npcs = characters.filter(character => ['nemesis', 'rival', 'minion'].includes(character.type))
+      setFilteredCharacters(npcs)
+      return;
     }
-  };
+    if(newFilter === 'create') {
+      navigate('/characters/new');
+    }
+    const chars = characters.filter(character => character.type === newFilter)
+    setFilteredCharacters(chars);
 
+  }
+
+  const fetchData = async () => {
+    const chars = await fetchCharacters();
+    setCharacters(chars);
+    setFilteredCharacters(chars);
+    setInitializing(false);
+  };
+  
   useEffect(() => {
-    if (!charactersCache[type.join('|')]) {
-      getCharacters(type);
-    }
-  }, [type]); 
+    fetchData();
+  }, [])
+  
+  if(initializing) {
+    return <Loading />
+  }
 
-  const displayedCharacters = charactersCache[type.join('|')] || [];
+  let displayLetter = ""
+
+  // Returns a Segmentor if one doesn't exist
+  const checkLetter = (charName) => {
+    // If the first letter is a number, resturn under # header
+    if(!isNaN(Number(charName[0]))) {
+      // If the displayLetter isn't already a number
+      if(!displayLetter === '#') {
+        // set the display letter
+        displayLetter = '#';
+        // return the segmentor
+        return <p className='sw segmentor'>{displayLetter}</p>
+      }
+    }
+
+    if(charName[0] !== displayLetter) {
+      displayLetter = charName[0];
+      return <p className='sw segmentor'>{displayLetter}</p>
+    }
+  }
 
   return (
     <div className='listCharacters'>
-      <div className='filterCharactersButtons'>
-        <button className='characterFilterButton' onClick={() => changeType(['pc'])}>PCs</button>
-        <button className='characterFilterButton' onClick={() => changeType(['nemesis'])}>Nemeses</button>
-        <button className='characterFilterButton' onClick={() => changeType(['rival'])}>Rivals</button>
-        <button className='characterFilterButton' onClick={() => changeType(['minion'])}>Minion</button>
-        <button className='characterFilterButton' onClick={() => changeType(['nemesis', 'rival', 'minion'])}>NPCs</button>
-        <button className='characterFilterButton' onClick={() => changeType(['pc', 'nemesis', 'rival', 'minion'])}>All</button>
-      </div>
+      <FilterCharactersButtons filter={filter} clickHandler={changeFilter}/>
       <div className='characterLinks'>
-        {displayedCharacters.map(char => (
-            <Link key={char.id} to={`/characters/${char.id}`}>
-                {char.displayName} ({char.type})
-            </Link>
-        ))}
-        {hasMore && <button onClick={loadMore}>Load More</button>}
+        {filteredCharacters.map(character => {
+
+                return (
+                    <React.Fragment key={character.id}>
+                        {checkLetter(character.displayName)}
+                        <p className="characterLink">
+                            <Link to={`/characters/${character.id}`}>{character.displayName}</Link>
+                        </p>
+                    </React.Fragment>
+                );
+            })}
       </div>
 
     </div>

@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import FormSelect from '../forms/FormSelect';
+import FormInput from "../forms/FormInput";
+import FormButton from "../forms/FormButton";
+import { charactersCollection } from '../../../db/application/db'
+import { addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewCharacter() {
 
     // Determines Form
-    const [type, setType] = useState('pc');
+    const [character, setCharacter] = useState({type: 'pc', displayName: ''});
+
+    const navigate = useNavigate();
 
     const characterTypeOptions = [
         {value: 'pc', display: 'PlayerCharacter'},
@@ -13,8 +20,26 @@ export default function NewCharacter() {
         {value: 'minion', display: 'Minion'}
     ]
 
-    function changeCharacterType(e) {
-        setType(e.target.value);
+    function handleChange(e) {
+        setCharacter(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    }
+
+    async function createCharacter(newCharacter) {
+        try {
+            const docRef = await addDoc(charactersCollection, newCharacter);
+            console.log("Document written with ID: ", docRef.id);
+            navigate(`/characters/${docRef.id}/edit`)
+        } catch (error) {
+            console.error("Error adding document: ", error);
+        }
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        createCharacter(character);
     }
 
     return (
@@ -26,11 +51,26 @@ export default function NewCharacter() {
             <div className='characterType'>
                 <FormSelect
                     options={characterTypeOptions} 
-                    name='characterType'
+                    name='type'
                     label='Character Type'
-                    value={type}
-                    handler={changeCharacterType}
+                    value={character.type}
+                    handler={handleChange}
                     autoFocus={true}
+                />
+            </div>
+            <div className='characterName'>
+                <FormInput
+                    name='displayName'
+                    label='Character Name'
+                    value={character.displayName}
+                    handler={handleChange}
+                />
+            </div>
+            <div className='characterButton'>
+                <FormButton
+                    type='submit'
+                    label='Create Character'
+                    handler={handleSubmit}
                 />
             </div>
             {/* <div className='progressContainer'>
