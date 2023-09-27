@@ -5,6 +5,7 @@
 import React from "react";
 import iterateObject from "../../helpers/characters/iterateObject";
 import CharacterSkill from "./CharacterSkill";
+import { useParams } from "react-router-dom";
 
 class Character extends React.Component {
     constructor(props) {
