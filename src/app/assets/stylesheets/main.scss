@@ -9,6 +9,7 @@
 @import 'users';
 @import 'characters';
 @import 'campaigns';
+@import 'characterCreation';
 
 body {
     background-color: $black;
@@ -39,12 +40,12 @@ body {
     }
 }
 
-// .sw {
-//     font-family: $aurebesh;
-//     &.userId:hover {
-//         font-family: $primary;
-//     }
-// }
+.sw {
+    font-family: $aurebesh;
+    &.userId:hover {
+        font-family: $primary;
+    }
+}
 
 // .App {
 //     align-items: center;

@@ -5,9 +5,9 @@ export default function MissionControl(props) {
 
     return (
         <div className="missionControl">
-
-            <CampaignControlCard appView={props.appView}/>
-            
+            <div className='campaigns' onClick={()  => props.appView('characterCreation')}>
+                <p>New Character</p>
+            </div>
         </div>
     )
     // return (

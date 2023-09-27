@@ -12,8 +12,9 @@ export default function FormCheckbox(props) {
                             className={`input checkboxInput ${props.name}CheckboxInput`}
                             type='checkbox'
                             value={option.value}
+                            checked={option.value}
                             onChange={props.handler}
-                            checked={props.checked.includes(option.value)}
+                            isChecked={props.checked.includes(option.value)}
                         />
                         <label 
                             className={`checkboxLabel ${props.name}CheckboxLabel`}

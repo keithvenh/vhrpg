@@ -1,71 +1,93 @@
-import React from "react";
-import AddCharacter from "../../helpers/characters/addCharacter";
+import { useState, useEffect } from "react";
+import FormSelect from '../forms/FormSelect';
+import FormInput from "../forms/FormInput";
+import FormButton from "../forms/FormButton";
+import { charactersCollection } from '../../../db/application/db'
+import { addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
-class NewCharacter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            species: '',
-            chartype: 'pc'
+export default function NewCharacter() {
 
+    // Determines Form
+    const [character, setCharacter] = useState({type: 'pc', displayName: ''});
+
+    const navigate = useNavigate();
+
+    const characterTypeOptions = [
+        {value: 'pc', display: 'PlayerCharacter'},
+        {value: 'nemesis', display: 'Nemesis'},
+        {value: 'rival', display: 'Rival'},
+        {value: 'minion', display: 'Minion'}
+    ]
+
+    function handleChange(e) {
+        setCharacter(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    }
+
+    async function createCharacter(newCharacter) {
+        try {
+            const docRef = await addDoc(charactersCollection, newCharacter);
+            console.log("Document written with ID: ", docRef.id);
+            navigate(`/characters/${docRef.id}/edit`)
+        } catch (error) {
+            console.error("Error adding document: ", error);
         }
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleSpeciesChange = this.handleSpeciesChange.bind(this);
-        this.handleTypeChange = this.handleTypeChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-   
-    handleNameChange(event) {
-        this.setState({name: event.target.value});
-    }
-    handleSpeciesChange(event) {
-        this.setState({species: event.target.value});
-    }
-    handleTypeChange(event) {
-        this.setState({chartype: event.target.value});
-    }
-    
-    handleSubmit(event) {
-        //import function to create new character in DB
-        AddCharacter(this.state.name,this.state.species,this.state.chartype);
     }
 
-    render () {
+    async function handleSubmit(e) {
+        e.preventDefault();
+        createCharacter(character);
+    }
 
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label className='new-character'>
-                    <div className='name'>Character Name:</div>
-                        <input type='text' name={this.state.name} onChange={this.handleNameChange} />
-                    </label>
+    return (
+        <div className='characterCreation'>
+            <div className='viewHeader'>
+                <h2 className='viewTitle'>Character Generation</h2>
+                <h2 className='viewSubtitle'>Character Generation</h2>
+            </div>
+            <div className='characterType'>
+                <FormSelect
+                    options={characterTypeOptions} 
+                    name='type'
+                    label='Character Type'
+                    value={character.type}
+                    handler={handleChange}
+                    autoFocus={true}
+                />
+            </div>
+            <div className='characterName'>
+                <FormInput
+                    name='displayName'
+                    label='Character Name'
+                    value={character.displayName}
+                    handler={handleChange}
+                />
+            </div>
+            <div className='characterButton'>
+                <FormButton
+                    type='submit'
+                    label='Create Character'
+                    handler={handleSubmit}
+                />
+            </div>
+            {/* <div className='progressContainer'>
+                {progress.map((marker, index) => (
+                    <div key={index} 
+                        className={`${marker} progressMarker ${index === currentProgress ? 'active' : ''}`}
+                        onClick={() => changeStage(index)}
+                    >
+                    </div>
+                ))}
+            </div>
+            <div className='subpageContainer'>
+                <div className='characterImage'>
+                    <img src={character.imageURL} />
                 </div>
-
-                <div>
-                    <label className='new-character'>
-                    <div className='species'>Species:</div>
-                        <input type='text' species={this.state.species} onChange={this.handleSpeciesChange} />
-                    </label>
-                </div>
-
-                <div>
-                    <label className='new-character'>
-                        <div className='type'>Character Type:</div>
-                        <select chartype={this.state.chartype} onChange={this.handleTypeChange}>
-                            <option value='pc'>Player Character</option>
-                            <option value='npc'>Non-Player Character</option>
-                            <option value='minion'>Minion</option>
-                            <option value='rival'>Rival</option>
-                            <option value='nemesis'>Nemesis</option>
-                        </select>
-                    </label>
-                </div>
-
-                <input className='submit' type='submit' value='Submit' />
-            </form>
-        );
-    }
+                {stages[currentProgress]}
+            </div> */}
+        </div>
+    )
 }
-
-export default NewCharacter

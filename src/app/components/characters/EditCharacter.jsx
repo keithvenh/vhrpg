@@ -1,79 +1,180 @@
-// MAY NEED TO CHANGE THIS TO A CLASS BASED COMPONENT. 
-// WE WILL DEFINITELY NEED HELPER FUNCTIONS TO LOOP THROUGH AND DISPLAY DIFFERENT ASPECTS LIKE SKILLS AND TALENTS
-// I NEED TO RESEARCH HOW TO RETURN CHUNKS OF JSX WITH A STANDARD FUNCTION AND PLUG IT INTO OTHER SECTIONS
+import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { doc, getDoc, updateDoc } from 'firebase/firestore'; 
+import { charactersCollection } from '../../../db/application/db';
 
-import React from "react";
-import iterateObject from "../../helpers/characters/iterateObject";
-import CharacterSkill from "./CharacterSkill";
+import Loading from '../loading/Loading';
 
-class Character extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            character: props.character,
-            skill: '',
-            currentRank: 0,
-            direction: '',
-            skillList: [],
-            generalSkills: [],
-            combatSkills: [],
-            knowledgeSkills: [],
-            image: require('../../assets/images/' + props.character.id + '-headshot.jpeg')
-        }
-        this.collapseElement = this.collapseElement.bind(this);
+// ===== IMPORT FORM FIELDS ===== //
+import FormInput from '../forms/FormInput';
+import FormSelect from '../forms/FormSelect';
+import TagInput from '../forms/TagInput';
+import FormButton from '../forms/FormButton';
+
+export default function EditCharacter() {
+  const [ character, setCharacter ] = useState(null);
+  const [form, setForm] = useState({
+    displayName: '',
+    type: '',
+    imageURL: '',
+    species: '',
+    career: '',
+    specializations: ['Advisor'],
+  });
+
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const characterTypeOptions = [
+    {value: 'pc', display: 'PlayerCharacter'},
+    {value: 'nemesis', display: 'Nemesis'},
+    {value: 'rival', display: 'Rival'},
+    {value: 'minion', display: 'Minion'}
+  ]
+
+  const careers = [
+    {value: '', display: 'SELECT ONE'},
+    {value: 'Explorer', display: 'Explorer'},
+    {value: 'Guardian', display: 'Guardian'},
+    {value: 'Hired Gun', display: 'Hired Gun'},
+    {value: 'Mystic', display: 'Mystic'},
+    {value: "Spy", display: 'Spy'},
+    {value: 'Technicion', display: 'Technician'},
+    {value: 'Consular', display: 'Sage'},
+    {value: 'Colonist', display: 'Colonist'},
+    {value: 'Smuggler', display: 'Smuggler'},
+    {value: 'Bounty Hunter', display: 'Bounty Hunter'}
+  ]
+
+  const specializations = ['Advisor', 'Ataru Striker', 'Captain of the Guard', 'Modder', 'Force Sensitive', 'Infiltrator', 'Bodyguard', 'Sage', 'Peacekeeper', 'Planetary Defense Force Officer', 'Mechanic', 'Imperial Academy Cader', 'Sleeper Agent']
+
+  async function getCharacter(characterID) {
+    const c = (await getDoc(doc(charactersCollection, characterID)));
+    setCharacter({
+      ...c.data(),
+      id: c.id
+    });
+    setForm({
+      ...form,
+      ...c.data()
+    })
+  }
+
+  function handleFormChange(e) {
+    console.log(e)
+    if (e && e.target) {  // This means it's from an input event
+        console.log(e.target.name, e.target.value);
+        setForm(prev => ({
+          ...prev,
+          [e.target.name]: e.target.value
+        }));
+    } else {  // It's directly the tags array from onTagChange
+        console.log(e);
+        setForm(prev => ({
+          ...prev,
+          specializations: e  // Assuming specializations is the name for tags
+        }));
     }
+}
 
-    //Gets array of objects within the provided ojbect
-    //i.e. provided props.character.skills, returned array of child objects
-    collapseElement(event) {
-        const elem = document.getElementById(event.target.innerText.toLowerCase());
-        if(elem.style.display === 'none') {
-            elem.style.display = 'flex';
-        } else {
-            elem.style.display = 'none';
-        }
-    }
-    
-    componentDidMount() {
-        this.setState({
-            skillList: iterateObject(this.props.character.skills).filter((skill) => (skill.rank > 0 || skill.career === true))
-        });
-    }
 
-    render () {
+  async function updateCharacter(editedCharacter) {
+      try {
+          // Create a reference to the character document using its ID
+          const charDocRef = doc(charactersCollection, character.id);
 
-        return(
-            <div className='characterContainer'>
+          // Update the document in the database
+          await updateDoc(charDocRef, editedCharacter);
+
+          console.log("Document updated with ID: ", character.id);
+          navigate(`/characters/${character.id}`)
+      } catch (error) {
+          console.error("Error updating document: ", error);
+      }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    updateCharacter(form);
+  }
+
+  useEffect(() => {
+    getCharacter(id);
+  }, [id])
+
+  if (!form || !character) {
+    return <Loading />
+  }
+
+  return (
+    <div className='characterContainer'>
             
-                <div className='characterDetails'>
+      <div className='characterDetails'>
 
+        <div className='characterOverview'>
 
-                    <div className='characterOverview'>
+            <div className='characterImageContainer'>
+                <img className='characterImage' src={form.imageURL || 'https://i.imgur.com/tdi3NGa.png'} alt='' />
+            </div>
+            <div className='characterTitle'>
+                <div className='characterName'>
+                    <h1>{form.displayName}</h1>
+                    <p className='sw'>{form.displayName}</p>
+                </div>
+                <FormInput 
+                  name='displayName'
+                  label='Character Name'
+                  value={form.displayName}
+                  handler={handleFormChange}
+                  autoFocus={true}
+                />
+                <FormSelect
+                  name='type'
+                  label='Character Type'
+                  value={form.type}
+                  handler={handleFormChange}
+                  options={characterTypeOptions} 
+                />
+                <FormInput
+                  name='imageURL'
+                  label='Image URL'
+                  value={form.imageURL}
+                  handler={handleFormChange}
+                />
+                <FormInput
+                  name='species'
+                  label='Species'
+                  value={form.species}
+                  handler={handleFormChange}
+                />
+                {form.type === 'pc' ?
+                  <>
+                    <FormSelect
+                      name='career'
+                      label='Career'
+                      value={form.career}
+                      handler={handleFormChange}
+                      options={careers}
+                    />
+                    <TagInput 
+                      name='specializations'
+                      tags={form.specializations} 
+                      onTagsChange={handleFormChange} 
+                      options={specializations}/>
+                  </> : ''}
+ 
+            </div>
+          </div>
+        </div>
+        <div style={{marginTop: '240px'}}>
+          <FormButton
+            type='submit'
+            label='Update Character'
+            handler={handleSubmit}
+        />
 
-                        <div className='characterImageContainer'>
-                            <img className='characterImage' src={this.state.image} alt='' />
-                        </div>
-
-                        <div className='characterTitle'>
-                            <div className='characterName'>
-                                <h1>{this.state.character.displayName}</h1>
-                                <p className='sw'>{this.state.character.displayName}</p>
-                            </div>
-                            <h2 className="characterSpecies">
-                                <span className='label'>Species: </span>
-                                {this.state.character.background.species}
-                            </h2>
-                            <h2 className="characterCareer">
-                                <span className='label'>Career: </span>
-                                {this.state.character.career.name}
-                            </h2>
-                            <h3 className="characterSpecializations">
-                                <p className='label'>Specializations: </p>
-                                {iterateObject(this.state.character.career.specializations).map(
-                                    (spec) => <p key={spec.name}>{spec.name}</p>
-                                )}
-                            </h3>
-                        </div>
+        </div>
+{/* testing
 
                         <div className='characterImageContainer'>
                             <img className='characterImage' src={this.state.image} alt='' />
@@ -198,7 +299,7 @@ class Character extends React.Component {
                         <hr className="dividerLine"></hr>
                     </div>
                     <div className='characterSkills' id='skills'>
-                        {/*map over array and return list of skills and their ranks.*/}
+                        {/*map over array and return list of skills and their ranks.
                         <div className='skillsRow'>
                             <div className="divider">
                                 <hr className="dividerLine"></hr>
@@ -244,11 +345,8 @@ class Character extends React.Component {
                     <hr className="dividerLine"></hr>
                 </div>
                 <div className='character-talents' id='talentsß'>
-                    {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.talents */}
-                </div>
-            </div>
-        )
-    }
+                    {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.talents
+                                </div> */}
+              </div>
+  )
 }
-
-export default Character;
