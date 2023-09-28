@@ -1,4 +1,7 @@
-export default function CareerAndSpec() {
+import FormSelect from '../../forms/FormSelect';
+import TagInput from '../../forms/TagInput';
+
+export default function CareerAndSpec({values, handleFormChange}) {
   const careers = [
     {value: '', display: 'SELECT ONE'},
     {value: 'Explorer', display: 'Explorer'},
@@ -17,6 +20,19 @@ export default function CareerAndSpec() {
 
   return (
     <>
+      <FormSelect
+        name='career'
+        label='Career'
+        value={values.career}
+        handler={handleFormChange}
+        options={careers}
+      />
+      <TagInput 
+        name='specializations'
+        label="specializations"
+        tags={values.specializations} 
+        onTagsChange={handleFormChange} 
+        options={specializations}/>
     </>
   )
 }
