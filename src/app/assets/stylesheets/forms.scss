@@ -85,6 +85,9 @@
         &:hover {
             font-family: $primary;
         }
+        &.hasFocus {
+            font-family: $primary;
+        }
     }
     .tags {
         padding: 6px;

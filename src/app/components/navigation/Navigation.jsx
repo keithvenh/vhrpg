@@ -7,7 +7,6 @@ import MyAccount from '../auth/MyAccount';
 export default function Navigation(props) {
     const context = useContext(UserContext);
     const location = useLocation();
-    console.log(location);
 
     if(!context.user) {
         return (

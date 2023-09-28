@@ -1,77 +1,65 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { doc, getDoc, updateDoc } from 'firebase/firestore'; 
-import { charactersCollection } from '../../../db/application/db';
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { charactersCollection } from "../../../db/application/db";
 
-import Loading from '../loading/Loading';
+import Loading from "../loading/Loading";
 
 // ===== IMPORT FORM FIELDS ===== //
-import Form from '../forms/Form'
-import FormSection from '../forms/FormSection';
+import Form from "../forms/Form";
+import FormSection from "../forms/FormSection";
 
-import Overview from './characterForm/Overview';
-import CareerAndSpec from './characterForm/CareerAndSpec';
+import Overview from "./characterForm/Overview";
+import CareerAndSpec from "./characterForm/CareerAndSpec";
 
-
-import FormInput from '../forms/FormInput';
-import FormSelect from '../forms/FormSelect';
-import TagInput from '../forms/TagInput';
-import FormButton from '../forms/FormButton';
+import FormInput from "../forms/FormInput";
+import FormSelect from "../forms/FormSelect";
+import TagInput from "../forms/TagInput";
+import FormButton from "../forms/FormButton";
 
 export default function EditCharacter() {
-  const [ character, setCharacter ] = useState(null);
+  const [character, setCharacter] = useState(null);
   const [form, setForm] = useState({
-    displayName: '',
-    type: '',
-    imageURL: '',
-    species: '',
-    career: '',
-    specializations: ['Advisor'],
+    displayName: "",
+    type: "",
+    imageURL: "",
+    species: "",
+    career: "",
+    specializations: [],
   });
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  async function getCharacter(characterID) {
-    const c = (await getDoc(doc(charactersCollection, characterID)));
-    setCharacter({
-      ...c.data(),
-      id: c.id
-    });
-    setForm({
-      ...form,
-      ...c.data()
-    })
+  function handleFormChange(e) {
+    if (e && e.target) {
+      // This means it's from an input event
+      setForm((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    } else {
+      // It's directly the tags array from onTagChange
+      setForm((prev) => ({
+        ...prev,
+        specializations: e, // Assuming specializations is the name for tags
+      }));
+    }
   }
 
-  function handleFormChange(e) {
-    if (e && e.target) {  // This means it's from an input event
-        setForm(prev => ({
-          ...prev,
-          [e.target.name]: e.target.value
-        }));
-    } else {  // It's directly the tags array from onTagChange
-        setForm(prev => ({
-          ...prev,
-          specializations: e  // Assuming specializations is the name for tags
-        }));
-    }
-}
-
-
   async function updateCharacter(editedCharacter) {
-      try {
-          // Create a reference to the character document using its ID
-          const charDocRef = doc(charactersCollection, character.id);
+    try {
+      // Create a reference to the character document using its ID
+      const charDocRef = doc(charactersCollection, character.id);
 
-          // Update the document in the database
-          await updateDoc(charDocRef, editedCharacter);
+      // Update the document in the database
+      await updateDoc(charDocRef, editedCharacter);
 
-          console.log("Document updated with ID: ", character.id);
-          navigate(`/characters/${character.id}`)
-      } catch (error) {
-          console.error("Error updating document: ", error);
-      }
+      // Navigate to the Character Show page
+      navigate(`/characters/${character.id}`);
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
   }
 
   function handleSubmit(e) {
@@ -79,68 +67,75 @@ export default function EditCharacter() {
     updateCharacter(form);
   }
 
-  useEffect(() => {
-    getCharacter(id);
-  }, [id])
-
-  if (!form || !character) {
-    return <Loading />
+  async function getCharacter(characterID) {
+    const c = await getDoc(doc(charactersCollection, characterID));
+    setCharacter({
+      ...c.data(),
+      id: c.id,
+    });
+    setForm({
+      ...form,
+      ...c.data(),
+    });
   }
 
+  useEffect(() => {
+    getCharacter(id);
+  }, [id]);
+
+  if (!form || !character) return <Loading />;
+
   return (
-    <form className='form editCharacterForm' onSumbit={handleSubmit}>
-
-        <div className='formTitleContainer'>
-            <div className='characterImageContainer'>
-                <img className='characterImage' src={form.imageURL || 'https://i.imgur.com/tdi3NGa.png'} alt='' />
-            </div>
-            <div className='characterTitleContainer'>
-                <h2 className='formTitle'>{character.displayName}</h2>
-                <p className='sw formSubtitle'>{character.displayName}</p>
-                <p className='sw formSubtitle'>{character.id}</p>
-            </div>
+    <form className="form editCharacterForm" onSumbit={handleSubmit}>
+      <div className="formTitleContainer">
+        <div className="characterImageContainer">
+          <img
+            className="characterImage"
+            src={form.imageURL || "https://i.imgur.com/tdi3NGa.png"}
+            alt=""
+          />
         </div>
-        
-        <FormSection label='Overview'>
-            <Overview 
-                values={{
-                    displayName: form.displayName, 
-                    type: form.type, 
-                    imageURL: form.imageURL, 
-                    species: form.species
-                }} 
-                handleFormChange={handleFormChange} 
-            />
-
-            {form.type === 'pc' && (
-                <CareerAndSpec 
-                    values={{
-                        career: form.career,
-                        specializations: form.specializations
-                    }}
-                    handleFormChange={handleFormChange} 
-                />
-            )}
-        </FormSection>
-
-    <div className='characterContainer'>
-            
-      <div className='characterDetails'>
-
-        <div className='characterOverview'>
-
-            
-          </div>
+        <div className="characterTitleContainer">
+          <h2 className="formTitle">{character.displayName}</h2>
+          <p className="sw formSubtitle">{character.displayName}</p>
+          <p className="sw formSubtitle">{character.id}</p>
         </div>
-        <div style={{marginTop: '240px'}}>
+      </div>
+
+      <FormSection label="Overview">
+        <Overview
+          values={{
+            displayName: form.displayName,
+            type: form.type,
+            imageURL: form.imageURL,
+            species: form.species,
+          }}
+          handleFormChange={handleFormChange}
+        />
+
+        {form.type === "pc" && (
+          <CareerAndSpec
+            values={{
+              career: form.career,
+              specializations: form.specializations,
+            }}
+            handleFormChange={handleFormChange}
+          />
+        )}
+      </FormSection>
+
+      <div className="characterContainer">
+        <div className="characterDetails">
+          <div className="characterOverview"></div>
+        </div>
+        <div style={{ marginTop: "240px" }}>
           <FormButton
-            type='submit'
-            label='Update Character'
+            type="submit"
+            label="Update Character"
             handler={handleSubmit}
-            />
-
+          />
         </div>
-{/* testing
+        {/* testing
 
 <div className='characterImageContainer'>
 <img className='characterImage' src={this.state.image} alt='' />
@@ -313,7 +308,7 @@ export default function EditCharacter() {
 <div className='character-talents' id='talentsß'>
 {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.talents
 </div> */}
-              </div>
-</form>
-  )
+      </div>
+    </form>
+  );
 }

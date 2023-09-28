@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function TagInput({ name, label, options, tags, onTagsChange }) {
   const [search, setSearch] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
 
   const filteredOptions = options.filter(option => 
       option.includes(search) && !tags?.includes(option)
@@ -22,7 +23,7 @@ function TagInput({ name, label, options, tags, onTagsChange }) {
         <div className='formFieldContainer'>
           <div className='formField'>
 
-            <p className='label'>{label}</p>
+            <p className={`label ${isFocused && 'hasFocus'}`} id={`${name}Label`}>{label}</p>
 
             <div className='tags'>
 
@@ -43,7 +44,10 @@ function TagInput({ name, label, options, tags, onTagsChange }) {
 
                 <i className='fas fa-magnifying-glass'></i>
                 <input className='tagSearch'
+                  name={name}
                   value={search}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
                   onChange={e => setSearch(e.target.value)}
                   onKeyDown={e => {
                     if (e.key === 'Enter' && filteredOptions.includes()) {
