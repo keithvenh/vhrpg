@@ -4,7 +4,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 12px;
 }
+
 .formTitleContainer {
     text-transform: uppercase;
     margin: 0;
@@ -19,12 +21,131 @@
     }
 }
 
+.formSection {
+    display: flex;
+    position: relative;
+    flex-direction : column;
+    border: 2px solid $greenFaded;
+    background-color: $greenTransparent;
+    margin: 12px;
+    border-radius: 5px;
+    width: 45vw;
+    max-width: 50%;
+    box-sizing: border-box;
+    .formSectionLabel {
+        position: absolute;
+        font-size: 12px;
+        top: -6px;
+        text-align: center;
+        text-transform: uppercase;
+        align-self: center;
+        padding: 0 6px;
+        background-color: $black;
+    }
+}
+
 .formFieldContainer {
     display: flex;
-    justify-content: center;
     min-width: 320px;
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
     flex: 1;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    margin: 12px;
+    border: 1px solid $whiteTransparent;
+    position: relative;
+    .input {
+        color: $white;
+        font-size: 16px;
+        letter-spacing: 2px;
+        padding-left: 12px;
+        text-align: left;
+        margin-top: 12px;
+        padding-bottom: 6px;
+        box-sizing: border-box;
+        &:focus + p {
+            font-family: $primary;
+        }
+    }
+    .label {
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: -6px;
+        letter-spacing: 2px;
+        padding: 0 6px;
+        font-family: $aurebesh;
+        position: absolute;
+        background-color: $black;
+        margin-left: 6px;
+        &:hover {
+            font-family: $primary;
+        }
+        &.hasFocus {
+            font-family: $primary;
+        }
+    }
+    .tags {
+        padding: 6px;
+        margin-top: 12px;
+        display: flex;
+        gap: 12px;
+        overflow-x: scroll;
+        width: 100%;
+        &.options {
+            overflow: auto;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            padding: 6px 12px;
+            gap: 6px;
+            font-size: 12px;
+            z-index: 10;
+            background-color: $eoteNavy;
+            &.selected {
+                background-color: $eoteOlive;
+            }
+            &.option {
+                background-color: $eoteMaroon;
+                cursor: pointer;
+            }
+            .tagIcon {
+                cursor: pointer;
+                margin-left: 6px;
+                font-weight: bold;
+            }
+        }
+    }
+    .tagInputSelector {
+        padding: 6px;
+        margin: 6px;
+        border: 1px solid $whiteFaded;
+        .searchContainer {
+            border-bottom: 1px solid $whiteTransparent;
+            padding: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            .tagSearch {
+                color: $white;
+                padding-left: 6px;
+                font-size: 16px;
+                flex: 1;
+            }
+        }
+        .tagOptionsContainer {
+            .tags {
+                margin-top: 6px;
+            }
+        }
+    }
 }
 
 .newCharacterContainer {
@@ -34,34 +155,6 @@
     flex: 1;
 }
 
-.formField {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 0;
-    padding: 12px;
-    .input {
-        border-bottom: 2px solid $white;
-        color: $white;
-        font-size: 16px;
-        letter-spacing: 2px;
-        padding-left: 6px;
-        text-align: left;
-        &:focus + p {
-            font-family: $primary;
-        }
-        box-sizing: border-box;
-    }
-    .label {
-        text-transform: uppercase;
-        font-size: 0.8em;
-        letter-spacing: 2px;
-        padding-left: 6px;
-        font-family: $aurebesh;
-        &:hover {
-            font-family: $primary;
-        }
-    }
-}
 
 .formErrors {
     text-align: center;

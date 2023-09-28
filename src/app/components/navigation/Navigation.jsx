@@ -7,7 +7,6 @@ import MyAccount from '../auth/MyAccount';
 export default function Navigation(props) {
     const context = useContext(UserContext);
     const location = useLocation();
-    console.log(location);
 
     if(!context.user) {
         return (
@@ -25,7 +24,7 @@ export default function Navigation(props) {
             <li className="vehiclesIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jet-fighter-up"></i></li>
             <li className={`missionIcon navItem ${props.link === 'campaigns'}`} onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li> */}
 
-            <li className={`navItem ${location.pathname === "/characters"}`}>
+            <li className={`navItem ${location.pathname.split('/')[1] === "characters"}`}>
                 <Link to="/characters">
                     <i className='fas fa-user-secret'></i>
                     <p>Characters</p>

@@ -6,6 +6,81 @@
     width: 100%;
 }
 
+// ===== EDIT CHARACTER ===== //
+.form.editCharacterForm, .showCharacter {
+    align-items: flex-start;
+    .formTitleContainer, .showCharacterTitleContainer {
+        display: flex;
+        width: 45vw;
+        max-width: 100%;
+        .characterImageContainer {
+            height: 100px;
+            width: 100px;
+            margin: 0 24px;
+            .characterImage {
+                height: 100%;
+                border-radius: 50%; 
+            }
+        }
+        .characterTitleContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+    }
+}
+
+// ===== SHOW CHARACTER PAGE ===== //
+.showCharacter {
+    padding: 12px;
+    position: relative;
+    .editButton {
+        position: absolute;
+        background-color: $eoteOlive;
+        color: $white;
+        border-radius: 50%;
+        font-size: 16px;
+        height: 36px;
+        width: 36px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 24px;
+    }
+    .characterLeft {
+        width: 45%;
+    }
+    .characterSection {
+        border: 2px solid $greenFaded;
+        background-color: $greenTransparent;
+        padding: 12px;
+        &.collapsed {
+            display: none;
+        }
+        .characterField {
+            border: 1px solid $whiteTransparent;
+            position: relative;
+            padding: 12px;
+            margin: 12px;
+            .label {
+                position: absolute;
+                font-size: 12px;
+                top: -6px;
+                background-color: $black;
+                text-transform: uppercase;
+                padding: 0 6px;
+            }
+            .value {
+                display: flex;
+                padding: 0 6px;
+                flex-wrap: wrap;
+            } 
+        }
+    }
+}
+
 // ===== FILTER BUTTONS ===== //
 .filterCharactersButtons {
     display: flex;
