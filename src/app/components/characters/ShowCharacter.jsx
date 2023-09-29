@@ -74,7 +74,7 @@ export default function ShowCharacter() {
 
           <CharacterField label='Career' value={character.career} />
 
-          <CharacterField label='Specializations' value={character.specializations.join(' | ')} />
+          <CharacterField label='Specializations' value={character.specializations?.join(' | ')} />
 
         </div>
 
