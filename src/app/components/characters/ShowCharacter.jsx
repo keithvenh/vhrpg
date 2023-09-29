@@ -42,13 +42,13 @@ export default function ShowCharacter() {
   return (
     <div className="showCharacter">
 
-      <Link to={`/characters/${character.id}/edit`}>
-        <div className='editButton'>
-          <i className='fas fa-pencil'></i>
-        </div>
-      </Link>
 
       <div className='characterLeft'>
+        <Link to={`/characters/${character.id}/edit`}>
+          <div className='editButton'>
+            <i className='fas fa-pencil'></i>
+          </div>
+        </Link>
         <div className="showCharacterTitleContainer">
           <div className="characterImageContainer">
             <img
@@ -80,6 +80,109 @@ export default function ShowCharacter() {
 
         <Divider label='Description' />
 
+      </div>
+
+      <div className='characterRight'>
+
+        <Divider label='Attributes' collapseSection={collapseSection} />
+
+        <div className='characterSection' id='Attributes'>
+          <div className='characteristics'>
+            <div  className='characteristic brawn'>
+              <p className='rank'>{ character.brawn }</p>
+              <p className='label'>Brawn</p>
+            </div>
+            <div  className='characteristic agility'>
+              <p className='rank'>{ character.agility }</p>
+              <p className='label'>Agility</p>
+            </div>
+            <div  className='characteristic intellect'>
+              <p className='rank'>{ character.intellect }</p>
+              <p className='label'>Intellect</p>
+            </div>
+            <div  className='characteristic cunning'>
+              <p className='rank'>{ character.cunning }</p>
+              <p className='label'>Cunning</p>
+            </div>
+            <div  className='characteristic willpower'>
+              <p className='rank'>{ character.willpower }</p>
+              <p className='label'>Willpower</p>
+            </div>
+            <div  className='characteristic presence'>
+              <p className='rank'>{ character.presence }</p>
+              <p className='label'>Presence</p>
+            </div>
+          </div>
+
+          <div className='derivedAttributes'>
+
+            <div className='attributeContainer'>
+              <p className='attributeLabel'>Soak</p>
+              <div className='values'>
+                <div className='current'>
+                  <p className='value'>{character.soakThreshold}</p>
+                  <p className='sublabel'>Current</p>
+                </div>
+              </div>
+            </div>
+
+            <div className='attributeContainer'>
+              <p className='attributeLabel'>Wounds</p>
+              <div className='values'>
+                <div className='threshold'>
+                  <p className='value'>{character.woundsThreshold}</p>
+                  <p className='sublabel'>Threshold</p>
+                </div>
+                <div className='current'>
+                  <p className='value'>{character.woundsCurrent}</p>
+                  <p className='sublabel'>Current</p>
+                </div>
+              </div>
+            </div>
+
+            <div className='attributeContainer'>
+              <p className='attributeLabel'>Strain</p>
+              <div className='values'>
+                <div className='threshold'>
+                  <p className='value'>{character.strainThreshold}</p>
+                  <p className='sublabel'>Threshold</p>
+                </div>
+                <div className='current'>
+                  <p className='value'>{character.strainCurrent}</p>
+                  <p className='sublabel'>Current</p>
+                </div>
+              </div>
+            </div>
+
+            <div className='attributeContainer'>
+              <p className='attributeLabel'>Defense</p>
+              <div className='values'>
+                <div className='ranged'>
+                  <p className='value'>{character.defenseRanged}</p>
+                  <p className='sublabel'>Ranged</p>
+                </div>
+                <div className='melee'>
+                  <p className='value'>{character.defenseMelee}</p>
+                  <p className='sublabel'>Melee</p>
+                </div>
+              </div>
+            </div>
+
+            <div className='attributeContainer'>
+              <p className='attributeLabel'>Force Rating</p>
+              <div className='values'>
+                <div className='threshold'>
+                  <p className='value'>{character.forceRating}</p>
+                  <p className='sublabel'>Rating</p>
+                </div>
+                <div className='current'>
+                  <p className='value'>{character.forceCommitted}</p>
+                  <p className='sublabel'>Committed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 </div>
   );
