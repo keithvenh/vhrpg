@@ -30,7 +30,7 @@
     margin: 12px;
     border-radius: 5px;
     width: 45vw;
-    max-width: 50%;
+    max-width: calc(100% - 24px);
     box-sizing: border-box;
     .formSectionLabel {
         position: absolute;
@@ -96,6 +96,7 @@
         gap: 12px;
         overflow-x: scroll;
         width: 100%;
+        max-height: 256px;
         &.options {
             overflow: auto;
             flex-wrap: wrap;

@@ -6,11 +6,12 @@ import { charactersCollection } from "../../../db/application/db";
 import Loading from "../loading/Loading";
 
 // ===== IMPORT FORM FIELDS ===== //
-import Form from "../forms/Form";
 import FormSection from "../forms/FormSection";
 
 import Overview from "./characterForm/Overview";
 import CareerAndSpec from "./characterForm/CareerAndSpec";
+import Characteristics from './characterForm/Characteristics';
+import DerivedAttributes from './characterForm/DerivedAttributes';
 
 import FormInput from "../forms/FormInput";
 import FormSelect from "../forms/FormSelect";
@@ -26,6 +27,21 @@ export default function EditCharacter() {
     species: "",
     career: "",
     specializations: [],
+    brawn: 0,
+    agility: 0,
+    intellect: 0,
+    cunning: 0,
+    willpower: 0,
+    presence: 0,
+    soakThreshold: 0,
+    woundsThreshold: 0,
+    woundsCurrent: 0,
+    strainThreshold: 0,
+    strainCurrent: 0,
+    defenseRanged: 0,
+    defenseMelee: 0,
+    forceRating: 0,
+    forceCommitted: 0
   });
 
   const { id } = useParams();
@@ -87,55 +103,89 @@ export default function EditCharacter() {
 
   return (
     <form className="form editCharacterForm" onSumbit={handleSubmit}>
-      <div className="formTitleContainer">
-        <div className="characterImageContainer">
-          <img
-            className="characterImage"
-            src={form.imageURL || "https://i.imgur.com/tdi3NGa.png"}
-            alt=""
-          />
+      <div className='editCharacterFormLeft'>
+        <div className="formTitleContainer">
+          <div className="characterImageContainer">
+            <img
+              className="characterImage"
+              src={form.imageURL || "https://i.imgur.com/tdi3NGa.png"}
+              alt=""
+            />
+          </div>
+          <div className="characterTitleContainer">
+            <h2 className="formTitle">{character.displayName}</h2>
+            <p className="sw formSubtitle">{character.displayName}</p>
+            <p className="sw formSubtitle">{character.id}</p>
+          </div>
         </div>
-        <div className="characterTitleContainer">
-          <h2 className="formTitle">{character.displayName}</h2>
-          <p className="sw formSubtitle">{character.displayName}</p>
-          <p className="sw formSubtitle">{character.id}</p>
-        </div>
-      </div>
 
-      <FormSection label="Overview">
-        <Overview
-          values={{
-            displayName: form.displayName,
-            type: form.type,
-            imageURL: form.imageURL,
-            species: form.species,
-          }}
-          handleFormChange={handleFormChange}
-        />
+        <FormSection label="Overview">
 
-        {form.type === "pc" && (
-          <CareerAndSpec
+          <Overview
             values={{
-              career: form.career,
-              specializations: form.specializations,
+              displayName: form.displayName,
+              type: form.type,
+              imageURL: form.imageURL,
+              species: form.species,
             }}
             handleFormChange={handleFormChange}
           />
-        )}
-      </FormSection>
 
-      <div className="characterContainer">
-        <div className="characterDetails">
-          <div className="characterOverview"></div>
-        </div>
-        <div style={{ marginTop: "240px" }}>
-          <FormButton
-            type="submit"
-            label="Update Character"
-            handler={handleSubmit}
-          />
-        </div>
-        {/* testing
+          {form.type === "pc" && (
+            <CareerAndSpec
+              values={{
+                career: form.career,
+                specializations: form.specializations,
+              }}
+              handleFormChange={handleFormChange}
+            />
+          )}
+        </FormSection>
+
+      </div>
+
+      <div className='editCharacterFormRight'>
+
+        <FormSection label='Characteristics and Attributes'>
+
+              <Characteristics
+                values={{
+                  brawn: form.brawn,
+                  agility: form.agility,
+                  intellect: form.intellect,
+                  cunning: form.cunning,
+                  willpower: form.willpower,
+                  presence: form.presence
+                }}
+                handleFormChange={handleFormChange}
+              />
+
+              <DerivedAttributes
+                values={{
+                  soakThreshold: form.soakThreshold,
+                  woundsThreshold: form.woundsThreshold,
+                  woundsCurrent: form.woundsCurrent,
+                  strainThreshold: form.strainThreshold,
+                  strainCurrent: form.strainCurrent,
+                  defenseRanged: form.defenseRanged,
+                  defenseMelee: form.defenseMelee,
+                  forceRating: form.forceRating,
+                  forceCommitted: form.forceCommitted
+                }}
+                handleFormChange={handleFormChange}
+              />
+
+        </FormSection>
+          <div style={{ marginTop: "240px" }}>
+            <FormButton
+              type="submit"
+              label="Update Character"
+              handler={handleSubmit}
+            />
+          </div>
+      </div>
+
+{/* testing
 
 <div className='characterImageContainer'>
 <img className='characterImage' src={this.state.image} alt='' />
@@ -308,7 +358,6 @@ export default function EditCharacter() {
 <div className='character-talents' id='talentsß'>
 {/* WE NEED TO FIGURE OUT HOW TO LOOP THROUGH props.character.talents
 </div> */}
-      </div>
     </form>
   );
 }
