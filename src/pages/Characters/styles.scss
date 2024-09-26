@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.pc-bar {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+.pc-box {
+  color: $white;
+  display: flex;
+  padding: 12px;
+  .pc-image {
+    height: 10vh;
+    display: flex;
+    img {
+      max-height: 100%;
+    }
+  }
+  .pc-info {
+    padding-left: 6px;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+  }
+  .strain, .wounds {
+    color: $teal;
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.8em;
+    display: flex;
+    i {
+      margin-right: 1px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .wounds {
+    color: $green;
+  }
+}

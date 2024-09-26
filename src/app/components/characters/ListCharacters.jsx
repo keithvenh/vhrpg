@@ -35,8 +35,6 @@ function ListCharacters() {
   const fetchData = async () => {
     const chars = await fetchCharacters();
     setCharacters(chars);
-    setFilteredCharacters(chars);
-    setInitializing(false);
   };
   
   useEffect(() => {

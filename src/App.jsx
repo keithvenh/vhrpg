@@ -52,7 +52,7 @@ export default function App() {
                   <Route path="/" element={<Home />} />
 
                   <Route path="/astrogation" element={<Astrogation />} />
-                  <Route path="/characters" element={<Characters />} />
+                  <Route path="/characters/*" element={<Characters />} />
                   <Route path="/contacts" element={<Contacts />} />
                   <Route path="/factions" element={<Factions />} />
                   <Route path="/organization" element={<Organization />} />
