@@ -6,16 +6,28 @@ import {charactersCollection} from '../../../db/application/db';
 import Loading from '../loading/Loading';
 import Divider from './Divider';
 import CharacterField from './CharacterField';
+import Tags from '../../helpers/application/Tags';
 
 export default function ShowCharacter() {
   const [character, setCharacter] = useState();
   const { id } = useParams();
+  const [skillsFilter, setSkillsFilter] = useState(['ranked', 'career', 'unranked', 'non-career'])
 
   const characterTypes = {
     'pc': 'Player Character',
     'nemesis': 'Nemesis',
     'rival': 'Rival',
     'minion': 'Minion'
+  }
+
+  function updateSkillsFilter(event) {
+    const filter = event.target.value;
+    let newFilter = [...skillsFilter];
+    if(newFilter.includes(filter)) {
+      setSkillsFilter(newFilter.filter((f) => f !== filter));
+      return;
+    }
+    setSkillsFilter([...skillsFilter, filter]);
   }
 
   function collapseSection(section) {
@@ -42,44 +54,122 @@ export default function ShowCharacter() {
   return (
     <div className="showCharacter">
 
+      <Link to={`/characters/${character.id}/edit`}>
+        <div className='editButton'>
+          <i className='fas fa-pencil'></i> Edit
+        </div>
+      </Link>
 
       <div className='characterLeft'>
-        <Link to={`/characters/${character.id}/edit`}>
-          <div className='editButton'>
-            <i className='fas fa-pencil'></i>
-          </div>
-        </Link>
-        <div className="showCharacterTitleContainer">
+        <h1 className='characterName'>
+          {character.displayName}
+          <span className='characterType'>[{character.type}]</span>
+        </h1>
+
+        <div className='characterOverview'>
           <div className="characterImageContainer">
             <img
               className="characterImage"
               src={character.imageURL || "https://i.imgur.com/tdi3NGa.png"}
-              alt=""
+              alt={`${character.displayName} image`}
             />
           </div>
-          <div className="characterTitleContainer">
-            <h2 className="formTitle">{character.displayName}</h2>
-            <p className="sw formSubtitle">{character.displayName}</p>
-            <p className="sw formSubtitle">{character.id}</p>
+          <div className='characterOverviewData'>
+            <CharacterField label='Species' value={character.species}/>
+            <CharacterField label='Career' value={character.career} />
+            <CharacterField label='Specializations' value={
+              (
+                <Tags tagList={character.specializations} classList={'selected'} />
+              )
+            } />
           </div>
+        </div>
+        <div className="showCharacterTitleContainer">
         </div>
 
         <Divider label='Overview' collapseSection={collapseSection}/>
         
         <div className='characterSection' id='Overview'>
 
-          <CharacterField label='Character Type' value={characterTypes[character.type]} />
 
-          <CharacterField label='Species' value={character.species}/>
 
-          <CharacterField label='Career' value={character.career} />
 
-          <CharacterField label='Specializations' value={character.specializations.join(' | ')} />
 
         </div>
 
         <Divider label='Description' />
 
+      </div>
+
+      <div className='characterCenter'>
+
+        <Divider label='Skills' />
+
+        <div className='skillsFilter'>
+          <input
+              name='skillsFilter'
+              id='ranked'
+              className={`input checkboxInput skillsFilterCheckboxInput`}
+              type='checkbox'
+              value='ranked'
+              checked={skillsFilter.includes('ranked')}
+              onChange={updateSkillsFilter}
+          />
+          <label 
+              className={`checkboxLabel skillFilterCheckboxLabel`}
+              htmlFor='ranked'
+          >Ranked</label>
+          <input
+              name='skillsFilter'
+              id='unranked'
+              className={`input checkboxInput skillsFilterCheckboxInput`}
+              type='checkbox'
+              value='unranked'
+              checked={skillsFilter.includes('unranked')}
+              onChange={updateSkillsFilter}
+          />
+          <label 
+              className={`checkboxLabel skillFilterCheckboxLabel`}
+              htmlFor='unranked'
+          >Unranked</label>
+          <input
+              name='skillsFilter'
+              id='career'
+              className={`input checkboxInput skillsFilterCheckboxInput`}
+              type='checkbox'
+              value='career'
+              checked={skillsFilter.includes('career')}
+              onChange={updateSkillsFilter}
+          />
+          <label 
+              className={`checkboxLabel skillFilterCheckboxLabel`}
+              htmlFor='career'
+          >Career</label>
+          <input
+              name='skillsFilter'
+              id='non-career'
+              className={`input checkboxInput skillsFilterCheckboxInput`}
+              type='checkbox'
+              value='non-career'
+              checked={skillsFilter.includes('non-career')}
+              onChange={updateSkillsFilter}
+          />
+          <label 
+              className={`checkboxLabel skillFilterCheckboxLabel`}
+              htmlFor='non-career'
+          >Non-Career</label>
+        </div>
+
+        <div className='skills'>
+          <h2>General</h2>
+          {character.skills?.general?.map(skill => {
+            if(s)
+            return (
+              <p className='skill'>{skill}</p>
+            )
+          })}
+        </div>
+      
       </div>
 
       <div className='characterRight'>

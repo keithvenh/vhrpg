@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Tags from '../../helpers/application/Tags';
+
 function TagInput({ name, label, options, tags, onTagsChange }) {
   const [search, setSearch] = useState('');
   const [isFocused, setIsFocused] = useState(false);
