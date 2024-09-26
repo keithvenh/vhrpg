@@ -1,24 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './app/assets/stylesheets/main.scss';
-import App from './app/components/App';
-import reportWebVitals from './app/helpers/application/reportWebVitals';
-import { initializeApp } from "firebase/app";
-import getFirebaseConfig from "./config/firebase";
+import ReactDOM from 'react-dom/client';
+
 import { UserProvider } from './app/contexts/userContext'; // Import UserProvider
 import { AlertProvider } from './app/contexts/alertContext'; // Import AlertProvider
 
+import App from './App';
+
+import './app/assets/stylesheets/main.scss';
+
+import { initializeApp } from "firebase/app";
+import getFirebaseConfig from "./config/firebase";
+
 initializeApp(getFirebaseConfig());
 
-ReactDOM.render(
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <React.StrictMode>
     <UserProvider>
       <AlertProvider>
         <App />
       </AlertProvider>
     </UserProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
-
-reportWebVitals();

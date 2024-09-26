@@ -1,0 +1,1 @@
+The utils director piurpose is to hold things like helper functions and global constants

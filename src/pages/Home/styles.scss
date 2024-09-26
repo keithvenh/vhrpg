@@ -1,0 +1,27 @@
+@import '../../app/assets/stylesheets/variables.scss';
+
+.Home {
+  margin: 2vh;
+  h1 {
+      font-size: 2em;
+  }
+  h2 {
+      font-size: 1.5em;
+      margin: 1vh 0;
+  }
+  h3 {
+    font-weight: bold;
+    margin: 0.5vh 0;
+  }
+  p, li {
+      line-height: 1.5em;
+  }
+  a {
+      color: $teal;
+      &:hover {
+          color: $orange;
+      }
+      margin-left: 6px;
+  }
+
+}

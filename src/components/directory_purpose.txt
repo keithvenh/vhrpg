@@ -1,0 +1,1 @@
+The purpose of the components directory is to hold components that can be reused site-wide. Things like form fields, buttons, etc.

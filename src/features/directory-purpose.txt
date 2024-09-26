@@ -1,0 +1,1 @@
+The purpose of the features directory is to group components related to a similar featuer. This would include things like Chat, Auth, etc.

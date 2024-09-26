@@ -1,0 +1,1 @@
+The purpose of the Pages directory is to hold content specific to pages in the app. Pages like Home, About and Contact that aren't considered a feature.

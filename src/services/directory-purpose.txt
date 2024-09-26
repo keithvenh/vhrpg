@@ -1,0 +1,1 @@
+The purpose of the services directory is to hold things like API calls, data fetching logic, etc.
