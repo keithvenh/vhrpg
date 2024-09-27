@@ -12,11 +12,17 @@ import NotFound from './app/components/NotFound';
 import Home from './pages/Home';
 
 import Astrogation from './features/Astrogation';
+
 import Characters from './pages/Characters';
+import CharacterShowPage from './pages/Characters/CharacterShowPage';
+
 import Contacts from './pages/Contacts';
 import Factions from './pages/Factions';
 import Organization from './pages/Organization';
+
 import Planets from './pages/Planets';
+import PlanetShowPage from './pages/Planets/PlanetShowPage';
+
 import Settings from './features/Auth/Settings';
 import Species from './pages/Species';
 import Vehicles from './pages/Vehicles';
@@ -52,11 +58,16 @@ export default function App() {
                   <Route path="/" element={<Home />} />
 
                   <Route path="/astrogation" element={<Astrogation />} />
-                  <Route path="/characters/*" element={<Characters />} />
+                  <Route path="/characters" element={<Characters />} />
+                  <Route path="/characters/:id" element={<CharacterShowPage />} />
+
                   <Route path="/contacts" element={<Contacts />} />
                   <Route path="/factions" element={<Factions />} />
                   <Route path="/organization" element={<Organization />} />
+
                   <Route path="/planets" element={<Planets />} />
+                  <Route path="/planets/:id" element={<PlanetShowPage />} />
+
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/species" element={<Species />} />
                   <Route path="/vehicles" element={<Vehicles />} />

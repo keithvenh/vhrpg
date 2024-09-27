@@ -39,14 +39,19 @@ export default function Home() {
         <hr />
         <h2>Open Projects</h2>
         <ul>
-          <li>{uncheckbox} <a href='/characters'>Galactic Denizen Profiles</a></li>
+          <li>{checkbox} <a href='/characters'>Galactic Denizen Profiles</a></li>
           <li>{uncheckbox} <a href='/settings'>Employee User Profiles</a></li>
           <li>{uncheckbox} <a href='/factions'>Guilds, Factions and Organzations Database</a></li>
-          <li>{uncheckbox} <a href='/planets'>Vorzyd Sector Star Systems Database</a></li>
+          <li>{checkbox} <a href='/planets'>Vorzyd Sector Star Systems Database</a></li>
           <li>{uncheckbox} <a href='/contacts'>Vorzyd Industries Contact Database</a></li>
           <li>{uncheckbox} <a href='/species'>Galactic Species Profiles</a></li>
           <li>{uncheckbox} <a href='/vehicles'>Vorzyd Industries Starship Profile Database</a></li>
           <li>{uncheckbox} <a href='/organization'>Vorzyd Industry About Us and Financial Statemtns</a></li>
+          <li>{uncheckbox} link contacts with characters using firebase reference</li>
+          <li>{uncheckbox} figure out how to use sql database for vehicles, gear, etc. --OR-- convert spreadhseets to json</li>
+          <li>{uncheckbox} create json seed files in case we need to reset database use</li>
+          <li>{uncheckbox} link currentlocation fields with planets using firebase reference</li>
+          <li>{uncheckbox} link known associates to characters with firebase reference</li>
         </ul>
         
       </section>

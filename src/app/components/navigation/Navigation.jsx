@@ -20,16 +20,6 @@ export default function Navigation(props) {
 
         <ul className='primaryNav'>
 
-            {/* <li className="characterIcon navItem" onClick={() => props.appView('users', {subview: 'findFriend'})}><i className="fas fa-user-group"></i></li>
-            <li className="vehiclesIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-jet-fighter-up"></i></li>
-            <li className={`missionIcon navItem ${props.link === 'campaigns'}`} onClick={() => props.appView('campaigns')}><i className="fas fa-jedi"></i></li> */}
-
-            <li className={`navItem ${location.pathname.split('/')[1] === "characters"}`}>
-                <Link to="/characters">
-                    <i className='fas fa-user-secret'></i>
-                    <p>Characters</p>
-                </Link>
-            </li>
 
             <li className={`navItem ${location.pathname === "/"} homeLink`}>
                 <Link to="/">
@@ -38,11 +28,51 @@ export default function Navigation(props) {
                 </Link>
             </li>
 
-            {/* <li className="organizationIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-chart-pie"></i></li>
-            <li className="libraryIcon navItem" onClick={() => props.changeView('missionControl')}><i className="fas fa-book-journal-whills"></i></li> */}
+            <li className={`navItem ${location.pathname.split('/')[1] === "characters"}`}>
+                <Link to="/characters">
+                    <i className='fas fa-user'></i>
+                    <p>Denizens</p>
+                </Link>
+            </li>
+
+            <li className={`navItem ${location.pathname.split('/')[1] === "organizations"}`}>
+                <Link to="/organizations">
+                    <i className='fas fa-landmark'></i>
+                    <p>Orgs</p>
+                </Link>
+            </li>
+
+            <li className={`navItem ${location.pathname.split('/')[1] === "planets"}`}>
+                <Link to="/planets">
+                    <i className='fas fa-globe'></i>
+                    <p>Systems</p>
+                </Link>
+            </li>
+
+            <li className={`navItem ${location.pathname.split('/')[1] === "species"}`}>
+                <Link to="/species">
+                    <i className='fas fa-user-astronaut'></i>
+                    <p>Species</p>
+                </Link>
+            </li>
+
+            <li className={`navItem ${location.pathname.split('/')[1] === "vehicles"}`}>
+                <Link to="/vehicles">
+                    <i className='fa-brands fa-galactic-senate'></i>
+                    <p>Vehicles</p>
+                </Link>
+            </li>
+
+            <li className={`navItem ${location.pathname.split('/')[1] === "contacts"}`}>
+                <Link to="/contacts">
+                    <i className='fas fa-address-book'></i>
+                    <p>Contacts</p>
+                </Link>
+            </li>
+
             <li className={`userIcon navItem ${location.pathname === "/profile"}`}>
                 <Link to={`/profile`}>
-                    <i className='fas fa-id-badge'></i>
+                    <i className='fas fa-id-card'></i>
                     <p>Profile</p>
                 </Link>
             </li>
@@ -50,27 +80,3 @@ export default function Navigation(props) {
         </ul>
     )
 }
-
-// export default function TopLevelNav() {
-//   const location = useLocation();
-
-//   return (
-//     <ul id='topLevelNav'>
-//       <li>
-//         <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-//           Home
-//         </Link>
-//       </li>
-//       <li>
-//         <Link to="/contacts" className={location.pathname.startsWith("/contacts") ? "active" : ""}>
-//           Contacts
-//         </Link>
-//       </li>
-//       <li>
-//         <Link to="/donations" className={location.pathname.startsWith("/donations") ? "active" : ""}>
-//           Donations
-//         </Link>
-//       </li>
-//     </ul>
-//   )
-// }

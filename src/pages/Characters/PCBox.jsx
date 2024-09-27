@@ -1,25 +1,29 @@
 export default function PCBox({pc}) {
 
-  console.log(pc)
-  const emptyBox = <i className='fa-regular fa-square-full'></i>
-  const fullBox = <i className='fa-solid fa-square-full'></i>
+  const emptyBox = (i) => {
+    return <i key={i} className='fa-regular fa-square-full'></i>
+  }
+  const fullBox = (i) => {
+    return <i key={i} className='fa-solid fa-square-full'></i>
+  }
   const strain = []
   const wounds = []
   for(let i = 0; i < pc.woundsThreshold; i++) {
     let health = pc.woundsThreshold - pc.woundsCurrent;
     if(health > i) {
-      wounds.push(fullBox)
+      wounds.push(fullBox(i))
     }
-    else {wounds.push(emptyBox)}
+    else {wounds.push(emptyBox(i))}
   }
 
   for(let i = 0; i < pc.strainThreshold; i++) {
     let health = pc.strainThreshold - pc.strainCurrent;
     if(health > i) {
-      strain.push(fullBox)
+      strain.push(fullBox(i))
     }
-    else {strain.push(emptyBox)}
+    else {strain.push(emptyBox(i))}
   }
+
   return (
     <a href={`/characters/${pc.id}`}>
       <div className='pc-box'>

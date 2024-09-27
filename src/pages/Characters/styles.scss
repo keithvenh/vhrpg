@@ -41,3 +41,88 @@
     color: $green;
   }
 }
+
+h1.section-title {
+  text-decoration: underline;
+  padding: 12px;
+}
+.character-list {
+  padding: 12px;
+  .character-link i {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+  }
+  p {
+    line-height: 1.5em;
+  }
+  a {
+    color: $teal;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+// ===== CHARACTER SHOW PAGE ===== //
+.CharacterShowPage {
+  h1 {
+    text-align: center;
+    padding: 12px;
+    padding-bottom: 0;
+    font-size: 1.5;
+  }
+  .id {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  .basic-info {
+    padding: 12px;
+    display: flex;
+    .character-image {
+      height: 12em;
+      img {
+        max-height: 100%;
+      }
+      i {
+        font-size: 12em;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 6px;
+      h2, p {
+        line-height: 1.5em;
+      }
+      h2 {
+        font-size: 1.7em;
+      }
+    }
+  }
+  .status {
+    padding: 0 12px;
+    .strain, .wounds {
+      margin: 6px 0;
+      color: $teal;
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 0.8em;
+      display: flex;
+      i {
+        margin-right: 1px;
+      }
+    }
+    .wounds {
+      color: $green;
+    }
+  }
+  .associates {
+    h3 {
+      text-decoration: underline;
+      margin-bottom: 12px;
+    }
+    padding: 12px;
+  }
+}
