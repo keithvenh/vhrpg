@@ -8,7 +8,7 @@ export async function createOrganization() {
 
 // === READ === //
 export async function fetchAllOrganizations() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(organizationsCollection, orderBy('displayName'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

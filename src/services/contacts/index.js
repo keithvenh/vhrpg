@@ -8,7 +8,7 @@ export async function createContact() {
 
 // === READ === //
 export async function fetchAllContacts() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(contactsCollection, orderBy('displayName'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

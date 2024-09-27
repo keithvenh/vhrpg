@@ -17,14 +17,19 @@ import Characters from './pages/Characters';
 import CharacterShowPage from './pages/Characters/CharacterShowPage';
 
 import Contacts from './pages/Contacts';
-import Factions from './pages/Factions';
-import Organization from './pages/Organization';
+
+import Organizations from './pages/Organizations';
+import Organization from './pages/Organizations/Organization';
 
 import Planets from './pages/Planets';
 import PlanetShowPage from './pages/Planets/PlanetShowPage';
 
-import Settings from './features/Auth/Settings';
+import Settings from './pages/Users/Settings';
+
 import Species from './pages/Species';
+
+import Todos from './features/Todos';
+
 import Vehicles from './pages/Vehicles';
 
 export default function App() {
@@ -62,14 +67,16 @@ export default function App() {
                   <Route path="/characters/:id" element={<CharacterShowPage />} />
 
                   <Route path="/contacts" element={<Contacts />} />
-                  <Route path="/factions" element={<Factions />} />
+                  <Route path="/organizations" element={<Organizations />} />
                   <Route path="/organization" element={<Organization />} />
 
                   <Route path="/planets" element={<Planets />} />
                   <Route path="/planets/:id" element={<PlanetShowPage />} />
 
-                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/profile" element={<Settings />} />
                   <Route path="/species" element={<Species />} />
+
+                  <Route path="/todos" element={<Todos />} />
                   <Route path="/vehicles" element={<Vehicles />} />
 
                   <Route path="*" element={<NotFound />} />

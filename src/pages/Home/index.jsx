@@ -10,18 +10,6 @@ export default function Home() {
       <section className="Home">
         <h1>Welcome to the Vorzyd Industries Holonet!</h1>
         <p>You have joined the holonet from the Jedha System</p>
-        <h3>Helpful Links:</h3>
-        <p>
-          <a href='/characters'>Galactic Denizens</a> |
-          <a href='/planets'>Star Systems</a> |
-          <a href='/factions'>Guilds, Factions and Organizations</a> |
-          <a href='/astrogation'>Vorzyd Industries Astrogation Charts</a> |
-          <a href='/contacts'>Vorzyd Industires Contact Holobook</a> |
-          <a href='/species'>Galactic Species</a> |
-          <a href='/settings'>Holonet Settings</a> |
-          <a href='/vehicles'>Starship Database</a> |
-          <a href='/organization'>About Us</a>
-        </p>
         <hr />
         <h2>Information about the Vorzyd Sector</h2>
         <p>As our home, we care deeply about the Vorzyd Sector. Located almoste entirely in Galactic Grid R6, the Vorzyd Sector is home to a large variety of planets, species and industries. Served by the Salin Cooridor and the Perlimean Trade Route, the Vorzyd Sector is accessible to the rest of the galaxy, and benefits from it.</p>

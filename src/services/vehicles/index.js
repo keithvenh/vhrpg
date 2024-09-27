@@ -8,7 +8,7 @@ export async function createVehicle() {
 
 // === READ === //
 export async function fetchAllVehicles() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(vehiclesCollection, orderBy('displayName'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

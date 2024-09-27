@@ -1,5 +1,5 @@
 import { usersCollection } from "../../db/application/db"
-import { getDocs, query, orderBy, getDoc, doc } from 'firebase/firestore';
+import { getDocs, query, orderBy, getDoc, doc, updateDoc } from 'firebase/firestore';
 
 // === CREATE === //
 export async function createUser() {
@@ -8,7 +8,7 @@ export async function createUser() {
 
 // === READ === //
 export async function fetchAllUsers() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(usersCollection, orderBy('displayName'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),
@@ -24,7 +24,12 @@ export async function fetchUser(id) {
 
 // === UPDATE === //
 export async function updateUser(id, data) {
-  return false
+  try {
+    await updateDoc(doc(usersCollection, id), data);
+    console.log("Document Updated Successfully");
+  } catch (error) {
+    console.log("Error Updating Document: ", error)
+  }
 }
 
 // === DESTROY === //

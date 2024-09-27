@@ -1,0 +1,172 @@
+@import '../../styles/variables.scss';
+
+.Settings {
+  h1 {
+    padding: 12px;
+  }
+  button {
+    background-color: $green;
+    color: $white;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 6px;
+    outline: none;
+    border: none;
+    &:hover {
+      background-color: darken($green, 10%);
+    }
+    margin: 12px;
+  }
+}
+
+.settings-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.setting-option {
+  padding: 12px;
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $grey;
+  border-radius: 5px;
+}
+
+input {
+  margin: 6px;
+}
+
+.red {
+  color: $red;
+}
+
+.orange {
+  color: $orange;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.green {
+  color: $green;
+}
+
+.teal {
+  color: $teal;
+}
+
+.blue {
+  color: $blue;
+}
+
+.white {
+  color: $white;
+}
+
+.grey {
+  color: $grey;
+}
+
+.border-red {
+  border-color: $red;
+}
+
+.border-orange {
+  border-color: $orange;
+}
+
+.border-yellow {
+  border-color: $yellow;
+}
+
+.border-green {
+  border-color: $green;
+}
+
+.border-teal {
+  border-color: $teal;
+}
+
+.border-blue {
+  border-color: $blue;
+}
+
+.border-white {
+  border-color: $white;
+}
+
+.border-grey {
+  border-color: $grey;
+}
+
+a {
+  color: $teal;
+  &:hover {
+    color: $orange;
+  }
+}
+
+.red a {
+  color: $red;
+}
+
+.orange a {
+  color: $orange;
+}
+
+.yellow a {
+  color: $yellow;
+}
+
+.green a {
+  color: $green;
+}
+
+.teal a {
+  color: $teal;
+}
+
+.blue a {
+  color: $blue;
+}
+
+.white a {
+  color: $white;
+}
+
+.grey a {
+  color: $grey;
+}
+
+.sourceCodePro {
+  font-family: $primary;
+}
+
+.shareTechMono {
+  font-family: $secondary;
+}
+
+.majorMonoDisplay {
+  font-family: $highlight;
+}
+
+.pressStart2P {
+  font-family: $pixel;
+}
+
+.aurebesh {
+  font-family: $aurebesh;
+}
+
+.teko {
+  font-family: $teko;
+}
+
+.pc-ranks {
+  input {
+    background-color: $white;
+    color: $black;
+  }
+}

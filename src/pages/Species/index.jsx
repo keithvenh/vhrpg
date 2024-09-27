@@ -16,13 +16,16 @@ export default function Species() {
   return (
     <section className='Species'>
       <h1>Galactic Species Database</h1>
-      <div className='planets-list'>
+      <div className='species-list'>
         {species.map(spec => <p key={spec.id}><a href={`/planets/${spec.id}`}>{spec.displayName}</a></p>)}
       </div>
       <hr style={{"borderTop": "3px solid #fff"}} />
-      <h1>Species</h1>
+      <h2>Species</h2>
       <ul>
-        <li>{uncheckbox} Alphabetical list of all species with separators</li>
+        <h3>Primary</h3>
+        <li>{checkbox} Alphabetical list of all species</li>
+        <h3>Secondary</h3>
+        <li>{uncheckbox} alphabetical separator or scroll bar</li>
         <li>{uncheckbox} Filter options for species</li>
         <li>{uncheckbox} Search Feature</li>
       </ul>

@@ -8,7 +8,7 @@ export async function createSpecies() {
 
 // === READ === //
 export async function fetchAllSpecies() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(speciesCollection, orderBy('displayName'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

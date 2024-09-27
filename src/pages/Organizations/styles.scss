@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+
+.Organizations {
+  h1 {
+    padding: 12px;
+  }
+  .organizations-list p {
+    padding: 12px;
+    a {
+      color: $teal;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+
+// ===== SHOW PAGE ===== //
+.PlanetShowPage {
+  h1 {
+    text-align: center;
+    padding: 12px;
+    padding-bottom: 0;
+    font-size: 1.5;
+  }
+  .id {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  .basic-info {
+    padding: 12px;
+    display: flex;
+    .planet-image {
+      height: 10em;
+      img {
+        max-height: 100%;
+      }
+      i {
+        font-size: 10em;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 6px;
+      h2, p {
+        line-height: 1.5em;
+      }
+      h2 {
+        font-size: 1.7em;
+      }
+    }
+  }
+  .description {
+    h3 {
+      text-decoration: underline;
+      margin-bottom: 12px;
+    }
+    padding: 12px;
+  }
+}
