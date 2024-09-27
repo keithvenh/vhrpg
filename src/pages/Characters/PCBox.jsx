@@ -1,5 +1,6 @@
 export default function PCBox({pc}) {
 
+  console.log(pc)
   const emptyBox = <i className='fa-regular fa-square-full'></i>
   const fullBox = <i className='fa-solid fa-square-full'></i>
   const strain = []

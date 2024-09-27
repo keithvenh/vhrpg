@@ -1,44 +1,19 @@
 import './styles.scss';
 
-import {useState, useEffect} from 'react';
-import {fetchCharacters} from '../../services/characters/fetchCharacters';
-
-import Loading from '../../features/Loading';
-import PCBox from './PCBox';
+import PCBar from './PCBar';
 
 export default function Characters() {
-
-  const [characters, setCharacters] = useState();
-
-  const fetchData = async () => {
-    const chars = await fetchCharacters();
-    setCharacters(chars);
-  };
-  
-  useEffect(() => {
-    fetchData();
-  }, [])
 
 
   const uncheckbox = <i className='fas fa-square'></i>
   const checkbox = <i className='fas fa-square-check'></i>
 
-  if(!characters) {return <Loading />}
-
   return (
     <section className='Characters'>
-      <div className='pc-bar'>
-        {characters.map(char => {
-          if(char.type == 'pc') {
-            return (
-              <PCBox key={char.id} pc={char} />
-            )
-          }
-        })}
-      </div>
+      <PCBar />
       <h1>Characters</h1>
       <ul>
-        <li>{uncheckbox} Scrollable list of PCs with images, status bar</li>
+        <li>{checkbox} Scrollable list of PCs with images, status bar</li>
         <li>{uncheckbox} Alphabetical list of all characters with separators</li>
         <li>{uncheckbox} Filter options for characters</li>
         <li>{uncheckbox} Search Feature</li>

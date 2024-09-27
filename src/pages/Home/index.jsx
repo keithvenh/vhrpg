@@ -1,4 +1,5 @@
 import './styles.scss';
+import PCBar from '../Characters/PCBar';
 
 export default function Home() {
 
@@ -29,7 +30,7 @@ export default function Home() {
         <p>Vorzyd Industries is a conglomoration of different companies in a variety of industries. Some key highlights include farming, shipping, mechanics, recycling and defense. We look forward to serving you.</p>
         <hr />
         <h2>Vorzyd Industries Board Members</h2>
-        <p>Pax Kal-Yuir | Ajairu Kojiti | Krachtig | Aleni Ben-Urdu | Dagnar Kell | Valtuk Akti | Nelumbo Kuztos | Silas Sozo</p>
+        <PCBar />
         <hr />
         <h2>News</h2>
         <p><i className='fas fa-newspaper'></i> Vorzyd Industries launches <a href='/astrogation'>new astrogation charts.</a></p>
