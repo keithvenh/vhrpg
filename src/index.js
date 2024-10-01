@@ -9,9 +9,11 @@ import App from './App';
 import './app/assets/stylesheets/main.scss';
 
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import getFirebaseConfig from "./config/firebase";
 
-initializeApp(getFirebaseConfig());
+const app = initializeApp(getFirebaseConfig());
+const analytics = getAnalytics(app);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

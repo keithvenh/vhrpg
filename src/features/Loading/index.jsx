@@ -1,4 +1,7 @@
+import './styles.scss';
+
 import loadingGif from '../../app/assets/images/star-wars-loading.gif';
+
 export default function Loading() {
 
     return (

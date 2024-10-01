@@ -1,4 +1,4 @@
-@import '../../app/assets/stylesheets/variables.scss';
+@import '../../styles/variables.scss';
 
 .Home {
   margin: 2vh;
@@ -21,7 +21,6 @@
       &:hover {
           color: $orange;
       }
-      margin-left: 6px;
   }
 
 }

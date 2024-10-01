@@ -37,7 +37,7 @@ export default function Navigation(props) {
 
             <li className={`navItem ${location.pathname.split('/')[1] === "organizations"}`}>
                 <Link to="/organizations">
-                    <i className='fas fa-landmark'></i>
+                    <i className='fas fa-building-columns'></i>
                     <p>Orgs</p>
                 </Link>
             </li>
@@ -58,15 +58,15 @@ export default function Navigation(props) {
 
             <li className={`navItem ${location.pathname.split('/')[1] === "vehicles"}`}>
                 <Link to="/vehicles">
-                    <i className='fa-brands fa-galactic-senate'></i>
+                    <i className='fas fa-jet-fighter'></i>
                     <p>Vehicles</p>
                 </Link>
             </li>
 
-            <li className={`navItem ${location.pathname.split('/')[1] === "contacts"}`}>
-                <Link to="/contacts">
-                    <i className='fas fa-address-book'></i>
-                    <p>Contacts</p>
+            <li className={`navItem ${location.pathname.split('/')[1] === "astrogation"}`}>
+                <Link to="/astrogation">
+                    <i className='fas fa-bezier-curve' style={{"transform": "rotate(270deg"}}></i>
+                    <p>Astrogation</p>
                 </Link>
             </li>
 

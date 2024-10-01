@@ -1,3 +1,5 @@
+import './styles/index.scss';
+
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserContext } from './app/contexts/userContext';
@@ -19,7 +21,7 @@ import CharacterShowPage from './pages/Characters/CharacterShowPage';
 import Contacts from './pages/Contacts';
 
 import Organizations from './pages/Organizations';
-import Organization from './pages/Organizations/Organization';
+import OrganizationShowPage from './pages/Organizations/OrganizationShowPage';
 
 import Planets from './pages/Planets';
 import PlanetShowPage from './pages/Planets/PlanetShowPage';
@@ -27,10 +29,12 @@ import PlanetShowPage from './pages/Planets/PlanetShowPage';
 import Settings from './pages/Users/Settings';
 
 import Species from './pages/Species';
+import SpeciesShowPage from './pages/Species/SpeciesShowPage';
 
 import Todos from './features/Todos';
 
 import Vehicles from './pages/Vehicles';
+import VehicleShowPage from './pages/Vehicles/VehicleShowPage';
 
 export default function App() {
 
@@ -68,16 +72,20 @@ export default function App() {
 
                   <Route path="/contacts" element={<Contacts />} />
                   <Route path="/organizations" element={<Organizations />} />
-                  <Route path="/organization" element={<Organization />} />
+                  <Route path="/organizations/:id" element={<OrganizationShowPage />} />
 
                   <Route path="/planets" element={<Planets />} />
                   <Route path="/planets/:id" element={<PlanetShowPage />} />
 
                   <Route path="/profile" element={<Settings />} />
+
                   <Route path="/species" element={<Species />} />
+                  <Route path="/species/:id" element={<SpeciesShowPage />} />
 
                   <Route path="/todos" element={<Todos />} />
+
                   <Route path="/vehicles" element={<Vehicles />} />
+                  <Route path='/vehicles/:id' element={<VehicleShowPage />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>

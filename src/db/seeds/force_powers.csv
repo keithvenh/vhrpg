@@ -1,0 +1,51 @@
+﻿Game,Name,ForceRating,Cost,DownLink1,DownLink2,DownLink3,DownLink4,Description
+Force and Destiny,Alter,1,15,1,1,1,1,"The Force user can tap into the Living Force of their surroundings, manipulating the nearby environs.
+The Force user may spend :ldsp: to make all terrain currently within short range difficult terrain until the end of their next turn.
+The Force user may spend :ldsp: to make all terrain currently within short range normal terrain until the end of their next turn."
+Force and Destiny,Battle Meditation,2,15,1,1,0,0,"The Force user directs allies in battle, making them more effective as a coordinated unit.
+The user may spend :ldsp: to add one automatic :suc: to all checks made by a number of engaged friendly targets up to his Presence before the end of his next turn. If the user used an :dsp: to generate :ldsp: , reduce each target’s Willpower by 1 (to a minimum of 1) until the end of the encounter."
+Force and Destiny,Bind,2,15,1,1,1,1,"The Force user restrains an enemy, preventing the target from acting.
+The user may spend :ldsp: to immobilize a target within short range until the end of the user’s next turn. If the user used any :dsp: to generate :ldsp:, the target also suffers 1 wound per :ldsp: spent on the check (ignoring soak)."
+Force and Destiny,Conjure,1,20,1,1,1,1,"The Force user calls forth a spectral object to their hand, which lasts for a short time.
+The user may spend :ldsp: to create a facsimile of a Brawl or Melee weapon anywhere within engaged range. At the end of the user’s next turn, this item dissipates. At the GM’s discretion, the user can instead conjure a simple tool and other useful low-tech item with an encumbrance no greater than 1."
+Force and Destiny,Ebb/Flow,1,10,1,1,1,1,"The Force user’s actions empower himself or sap strength from his foes.
+Ebb: When the Force user makes a skill check, he may roll an Ebb power check as part of the roll. The user may spend :ldsp: to suffer 1 strain, then inflict 1 strain on all other engaged characters. The Force user may not activate this multiple times.
+Flow: When the Force user makes a skill check, he may roll a Flow power check as part of the roll. The user may spend :ldsp: to heal 1 strain. The Force user may not activate this multiple times."
+Force and Destiny,Endure,1,10,1,0,0,0,"When the character suffers a Critical Injury with a severity no greater than Easy (:pu:), the character may activate Endure as an out of turn incidental and commit :wh: to temporarily ignore the effects of that injury. The character does not apply any results from the Critical Injury or add +10 to further rolls on the Critical Injury Result table while :wh: remains committed. When this ongoing effect ends, the character suffers all effects of the Critical Injury (unless it has been treated)."
+Force and Destiny,Enhance,1,10,1,1,1,1,"When making an Athletics check, the Force user may roll an Enhance power check as part of the pool.
+The user may spend :lsp: to gain :suc: or :adv: (user’s choice) on the check."
+Force and Destiny,Farsight,1,5,1,0,1,0,"The Force user expands normal visual senses through a connection to the Force.
+The user may spend :ldsp: to ignore the effects of darkness or blindness and see normally at up to medium range for the remainder of the round (or one minute).
+This allows the user to view everything most sentients could normally be able to see on a well-lit day."
+Force and Destiny,Foresee,1,10,1,1,1,1,"The Force user can feel the Force flowing around everything, seeing what is and what will be.
+The user may spend :lsp: to gain vague hints of events to come, up to a day into his future."
+Force and Destiny,Heal/Harm,1,15,1,1,1,1,"The Force user bolsters his ally with renewed vigor or saps his foe of vital energy.
+Heal (Light side Force user only): Spend :ldsp: to heal a number of wound equal to Intellect from an engaged living creature (including user).
+Harm: Spend :ldsp: to inflict a number of wounds equal to Intellect (ignoring soak) on an engaged living target. The user gains 1 Conflict."
+Force and Destiny,Imbue,2,15,1,1,0,1,"The Force user lends strength to allies, making them more potent, resourceful, or resilient for a time.
+The user may spend :ldsp: :ldsp: to increase one of another engaged character’s characteristics by 1 (to a maximum of 6) until the end of the Force user’s next turn.
+This can only be used once per character per encounter. If the user uses :dsp: to generate :ldsp:, the target increases a second characteristic by 1 (to a maximum of 6) until the end of the user’s next turn, but both the Force user and the target suffer 3 strain."
+Force and Destiny,Influence,1,10,1,1,1,1,"The character may attempt to guide, shape, and even twist the thoughts and feelings of others.
+Special Rule (:lsp:/:dsp: use): When guiding and shaping thoughts, only :dsp: may be used to generate negative emotions such as rage, fear, and hatred. Only :lsp: may be used to generate positive emotions such as peace, tranquility, and friendliness. Other emotions such as confusion can be generated with either :lsp: or :dsp:.
+The character may spend :lsp: to stress the mind of one living target he is engaged with, inflicting 1 strain."
+Force and Destiny,Jerserra's Influence,2,10,1,1,0,0,"The Force user can project terrifying visions onto foes, forcing them to face their greatest fears.
+The user may spend :ldsp: to target one character within short range. That character must immediately make an Average (:pu: :pu:) fear check as an out of turn incidental."
+Force and Destiny,Manipulate,1,10,1,0,1,1,"The Force user shapes machine components on a molecular level, allowing him to mend damaged mechanical systems.
+The Force user may spend :ldsp: to cause one vehicle or starship he is engaged with to recover one system strain. The user may activate this multiple times."
+Force and Destiny,Misdirect,1,15,1,0,0,1,"The Force user creates illusions to fool those around him.
+The user may spend :ldsp: to make a target at up to short range unable to perceive a chosen person or object of silhouette 1 or smaller. Until the beginning of the user’s next turn, the target cannot see or sense the hidden person or object."
+Force and Destiny,Move,1,10,1,1,1,1,"The Force user can move small objects via the power of the Force.
+The user may spend :lsp: to move one object of silhouette 0 that is within short range up to his maximum range. The default maximum range is short range."
+Force and Destiny,Protect/Unleash,3,20,1,1,0,1,"The Force user guides the flow of energy, protecting himself and others or unleashing blast of power upon his foes.
+Protect: The user makes a Protect power check and rolls an Average (:pu: :pu:) Discipline check as part of the pool. Spend :ldsp: :ldsp: to reduce damage from an energy-based weapon that hits himself or an engaged character by amount equal to Willpower plus 1 per :suc:. Dark side Force users may only protect themselves.
+Unleash: The user makes an Unleash power check as ranged attack and rolls an Average (:pu: :pu:) Discipline check for difficulty. If check succeeds and spends :ldsp: :ldsp:, the attack hits. It has a range of short, a base damage equal to Willpower, and a critical rating of 4. The user gains 1 Conflict."
+Force and Destiny,Seek,1,10,1,1,1,1,"The Force user allows the will of the Force to lead the way to something lost or forgotten.
+The user may spend :ldsp: :ldsp: to gain insight into the general location or direction of a person or object that he knows about, regardless of current distance.
+The user may spend :ldsp: and succeed at an Average (:pu: :pu:) Vigilance check (or opposed Vigilance vs. Discipline check) to see through illusions."
+Force and Destiny,Sense,1,10,1,1,1,1,"The Force user can sense the Force interacting with the world around him.
+The user may spend :lsp: to sense all living things within short range (including sentient and non-sentient beings).
+The user may spend :lsp: to sense the current emotional state of one living target with whom he is engaged."
+Force and Destiny,Suppress,1,10,0,0,1,0,"The Force user can dampen the effect of incoming Force powers, dramatically diminishing their effects on himself and his allies.
+The user may spend :ldsp: to add automatic :fai: to Force power checks made against him or any ally within short range until the end of his next turn."
+Force and Destiny,Warde's Foresight,1,10,1,1,0,0,"The Force user can feel the Force flowing around another specific individual to gain insight into what that person might do.
+The user may spend :ldsp: to gain hints about what another individual within short range is likely to do in the near future."

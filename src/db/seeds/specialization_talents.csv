@@ -1,0 +1,2261 @@
+﻿Specialization,Talent,Row,ColStart,ColSpan,Cost,UpLink,DownLink,LeftLink,RightLink
+Advisor,Plausible Deniability,1,1,1,5,0,1,0,0
+Advisor,Know Somebody,1,2,1,5,0,1,0,0
+Advisor,Grit,1,3,1,5,0,1,0,0
+Advisor,Kill With Kindness,1,4,1,5,0,1,0,0
+Advisor,Toughened,2,1,1,10,1,1,0,0
+Advisor,Know Somebody,2,2,1,10,1,0,0,0
+Advisor,Knowledge Is Power,2,3,1,10,1,0,0,0
+Advisor,Nobody's Fool,2,4,1,10,1,1,0,0
+Advisor,Grit,3,1,1,15,1,1,0,0
+Advisor,Smooth Talker,3,2,1,15,0,1,0,1
+Advisor,Smooth Talker,3,3,1,15,0,1,1,1
+Advisor,Plausible Deniability,3,4,1,15,1,1,1,0
+Advisor,Nobody's Fool,4,1,1,20,1,1,0,1
+Advisor,Natural Charmer,4,2,1,20,1,0,1,1
+Advisor,Contingency Plan,4,3,1,20,1,1,1,1
+Advisor,Sense Emotions,4,4,1,20,1,1,1,0
+Advisor,Dedication,5,1,1,25,1,0,0,1
+Advisor,Steely Nerves,5,2,1,25,0,0,1,1
+Advisor,Force Rating,5,3,1,25,1,0,1,0
+Advisor,Sense Advantage,5,4,1,25,1,0,0,0
+Peacekeeper,Command,1,1,1,5,0,1,0,0
+Peacekeeper,Confidence,1,2,1,5,0,0,0,0
+Peacekeeper,Second Wind,1,3,1,5,0,0,0,0
+Peacekeeper,Commanding Presence,1,4,1,5,0,1,0,0
+Peacekeeper,Commanding Presence,2,1,1,10,1,0,0,1
+Peacekeeper,Toughened,2,2,1,10,0,1,1,1
+Peacekeeper,Second Wind,2,3,1,10,0,1,1,1
+Peacekeeper,Confidence,2,4,1,10,1,0,1,0
+Peacekeeper,Toughened,3,1,1,15,0,1,0,1
+Peacekeeper,Enhanced Leader,3,2,1,15,1,0,1,1
+Peacekeeper,Command,3,3,1,15,1,0,1,1
+Peacekeeper,Field Commander,3,4,1,15,0,1,1,0
+Peacekeeper,Steely Nerves,4,1,1,20,1,1,0,1
+Peacekeeper,Second Wind,4,2,1,20,0,1,1,1
+Peacekeeper,Toughened,4,3,1,20,0,1,1,1
+Peacekeeper,Field Commander (Improved),4,4,1,20,1,1,1,0
+Peacekeeper,Unity Assault,5,1,1,25,1,0,0,0
+Peacekeeper,Dedication,5,2,1,25,1,0,0,0
+Peacekeeper,Force Rating,5,3,1,25,1,0,0,0
+Peacekeeper,Natural Leader,5,4,1,25,1,0,0,0
+Advocate,Plausible Deniability,1,1,1,5,0,1,0,0
+Advocate,Nobody's Fool,1,2,1,5,0,0,0,0
+Advocate,Grit,1,3,1,5,0,1,0,0
+Advocate,Confidence,1,4,1,5,0,1,0,0
+Advocate,Discredit,2,1,1,10,1,1,0,1
+Advocate,Plausible Deniability,2,2,1,10,0,1,1,0
+Advocate,Supporting Evidence,2,3,1,10,1,0,0,1
+Advocate,Nobody's Fool,2,4,1,10,1,1,1,0
+Advocate,Twisted Words,3,1,1,15,1,1,0,1
+Advocate,Plausible Deniability (Improved),3,2,1,15,1,1,1,0
+Advocate,Grit,3,3,1,15,0,1,0,1
+Advocate,Encouraging Words,3,4,1,15,1,1,1,0
+Advocate,Plausible Deniability,4,1,1,20,1,1,0,1
+Advocate,Grit,4,2,1,20,1,0,1,0
+Advocate,Supporting Evidence,4,3,1,20,1,1,0,1
+Advocate,Grit,4,4,1,20,1,1,1,0
+Advocate,Blackmail,5,1,1,25,1,0,0,1
+Advocate,Dedication,5,2,1,25,0,0,1,1
+Advocate,Interjection,5,3,1,25,1,0,1,1
+Advocate,Contingency Plan,5,4,1,25,1,0,1,0
+Modder,Tinkerer,1,1,1,5,0,1,0,0
+Modder,Resolve,1,2,1,5,0,1,0,0
+Modder,Know Somebody,1,3,1,5,0,1,0,0
+Modder,Signature Vehicle,1,4,1,5,0,1,0,0
+Modder,Gearhead,2,1,1,10,1,1,0,1
+Modder,Tinkerer,2,2,1,10,1,1,1,0
+Modder,Fancy Paint Job,2,3,1,10,1,1,0,1
+Modder,Larger Project,2,4,1,10,1,1,1,0
+Modder,Resourceful Refit,3,1,1,15,1,1,0,1
+Modder,Resolve,3,2,1,15,1,1,1,0
+Modder,Larger Project,3,3,1,15,1,0,0,1
+Modder,Toughened,3,4,1,15,1,1,1,0
+Modder,Jury Rigged,4,1,1,20,1,0,0,0
+Modder,Hidden Storage,4,2,1,20,1,1,0,1
+Modder,Tinkerer,4,3,1,20,0,1,1,1
+Modder,Gearhead,4,4,1,20,1,1,1,0
+Modder,Jury Rigged,5,1,1,25,0,0,0,1
+Modder,Dedication,5,2,1,25,1,0,1,1
+Modder,Natural Tinkerer,5,3,1,25,1,0,1,0
+Modder,Custom Loadout,5,4,1,25,1,0,0,0
+Assassin,Grit,1,1,1,5,0,1,0,0
+Assassin,Lethal Blows,1,2,1,5,0,1,0,0
+Assassin,Stalker,1,3,1,5,0,1,0,0
+Assassin,Dodge,1,4,1,5,0,1,0,0
+Assassin,Precise Aim,2,1,1,10,1,1,0,1
+Assassin,Jump Up,2,2,1,10,1,1,1,1
+Assassin,Quick Strike,2,3,1,10,1,1,1,1
+Assassin,Quick Draw,2,4,1,10,1,1,1,0
+Assassin,Targeted Blow,3,1,1,15,1,1,0,0
+Assassin,Stalker,3,2,1,15,1,1,0,1
+Assassin,Lethal Blows,3,3,1,15,1,1,1,0
+Assassin,Anatomy Lessons,3,4,1,15,1,1,0,0
+Assassin,Stalker,4,1,1,20,1,1,0,1
+Assassin,Sniper Shot,4,2,1,20,1,1,1,0
+Assassin,Dodge,4,3,1,20,1,1,0,0
+Assassin,Lethal Blows,4,4,1,20,1,1,0,0
+Assassin,Precise Aim,5,1,1,25,1,0,0,0
+Assassin,Deadly Accuracy,5,2,1,25,1,0,0,0
+Assassin,Dedication,5,3,1,25,1,0,0,0
+Assassin,Master of Shadows,5,4,1,25,1,0,0,0
+Gadgeteer,Brace,1,1,1,5,0,0,0,0
+Gadgeteer,Toughened,1,2,1,5,0,1,0,0
+Gadgeteer,Intimidating,1,3,1,5,0,0,0,0
+Gadgeteer,Defensive Stance,1,4,1,5,0,1,0,0
+Gadgeteer,Spare Clip,2,1,1,10,1,0,0,1
+Gadgeteer,Jury Rigged,2,2,1,10,0,1,1,1
+Gadgeteer,Point Blank,2,3,1,10,0,0,1,0
+Gadgeteer,Disorient,2,4,1,10,1,1,0,0
+Gadgeteer,Toughened,3,1,1,15,1,0,0,1
+Gadgeteer,Armor Master,3,2,1,15,0,1,1,1
+Gadgeteer,Natural Enforcer,3,3,1,15,0,0,1,0
+Gadgeteer,Stunning Blow,3,4,1,15,1,1,0,0
+Gadgeteer,Jury Rigged,4,1,1,20,1,0,0,1
+Gadgeteer,Tinkerer,4,2,1,20,0,1,1,1
+Gadgeteer,Deadly Accuracy,4,3,1,20,0,0,1,0
+Gadgeteer,Stunning Blow (Improved),4,4,1,20,1,1,0,0
+Gadgeteer,Intimidating,5,1,1,25,1,0,0,1
+Gadgeteer,Dedication,5,2,1,25,0,0,1,1
+Gadgeteer,Armor Master (Improved),5,3,1,25,0,0,1,0
+Gadgeteer,Crippling Blow,5,4,1,25,1,0,0,0
+Armorer,Grit,1,1,1,5,0,0,0,0
+Armorer,Toughened,1,2,1,5,0,0,0,0
+Armorer,Gearhead,1,3,1,5,0,1,0,0
+Armorer,Inventor,1,4,1,5,0,1,0,0
+Armorer,Saber Throw,2,1,1,10,0,1,0,0
+Armorer,Armor Master,2,2,1,10,0,1,0,1
+Armorer,Grit,2,3,1,10,1,0,1,0
+Armorer,Gearhead,2,4,1,10,1,1,0,0
+Armorer,Toughened,3,1,1,15,1,1,0,0
+Armorer,Armor Master (Improved),3,2,1,15,1,1,0,1
+Armorer,Inventor,3,3,1,15,0,0,1,1
+Armorer,Mental Tools,3,4,1,15,1,1,1,0
+Armorer,Comprehend Technology,4,1,1,20,1,0,0,1
+Armorer,Tinkerer,4,2,1,20,1,1,1,1
+Armorer,Falling Avalanche,4,3,1,20,0,0,1,1
+Armorer,Armor Master (Supreme),4,4,1,20,1,1,1,0
+Armorer,Force Rating,5,1,1,25,0,0,0,1
+Armorer,Imbue Item,5,2,1,25,1,0,1,1
+Armorer,Reinforce Item,5,3,1,25,0,0,1,0
+Armorer,Dedication,5,4,1,25,1,0,0,0
+Warden,Grit,1,1,1,5,0,1,0,0
+Warden,Toughened,1,2,1,5,0,1,0,0
+Warden,Intimidating,1,3,1,5,0,1,0,0
+Warden,Grit,1,4,1,5,0,1,0,0
+Warden,Precision Strike,2,1,1,10,1,1,0,1
+Warden,Confidence,2,2,1,10,1,0,1,0
+Warden,Scathing Tirade,2,3,1,10,1,0,0,1
+Warden,Bad Cop,2,4,1,10,1,1,1,0
+Warden,Sense Advantage,3,1,1,15,1,1,0,1
+Warden,Confidence,3,2,1,15,0,1,1,1
+Warden,Fearsome,3,3,1,15,0,0,1,1
+Warden,No Escape,3,4,1,15,1,1,1,0
+Warden,Toughened,4,1,1,20,1,1,0,0
+Warden,Overbalance,4,2,1,20,1,0,0,1
+Warden,Baleful Gaze,4,3,1,20,0,1,1,0
+Warden,Bad Cop,4,4,1,20,1,1,0,0
+Warden,Grapple,5,1,1,25,1,0,0,1
+Warden,Dedication,5,2,1,25,0,0,1,1
+Warden,Force Rating,5,3,1,25,1,0,1,1
+Warden,Fearsome,5,4,1,25,1,0,1,0
+Warleader,Prime Positions,1,1,1,5,0,1,0,0
+Warleader,Suppressing Fire,1,2,1,5,0,0,0,0
+Warleader,Grit,1,3,1,5,0,1,0,0
+Warleader,Uncanny Senses,1,4,1,5,0,1,0,0
+Warleader,Grit,2,1,1,10,1,1,1,0
+Warleader,Careful Planning,2,2,1,10,0,1,1,0
+Warleader,Sense Danger,2,3,1,10,1,1,1,0
+Warleader,Swift,2,4,1,10,1,0,1,0
+Warleader,Suppressing Fire,3,1,1,15,1,1,0,0
+Warleader,Grit,3,2,1,15,1,1,0,1
+Warleader,Uncanny Senses,3,3,1,15,1,0,1,1
+Warleader,Prescient Shot,3,4,1,15,0,1,1,0
+Warleader,Coordinated Assault,4,1,1,20,1,0,0,1
+Warleader,Prime Positions,4,2,1,20,1,1,1,1
+Warleader,Blind Spot,4,3,1,20,0,1,1,1
+Warleader,Forewarning,4,4,1,20,1,1,1,0
+Warleader,Clever Solution,5,1,1,25,0,0,1,0
+Warleader,Dedication,5,2,1,25,1,0,1,0
+Warleader,Force Rating,5,3,1,25,1,0,0,1
+Warleader,Prophetic Aim,5,4,1,25,1,0,1,0
+Healer,Surgeon,1,1,1,5,0,1,0,0
+Healer,Healing Trance,1,2,1,5,0,1,0,0
+Healer,Rapid Recovery,1,3,1,5,0,1,0,0
+Healer,Physician,1,4,1,5,0,0,0,0
+Healer,Physician,2,1,1,10,1,1,0,1
+Healer,Physician,2,2,1,10,1,1,1,0
+Healer,Grit,2,3,1,10,1,0,0,1
+Healer,Healing Trance,2,4,1,10,0,1,1,0
+Healer,Healing Trance,3,1,1,15,1,1,0,1
+Healer,Grit,3,2,1,15,1,1,1,1
+Healer,Knowledgeable Healing,3,3,1,15,0,1,1,0
+Healer,Rapid Recovery,3,4,1,15,1,1,0,0
+Healer,Surgeon,4,1,1,20,1,1,0,0
+Healer,Healing Trance (Improved),4,2,1,20,1,0,0,0
+Healer,Calming Aura,4,3,1,20,1,1,0,0
+Healer,Toughened,4,4,1,20,1,0,0,0
+Healer,Dedication,5,1,1,25,1,0,0,1
+Healer,Natural Doctor,5,2,1,25,0,0,1,1
+Healer,Force Rating,5,3,1,25,1,0,1,1
+Healer,Calming Aura (Improved),5,4,1,25,0,0,1,0
+Niman Disciple,Parry,1,1,1,5,0,0,0,0
+Niman Disciple,Nobody's Fool,1,2,1,5,0,1,0,0
+Niman Disciple,Reflect,1,3,1,5,0,0,0,0
+Niman Disciple,Grit,1,4,1,5,0,0,0,0
+Niman Disciple,Defensive Training,2,1,1,10,0,1,0,1
+Niman Disciple,Niman Technique,2,2,1,10,1,1,1,0
+Niman Disciple,Toughened,2,3,1,10,0,1,0,0
+Niman Disciple,Parry,2,4,1,10,0,1,0,0
+Niman Disciple,Parry,3,1,1,15,1,1,0,1
+Niman Disciple,Sense Emotions,3,2,1,15,1,1,1,1
+Niman Disciple,Reflect,3,3,1,15,1,1,1,1
+Niman Disciple,Defensive Training,3,4,1,15,1,1,1,0
+Niman Disciple,Sum Djem,4,1,1,20,1,1,0,1
+Niman Disciple,Reflect,4,2,1,20,1,1,1,1
+Niman Disciple,Draw Closer,4,3,1,20,1,0,1,1
+Niman Disciple,Center of Being,4,4,1,20,1,1,1,0
+Niman Disciple,Dedication,5,1,1,25,1,0,0,1
+Niman Disciple,Force Assault,5,2,1,25,1,0,1,0
+Niman Disciple,Force Rating,5,3,1,25,0,0,0,1
+Niman Disciple,Center of Being (Improved),5,4,1,25,1,0,1,0
+Sage,Grit,1,1,1,5,0,0,0,0
+Sage,Kill With Kindness,1,2,1,5,0,1,0,0
+Sage,Researcher,1,3,1,5,0,1,0,0
+Sage,Grit,1,4,1,5,0,0,0,0
+Sage,Smooth Talker,2,1,1,10,0,0,0,1
+Sage,Researcher,2,2,1,10,1,1,1,1
+Sage,Confidence,2,3,1,10,1,1,1,1
+Sage,Knowledge Specialization,2,4,1,10,0,0,1,0
+Sage,Valuable Facts,3,1,1,15,0,0,0,1
+Sage,Smooth Talker,3,2,1,15,1,1,1,0
+Sage,Knowledge Specialization,3,3,1,15,1,1,0,1
+Sage,One with the Universe,3,4,1,15,0,0,1,0
+Sage,Force Rating,4,1,1,20,0,1,0,1
+Sage,Grit,4,2,1,20,1,1,1,1
+Sage,Preemptive Avoidance,4,3,1,20,1,1,1,1
+Sage,Knowledge Specialization,4,4,1,20,0,1,1,0
+Sage,Balance,5,1,1,25,1,0,0,0
+Sage,The Force is My Ally,5,2,1,25,1,0,0,1
+Sage,Natural Negotiator,5,3,1,25,1,0,1,0
+Sage,Force Rating,5,4,1,25,1,0,0,0
+Protector,Toughened,1,1,1,5,0,0,0,0
+Protector,Bodyguard,1,2,1,5,0,1,0,0
+Protector,Grit,1,3,1,5,0,0,0,0
+Protector,Toughened,1,4,1,5,0,1,0,0
+Protector,Parry,2,1,1,10,0,1,0,1
+Protector,Physician,2,2,1,10,1,1,1,1
+Protector,Stimpack Specialization,2,3,1,10,0,1,1,1
+Protector,Force Protection,2,4,1,10,1,1,1,0
+Protector,Reflect,3,1,1,15,1,1,0,0
+Protector,Stimpack Specialization,3,2,1,15,1,1,0,1
+Protector,Heightened Awareness,3,3,1,15,1,1,1,1
+Protector,Center of Being,3,4,1,15,1,0,1,0
+Protector,Circle of Shelter,4,1,1,20,1,0,0,0
+Protector,Force Protection,4,2,1,20,1,1,0,1
+Protector,Grit,4,3,1,20,1,1,1,1
+Protector,Bodyguard,4,4,1,20,0,1,1,0
+Protector,Center of Being,5,1,1,25,0,0,0,1
+Protector,Force Rating,5,2,1,25,1,0,1,1
+Protector,Dedication,5,3,1,25,1,0,1,1
+Protector,Bodyguard (Improved),5,4,1,25,1,0,1,0
+Soresu Defender,Parry,1,1,1,5,0,1,0,0
+Soresu Defender,Parry,1,2,1,5,0,0,0,0
+Soresu Defender,Toughened,1,3,1,5,0,0,0,0
+Soresu Defender,Defensive Stance,1,4,1,5,0,1,0,0
+Soresu Defender,Soresu Technique,2,1,1,10,1,1,0,1
+Soresu Defender,Reflect,2,2,1,10,0,1,1,1
+Soresu Defender,Grit,2,3,1,10,0,1,1,0
+Soresu Defender,Grit,2,4,1,10,1,1,0,0
+Soresu Defender,Confidence,3,1,1,15,1,1,0,1
+Soresu Defender,Parry (Improved),3,2,1,15,1,1,1,1
+Soresu Defender,Defensive Circle,3,3,1,15,1,1,1,0
+Soresu Defender,Parry,3,4,1,15,1,1,0,0
+Soresu Defender,Parry,4,1,1,20,1,1,0,1
+Soresu Defender,Reflect,4,2,1,20,1,0,1,1
+Soresu Defender,Reflect,4,3,1,20,1,1,1,1
+Soresu Defender,Defensive Stance,4,4,1,20,1,0,1,0
+Soresu Defender,Parry (Supreme),5,1,1,25,1,0,0,1
+Soresu Defender,Dedication,5,2,1,25,0,0,1,1
+Soresu Defender,Reflect (Improved),5,3,1,25,1,0,1,1
+Soresu Defender,Strategic Form,5,4,1,25,0,0,0,1
+Makashi Duelist,Grit,1,1,1,5,0,0,0,0
+Makashi Duelist,Resist Disarm,1,2,1,5,0,1,0,0
+Makashi Duelist,Grit,1,3,1,5,0,0,0,0
+Makashi Duelist,Parry,1,4,1,5,0,0,0,0
+Makashi Duelist,Parry,2,1,1,10,0,1,0,1
+Makashi Duelist,Makashi Technique,2,2,1,10,1,1,1,1
+Makashi Duelist,Duelist's Training,2,3,1,10,0,1,1,1
+Makashi Duelist,Feint,2,4,1,10,0,1,1,0
+Makashi Duelist,Parry,3,1,1,15,1,1,0,1
+Makashi Duelist,Feint,3,2,1,15,1,1,1,1
+Makashi Duelist,Parry,3,3,1,15,1,1,1,0
+Makashi Duelist,Parry,3,4,1,15,1,1,0,0
+Makashi Duelist,Intense Presence,4,1,1,20,1,1,0,1
+Makashi Duelist,Parry (Improved),4,2,1,20,1,1,1,0
+Makashi Duelist,Grit,4,3,1,20,1,0,0,1
+Makashi Duelist,Defensive Training,4,4,1,20,1,1,1,0
+Makashi Duelist,Dedication,5,1,1,25,1,0,0,1
+Makashi Duelist,Sum Djem,5,2,1,25,1,0,1,0
+Makashi Duelist,Makashi Finish,5,3,1,25,0,0,0,1
+Makashi Duelist,Makashi Flourish,5,4,1,25,1,0,1,0
+Seer,Forager,1,1,1,5,0,0,0,0
+Seer,Uncanny Reactions,1,2,1,5,0,1,0,0
+Seer,Grit,1,3,1,5,0,0,0,0
+Seer,Expert Tracker,1,4,1,5,0,1,0,0
+Seer,Rapid Reaction,2,1,1,10,0,1,0,1
+Seer,Keen Eyed,2,2,1,10,1,1,1,1
+Seer,Uncanny Reactions,2,3,1,10,0,1,1,0
+Seer,Toughened,2,4,1,10,1,1,0,0
+Seer,Sense Danger,3,1,1,15,1,1,0,1
+Seer,Grit,3,2,1,15,1,1,1,1
+Seer,Forewarning,3,3,1,15,1,1,1,0
+Seer,Preemptive Avoidance,3,4,1,15,1,1,0,0
+Seer,Force Rating,4,1,1,20,1,1,0,1
+Seer,Sense Advantage,4,2,1,20,1,1,1,1
+Seer,The Force is My Ally,4,3,1,20,1,1,1,0
+Seer,Dodge,4,4,1,20,1,0,0,0
+Seer,Rapid Reaction,5,1,1,25,1,0,0,1
+Seer,Toughened,5,2,1,25,1,0,1,0
+Seer,Natural Mystic,5,3,1,25,1,0,0,1
+Seer,Force Rating,5,4,1,25,0,0,1,0
+Ataru Striker,Conditioned,1,1,1,5,0,1,0,0
+Ataru Striker,Parry,1,2,1,5,0,0,0,0
+Ataru Striker,Jump Up,1,3,1,5,0,1,0,0
+Ataru Striker,Quick Draw,1,4,1,5,0,1,0,0
+Ataru Striker,Dodge,2,1,1,10,1,1,0,0
+Ataru Striker,Reflect,2,2,1,10,0,1,0,1
+Ataru Striker,Ataru Technique,2,3,1,10,1,1,1,0
+Ataru Striker,Quick Strike,2,4,1,10,1,0,0,0
+Ataru Striker,Quick Strike,3,1,1,15,1,1,0,0
+Ataru Striker,Reflect,3,2,1,15,1,1,0,1
+Ataru Striker,Parry,3,3,1,15,1,1,1,1
+Ataru Striker,Parry (Improved),3,4,1,15,0,1,1,0
+Ataru Striker,Dodge,4,1,1,20,1,1,0,0
+Ataru Striker,Hawk Bat Swoop,4,2,1,20,1,1,0,0
+Ataru Striker,Saber Swarm,4,3,1,20,1,1,0,1
+Ataru Striker,Conditioned,4,4,1,20,1,1,1,0
+Ataru Striker,Parry,5,1,1,25,1,0,0,1
+Ataru Striker,Dedication,5,2,1,25,1,0,1,1
+Ataru Striker,Saber Throw,5,3,1,25,1,0,1,0
+Ataru Striker,Balance,5,4,1,25,1,0,0,0
+Hunter,Rapid Recovery,1,1,1,5,0,1,0,0
+Hunter,Hunter,1,2,1,5,0,1,0,0
+Hunter,Expert Tracker,1,3,1,5,0,1,0,0
+Hunter,Toughened,1,4,1,5,0,0,0,0
+Hunter,Toughened,2,1,1,10,1,0,0,1
+Hunter,Expert Tracker,2,2,1,10,1,1,1,0
+Hunter,Hunter,2,3,1,10,1,1,0,1
+Hunter,Uncanny Senses,2,4,1,10,0,0,1,0
+Hunter,Side Step,3,1,1,15,0,1,0,0
+Hunter,Keen Eyed,3,2,1,15,1,1,0,1
+Hunter,Natural Hunter,3,3,1,15,1,0,1,1
+Hunter,Uncanny Reactions,3,4,1,15,0,1,1,0
+Hunter,Rapid Recovery,4,1,1,20,1,1,0,1
+Hunter,Soft Spot,4,2,1,20,1,1,1,0
+Hunter,Sixth Sense,4,3,1,20,0,1,0,1
+Hunter,Rapid Recovery,4,4,1,20,1,1,1,0
+Hunter,Side Step,5,1,1,25,1,0,0,0
+Hunter,Dedication,5,2,1,25,1,0,0,1
+Hunter,Intuitive Shot,5,3,1,25,1,0,1,1
+Hunter,Force Rating,5,4,1,25,1,0,1,0
+Pathfinder,Grit,1,1,1,5,0,1,0,0
+Pathfinder,Keen Eyed,1,2,1,5,0,1,0,0
+Pathfinder,Forager,1,3,1,5,0,1,0,0
+Pathfinder,Swift,1,4,1,5,0,1,0,0
+Pathfinder,Keen Eyed,2,1,1,10,1,1,0,1
+Pathfinder,Outdoorsman,2,2,1,10,1,0,1,1
+Pathfinder,Toughened,2,3,1,10,1,1,1,1
+Pathfinder,Outdoorsman,2,4,1,10,1,0,1,0
+Pathfinder,Animal Empathy,3,1,1,15,1,1,0,1
+Pathfinder,Animal Bond,3,2,1,15,0,1,1,0
+Pathfinder,Grit,3,3,1,15,1,1,0,1
+Pathfinder,Sleight of Mind,3,4,1,15,0,0,1,0
+Pathfinder,Mental Bond,4,1,1,20,1,1,0,1
+Pathfinder,Force Rating,4,2,1,20,1,0,1,0
+Pathfinder,Quick Movement,4,3,1,20,1,1,0,1
+Pathfinder,Toughened,4,4,1,20,0,0,1,0
+Pathfinder,Share Pain,5,1,1,25,1,0,0,0
+Pathfinder,Enduring,5,2,1,25,0,0,0,1
+Pathfinder,Natural Outdoorsman,5,3,1,25,1,0,1,1
+Pathfinder,Dedication,5,4,1,25,0,0,1,0
+Artisan,Solid Repairs,1,1,1,5,0,1,0,0
+Artisan,Fine Tuning,1,2,1,5,0,1,0,0
+Artisan,Mental Tools,1,3,1,5,0,1,0,0
+Artisan,Technical Aptitude,1,4,1,5,0,1,0,0
+Artisan,Grit,2,1,1,10,1,1,0,1
+Artisan,Solid Repairs,2,2,1,10,1,1,1,1
+Artisan,Fine Tuning,2,3,1,10,1,0,1,1
+Artisan,Grit,2,4,1,10,1,1,1,0
+Artisan,Inventor,3,1,1,15,1,1,0,1
+Artisan,Imbue Item,3,2,1,15,1,0,1,1
+Artisan,Natural Tinkerer,3,3,1,15,0,0,1,1
+Artisan,Defensive Slicing,3,4,1,15,1,1,1,0
+Artisan,Solid Repairs,4,1,1,20,1,1,0,1
+Artisan,Force Rating,4,2,1,20,0,1,1,0
+Artisan,Defensive Slicing,4,3,1,20,0,1,0,1
+Artisan,Mental Fortress,4,4,1,20,1,1,1,0
+Artisan,Master Artisan,5,1,1,25,1,0,0,1
+Artisan,Intuitive Improvements,5,2,1,25,1,0,1,0
+Artisan,Dedication,5,3,1,25,1,0,0,1
+Artisan,Comprehend Technology,5,4,1,25,1,0,1,0
+Shadow,Sleight of Mind,1,1,1,5,0,1,0,0
+Shadow,Street Smarts,1,2,1,5,0,1,0,0
+Shadow,Codebreaker,1,3,1,5,0,1,0,0
+Shadow,Indistinguishable,1,4,1,5,0,0,0,0
+Shadow,Well Rounded,2,1,1,10,1,1,0,0
+Shadow,Mental Fortress,2,2,1,10,1,1,0,0
+Shadow,Grit,2,3,1,10,1,1,0,1
+Shadow,Indistinguishable,2,4,1,10,0,0,1,0
+Shadow,Shroud,3,1,1,15,1,0,0,0
+Shadow,Dodge,3,2,1,15,1,1,0,1
+Shadow,Sleight of Mind,3,3,1,15,1,1,1,0
+Shadow,Grit,3,4,1,15,0,1,0,0
+Shadow,Slippery Minded,4,1,1,20,0,0,0,1
+Shadow,Codebreaker,4,2,1,20,1,1,1,1
+Shadow,Now You See Me,4,3,1,20,1,1,1,1
+Shadow,Dodge,4,4,1,20,1,0,1,0
+Shadow,Force Rating,5,1,1,25,0,0,0,1
+Shadow,Anatomy Lessons,5,2,1,25,1,0,1,0
+Shadow,Master of Shadows,5,3,1,25,1,0,0,1
+Shadow,Dedication,5,4,1,25,0,0,1,0
+Beast Rider,Forager,1,1,1,5,0,1,0,0
+Beast Rider,Toughened,1,2,1,5,0,1,0,0
+Beast Rider,Outdoorsman,1,3,1,5,0,1,0,0
+Beast Rider,Beast Wrangler,1,4,1,5,0,1,0,0
+Beast Rider,Outdoorsman,2,1,1,10,1,1,0,1
+Beast Rider,Expert Tracker,2,2,1,10,1,1,1,1
+Beast Rider,Toughened,2,3,1,10,1,0,1,0
+Beast Rider,Expert Handler,2,4,1,10,1,1,0,0
+Beast Rider,Expert Tracker,3,1,1,15,1,0,0,1
+Beast Rider,Beast Wrangler,3,2,1,15,1,1,1,1
+Beast Rider,Let's Ride,3,3,1,15,0,1,1,1
+Beast Rider,Grit,3,4,1,15,1,1,1,0
+Beast Rider,Spur (Improved),4,1,1,20,0,1,0,1
+Beast Rider,Spur,4,2,1,20,1,0,1,1
+Beast Rider,Natural Outdoorsman,4,3,1,20,1,1,1,0
+Beast Rider,Expert Handler,4,4,1,20,1,0,0,0
+Beast Rider,Spur (Supreme),5,1,1,25,1,0,0,0
+Beast Rider,Dedication,5,2,1,25,0,0,0,1
+Beast Rider,Grit,5,3,1,25,1,0,1,1
+Beast Rider,Soothing Tone,5,4,1,25,0,0,1,0
+Driver,Full Throttle,1,1,1,5,0,1,0,0
+Driver,All-Terrain Driver,1,2,1,5,0,0,0,0
+Driver,Fine Tuning,1,3,1,5,0,0,0,0
+Driver,Gearhead,1,4,1,5,0,1,0,0
+Driver,Grit,2,1,1,10,1,1,0,1
+Driver,Skilled Jockey,2,2,1,10,0,1,1,1
+Driver,Rapid Reaction,2,3,1,10,0,0,1,1
+Driver,Grit,2,4,1,10,1,1,1,0
+Driver,Full Throttle (Improved),3,1,1,15,1,1,0,0
+Driver,Tricky Target,3,2,1,15,1,0,0,0
+Driver,Fine Tuning,3,3,1,15,0,0,0,1
+Driver,Toughened,3,4,1,15,1,1,1,0
+Driver,Defensive Driving,4,1,1,20,1,1,0,1
+Driver,Skilled Jockey,4,2,1,20,0,0,1,1
+Driver,Natural Driver,4,3,1,20,0,0,1,0
+Driver,Gearhead,4,4,1,20,1,1,0,0
+Driver,Full Throttle (Supreme),5,1,1,25,1,0,0,1
+Driver,Full Stop,5,2,1,25,0,0,1,1
+Driver,Master Driver,5,3,1,25,0,0,1,1
+Driver,Dedication,5,4,1,25,1,0,1,0
+Gunner,Durable,1,1,1,5,0,1,0,0
+Gunner,Grit,1,2,1,5,0,0,0,0
+Gunner,Overwhelm Defenses,1,3,1,5,0,1,0,0
+Gunner,Debilitating Shot,1,4,1,5,0,1,0,0
+Gunner,Toughened,2,1,1,10,1,0,0,1
+Gunner,Brace,2,2,1,10,0,1,1,1
+Gunner,Spare Clip,2,3,1,10,1,1,1,0
+Gunner,True Aim,2,4,1,10,1,1,0,0
+Gunner,Durable,3,1,1,15,0,1,0,1
+Gunner,Enduring,3,2,1,15,1,0,1,0
+Gunner,Jury Rigged,3,3,1,15,1,1,0,0
+Gunner,Overwhelm Defenses,3,4,1,15,1,1,0,0
+Gunner,Toughened,4,1,1,20,1,1,0,1
+Gunner,Enduring,4,2,1,20,0,1,1,1
+Gunner,Brace,4,3,1,20,1,0,1,0
+Gunner,Exhaust Port,4,4,1,20,1,1,0,0
+Gunner,Heroic Fortitude,5,1,1,25,1,0,0,1
+Gunner,Jury Rigged,5,2,1,25,1,0,1,1
+Gunner,Dedication,5,3,1,25,0,0,1,1
+Gunner,True Aim,5,4,1,25,1,0,1,0
+Hotshot,Shortcut,1,1,1,5,0,0,0,0
+Hotshot,High-G Training,1,2,1,5,0,1,0,0
+Hotshot,Skilled Jockey,1,3,1,5,0,1,0,0
+Hotshot,Grit,1,4,1,5,0,1,0,0
+Hotshot,Second Chances,2,1,1,10,0,0,0,1
+Hotshot,Grit,2,2,1,10,1,1,1,0
+Hotshot,Shortcut,2,3,1,10,1,1,0,1
+Hotshot,High-G Training,2,4,1,10,1,0,1,0
+Hotshot,Dead to Rights,3,1,1,15,0,1,0,1
+Hotshot,High-G Training,3,2,1,15,1,0,1,1
+Hotshot,Grit,3,3,1,15,1,1,1,1
+Hotshot,Intense Presence,3,4,1,15,0,1,1,0
+Hotshot,Second Chances,4,1,1,20,1,1,0,0
+Hotshot,Corellian Sendoff,4,2,1,20,0,1,0,1
+Hotshot,Koiogran Turn,4,3,1,20,1,1,1,0
+Hotshot,Grit,4,4,1,20,1,1,0,0
+Hotshot,Dead to Rights (Improved),5,1,1,25,1,0,0,0
+Hotshot,Corellian Sendoff (Improved),5,2,1,25,1,0,0,0
+Hotshot,Dedication,5,3,1,25,1,0,0,1
+Hotshot,Showboat,5,4,1,25,1,0,1,0
+Pilot,Full Throttle,1,1,1,5,0,1,0,0
+Pilot,Skilled Jockey,1,2,1,5,0,1,0,0
+Pilot,Galaxy Mapper,1,3,1,5,0,1,0,0
+Pilot,Let's Ride,1,4,1,5,0,1,0,0
+Pilot,Skilled Jockey,2,1,1,10,1,1,0,1
+Pilot,Dead to Rights,2,2,1,10,1,1,1,0
+Pilot,Galaxy Mapper,2,3,1,10,1,1,0,1
+Pilot,Rapid Recovery,2,4,1,10,1,1,1,0
+Pilot,Full Throttle (Improved),3,1,1,15,1,1,0,0
+Pilot,Dead to Rights (Improved),3,2,1,15,1,0,0,0
+Pilot,Grit,3,3,1,15,1,1,0,1
+Pilot,Natural Pilot,3,4,1,15,1,1,1,0
+Pilot,Grit,4,1,1,20,1,1,0,1
+Pilot,Full Throttle (Supreme),4,2,1,20,0,0,1,0
+Pilot,Tricky Target,4,3,1,20,1,1,0,0
+Pilot,Defensive Driving,4,4,1,20,1,1,0,0
+Pilot,Master Pilot,5,1,1,25,1,0,0,1
+Pilot,Dedication,5,2,1,25,0,0,1,1
+Pilot,Toughened,5,3,1,25,1,0,1,1
+Pilot,Brilliant Evasion,5,4,1,25,1,0,1,0
+Rigger,Black Market Contacts,1,1,1,5,0,1,0,0
+Rigger,Toughened,1,2,1,5,0,0,0,0
+Rigger,Gearhead,1,3,1,5,0,1,0,0
+Rigger,Larger Project,1,4,1,5,0,1,0,0
+Rigger,Grit,2,1,1,10,1,1,0,0
+Rigger,Fancy Paint Job,2,2,1,10,0,0,0,1
+Rigger,Signature Vehicle,2,3,1,10,1,1,1,0
+Rigger,Larger Project,2,4,1,10,1,0,0,0
+Rigger,Black Market Contacts,3,1,1,15,1,1,0,0
+Rigger,Overstocked Ammo,3,2,1,15,0,0,0,1
+Rigger,Tuned Maneuvering Thrusters,3,3,1,15,1,1,1,1
+Rigger,Bolstered Armor,3,4,1,15,0,1,1,0
+Rigger,Toughened,4,1,1,20,1,1,0,0
+Rigger,Customized Cooling Unit,4,2,1,20,0,1,0,1
+Rigger,Gearhead,4,3,1,20,1,1,1,0
+Rigger,Fortified Vacuum Seal,4,4,1,20,1,1,0,0
+Rigger,Dedication,5,1,1,25,1,0,0,0
+Rigger,Tuned Maneuvering Thrusters,5,2,1,25,1,0,0,0
+Rigger,Not Today,5,3,1,25,1,0,0,0
+Rigger,Reinforced Frame,5,4,1,25,1,0,0,0
+Martial Artist,Iron Body,1,1,1,5,0,1,0,0
+Martial Artist,Parry,1,2,1,5,0,0,0,0
+Martial Artist,Grit,1,3,1,5,0,0,0,0
+Martial Artist,Precision Strike,1,4,1,5,0,1,0,0
+Martial Artist,Parry,2,1,1,10,1,1,0,1
+Martial Artist,Toughened,2,2,1,10,0,1,1,1
+Martial Artist,Martial Grace,2,3,1,10,0,1,1,1
+Martial Artist,Grit,2,4,1,10,1,0,1,0
+Martial Artist,Unarmed Parry,3,1,1,15,1,1,0,1
+Martial Artist,Grapple,3,2,1,15,1,1,1,1
+Martial Artist,Iron Body,3,3,1,15,1,1,1,1
+Martial Artist,Precision Strike (Improved),3,4,1,15,0,1,1,0
+Martial Artist,Overbalance,4,1,1,20,1,0,0,0
+Martial Artist,Toughened,4,2,1,20,1,1,0,1
+Martial Artist,Mind Over Matter,4,3,1,20,1,0,1,0
+Martial Artist,Grit,4,4,1,20,1,1,0,0
+Martial Artist,Coordination Dodge,5,1,1,25,0,0,0,1
+Martial Artist,Dedication,5,2,1,25,1,0,1,1
+Martial Artist,Natural Brawler,5,3,1,25,0,0,1,0
+Martial Artist,Precision Strike (Supreme),5,4,1,25,1,0,0,0
+Operator,Grit,1,1,1,5,0,1,0,0
+Operator,Galaxy Mapper,1,2,1,5,0,0,0,0
+Operator,Shortcut,1,3,1,5,0,1,0,0
+Operator,Overwhelm Defenses,1,4,1,5,0,1,0,0
+Operator,Full Throttle,2,1,1,10,1,1,0,1
+Operator,Planet Mapper,2,2,1,10,0,1,1,0
+Operator,Grit,2,3,1,10,1,1,0,1
+Operator,Debilitating Shot,2,4,1,10,1,1,1,0
+Operator,Skilled Jockey,3,1,1,15,1,1,0,0
+Operator,All-Terrain Driver,3,2,1,15,1,1,0,1
+Operator,Offensive Driving,3,3,1,15,1,1,1,1
+Operator,Grit,3,4,1,15,1,1,1,0
+Operator,Let's Ride,4,1,1,20,1,1,0,1
+Operator,Shortcut,4,2,1,20,1,1,1,1
+Operator,Grit,4,3,1,20,1,1,1,1
+Operator,Overwhelm Defenses,4,4,1,20,1,1,1,0
+Operator,Dedication,5,1,1,25,1,0,0,1
+Operator,Shortcut (Improved),5,2,1,25,1,0,1,1
+Operator,Skilled Jockey,5,3,1,25,1,0,1,0
+Operator,Hindering Shot,5,4,1,25,1,0,0,0
+Skip Tracer,Bypass Security,1,1,1,5,0,1,0,0
+Skip Tracer,Hard-Boiled,1,2,1,5,0,1,0,0
+Skip Tracer,Good Cop,1,3,1,5,0,1,0,0
+Skip Tracer,Rapid Recovery,1,4,1,5,0,1,0,0
+Skip Tracer,Toughened,2,1,1,10,1,1,0,1
+Skip Tracer,Expert Tracker,2,2,1,10,1,1,1,1
+Skip Tracer,Street Smarts,2,3,1,10,1,1,1,1
+Skip Tracer,Bought Info,2,4,1,10,1,1,1,0
+Skip Tracer,Hard-Boiled,3,1,1,15,1,1,0,1
+Skip Tracer,Rapid Recovery,3,2,1,15,1,1,1,0
+Skip Tracer,Street Smarts (Improved),3,3,1,15,1,1,0,1
+Skip Tracer,Street Smarts,3,4,1,15,1,1,1,0
+Skip Tracer,Bypass Security,4,1,1,20,1,0,0,0
+Skip Tracer,Nobody's Fool,4,2,1,20,1,1,0,1
+Skip Tracer,Good Cop,4,3,1,20,1,1,1,1
+Skip Tracer,Informant,4,4,1,20,1,0,1,0
+Skip Tracer,Reconstruct the Scene,5,1,1,25,0,0,0,1
+Skip Tracer,Hard-Boiled,5,2,1,25,1,0,1,1
+Skip Tracer,Dedication,5,3,1,25,1,0,1,1
+Skip Tracer,Soft Spot,5,4,1,25,0,0,1,0
+Survivalist,Forager,1,1,1,5,0,1,0,0
+Survivalist,Stalker,1,2,1,5,0,1,0,0
+Survivalist,Outdoorsman,1,3,1,5,0,1,0,0
+Survivalist,Expert Tracker,1,4,1,5,0,0,0,0
+Survivalist,Outdoorsman,2,1,1,10,1,1,0,1
+Survivalist,Swift,2,2,1,10,1,1,1,1
+Survivalist,Hunter,2,3,1,10,1,1,1,1
+Survivalist,Soft Spot,2,4,1,10,0,1,1,0
+Survivalist,Toughened,3,1,1,15,1,1,0,0
+Survivalist,Expert Tracker,3,2,1,15,1,1,0,0
+Survivalist,Stalker,3,3,1,15,1,1,0,1
+Survivalist,Natural Outdoorsman,3,4,1,15,1,1,1,0
+Survivalist,Toughened,4,1,1,20,1,1,0,0
+Survivalist,Hunter,4,2,1,20,1,0,0,0
+Survivalist,Expert Tracker,4,3,1,20,1,1,0,0
+Survivalist,Blooded,4,4,1,20,1,1,0,0
+Survivalist,Enduring,5,1,1,25,1,0,0,1
+Survivalist,Dedication,5,2,1,25,0,0,1,1
+Survivalist,Grit,5,3,1,25,1,0,1,0
+Survivalist,Heroic Fortitude,5,4,1,25,1,0,0,0
+Doctor,Surgeon,1,1,1,5,0,1,0,0
+Doctor,Bacta Specialist,1,2,1,5,0,0,0,0
+Doctor,Grit,1,3,1,5,0,1,0,0
+Doctor,Resolve,1,4,1,5,0,1,0,0
+Doctor,Stim Application,2,1,1,10,1,1,0,1
+Doctor,Grit,2,2,1,10,0,0,1,1
+Doctor,Surgeon,2,3,1,10,1,1,1,1
+Doctor,Resolve,2,4,1,10,1,1,1,0
+Doctor,Surgeon,3,1,1,15,1,1,0,1
+Doctor,Grit,3,2,1,15,0,1,1,1
+Doctor,Bacta Specialist,3,3,1,15,1,1,1,0
+Doctor,Pressure Point,3,4,1,15,1,1,0,0
+Doctor,Stim Application (Improved),4,1,1,20,1,1,0,0
+Doctor,Natural Doctor,4,2,1,20,1,1,0,0
+Doctor,Toughened,4,3,1,20,1,1,0,0
+Doctor,Anatomy Lessons,4,4,1,20,1,1,0,0
+Doctor,Stim Application (Supreme),5,1,1,25,1,0,0,1
+Doctor,Master Doctor,5,2,1,25,1,0,1,1
+Doctor,Dedication,5,3,1,25,1,0,1,0
+Doctor,Dodge,5,4,1,25,1,0,0,0
+Entrepreneur,Sound Investments,1,1,1,5,0,1,0,0
+Entrepreneur,Plausible Deniability,1,2,1,5,0,0,0,0
+Entrepreneur,Rapid Recovery,1,3,1,5,0,1,0,0
+Entrepreneur,Grit,1,4,1,5,0,0,0,0
+Entrepreneur,Rapid Recovery,2,1,1,10,1,1,0,1
+Entrepreneur,Wheel and Deal,2,2,1,10,0,1,1,0
+Entrepreneur,Sound Investments,2,3,1,10,1,1,0,1
+Entrepreneur,Wheel and Deal,2,4,1,10,0,1,1,0
+Entrepreneur,Greased Palms,3,1,1,15,1,1,0,1
+Entrepreneur,Throwing Credits,3,2,1,15,1,0,1,0
+Entrepreneur,Bought Info,3,3,1,15,1,0,0,1
+Entrepreneur,Sound Investments,3,4,1,15,1,1,1,0
+Entrepreneur,Sound Investments,4,1,1,20,1,1,0,1
+Entrepreneur,Toughened,4,2,1,20,0,1,1,0
+Entrepreneur,Master Merchant,4,3,1,20,0,0,0,1
+Entrepreneur,Know Somebody,4,4,1,20,1,1,1,0
+Entrepreneur,Natural Merchant,5,1,1,25,1,0,0,1
+Entrepreneur,Intense Focus,5,2,1,25,1,0,1,1
+Entrepreneur,Dedication,5,3,1,25,0,0,1,1
+Entrepreneur,Sound Investments,5,4,1,25,1,0,1,0
+Marshall,Hard Headed,1,1,1,5,0,0,0,0
+Marshall,Grit,1,2,1,5,0,1,0,0
+Marshall,Street Smarts,1,3,1,5,0,1,0,0
+Marshall,Toughened,1,4,1,5,0,0,0,0
+Marshall,Durable,2,1,1,10,0,1,0,1
+Marshall,Good Cop,2,2,1,10,1,1,1,1
+Marshall,Bad Cop,2,3,1,10,1,1,1,1
+Marshall,Quick Draw,2,4,1,10,0,1,1,0
+Marshall,Hard Headed,3,1,1,15,1,1,0,0
+Marshall,Grit,3,2,1,15,1,1,0,1
+Marshall,Good Cop,3,3,1,15,1,1,1,0
+Marshall,Point Blank,3,4,1,15,1,1,0,0
+Marshall,Durable,4,1,1,20,1,1,0,0
+Marshall,Unrelenting Skeptic,4,2,1,20,1,1,0,1
+Marshall,Bad Cop,4,3,1,20,1,0,1,0
+Marshall,Point Blank,4,4,1,20,1,1,0,0
+Marshall,Hard Headed (Improved),5,1,1,25,1,0,0,0
+Marshall,Unrelenting Skeptic (Improved),5,2,1,25,1,0,0,1
+Marshall,Dedication,5,3,1,25,0,0,1,0
+Marshall,Natural Marksman,5,4,1,25,1,0,0,0
+Performer,Smooth Talker,1,1,1,5,0,0,0,0
+Performer,Kill With Kindness,1,2,1,5,0,1,0,0
+Performer,Distracting Behavior,1,3,1,5,0,1,0,0
+Performer,Convincing Demeanor,1,4,1,5,0,0,0,0
+Performer,Distracting Behavior,2,1,1,10,0,1,0,1
+Performer,Congenial,2,2,1,10,1,1,1,1
+Performer,Dodge,2,3,1,10,1,1,1,1
+Performer,Jump Up,2,4,1,10,0,0,1,0
+Performer,Distracting Behavior,3,1,1,15,1,1,0,1
+Performer,Intense Presence,3,2,1,15,1,0,1,0
+Performer,Natural Athlete,3,3,1,15,1,1,0,1
+Performer,Second Wind,3,4,1,15,0,1,1,0
+Performer,Smooth Talker,4,1,1,20,1,1,0,1
+Performer,Distracting Behavior (Improved),4,2,1,20,0,1,1,0
+Performer,Grit,4,3,1,20,1,1,0,1
+Performer,Toughened,4,4,1,20,1,1,1,0
+Performer,Biggest Fan,5,1,1,25,1,0,0,1
+Performer,Deceptive Taunt,5,2,1,25,1,0,1,1
+Performer,Coordination Dodge,5,3,1,25,1,0,1,1
+Performer,Dedication,5,4,1,25,1,0,1,0
+Politico,Kill With Kindness,1,1,1,5,0,1,0,0
+Politico,Grit,1,2,1,5,0,1,0,0
+Politico,Plausible Deniability,1,3,1,5,0,1,0,0
+Politico,Toughened,1,4,1,5,0,1,0,0
+Politico,Inspiring Rhetoric,2,1,1,10,1,1,0,1
+Politico,Kill With Kindness,2,2,1,10,1,0,1,0
+Politico,Scathing Tirade,2,3,1,10,1,0,0,1
+Politico,Plausible Deniability,2,4,1,10,1,1,1,0
+Politico,Dodge,3,1,1,15,1,1,0,1
+Politico,Inspiring Rhetoric (Improved),3,2,1,15,0,1,1,0
+Politico,Scathing Tirade (Improved),3,3,1,15,0,1,0,1
+Politico,Well Rounded,3,4,1,15,1,1,1,0
+Politico,Grit,4,1,1,20,1,1,0,0
+Politico,Inspiring Rhetoric (Supreme),4,2,1,20,1,0,0,0
+Politico,Scathing Tirade (Supreme),4,3,1,20,1,0,0,0
+Politico,Nobody's Fool,4,4,1,20,1,1,0,0
+Politico,Steely Nerves,5,1,1,25,1,0,0,1
+Politico,Dedication,5,2,1,25,0,0,1,1
+Politico,Natural Charmer,5,3,1,25,0,0,1,1
+Politico,Intense Presence,5,4,1,25,1,0,1,0
+Scholar,Respected Scholar,1,1,1,5,0,1,0,0
+Scholar,Speaks Binary,1,2,1,5,0,1,0,0
+Scholar,Grit,1,3,1,5,0,1,0,0
+Scholar,Brace,1,4,1,5,0,1,0,0
+Scholar,Researcher,2,1,1,10,1,1,0,1
+Scholar,Respected Scholar,2,2,1,10,1,0,1,0
+Scholar,Resolve,2,3,1,10,1,0,0,1
+Scholar,Researcher,2,4,1,10,1,1,1,0
+Scholar,Codebreaker,3,1,1,15,1,0,0,1
+Scholar,Knowledge Specialization,3,2,1,15,0,1,1,0
+Scholar,Natural Scholar,3,3,1,15,0,1,0,1
+Scholar,Well Rounded,3,4,1,15,1,0,1,0
+Scholar,Knowledge Specialization,4,1,1,20,0,1,0,1
+Scholar,Intense Focus,4,2,1,20,1,0,1,0
+Scholar,Confidence,4,3,1,20,1,0,0,1
+Scholar,Resolve,4,4,1,20,0,1,1,0
+Scholar,Stroke of Genius,5,1,1,25,1,0,0,1
+Scholar,Mental Fortress,5,2,1,25,0,0,1,1
+Scholar,Dedication,5,3,1,25,0,0,1,1
+Scholar,Toughened,5,4,1,25,1,0,1,0
+Commodore,Solid Repairs,1,1,1,5,0,1,0,0
+Commodore,Command,1,2,1,5,0,1,0,0
+Commodore,Rapid Reaction,1,3,1,5,0,1,0,0
+Commodore,Galaxy Mapper,1,4,1,5,0,1,0,0
+Commodore,Known Schematic,2,1,1,10,1,1,0,0
+Commodore,Commanding Presence,2,2,1,10,1,1,0,0
+Commodore,Grit,2,3,1,10,1,1,0,0
+Commodore,Familiar Suns,2,4,1,10,1,1,0,0
+Commodore,Solid Repairs,3,1,1,15,1,1,0,0
+Commodore,Command,3,2,1,15,1,1,0,0
+Commodore,Rapid Reaction,3,3,1,15,1,1,0,0
+Commodore,Galaxy Mapper,3,4,1,15,1,1,0,0
+Commodore,Hold Together,4,1,1,20,1,1,0,0
+Commodore,Commanding Presence,4,2,1,20,1,1,0,0
+Commodore,Grit,4,3,1,20,1,1,0,0
+Commodore,Master Starhopper,4,4,1,20,1,1,0,0
+Commodore,Solid Repairs,5,1,1,25,1,0,0,1
+Commodore,Fire Control,5,2,1,25,1,0,1,1
+Commodore,Dedication,5,3,1,25,1,0,1,1
+Commodore,Galaxy Mapper,5,4,1,25,1,0,1,0
+Figurehead,Grit,1,1,1,5,0,0,0,0
+Figurehead,Resolve,1,2,1,5,0,1,0,0
+Figurehead,Confidence,1,3,1,5,0,1,0,0
+Figurehead,Command,1,4,1,5,0,1,0,0
+Figurehead,Command,2,1,1,10,0,1,0,1
+Figurehead,Inspiring Rhetoric,2,2,1,10,1,0,1,1
+Figurehead,Calm Commander,2,3,1,10,1,1,1,0
+Figurehead,Grit,2,4,1,10,1,1,0,0
+Figurehead,Commanding Presence,3,1,1,15,1,1,0,1
+Figurehead,Grit,3,2,1,15,0,1,1,0
+Figurehead,Inspiring Rhetoric (Improved),3,3,1,15,1,1,0,1
+Figurehead,Positive Spin,3,4,1,15,1,1,1,0
+Figurehead,Resolve,4,1,1,20,1,1,0,1
+Figurehead,Confidence,4,2,1,20,1,1,1,1
+Figurehead,Confidence (Improved),4,3,1,20,1,0,1,0
+Figurehead,Commanding Presence,4,4,1,20,1,1,0,0
+Figurehead,Intense Presence,5,1,1,25,1,0,0,1
+Figurehead,Natural Leader,5,2,1,25,1,0,1,1
+Figurehead,Dedication,5,3,1,25,0,0,1,1
+Figurehead,Commanding Presence (Improved),5,4,1,25,1,0,1,0
+Instructor,Conditioned,1,1,1,5,0,1,0,0
+Instructor,Physical Training,1,2,1,5,0,1,0,0
+Instructor,Bodyguard,1,3,1,5,0,1,0,0
+Instructor,Grit,1,4,1,5,0,0,0,0
+Instructor,Toughened,2,1,1,10,1,1,0,0
+Instructor,Encouraging Words,2,2,1,10,1,1,0,0
+Instructor,Conditioned,2,3,1,10,1,1,0,1
+Instructor,Stimpack Specialization,2,4,1,10,0,1,1,0
+Instructor,Physical Training,3,1,1,15,1,1,0,1
+Instructor,Master Instructor,3,2,1,15,1,1,1,0
+Instructor,Bodyguard,3,3,1,15,1,1,0,1
+Instructor,Bodyguard (Improved),3,4,1,15,1,1,1,0
+Instructor,Field Commander,4,1,1,20,1,1,0,1
+Instructor,Grit,4,2,1,20,1,1,1,1
+Instructor,Stimpack Specialization,4,3,1,20,1,0,1,1
+Instructor,Toughened,4,4,1,20,1,1,1,0
+Instructor,Field Commander (Improved),5,1,1,25,1,0,0,0
+Instructor,Natural Instructor,5,2,1,25,1,0,0,1
+Instructor,That's How It's Done,5,3,1,25,0,0,1,1
+Instructor,Dedication,5,4,1,25,1,0,1,0
+Squadron Leader,Grit,1,1,1,5,0,1,0,0
+Squadron Leader,Quick Strike,1,2,1,5,0,0,0,0
+Squadron Leader,Let's Ride,1,3,1,5,0,0,0,0
+Squadron Leader,Defensive Driving,1,4,1,5,0,1,0,0
+Squadron Leader,Field Commander,2,1,1,10,1,1,0,1
+Squadron Leader,Confidence,2,2,1,10,0,1,1,0
+Squadron Leader,Quick Strike,2,3,1,10,0,1,0,1
+Squadron Leader,Situational Awareness,2,4,1,10,1,0,1,0
+Squadron Leader,Command,3,1,1,15,1,1,0,0
+Squadron Leader,Grit,3,2,1,15,1,1,0,0
+Squadron Leader,Full Stop,3,3,1,15,1,1,0,0
+Squadron Leader,Defensive Driving,3,4,1,15,0,1,0,0
+Squadron Leader,Field Commander (Improved),4,1,1,20,1,0,0,0
+Squadron Leader,Command,4,2,1,20,1,1,0,1
+Squadron Leader,Form on Me,4,3,1,20,1,1,1,1
+Squadron Leader,Tricky Target,4,4,1,20,1,1,1,0
+Squadron Leader,Master Leader,5,1,1,25,0,0,0,1
+Squadron Leader,Confidence,5,2,1,25,1,0,1,0
+Squadron Leader,Dedication,5,3,1,25,1,0,0,0
+Squadron Leader,Brilliant Evasion,5,4,1,25,1,0,0,0
+Strategist,Researcher,1,1,1,5,0,1,0,0
+Strategist,Grit,1,2,1,5,0,0,0,0
+Strategist,Ready For Anything,1,3,1,5,0,1,0,0
+Strategist,Grit,1,4,1,5,0,1,0,0
+Strategist,Grit,2,1,1,10,1,1,0,1
+Strategist,Clever Commander,2,2,1,10,0,1,1,1
+Strategist,Command,2,3,1,10,1,1,1,1
+Strategist,Well Read,2,4,1,10,1,0,1,0
+Strategist,Knowledge Specialization,3,1,1,15,1,1,0,1
+Strategist,Researcher,3,2,1,15,1,1,1,0
+Strategist,Ready For Anything,3,3,1,15,1,1,0,1
+Strategist,Master Strategist,3,4,1,15,0,1,1,0
+Strategist,Researcher (Improved),4,1,1,20,1,1,0,0
+Strategist,Knowledge Specialization,4,2,1,20,1,1,0,1
+Strategist,Coordinated Assault,4,3,1,20,1,1,1,1
+Strategist,Command,4,4,1,20,1,1,1,0
+Strategist,Thorough Assessment,5,1,1,25,1,0,0,1
+Strategist,Careful Planning,5,2,1,25,1,0,1,1
+Strategist,Ready for Anything (Improved),5,3,1,25,1,0,1,1
+Strategist,Dedication,5,4,1,25,1,0,1,0
+Tactician,Outdoorsman,1,1,1,5,0,1,0,0
+Tactician,Commanding Presence,1,2,1,5,0,1,0,0
+Tactician,Toughened,1,3,1,5,0,0,0,0
+Tactician,Side Step,1,4,1,5,0,1,0,0
+Tactician,Outdoorsman,2,1,1,10,1,1,0,0
+Tactician,Confidence,2,2,1,10,1,1,0,0
+Tactician,Quick Draw,2,3,1,10,0,0,0,1
+Tactician,Swift,2,4,1,10,1,1,1,0
+Tactician,Natural Outdoorsman,3,1,1,15,1,0,0,0
+Tactician,Toughened,3,2,1,15,1,1,0,1
+Tactician,Bodyguard,3,3,1,15,0,0,1,1
+Tactician,Bodyguard,3,4,1,15,1,1,1,0
+Tactician,Confidence,4,1,1,20,0,0,0,1
+Tactician,Commanding Presence,4,2,1,20,1,1,1,1
+Tactician,Field Commander,4,3,1,20,0,1,1,0
+Tactician,Side Step,4,4,1,20,1,1,0,0
+Tactician,Coordinated Assault,5,1,1,25,0,0,0,1
+Tactician,Natural Leader,5,2,1,25,1,0,1,0
+Tactician,Field Commander (Improved),5,3,1,25,1,0,0,0
+Tactician,Dedication,5,4,1,25,1,0,0,0
+Arbiter,Sense Emotions,1,1,1,5,0,1,0,0
+Arbiter,Savvy Negotiator,1,2,1,5,0,1,0,0
+Arbiter,Grit,1,3,1,5,0,1,0,0
+Arbiter,Nobody's Fool,1,4,1,5,0,0,0,0
+Arbiter,Grit,2,1,1,10,1,1,0,1
+Arbiter,Congenial,2,2,1,10,1,1,1,0
+Arbiter,Toughened,2,3,1,10,1,1,0,0
+Arbiter,Reflect,2,4,1,10,0,1,0,0
+Arbiter,Savvy Negotiator,3,1,1,15,1,0,0,0
+Arbiter,Nobody's Fool,3,2,1,15,1,1,0,1
+Arbiter,Parry,3,3,1,15,1,1,1,0
+Arbiter,Sunder (Improved),3,4,1,15,1,1,0,0
+Arbiter,Calming Aura,4,1,1,20,0,1,0,1
+Arbiter,Crucial Point,4,2,1,20,1,0,1,1
+Arbiter,Savvy Negotiator,4,3,1,20,1,1,1,1
+Arbiter,Reflect,4,4,1,20,1,1,1,0
+Arbiter,Force Rating,5,1,1,25,1,0,0,1
+Arbiter,Savvy Negotiator (Improved),5,2,1,25,0,0,1,1
+Arbiter,Dedication,5,3,1,25,1,0,1,1
+Arbiter,Aggressive Negotiations,5,4,1,25,1,0,1,0
+Ascetic,Physical Training,1,1,1,5,0,1,0,0
+Ascetic,Confidence,1,2,1,5,0,1,0,0
+Ascetic,Grit,1,3,1,5,0,0,0,0
+Ascetic,Grit,1,4,1,5,0,1,0,0
+Ascetic,Grit,2,1,1,10,1,1,0,0
+Ascetic,Force Protection,2,2,1,10,1,0,0,1
+Ascetic,Grit,2,3,1,10,0,1,1,1
+Ascetic,Go Without,2,4,1,10,1,0,1,0
+Ascetic,Meditative Trance,3,1,1,15,1,1,0,0
+Ascetic,Slippery Minded,3,2,1,15,0,0,0,1
+Ascetic,Intense Focus,3,3,1,15,1,1,1,1
+Ascetic,Physical Training,3,4,1,15,0,0,1,0
+Ascetic,Confidence,4,1,1,20,1,1,0,1
+Ascetic,Mind Bleed,4,2,1,20,0,0,1,1
+Ascetic,Force Protection,4,3,1,20,1,1,1,1
+Ascetic,Iron Soul,4,4,1,20,0,1,1,0
+Ascetic,Dedication,5,1,1,25,1,0,0,1
+Ascetic,Grit,5,2,1,25,0,0,1,1
+Ascetic,Empty Soul,5,3,1,25,1,0,1,0
+Ascetic,Force Rating,5,4,1,25,1,0,0,0
+Teacher,Researcher,1,1,1,5,0,1,0,0
+Teacher,Respected Scholar,1,2,1,5,0,0,0,0
+Teacher,Sense Danger,1,3,1,5,0,0,0,0
+Teacher,Well Rounded,1,4,1,5,0,1,0,0
+Teacher,Well Traveled,2,1,1,10,1,0,0,1
+Teacher,Grit,2,2,1,10,0,1,1,1
+Teacher,Nobody's Fool,2,3,1,10,0,0,1,1
+Teacher,Encouraging Words,2,4,1,10,1,0,1,0
+Teacher,Toughened,3,1,1,15,0,1,0,0
+Teacher,Skilled Teacher,3,2,1,15,1,1,0,1
+Teacher,Master Instructor,3,3,1,15,0,1,1,0
+Teacher,Now the Master,3,4,1,15,0,1,0,0
+Teacher,Wise Warrior (Improved),4,1,1,20,1,1,0,1
+Teacher,Wise Warrior,4,2,1,20,1,1,1,1
+Teacher,Grit,4,3,1,20,1,1,1,0
+Teacher,Once a Learner,4,4,1,20,1,1,0,0
+Teacher,Dedication,5,1,1,25,1,0,0,1
+Teacher,Grit,5,2,1,25,1,0,1,0
+Teacher,Skilled Teacher,5,3,1,25,1,0,0,1
+Teacher,Force Rating,5,4,1,25,1,0,1,0
+Agitator,Plausible Deniability,1,1,1,5,0,0,0,0
+Agitator,Nobody's Fool,1,2,1,5,0,1,0,0
+Agitator,Grit,1,3,1,5,0,1,0,0
+Agitator,Intimidating,1,4,1,5,0,0,0,0
+Agitator,Street Smarts,2,1,1,10,0,1,0,0
+Agitator,Street Smarts,2,2,1,10,1,1,0,0
+Agitator,Convincing Demeanor,2,3,1,10,1,1,0,0
+Agitator,Intimidating,2,4,1,10,0,1,0,0
+Agitator,Convincing Demeanor,3,1,1,15,1,0,0,1
+Agitator,Plausible Deniability,3,2,1,15,1,1,1,1
+Agitator,Scathing Tirade,3,3,1,15,1,1,1,1
+Agitator,Grit,3,4,1,15,1,0,1,0
+Agitator,Natural Enforcer,4,1,1,20,0,1,0,1
+Agitator,Nobody's Fool,4,2,1,20,1,1,1,0
+Agitator,Scathing Tirade (Improved),4,3,1,20,1,1,0,1
+Agitator,Intimidating,4,4,1,20,0,1,1,0
+Agitator,Intimidating,5,1,1,25,1,0,0,0
+Agitator,Dedication,5,2,1,25,1,0,0,0
+Agitator,Scathing Tirade (Supreme),5,3,1,25,1,0,0,0
+Agitator,Incite Rebellion,5,4,1,25,1,0,0,0
+Ambassador,Indistinguishable,1,1,1,5,0,0,0,0
+Ambassador,Kill With Kindness,1,2,1,5,0,1,0,0
+Ambassador,Nobody's Fool,1,3,1,5,0,1,0,0
+Ambassador,Confidence,1,4,1,5,0,1,0,0
+Ambassador,Indistinguishable,2,1,1,10,0,0,0,1
+Ambassador,Grit,2,2,1,10,1,1,1,0
+Ambassador,Grit,2,3,1,10,1,1,0,0
+Ambassador,Dodge,2,4,1,10,1,1,0,0
+Ambassador,Kill With Kindness,3,1,1,15,0,1,0,1
+Ambassador,Inspiring Rhetoric,3,2,1,15,1,1,1,1
+Ambassador,Steely Nerves,3,3,1,15,1,0,1,1
+Ambassador,Confidence,3,4,1,15,1,1,1,0
+Ambassador,Inspiring Rhetoric (Improved),4,1,1,20,1,1,0,0
+Ambassador,Intense Presence,4,2,1,20,1,1,0,1
+Ambassador,Works Like a Charm,4,3,1,20,0,0,1,0
+Ambassador,Dodge,4,4,1,20,1,1,0,0
+Ambassador,Inspiring Rhetoric (Supreme),5,1,1,25,1,0,0,0
+Ambassador,Natural Charmer,5,2,1,25,1,0,0,1
+Ambassador,Dedication,5,3,1,25,0,0,1,1
+Ambassador,Sixth Sense,5,4,1,25,1,0,1,0
+Analyst,Researcher,1,1,1,5,0,1,0,0
+Analyst,Knowledge Specialization,1,2,1,5,0,1,0,0
+Analyst,Codebreaker,1,3,1,5,0,1,0,0
+Analyst,Technical Aptitude,1,4,1,5,0,1,0,0
+Analyst,Valuable Facts,2,1,1,10,1,0,0,1
+Analyst,Researcher,2,2,1,10,1,1,1,1
+Analyst,Supporting Evidence,2,3,1,10,1,1,1,1
+Analyst,Grit,2,4,1,10,1,0,1,0
+Analyst,Knowledge Specialization,3,1,1,15,0,1,0,1
+Analyst,Researcher (Improved),3,2,1,15,1,1,1,0
+Analyst,Codebreaker,3,3,1,15,1,1,0,1
+Analyst,Encoded Communique,3,4,1,15,0,1,1,0
+Analyst,Grit,4,1,1,20,1,1,0,1
+Analyst,Know-It-All,4,2,1,20,1,1,1,1
+Analyst,Knowledge Specialization,4,3,1,20,1,1,1,1
+Analyst,Natural Programmer,4,4,1,20,1,1,1,0
+Analyst,Dedication,5,1,1,25,1,0,0,0
+Analyst,Knowledge Specialization,5,2,1,25,1,0,0,1
+Analyst,Thorough Assessment,5,3,1,25,1,0,1,0
+Analyst,Stroke of Genius,5,4,1,25,1,0,0,0
+Propagandist,Grit,1,1,1,5,0,1,0,0
+Propagandist,Positive Spin,1,2,1,5,0,1,0,0
+Propagandist,In the Know,1,3,1,5,0,1,0,0
+Propagandist,Cutting Question,1,4,1,5,0,1,0,0
+Propagandist,In the Know,2,1,1,10,1,1,0,0
+Propagandist,Positive Spin (Improved),2,2,1,10,1,1,0,0
+Propagandist,Positive Spin,2,3,1,10,1,1,0,0
+Propagandist,Toughened,2,4,1,10,1,0,0,0
+Propagandist,Bad Press,3,1,1,15,1,1,0,1
+Propagandist,Well Rounded,3,2,1,15,1,0,1,1
+Propagandist,Grit,3,3,1,15,1,1,1,1
+Propagandist,Confidence,3,4,1,15,0,1,1,0
+Propagandist,Toughened,4,1,1,20,1,1,0,1
+Propagandist,Confidence,4,2,1,20,0,1,1,1
+Propagandist,Dodge,4,3,1,20,1,0,1,1
+Propagandist,Informant,4,4,1,20,1,1,1,0
+Propagandist,Positive Spin,5,1,1,25,1,0,0,1
+Propagandist,Dedication,5,2,1,25,1,0,1,0
+Propagandist,In the Know (Improved),5,3,1,25,0,0,0,1
+Propagandist,In the Know,5,4,1,25,1,0,1,0
+Quartermaster,Know Somebody,1,1,1,5,0,1,0,0
+Quartermaster,Smooth Talker,1,2,1,5,0,0,0,0
+Quartermaster,Wheel and Deal,1,3,1,5,0,0,0,0
+Quartermaster,Grit,1,4,1,5,0,1,0,0
+Quartermaster,Smooth Talker,2,1,1,10,1,1,0,0
+Quartermaster,Greased Palms,2,2,1,10,0,1,0,1
+Quartermaster,Master Merchant,2,3,1,10,0,1,1,0
+Quartermaster,Toughened,2,4,1,10,1,1,0,0
+Quartermaster,Grit,3,1,1,15,1,1,0,0
+Quartermaster,Wheel and Deal,3,2,1,15,1,1,0,1
+Quartermaster,Bought Info,3,3,1,15,1,1,1,0
+Quartermaster,Grit,3,4,1,15,1,1,0,0
+Quartermaster,Know Somebody,4,1,1,20,1,1,0,1
+Quartermaster,Sound Investments,4,2,1,20,1,0,1,1
+Quartermaster,Sound Investments,4,3,1,20,1,0,1,0
+Quartermaster,Intense Focus,4,4,1,20,1,1,0,0
+Quartermaster,Dedication,5,1,1,25,1,0,0,1
+Quartermaster,Natural Negotiator,5,2,1,25,0,0,1,0
+Quartermaster,Superior Reflexes,5,3,1,25,0,0,0,1
+Quartermaster,Toughened,5,4,1,25,1,0,1,0
+Droid Specialist,Design Flaw,1,1,1,5,0,1,0,0
+Droid Specialist,Speaks Binary,1,2,1,5,0,0,0,0
+Droid Specialist,Grit,1,3,1,5,0,1,0,0
+Droid Specialist,Toughened,1,4,1,5,0,0,0,0
+Droid Specialist,Hidden Storage,2,1,1,10,1,1,0,0
+Droid Specialist,Combat Programming,2,2,1,10,0,1,0,0
+Droid Specialist,Repair Patch Specialization,2,3,1,10,1,0,0,1
+Droid Specialist,Gearhead,2,4,1,10,0,1,1,0
+Droid Specialist,Gearhead,3,1,1,15,1,1,0,1
+Droid Specialist,Machine Mender,3,2,1,15,1,1,1,0
+Droid Specialist,Hidden Storage,3,3,1,15,0,1,0,1
+Droid Specialist,Speaks Binary,3,4,1,15,1,1,1,0
+Droid Specialist,Design Flaw,4,1,1,20,1,1,0,1
+Droid Specialist,Desperate Repairs,4,2,1,20,1,1,1,1
+Droid Specialist,Machine Mender,4,3,1,20,1,1,1,1
+Droid Specialist,Grit,4,4,1,20,1,0,1,0
+Droid Specialist,Repair Patch Specialization,5,1,1,25,1,0,0,1
+Droid Specialist,Master Artisan,5,2,1,25,1,0,1,1
+Droid Specialist,Reroute Processors,5,3,1,25,1,0,1,1
+Droid Specialist,Dedication,5,4,1,25,0,0,1,0
+Mechanic,Gearhead,1,1,1,5,0,1,0,0
+Mechanic,Toughened,1,2,1,5,0,1,0,0
+Mechanic,Fine Tuning,1,3,1,5,0,1,0,0
+Mechanic,Solid Repairs,1,4,1,5,0,1,0,0
+Mechanic,Redundant Systems,2,1,1,10,1,1,0,1
+Mechanic,Solid Repairs,2,2,1,10,1,1,1,1
+Mechanic,Gearhead,2,3,1,10,1,1,1,1
+Mechanic,Grit,2,4,1,10,1,1,1,0
+Mechanic,Solid Repairs,3,1,1,15,1,1,0,1
+Mechanic,Enduring,3,2,1,15,1,1,1,1
+Mechanic,Bad Motivator,3,3,1,15,1,1,1,1
+Mechanic,Toughened,3,4,1,15,1,1,1,0
+Mechanic,Contraption,4,1,1,20,1,1,0,1
+Mechanic,Solid Repairs,4,2,1,20,1,1,1,1
+Mechanic,Fine Tuning,4,3,1,20,1,1,1,0
+Mechanic,Hard Headed,4,4,1,20,1,1,0,0
+Mechanic,Natural Tinkerer,5,1,1,25,1,0,0,0
+Mechanic,Hold Together,5,2,1,25,1,0,0,0
+Mechanic,Dedication,5,3,1,25,1,0,0,0
+Mechanic,Hard Headed (Improved),5,4,1,25,1,0,0,0
+Saboteur,Resolve,1,1,1,5,0,1,0,0
+Saboteur,Second Wind,1,2,1,5,0,0,0,0
+Saboteur,Grit,1,3,1,5,0,0,0,0
+Saboteur,Rapid Recovery,1,4,1,5,0,1,0,0
+Saboteur,Grit,2,1,1,10,1,0,0,1
+Saboteur,Powerful Blast,2,2,1,10,0,1,1,1
+Saboteur,Toughened,2,3,1,10,0,1,1,1
+Saboteur,Second Wind,2,4,1,10,1,0,1,0
+Saboteur,Time to Go,3,1,1,15,0,1,0,1
+Saboteur,Rapid Recovery,3,2,1,15,1,1,1,0
+Saboteur,Resolve,3,3,1,15,1,0,0,1
+Saboteur,Hard Headed,3,4,1,15,0,1,1,0
+Saboteur,Time to Go (Improved),4,1,1,20,1,0,0,0
+Saboteur,Powerful Blast,4,2,1,20,1,1,0,1
+Saboteur,Selective Detonation,4,3,1,20,0,1,1,0
+Saboteur,Toughened,4,4,1,20,1,1,0,0
+Saboteur,Dedication,5,1,1,25,0,0,0,1
+Saboteur,Master Grenadier,5,2,1,25,1,0,1,0
+Saboteur,Selective Detonation,5,3,1,25,1,0,0,0
+Saboteur,Hard Headed (Improved),5,4,1,25,1,0,0,0
+Sapper,Construction Specialist,1,1,1,5,0,1,0,0
+Sapper,Toughened,1,2,1,5,0,1,0,0
+Sapper,Durable,1,3,1,5,0,0,0,0
+Sapper,Grit,1,4,1,5,0,1,0,0
+Sapper,Known Schematic,2,1,1,10,1,1,0,0
+Sapper,Contraption,2,2,1,10,1,1,0,0
+Sapper,Construction Specialist,2,3,1,10,0,1,0,1
+Sapper,Powerful Blast,2,4,1,10,1,0,1,0
+Sapper,Grit,3,1,1,15,1,1,0,1
+Sapper,Durable,3,2,1,15,1,1,1,1
+Sapper,Improvised Defenses,3,3,1,15,1,1,1,0
+Sapper,Powerful Blast,3,4,1,15,0,1,0,0
+Sapper,Utility Belt,4,1,1,20,1,0,0,1
+Sapper,Strong Arm,4,2,1,20,1,0,1,1
+Sapper,Improvised Detonation,4,3,1,20,1,1,1,1
+Sapper,Master Grenadier,4,4,1,20,1,1,1,0
+Sapper,Weak Foundation,5,1,1,25,0,0,0,1
+Sapper,Dedication,5,2,1,25,0,0,1,1
+Sapper,Improvised Position,5,3,1,25,1,0,1,1
+Sapper,Master Demolitionist,5,4,1,25,1,0,1,0
+Scientist,Knowledge Specialization,1,1,1,5,0,1,0,0
+Scientist,Respected Scholar,1,2,1,5,0,0,0,0
+Scientist,Researcher,1,3,1,5,0,0,0,0
+Scientist,Speaks Binary,1,4,1,5,0,1,0,0
+Scientist,Researcher,2,1,1,10,1,1,0,1
+Scientist,Knowledge Specialization,2,2,1,10,0,0,1,0
+Scientist,Hidden Storage,2,3,1,10,0,0,0,1
+Scientist,Tinkerer,2,4,1,10,1,1,1,0
+Scientist,Respected Scholar,3,1,1,15,1,1,0,1
+Scientist,Mental Fortress,3,2,1,15,0,0,1,0
+Scientist,Speaks Binary,3,3,1,15,0,0,0,1
+Scientist,Inventor,3,4,1,15,1,1,1,0
+Scientist,Natural Scholar,4,1,1,20,1,1,0,1
+Scientist,Stroke of Genius,4,2,1,20,0,0,1,0
+Scientist,Inventor,4,3,1,20,0,0,0,1
+Scientist,Tinkerer,4,4,1,20,1,1,1,0
+Scientist,Intense Focus,5,1,1,25,1,0,0,1
+Scientist,Careful Planning,5,2,1,25,0,0,1,1
+Scientist,Dedication,5,3,1,25,0,0,1,1
+Scientist,Utility Belt,5,4,1,25,1,0,1,0
+Shipwright,Dockyard Expertise,1,1,1,5,0,1,0,0
+Shipwright,Eye for Detail,1,2,1,5,0,0,0,0
+Shipwright,Grit,1,3,1,5,0,0,0,0
+Shipwright,Creative Design,1,4,1,5,0,1,0,0
+Shipwright,Solid Repairs,2,1,1,10,1,1,0,1
+Shipwright,Fine Tuning,2,2,1,10,0,1,1,0
+Shipwright,Eye for Detail,2,3,1,10,0,1,0,1
+Shipwright,Debilitating Shot,2,4,1,10,1,0,1,0
+Shipwright,Known Schematic,3,1,1,15,1,1,0,0
+Shipwright,Dockyard Expertise,3,2,1,15,1,1,0,1
+Shipwright,Smart Handling,3,3,1,15,1,1,1,1
+Shipwright,Creative Design,3,4,1,15,0,0,1,0
+Shipwright,Bought Info,4,1,1,20,1,0,0,0
+Shipwright,Push the Specs,4,2,1,20,1,1,0,1
+Shipwright,Solid Repairs,4,3,1,20,1,1,1,1
+Shipwright,Creative Design,4,4,1,20,0,1,1,0
+Shipwright,Dedication,5,1,1,25,0,0,0,1
+Shipwright,Master Artisan,5,2,1,25,1,0,1,0
+Shipwright,Stroke of Genius,5,3,1,25,1,0,0,1
+Shipwright,Exhaust Port,5,4,1,25,1,0,1,0
+Archaeologist,Well Rounded,1,1,1,5,0,0,0,0
+Archaeologist,Hard Headed,1,2,1,5,0,1,0,0
+Archaeologist,Researcher,1,3,1,5,0,1,0,0
+Archaeologist,Grit,1,4,1,5,0,1,0,0
+Archaeologist,Durable,2,1,1,10,0,1,0,1
+Archaeologist,Toughened,2,2,1,10,1,0,1,1
+Archaeologist,Resolve,2,3,1,10,1,0,1,1
+Archaeologist,Knowledge Specialization,2,4,1,10,1,1,1,0
+Archaeologist,Stunning Blow,3,1,1,15,1,1,0,1
+Archaeologist,Knockdown,3,2,1,15,0,0,1,0
+Archaeologist,Respected Scholar,3,3,1,15,0,1,0,0
+Archaeologist,Researcher,3,4,1,15,1,1,0,0
+Archaeologist,Hard Headed,4,1,1,20,1,1,0,1
+Archaeologist,Enduring,4,2,1,20,0,1,1,1
+Archaeologist,Grit,4,3,1,20,1,1,1,1
+Archaeologist,Knowledge Specialization,4,4,1,20,1,1,1,0
+Archaeologist,Pin,5,1,1,25,1,0,0,1
+Archaeologist,Dedication,5,2,1,25,1,0,1,1
+Archaeologist,Respected Scholar,5,3,1,25,1,0,1,1
+Archaeologist,Museum Worthy,5,4,1,25,1,0,1,0
+Big-Game Hunter,Forager,1,1,1,5,0,1,0,0
+Big-Game Hunter,Grit,1,2,1,5,0,0,0,0
+Big-Game Hunter,Stalker,1,3,1,5,0,1,0,0
+Big-Game Hunter,Outdoorsman,1,4,1,5,0,1,0,0
+Big-Game Hunter,Toughened,2,1,1,10,1,1,0,1
+Big-Game Hunter,Outdoorsman,2,2,1,10,0,0,1,1
+Big-Game Hunter,Confidence,2,3,1,10,1,1,1,0
+Big-Game Hunter,Swift,2,4,1,10,1,0,0,0
+Big-Game Hunter,Stalker,3,1,1,15,1,0,0,0
+Big-Game Hunter,Natural Hunter,3,2,1,15,0,0,0,1
+Big-Game Hunter,Expert Tracker,3,3,1,15,1,1,1,1
+Big-Game Hunter,Heightened Awareness,3,4,1,15,0,1,1,0
+Big-Game Hunter,Grit,4,1,1,20,0,1,0,1
+Big-Game Hunter,Hunter's Quarry,4,2,1,20,0,1,1,1
+Big-Game Hunter,Quick Strike,4,3,1,20,1,1,1,0
+Big-Game Hunter,Expert Tracker,4,4,1,20,1,1,0,0
+Big-Game Hunter,Bring It Down,5,1,1,25,1,0,0,0
+Big-Game Hunter,Hunter's Quarry (Improved),5,2,1,25,1,0,0,0
+Big-Game Hunter,Dedication,5,3,1,25,1,0,0,1
+Big-Game Hunter,Superior Reflexes,5,4,1,25,1,0,1,0
+Fringer,Galaxy Mapper,1,1,1,5,0,1,0,0
+Fringer,Street Smarts,1,2,1,5,0,0,0,0
+Fringer,Rapid Recovery,1,3,1,5,0,1,0,0
+Fringer,Street Smarts,1,4,1,5,0,1,0,0
+Fringer,Skilled Jockey,2,1,1,10,1,1,0,1
+Fringer,Galaxy Mapper,2,2,1,10,0,1,1,0
+Fringer,Grit,2,3,1,10,1,1,0,1
+Fringer,Toughened,2,4,1,10,1,1,1,0
+Fringer,Master Starhopper,3,1,1,15,1,0,0,1
+Fringer,Defensive Driving,3,2,1,15,1,0,1,0
+Fringer,Rapid Recovery,3,3,1,15,1,1,0,0
+Fringer,Durable,3,4,1,15,1,1,0,0
+Fringer,Rapid Recovery,4,1,1,20,0,1,0,1
+Fringer,Jump Up,4,2,1,20,0,1,1,1
+Fringer,Grit,4,3,1,20,1,0,1,0
+Fringer,Knockdown,4,4,1,20,1,1,0,0
+Fringer,Dedication,5,1,1,25,1,0,0,1
+Fringer,Toughened,5,2,1,25,1,0,1,0
+Fringer,Dodge,5,3,1,25,0,0,0,1
+Fringer,Dodge,5,4,1,25,1,0,1,0
+Scout,Rapid Recovery,1,1,1,5,0,1,0,0
+Scout,Stalker,1,2,1,5,0,1,0,0
+Scout,Grit,1,3,1,5,0,1,0,0
+Scout,Shortcut,1,4,1,5,0,1,0,0
+Scout,Forager,2,1,1,10,1,1,0,1
+Scout,Quick Strike,2,2,1,10,1,1,1,1
+Scout,Let's Ride,2,3,1,10,1,1,1,1
+Scout,Disorient,2,4,1,10,1,1,1,0
+Scout,Rapid Recovery,3,1,1,15,1,1,0,0
+Scout,Natural Hunter,3,2,1,15,1,1,0,0
+Scout,Familiar Suns,3,3,1,15,1,1,0,0
+Scout,Shortcut,3,4,1,15,1,1,0,0
+Scout,Grit,4,1,1,20,1,1,0,0
+Scout,Heightened Awareness,4,2,1,20,1,0,0,0
+Scout,Toughened,4,3,1,20,1,1,0,0
+Scout,Quick Strike,4,4,1,20,1,1,0,0
+Scout,Utility Belt,5,1,1,25,1,0,0,1
+Scout,Dedication,5,2,1,25,0,0,1,1
+Scout,Stalker,5,3,1,25,1,0,1,0
+Scout,Disorient,5,4,1,25,1,0,0,0
+Trader,Know Somebody,1,1,1,5,0,1,0,0
+Trader,Convincing Demeanor,1,2,1,5,0,0,0,0
+Trader,Wheel and Deal,1,3,1,5,0,0,0,0
+Trader,Smooth Talker,1,4,1,5,0,0,0,0
+Trader,Wheel and Deal,2,1,1,10,1,1,0,1
+Trader,Grit,2,2,1,10,0,0,1,1
+Trader,Spare Clip,2,3,1,10,0,0,1,1
+Trader,Toughened,2,4,1,10,0,0,1,0
+Trader,Know Somebody,3,1,1,15,1,1,0,1
+Trader,Nobody's Fool,3,2,1,15,0,0,1,1
+Trader,Smooth Talker,3,3,1,15,0,0,1,1
+Trader,Nobody's Fool,3,4,1,15,0,0,1,0
+Trader,Wheel and Deal,4,1,1,20,1,1,0,1
+Trader,Steely Nerves,4,2,1,20,0,0,1,1
+Trader,Black Market Contacts,4,3,1,20,0,0,1,1
+Trader,Black Market Contacts,4,4,1,20,0,1,1,0
+Trader,Know Somebody,5,1,1,25,1,0,0,1
+Trader,Natural Negotiator,5,2,1,25,0,0,1,1
+Trader,Dedication,5,3,1,25,0,0,1,1
+Trader,Master Merchant,5,4,1,25,1,0,1,0
+Bodyguard,Toughened,1,1,1,5,0,0,0,0
+Bodyguard,Barrage,1,2,1,5,0,1,0,0
+Bodyguard,Durable,1,3,1,5,0,1,0,0
+Bodyguard,Grit,1,4,1,5,0,0,0,0
+Bodyguard,Bodyguard,2,1,1,10,0,1,0,1
+Bodyguard,Hard Headed,2,2,1,10,1,1,1,1
+Bodyguard,Barrage,2,3,1,10,1,1,1,1
+Bodyguard,Brace,2,4,1,10,0,1,1,0
+Bodyguard,Bodyguard,3,1,1,15,1,1,0,0
+Bodyguard,Side Step,3,2,1,15,1,1,0,1
+Bodyguard,Defensive Stance,3,3,1,15,1,1,1,0
+Bodyguard,Brace,3,4,1,15,1,0,0,0
+Bodyguard,Enduring,4,1,1,20,1,0,0,0
+Bodyguard,Side Step,4,2,1,20,1,1,0,1
+Bodyguard,Defensive Stance,4,3,1,20,1,1,1,1
+Bodyguard,Hard Headed,4,4,1,20,0,1,1,0
+Bodyguard,Dedication,5,1,1,25,0,0,0,1
+Bodyguard,Barrage,5,2,1,25,1,0,1,1
+Bodyguard,Toughened,5,3,1,25,1,0,1,0
+Bodyguard,Hard Headed (Improved),5,4,1,25,1,0,0,0
+Demolitionist,Powerful Blast,1,1,1,5,0,1,0,0
+Demolitionist,Grit,1,2,1,5,0,1,0,0
+Demolitionist,Selective Detonation,1,3,1,5,0,0,0,0
+Demolitionist,Steady Nerves,1,4,1,5,0,1,0,0
+Demolitionist,Toughened,2,1,1,10,1,1,0,0
+Demolitionist,Time to Go,2,2,1,10,1,1,0,0
+Demolitionist,Powerful Blast,2,3,1,10,0,1,0,1
+Demolitionist,Grit,2,4,1,10,1,1,1,0
+Demolitionist,Enduring,3,1,1,15,1,1,0,0
+Demolitionist,Time to Go (Improved),3,2,1,15,1,0,0,0
+Demolitionist,Steady Nerves,3,3,1,15,1,1,0,0
+Demolitionist,Rapid Reaction,3,4,1,15,1,1,0,0
+Demolitionist,Improvised Detonation,4,1,1,20,1,1,0,1
+Demolitionist,Powerful Blast,4,2,1,20,0,0,1,1
+Demolitionist,Grit,4,3,1,20,1,1,1,1
+Demolitionist,Selective Detonation,4,4,1,20,1,0,1,0
+Demolitionist,Improvised Detonation (Improved),5,1,1,25,1,0,0,0
+Demolitionist,Dedication,5,2,1,25,0,0,0,1
+Demolitionist,Master Grenadier,5,3,1,25,1,0,1,1
+Demolitionist,Selective Detonation,5,4,1,25,0,0,1,0
+Enforcer,Toughened,1,1,1,5,0,1,0,0
+Enforcer,Intimidating,1,2,1,5,0,1,0,0
+Enforcer,Fearsome,1,3,1,5,0,0,0,0
+Enforcer,Street Smarts,1,4,1,5,0,1,0,0
+Enforcer,Durable,2,1,1,10,1,0,0,0
+Enforcer,Stunning Blow,2,2,1,10,1,1,0,1
+Enforcer,Natural Enforcer,2,3,1,10,0,0,1,1
+Enforcer,Talk the Talk,2,4,1,10,1,1,1,0
+Enforcer,Intimidating,3,1,1,15,0,0,0,1
+Enforcer,Defensive Stance,3,2,1,15,1,1,1,1
+Enforcer,Toughened,3,3,1,15,0,0,1,0
+Enforcer,Loom,3,4,1,15,1,1,0,0
+Enforcer,Second Wind,4,1,1,20,0,1,0,1
+Enforcer,Street Smarts,4,2,1,20,1,0,1,1
+Enforcer,Walk the Walk,4,3,1,20,0,0,1,0
+Enforcer,Intimidating,4,4,1,20,1,1,0,0
+Enforcer,Fearsome,5,1,1,25,1,0,0,1
+Enforcer,Dedication,5,2,1,25,0,0,1,1
+Enforcer,Black Market Contacts,5,3,1,25,0,0,1,1
+Enforcer,Fearsome,5,4,1,25,1,0,1,0
+Heavy,Burly,1,1,1,5,0,1,0,0
+Heavy,Barrage,1,2,1,5,0,1,0,0
+Heavy,Grit,1,3,1,5,0,0,0,0
+Heavy,Toughened,1,4,1,5,0,1,0,0
+Heavy,Barrage,2,1,1,10,1,0,0,1
+Heavy,Brace,2,2,1,10,1,1,1,1
+Heavy,Spare Clip,2,3,1,10,0,0,1,0
+Heavy,Durable,2,4,1,10,1,1,0,0
+Heavy,Side Step,3,1,1,15,0,1,0,0
+Heavy,Burly,3,2,1,15,1,1,0,0
+Heavy,Heroic Fortitude,3,3,1,15,0,0,0,1
+Heavy,Toughened,3,4,1,15,1,1,1,0
+Heavy,Brace,4,1,1,20,1,1,0,1
+Heavy,Barrage,4,2,1,20,1,0,1,0
+Heavy,Rain of Death,4,3,1,20,0,1,0,0
+Heavy,Heroic Resilience,4,4,1,20,1,0,0,0
+Heavy,Burly,5,1,1,25,1,0,0,1
+Heavy,Dedication,5,2,1,25,0,0,1,1
+Heavy,Armor Master,5,3,1,25,1,0,1,1
+Heavy,Heavy Hitter,5,4,1,25,0,0,1,0
+Marauder,Toughened,1,1,1,5,0,1,0,0
+Marauder,Frenzied Attack,1,2,1,5,0,1,0,0
+Marauder,Feral Strength,1,3,1,5,0,1,0,0
+Marauder,Lethal Blows,1,4,1,5,0,1,0,0
+Marauder,Feral Strength,2,1,1,10,1,0,0,1
+Marauder,Toughened,2,2,1,10,1,1,1,1
+Marauder,Heroic Fortitude,2,3,1,10,1,1,1,1
+Marauder,Knockdown,2,4,1,10,1,0,1,0
+Marauder,Enduring,3,1,1,15,0,1,0,1
+Marauder,Lethal Blows,3,2,1,15,1,0,1,1
+Marauder,Toughened,3,3,1,15,1,0,1,1
+Marauder,Frenzied Attack,3,4,1,15,0,1,1,0
+Marauder,Toughened,4,1,1,20,1,0,0,1
+Marauder,Feral Strength,4,2,1,20,0,1,1,1
+Marauder,Natural Brawler,4,3,1,20,0,1,1,1
+Marauder,Lethal Blows,4,4,1,20,1,0,1,0
+Marauder,Frenzied Attack,5,1,1,25,0,0,0,1
+Marauder,Enduring,5,2,1,25,1,0,1,1
+Marauder,Defensive Stance,5,3,1,25,1,0,1,1
+Marauder,Dedication,5,4,1,25,0,0,1,0
+Mercenary,Command,1,1,1,5,0,1,0,0
+Mercenary,Second Wind,1,2,1,5,0,1,0,0
+Mercenary,Point Blank,1,3,1,5,0,1,0,0
+Mercenary,Side Step,1,4,1,5,0,1,0,0
+Mercenary,Second Wind,2,1,1,10,1,1,0,1
+Mercenary,Confidence,2,2,1,10,1,1,1,0
+Mercenary,Strong Arm,2,3,1,10,1,1,0,1
+Mercenary,Point Blank,2,4,1,10,1,0,1,0
+Mercenary,Field Commander,3,1,1,15,1,1,0,1
+Mercenary,Command,3,2,1,15,1,1,1,1
+Mercenary,Natural Marksman,3,3,1,15,1,1,1,1
+Mercenary,Sniper Shot,3,4,1,15,0,1,1,0
+Mercenary,Field Commander (Improved),4,1,1,20,1,0,0,0
+Mercenary,Grit,4,2,1,20,1,1,0,0
+Mercenary,Toughened,4,3,1,20,1,0,0,1
+Mercenary,Lethal Blows,4,4,1,20,1,1,1,0
+Mercenary,Deadly Accuracy,5,1,1,25,0,0,0,1
+Mercenary,True Aim,5,2,1,25,1,0,1,1
+Mercenary,Dedication,5,3,1,25,0,0,1,1
+Mercenary,True Aim,5,4,1,25,1,0,1,0
+Alchemist,Grit,1,1,1,5,0,0,0,0
+Alchemist,Stimpack Specialization,1,2,1,5,0,1,0,0
+Alchemist,Researcher,1,3,1,5,0,0,0,0
+Alchemist,Blooded,1,4,1,5,0,1,0,0
+Alchemist,Researcher,2,1,1,10,0,1,0,1
+Alchemist,Stim Application,2,2,1,10,1,1,1,1
+Alchemist,Alchemical Arts,2,3,1,10,0,0,1,1
+Alchemist,Grit,2,4,1,10,1,1,1,0
+Alchemist,Stimpack Specialization,3,1,1,15,1,0,0,1
+Alchemist,Blooded,3,2,1,15,1,1,1,1
+Alchemist,Blooded (Improved),3,3,1,15,0,0,1,0
+Alchemist,Transmogrify,3,4,1,15,1,1,0,0
+Alchemist,Stim Application (Improved),4,1,1,20,0,0,0,1
+Alchemist,Knowledgeable Healing,4,2,1,20,1,1,1,0
+Alchemist,Grit,4,3,1,20,0,1,0,1
+Alchemist,Alchemical Arts,4,4,1,20,1,1,1,0
+Alchemist,Force Rating,5,1,1,25,0,0,0,1
+Alchemist,Identify Ingredients,5,2,1,25,1,0,1,1
+Alchemist,Dedication,5,3,1,25,1,0,1,0
+Alchemist,Improvised Concoction,5,4,1,25,1,0,0,0
+Magus,Healing Trance,1,1,1,5,0,0,0,0
+Magus,Toughened,1,2,1,5,0,1,0,0
+Magus,Confidence,1,3,1,5,0,1,0,0
+Magus,Resolve,1,4,1,5,0,1,0,0
+Magus,Confidence,2,1,1,10,0,1,0,1
+Magus,Healing Trance,2,2,1,10,1,1,1,1
+Magus,Channel Agony,2,3,1,10,1,1,1,1
+Magus,Secret Lore,2,4,1,10,1,0,1,0
+Magus,Healing Trance (Improved),3,1,1,15,1,0,0,0
+Magus,Secret Lore,3,2,1,15,1,1,0,1
+Magus,Resolve,3,3,1,15,1,1,1,1
+Magus,Knowledge Is Power,3,4,1,15,0,0,1,0
+Magus,Channel Agony,4,1,1,20,0,1,0,1
+Magus,Mind Over Matter,4,2,1,20,1,0,1,0
+Magus,Toughened,4,3,1,20,1,1,0,0
+Magus,Channel Agony,4,4,1,20,0,1,0,0
+Magus,Power of Darkness,5,1,1,25,1,0,0,0
+Magus,Dedication,5,2,1,25,0,0,0,1
+Magus,Transmogrify,5,3,1,25,1,0,1,1
+Magus,Force Rating,5,4,1,25,1,0,1,0
+Prophet,Grit,1,1,1,5,0,1,0,0
+Prophet,Overwhelming Aura,1,2,1,5,0,1,0,0
+Prophet,Rapid Recovery,1,3,1,5,0,0,0,0
+Prophet,Congenial,1,4,1,5,0,1,0,0
+Prophet,Scathing Tirade,2,1,1,10,1,1,0,1
+Prophet,Plausible Deniability,2,2,1,10,1,1,1,1
+Prophet,Inspiring Rhetoric,2,3,1,10,0,1,1,1
+Prophet,Rapid Recovery,2,4,1,10,1,0,1,0
+Prophet,Rapid Recovery,3,1,1,15,1,0,0,0
+Prophet,Overwhelming Aura,3,2,1,15,1,0,0,0
+Prophet,Grit,3,3,1,15,1,1,0,1
+Prophet,Twisted Words,3,4,1,15,0,0,1,0
+Prophet,Fearsome,4,1,1,20,0,1,0,0
+Prophet,Grit,4,2,1,20,0,1,0,1
+Prophet,Inspiring Rhetoric (Improved),4,3,1,20,1,0,1,1
+Prophet,Congenial,4,4,1,20,0,1,1,0
+Prophet,Overwhelming Aura (Improved),5,1,1,25,1,0,0,1
+Prophet,Force Rating,5,2,1,25,1,0,1,1
+Prophet,Font of Power,5,3,1,25,0,0,1,0
+Prophet,Dedication,5,4,1,25,1,0,0,0
+Executioner,Grit,1,1,1,5,0,0,0,0
+Executioner,Quick Strike,1,2,1,5,0,1,0,0
+Executioner,Toughened,1,3,1,5,0,0,0,0
+Executioner,Quick Draw,1,4,1,5,0,1,0,0
+Executioner,Mind Over Matter,2,1,1,10,0,1,0,1
+Executioner,Hunter's Quarry,2,2,1,10,1,1,1,1
+Executioner,Grit,2,3,1,10,0,0,1,0
+Executioner,Lethal Blows,2,4,1,10,1,1,0,0
+Executioner,Lethal Blows,3,1,1,15,1,1,0,0
+Executioner,Hunter's Quarry (Improved),3,2,1,15,1,1,0,1
+Executioner,Quick Strike,3,3,1,15,0,0,1,1
+Executioner,Precise Aim,3,4,1,15,1,1,1,0
+Executioner,Terrifying Kill,4,1,1,20,1,1,0,1
+Executioner,Precise Aim,4,2,1,20,1,0,1,1
+Executioner,Marked For Death,4,3,1,20,0,1,1,1
+Executioner,Deathblow,4,4,1,20,1,0,1,0
+Executioner,Lethal Blows,5,1,1,25,1,0,0,1
+Executioner,Essential Kill,5,2,1,25,0,0,1,1
+Executioner,Force Rating,5,3,1,25,1,0,1,1
+Executioner,Dedication,5,4,1,25,0,0,1,0
+Hermit,Forager,1,1,1,5,0,1,0,0
+Hermit,Soothing Tone,1,2,1,5,0,1,0,0
+Hermit,Grit,1,3,1,5,0,0,0,0
+Hermit,One With Nature,1,4,1,5,0,1,0,0
+Hermit,Conditioned,2,1,1,10,1,0,0,1
+Hermit,Grit,2,2,1,10,1,1,1,1
+Hermit,Menace,2,3,1,10,0,1,1,1
+Hermit,Animal Bond,2,4,1,10,1,1,1,0
+Hermit,Enduring,3,1,1,15,0,0,0,1
+Hermit,Conditioned,3,2,1,15,1,1,1,1
+Hermit,Survival of the Fittest,3,3,1,15,1,1,1,1
+Hermit,Grit,3,4,1,15,1,0,1,0
+Hermit,Force Rating,4,1,1,20,0,1,0,0
+Hermit,Animal Bond (Improved),4,2,1,20,1,1,0,1
+Hermit,Harass,4,3,1,20,1,0,1,1
+Hermit,Force Connection,4,4,1,20,0,1,1,0
+Hermit,Grit,5,1,1,25,1,0,0,1
+Hermit,Natural Outdoorsman,5,2,1,25,1,0,1,1
+Hermit,Force Rating,5,3,1,25,0,0,1,1
+Hermit,Shroud,5,4,1,25,1,0,1,0
+Navigator,Studious Plotting,1,1,1,5,0,1,0,0
+Navigator,Expert Tracker,1,2,1,5,0,1,0,0
+Navigator,Shortcut,1,3,1,5,0,1,0,0
+Navigator,Grit,1,4,1,5,0,0,0,0
+Navigator,Galaxy Mapper,2,1,1,10,1,1,0,1
+Navigator,Shortcut (Improved),2,2,1,10,1,0,1,1
+Navigator,Planet Mapper,2,3,1,10,1,1,1,1
+Navigator,Preemptive Avoidance,2,4,1,10,0,1,1,0
+Navigator,Shortcut,3,1,1,15,1,1,0,1
+Navigator,Swift,3,2,1,15,0,1,1,1
+Navigator,Uncanny Senses,3,3,1,15,1,1,1,1
+Navigator,Toughened,3,4,1,15,1,1,1,0
+Navigator,Galaxy Mapper,4,1,1,20,1,0,0,1
+Navigator,Holistic Navigation,4,2,1,20,1,1,1,0
+Navigator,Force Rating,4,3,1,20,1,1,0,1
+Navigator,Planet Mapper,4,4,1,20,1,0,1,0
+Navigator,One with the Universe,5,1,1,25,0,0,0,1
+Navigator,Intuitive Navigation,5,2,1,25,1,0,1,1
+Navigator,Master Starhopper,5,3,1,25,1,0,1,1
+Navigator,Dedication,5,4,1,25,0,0,1,0
+Investigator,Street Smarts,1,1,1,5,0,1,0,0
+Investigator,Keen Eyed,1,2,1,5,0,1,0,0
+Investigator,Uncanny Senses,1,3,1,5,0,1,0,0
+Investigator,Grit,1,4,1,5,0,0,0,0
+Investigator,Talk the Talk,2,1,1,10,1,0,0,0
+Investigator,Grit,2,2,1,10,1,1,0,1
+Investigator,Street Smarts,2,3,1,10,1,0,1,1
+Investigator,Toughened,2,4,1,10,0,1,1,0
+Investigator,Toughened,3,1,1,15,0,0,0,1
+Investigator,Keen Eyed,3,2,1,15,1,0,1,1
+Investigator,Street Smarts,3,3,1,15,0,1,1,1
+Investigator,Reconstruct the Scene,3,4,1,15,1,0,1,0
+Investigator,Sense Advantage,4,1,1,20,0,0,0,1
+Investigator,Unrelenting Skeptic,4,2,1,20,0,1,1,1
+Investigator,Clever Solution,4,3,1,20,1,1,1,1
+Investigator,Sense the Scene,4,4,1,20,0,1,1,0
+Investigator,Valuable Facts,5,1,1,25,0,0,0,1
+Investigator,Dedication,5,2,1,25,1,0,1,1
+Investigator,Street Smarts (Improved),5,3,1,25,1,0,1,0
+Investigator,Force Rating,5,4,1,25,1,0,0,0
+Racer,Grit,1,1,1,5,0,0,0,0
+Racer,Skilled Jockey,1,2,1,5,0,1,0,0
+Racer,Conditioned,1,3,1,5,0,1,0,0
+Racer,Shortcut,1,4,1,5,0,0,0,0
+Racer,Shortcut,2,1,1,10,0,0,0,1
+Racer,Full Throttle,2,2,1,10,1,1,1,1
+Racer,Shortcut,2,3,1,10,1,1,1,1
+Racer,Conditioned,2,4,1,10,0,0,1,0
+Racer,Skilled Jockey,3,1,1,15,0,0,0,1
+Racer,Full Throttle (Improved),3,2,1,15,1,1,1,1
+Racer,Freerunning,3,3,1,15,1,0,1,1
+Racer,Freerunning (Improved),3,4,1,15,0,1,1,0
+Racer,Grit,4,1,1,20,0,1,0,1
+Racer,Full Throttle (Supreme),4,2,1,20,1,0,1,1
+Racer,Force Rating,4,3,1,20,0,1,1,1
+Racer,Better Luck Next Time,4,4,1,20,1,0,1,0
+Racer,Superhuman Reflexes,5,1,1,25,1,0,0,1
+Racer,Dedication,5,2,1,25,0,0,1,1
+Racer,Shortcut (Improved),5,3,1,25,1,0,1,1
+Racer,Intuitive Evasion,5,4,1,25,0,0,1,0
+Sentry,Toughened,1,1,1,5,0,1,0,0
+Sentry,Reflect,1,2,1,5,0,1,0,0
+Sentry,Grit,1,3,1,5,0,1,0,0
+Sentry,Conditioned,1,4,1,5,0,1,0,0
+Sentry,Uncanny Reactions,2,1,1,10,1,1,0,0
+Sentry,Grit,2,2,1,10,1,0,0,1
+Sentry,Reflect,2,3,1,10,1,1,1,0
+Sentry,Uncanny Reactions,2,4,1,10,1,1,0,0
+Sentry,Sleight of Mind,3,1,1,15,1,1,0,0
+Sentry,Saber Throw (Improved),3,2,1,15,0,0,0,1
+Sentry,Saber Throw,3,3,1,15,1,0,1,0
+Sentry,Impossible Fall,3,4,1,15,1,1,0,0
+Sentry,Dodge,4,1,1,20,1,0,0,1
+Sentry,Fear the Shadows,4,2,1,20,0,1,1,1
+Sentry,Constant Vigilance,4,3,1,20,0,1,1,1
+Sentry,Sleight of Mind,4,4,1,20,1,0,1,0
+Sentry,Force Rating,5,1,1,25,0,0,0,1
+Sentry,Reflect (Improved),5,2,1,25,1,0,1,1
+Sentry,Dodge,5,3,1,25,1,0,1,1
+Sentry,Dedication,5,4,1,25,0,0,1,0
+Shien Expert,Side Step,1,1,1,5,0,1,0,0
+Shien Expert,Conditioned,1,2,1,5,0,1,0,0
+Shien Expert,Street Smarts,1,3,1,5,0,1,0,0
+Shien Expert,Reflect,1,4,1,5,0,0,0,0
+Shien Expert,Toughened,2,1,1,10,1,1,0,1
+Shien Expert,Parry,2,2,1,10,1,1,1,0
+Shien Expert,Shien Technique,2,3,1,10,1,1,0,1
+Shien Expert,Reflect,2,4,1,10,0,1,1,0
+Shien Expert,Parry,3,1,1,15,1,1,0,1
+Shien Expert,Counterstrike,3,2,1,15,1,1,1,0
+Shien Expert,Grit,3,3,1,15,1,1,0,1
+Shien Expert,Reflect (Improved),3,4,1,15,1,1,1,0
+Shien Expert,Djem So Deflection,4,1,1,20,1,1,0,1
+Shien Expert,Defensive Stance,4,2,1,20,1,1,1,0
+Shien Expert,Saber Throw,4,3,1,20,1,1,0,1
+Shien Expert,Reflect,4,4,1,20,1,1,1,0
+Shien Expert,Falling Avalanche,5,1,1,25,1,0,0,0
+Shien Expert,Dedication,5,2,1,25,1,0,0,0
+Shien Expert,Disruptive Strike,5,3,1,25,1,0,0,0
+Shien Expert,Reflect (Supreme),5,4,1,25,1,0,0,0
+Charmer,Smooth Talker,1,1,1,5,0,1,0,0
+Charmer,Inspiring Rhetoric,1,2,1,5,0,1,0,0
+Charmer,Kill With Kindness,1,3,1,5,0,1,0,0
+Charmer,Grit,1,4,1,5,0,1,0,0
+Charmer,Kill With Kindness,2,1,1,10,1,1,0,0
+Charmer,Inspiring Rhetoric (Improved),2,2,1,10,1,0,0,1
+Charmer,Congenial,2,3,1,10,1,1,1,0
+Charmer,Plausible Deniability,2,4,1,10,1,1,0,0
+Charmer,Disarming Smile,3,1,1,15,1,1,0,0
+Charmer,Works Like a Charm,3,2,1,15,0,0,0,1
+Charmer,Disarming Smile,3,3,1,15,1,1,1,0
+Charmer,Grit,3,4,1,15,1,1,0,0
+Charmer,Smooth Talker,4,1,1,20,1,1,0,1
+Charmer,Congenial,4,2,1,20,0,0,1,1
+Charmer,Just Kidding,4,3,1,20,1,1,1,1
+Charmer,Intense Presence,4,4,1,20,1,1,1,0
+Charmer,Natural Charmer,5,1,1,25,1,0,0,1
+Charmer,Dedication,5,2,1,25,0,0,1,1
+Charmer,Don't Shoot!,5,3,1,25,1,0,1,1
+Charmer,Resolve,5,4,1,25,1,0,1,0
+Gambler,Convincing Demeanor,1,1,1,5,0,1,0,0
+Gambler,Grit,1,2,1,5,0,1,0,0
+Gambler,Toughened,1,3,1,5,0,0,0,0
+Gambler,Up the Ante,1,4,1,5,0,0,0,0
+Gambler,Grit,2,1,1,10,1,1,0,0
+Gambler,Second Chances,2,2,1,10,1,1,0,0
+Gambler,Dedication,2,3,1,10,0,0,0,1
+Gambler,Double or Nothing (Supreme),2,4,1,10,0,1,1,0
+Gambler,Second Chances,3,1,1,15,1,1,0,0
+Gambler,Convincing Demeanor,3,2,1,15,1,1,0,0
+Gambler,Fortune Favors the Bold,3,3,1,15,0,1,0,0
+Gambler,Natural Rogue,3,4,1,15,1,1,0,0
+Gambler,Up the Ante,4,1,1,20,1,1,0,0
+Gambler,Up the Ante,4,2,1,20,1,0,0,1
+Gambler,Clever Solution,4,3,1,20,1,0,1,1
+Gambler,Second Chances,4,4,1,20,1,1,1,0
+Gambler,Double or Nothing,5,1,1,25,1,0,0,1
+Gambler,Smooth Talker,5,2,1,25,0,0,1,1
+Gambler,Natural Negotiator,5,3,1,25,0,0,1,1
+Gambler,Double or Nothing (Improved),5,4,1,25,1,0,1,0
+Gunslinger,Grit,1,1,1,5,0,1,0,0
+Gunslinger,Quick Strike,1,2,1,5,0,1,0,0
+Gunslinger,Rapid Reaction,1,3,1,5,0,1,0,0
+Gunslinger,Quick Draw,1,4,1,5,0,1,0,0
+Gunslinger,Lethal Blows,2,1,1,10,1,1,0,0
+Gunslinger,Grit,2,2,1,10,1,1,0,0
+Gunslinger,Quick Strike,2,3,1,10,1,1,0,0
+Gunslinger,Quick Draw (Improved),2,4,1,10,1,1,0,0
+Gunslinger,Toughened,3,1,1,15,1,1,0,0
+Gunslinger,Call 'Em,3,2,1,15,1,1,0,1
+Gunslinger,Dodge,3,3,1,15,1,0,1,1
+Gunslinger,Sorry About the Mess,3,4,1,15,1,1,1,0
+Gunslinger,Confidence,4,1,1,20,1,0,0,1
+Gunslinger,Lethal Blows,4,2,1,20,1,1,1,1
+Gunslinger,Guns Blazing,4,3,1,20,0,1,1,1
+Gunslinger,Rapid Reaction,4,4,1,20,1,0,1,0
+Gunslinger,Dedication,5,1,1,25,0,0,0,1
+Gunslinger,Spitfire,5,2,1,25,1,0,1,1
+Gunslinger,Natural Marksman,5,3,1,25,1,0,0,1
+Gunslinger,Deadly Accuracy,5,4,1,25,0,0,1,0
+Scoundrel,Black Market Contacts,1,1,1,5,0,1,0,0
+Scoundrel,Convincing Demeanor,1,2,1,5,0,0,0,0
+Scoundrel,Quick Draw,1,3,1,5,0,0,0,0
+Scoundrel,Rapid Reaction,1,4,1,5,0,1,0,0
+Scoundrel,Convincing Demeanor,2,1,1,10,1,1,0,0
+Scoundrel,Black Market Contacts,2,2,1,10,0,1,0,1
+Scoundrel,Convincing Demeanor,2,3,1,10,0,1,1,0
+Scoundrel,Quick Strike,2,4,1,10,1,1,0,0
+Scoundrel,Hidden Storage,3,1,1,15,1,1,0,0
+Scoundrel,Toughened,3,2,1,15,1,1,0,1
+Scoundrel,Black Market Contacts,3,3,1,15,1,1,1,1
+Scoundrel,Side Step,3,4,1,15,1,1,0,0
+Scoundrel,Toughened,4,1,1,20,1,1,0,0
+Scoundrel,Rapid Reaction,4,2,1,20,1,1,0,1
+Scoundrel,Hidden Storage,4,3,1,20,1,1,1,0
+Scoundrel,Side Step,4,4,1,20,1,1,0,0
+Scoundrel,Dedication,5,1,1,25,1,0,0,1
+Scoundrel,Natural Charmer,5,2,1,25,1,0,1,1
+Scoundrel,Soft Spot,5,3,1,25,1,0,1,1
+Scoundrel,Quick Strike,5,4,1,25,1,0,1,0
+Thief,Street Smarts,1,1,1,5,0,1,0,0
+Thief,Black Market Contacts,1,2,1,5,0,0,0,0
+Thief,Indistinguishable,1,3,1,5,0,0,0,0
+Thief,Bypass Security,1,4,1,5,0,1,0,0
+Thief,Black Market Contacts,2,1,1,10,1,1,0,1
+Thief,Dodge,2,2,1,10,0,1,1,1
+Thief,Grit,2,3,1,10,0,1,1,1
+Thief,Hidden Storage,2,4,1,10,1,1,1,0
+Thief,Stalker,3,1,1,15,1,1,0,1
+Thief,Grit,3,2,1,15,1,1,1,1
+Thief,Rapid Reaction,3,3,1,15,1,1,1,1
+Thief,Shortcut,3,4,1,15,1,1,1,0
+Thief,Bypass Security,4,1,1,20,1,1,0,0
+Thief,Natural Rogue,4,2,1,20,1,1,0,1
+Thief,Street Smarts,4,3,1,20,1,1,1,1
+Thief,Jump Up,4,4,1,20,1,1,1,0
+Thief,Master of Shadows,5,1,1,25,1,0,0,0
+Thief,Dodge,5,2,1,25,1,0,0,1
+Thief,Indistinguishable,5,3,1,25,1,0,1,0
+Thief,Dedication,5,4,1,25,1,0,0,0
+Commando,Physical Training,1,1,1,5,0,1,0,0
+Commando,Grit,1,2,1,5,0,0,0,0
+Commando,Toughened,1,3,1,5,0,1,0,0
+Commando,Point Blank,1,4,1,5,0,1,0,0
+Commando,Toughened,2,1,1,10,1,0,0,1
+Commando,Durable,2,2,1,10,0,1,1,1
+Commando,Physical Training,2,3,1,10,1,1,1,1
+Commando,Strong Arm,2,4,1,10,1,1,1,0
+Commando,Blooded,3,1,1,15,0,1,0,1
+Commando,Armor Master,3,2,1,15,1,1,1,0
+Commando,Natural Outdoorsman,3,3,1,15,1,0,0,0
+Commando,Feral Strength,3,4,1,15,1,1,0,0
+Commando,Toughened,4,1,1,20,1,1,0,1
+Commando,Heroic Fortitude,4,2,1,20,1,1,1,1
+Commando,Durable,4,3,1,20,0,1,1,0
+Commando,Knockdown,4,4,1,20,1,1,0,0
+Commando,Armor Master (Improved),5,1,1,25,1,0,0,0
+Commando,Dedication,5,2,1,25,1,0,0,0
+Commando,Unstoppable,5,3,1,25,1,0,0,0
+Commando,Feral Strength,5,4,1,25,1,0,0,0
+Medic,Forager,1,1,1,5,0,1,0,0
+Medic,Stimpack Specialization,1,2,1,5,0,0,0,0
+Medic,Grit,1,3,1,5,0,0,0,0
+Medic,Surgeon,1,4,1,5,0,1,0,0
+Medic,Toughened,2,1,1,10,1,1,0,0
+Medic,Surgeon,2,2,1,10,0,1,0,1
+Medic,Stimpack Specialization,2,3,1,10,0,1,1,1
+Medic,Bacta Specialist,2,4,1,10,1,0,1,0
+Medic,Well Rounded,3,1,1,15,1,1,0,0
+Medic,Grit,3,2,1,15,1,1,0,1
+Medic,Stim Application,3,3,1,15,1,1,1,1
+Medic,Master Doctor,3,4,1,15,0,0,1,0
+Medic,Dodge,4,1,1,20,1,1,0,0
+Medic,Natural Doctor,4,2,1,20,1,1,0,0
+Medic,Stim Application (Improved),4,3,1,20,1,1,0,1
+Medic,Stimpack Specialization,4,4,1,20,0,1,1,0
+Medic,Anatomy Lessons,5,1,1,25,1,0,0,0
+Medic,Dedication,5,2,1,25,1,0,0,1
+Medic,It's Not That Bad,5,3,1,25,1,0,1,0
+Medic,Stim Application (Supreme),5,4,1,25,1,0,0,0
+Sharpshooter,Expert Tracker,1,1,1,5,0,1,0,0
+Sharpshooter,Sniper Shot,1,2,1,5,0,1,0,0
+Sharpshooter,Brace,1,3,1,5,0,0,0,0
+Sharpshooter,Grit,1,4,1,5,0,1,0,0
+Sharpshooter,Grit,2,1,1,10,1,1,0,0
+Sharpshooter,True Aim,2,2,1,10,1,1,0,0
+Sharpshooter,Deadly Accuracy,2,3,1,10,0,1,0,0
+Sharpshooter,Lethal Blows,2,4,1,10,1,1,0,0
+Sharpshooter,Brace,3,1,1,15,1,1,0,0
+Sharpshooter,Lethal Blows,3,2,1,15,1,1,0,1
+Sharpshooter,Sniper Shot,3,3,1,15,1,0,1,1
+Sharpshooter,True Aim,3,4,1,15,1,1,1,0
+Sharpshooter,Expert Tracker,4,1,1,20,1,1,0,0
+Sharpshooter,Deadly Accuracy,4,2,1,20,1,1,0,1
+Sharpshooter,Toughened,4,3,1,20,0,1,1,0
+Sharpshooter,Crippling Blow,4,4,1,20,1,1,0,0
+Sharpshooter,Quick Fix,5,1,1,25,1,0,0,1
+Sharpshooter,Natural Marksman,5,2,1,25,1,0,1,0
+Sharpshooter,Dedication,5,3,1,25,1,0,0,0
+Sharpshooter,Targeted Blow,5,4,1,25,1,0,0,0
+Trailblazer,Stalker,1,1,1,5,0,1,0,0
+Trailblazer,Toughened,1,2,1,5,0,1,0,0
+Trailblazer,Outdoorsman,1,3,1,5,0,0,0,0
+Trailblazer,Expert Tracker,1,4,1,5,0,1,0,0
+Trailblazer,Disorient,2,1,1,10,1,1,0,1
+Trailblazer,Prime Positions,2,2,1,10,1,1,1,0
+Trailblazer,Cunning Snare,2,3,1,10,0,1,0,1
+Trailblazer,Outdoorsman,2,4,1,10,1,1,1,0
+Trailblazer,Grit,3,1,1,15,1,1,0,1
+Trailblazer,Dodge,3,2,1,15,1,1,1,1
+Trailblazer,Blind Spot,3,3,1,15,1,1,1,0
+Trailblazer,Toughened,3,4,1,15,1,1,0,0
+Trailblazer,Dodge,4,1,1,20,1,1,0,1
+Trailblazer,Prey on the Weak,4,2,1,20,1,0,1,0
+Trailblazer,Expert Tracker,4,3,1,20,1,1,0,1
+Trailblazer,One With Nature,4,4,1,20,1,0,1,0
+Trailblazer,Dedication,5,1,1,25,1,0,0,1
+Trailblazer,Ambush,5,2,1,25,0,0,1,1
+Trailblazer,Disorient,5,3,1,25,1,0,1,1
+Trailblazer,Prey on the Weak,5,4,1,25,0,0,1,0
+Vanguard,Bodyguard,1,1,1,5,0,1,0,0
+Vanguard,Conditioned,1,2,1,5,0,1,0,0
+Vanguard,Toughened,1,3,1,5,0,0,0,0
+Vanguard,Rapid Reaction,1,4,1,5,0,1,0,0
+Vanguard,Toughened,2,1,1,10,1,1,0,1
+Vanguard,Moving Target,2,2,1,10,1,1,1,0
+Vanguard,Point Blank,2,3,1,10,0,0,0,1
+Vanguard,Suppressing Fire,2,4,1,10,1,1,1,0
+Vanguard,Conditioned,3,1,1,15,1,1,0,0
+Vanguard,Bodyguard,3,2,1,15,1,0,0,1
+Vanguard,Toughened,3,3,1,15,0,0,1,1
+Vanguard,Rapid Reaction,3,4,1,15,1,1,1,0
+Vanguard,Bodyguard (Improved),4,1,1,20,1,1,0,1
+Vanguard,Toughened,4,2,1,20,0,0,1,1
+Vanguard,Suppressing Fire,4,3,1,20,0,1,1,1
+Vanguard,Moving Target,4,4,1,20,1,1,1,0
+Vanguard,Dedication,5,1,1,25,1,0,0,1
+Vanguard,Bodyguard (Supreme),5,2,1,25,0,0,1,0
+Vanguard,Dynamic Fire,5,3,1,25,1,0,0,0
+Vanguard,Seize the Initiative,5,4,1,25,1,0,0,0
+Courier,Indistinguishable,1,1,1,5,0,0,0,0
+Courier,Shortcut,1,2,1,5,0,1,0,0
+Courier,Well-Traveled,1,3,1,5,0,0,0,0
+Courier,Pilot Training,1,4,1,5,0,1,0,0
+Courier,Hidden Storage,2,1,1,10,0,1,0,1
+Courier,Swift,2,2,1,10,1,1,1,1
+Courier,Second Wind,2,3,1,10,0,1,1,1
+Courier,Grit,2,4,1,10,1,1,1,0
+Courier,Grit,3,1,1,15,1,0,0,1
+Courier,Indistinguishable,3,2,1,15,1,1,1,0
+Courier,Freerunning,3,3,1,15,1,0,0,1
+Courier,Shortcut,3,4,1,15,1,1,1,0
+Courier,Hidden Storage (Improved),4,1,1,20,0,1,0,1
+Courier,Hidden Storage,4,2,1,20,1,0,1,1
+Courier,Indistinguishable (Improved),4,3,1,20,0,1,1,1
+Courier,Second Wind,4,4,1,20,1,0,1,0
+Courier,Incite Distraction,5,1,1,25,1,0,0,1
+Courier,Dedication,5,2,1,25,0,0,1,1
+Courier,Lose Them,5,3,1,25,1,0,1,1
+Courier,Natural Athlete,5,4,1,25,0,0,1,0
+Infiltrator,Grit,1,1,1,5,0,0,0,0
+Infiltrator,Dodge,1,2,1,5,0,0,0,0
+Infiltrator,Frenzied Attack,1,3,1,5,0,1,0,0
+Infiltrator,Defensive Stance,1,4,1,5,0,1,0,0
+Infiltrator,Stunning Blow,2,1,1,10,0,1,0,1
+Infiltrator,Grit,2,2,1,10,0,0,1,1
+Infiltrator,Soft Spot,2,3,1,10,1,0,1,0
+Infiltrator,Jump Up,2,4,1,10,1,1,0,0
+Infiltrator,Knockdown,3,1,1,15,1,0,0,1
+Infiltrator,Frenzied Attack,3,2,1,15,0,0,1,1
+Infiltrator,Grit,3,3,1,15,0,1,1,0
+Infiltrator,Dodge,3,4,1,15,1,1,0,0
+Infiltrator,Natural Brawler,4,1,1,20,0,1,0,1
+Infiltrator,Toughened,4,2,1,20,0,0,1,1
+Infiltrator,Stunning Blow (Improved),4,3,1,20,1,0,1,0
+Infiltrator,Defensive Stance,4,4,1,20,1,1,0,0
+Infiltrator,Dedication,5,1,1,25,1,0,0,1
+Infiltrator,Clever Solution,5,2,1,25,0,0,1,1
+Infiltrator,Master of Shadows,5,3,1,25,0,0,1,1
+Infiltrator,Natural Rogue,5,4,1,25,1,0,1,0
+Interrogator,Intimidating,1,1,1,5,0,1,0,0
+Interrogator,Grit,1,2,1,5,0,0,0,0
+Interrogator,Surgeon,1,3,1,5,0,0,0,0
+Interrogator,Nobody's Fool,1,4,1,5,0,1,0,0
+Interrogator,Bad Cop,2,1,1,10,1,1,0,1
+Interrogator,Grit,2,2,1,10,0,1,1,1
+Interrogator,Surgeon,2,3,1,10,0,0,1,1
+Interrogator,Good Cop,2,4,1,10,1,1,1,0
+Interrogator,Resist Questioning,3,1,1,15,1,0,0,1
+Interrogator,Bad Cop,3,2,1,15,1,1,1,0
+Interrogator,Nobody's Fool,3,3,1,15,0,1,0,0
+Interrogator,Know Their Weakness,3,4,1,15,1,1,0,0
+Interrogator,Resist Questioning (Improved),4,1,1,20,0,0,0,1
+Interrogator,Intimidating,4,2,1,20,1,1,1,1
+Interrogator,Know Their Weakness,4,3,1,20,1,1,1,1
+Interrogator,Know Their Weakness (Improved),4,4,1,20,1,0,1,0
+Interrogator,Pressure Point,5,1,1,25,0,0,0,1
+Interrogator,Exhaustive Questioning,5,2,1,25,1,0,1,1
+Interrogator,Made You Talk,5,3,1,25,1,0,1,1
+Interrogator,Dedication,5,4,1,25,0,0,1,0
+Sleeper Agent,Codebreaker,1,1,1,5,0,1,0,0
+Sleeper Agent,Grit,1,2,1,5,0,0,0,0
+Sleeper Agent,Cunning Persona,1,3,1,5,0,0,0,0
+Sleeper Agent,Well Rounded,1,4,1,5,0,1,0,0
+Sleeper Agent,Toughened,2,1,1,10,1,1,0,1
+Sleeper Agent,Bypass Security,2,2,1,10,0,1,1,0
+Sleeper Agent,Convincing Demeanor,2,3,1,10,0,1,0,1
+Sleeper Agent,Creative Killer,2,4,1,10,1,1,1,0
+Sleeper Agent,Analyze Data,3,1,1,15,1,1,0,0
+Sleeper Agent,Codebreaker,3,2,1,15,1,1,0,1
+Sleeper Agent,Grit,3,3,1,15,1,0,1,1
+Sleeper Agent,Convincing Demeanor,3,4,1,15,1,1,1,0
+Sleeper Agent,Grit,4,1,1,20,1,0,0,1
+Sleeper Agent,Bypass Security,4,2,1,20,1,1,1,1
+Sleeper Agent,Durable,4,3,1,20,0,1,1,1
+Sleeper Agent,A Step Ahead,4,4,1,20,1,0,1,0
+Sleeper Agent,Dedication,5,1,1,25,0,0,0,1
+Sleeper Agent,Inside Person,5,2,1,25,1,0,1,1
+Sleeper Agent,Natural Charmer,5,3,1,25,1,0,1,1
+Sleeper Agent,Inside Knowledge,5,4,1,25,0,0,1,0
+Slicer,Codebreaker,1,1,1,5,0,1,0,0
+Slicer,Grit,1,2,1,5,0,0,0,0
+Slicer,Technical Aptitude,1,3,1,5,0,0,0,0
+Slicer,Bypass Security,1,4,1,5,0,0,0,0
+Slicer,Defensive Slicing,2,1,1,10,1,1,0,0
+Slicer,Technical Aptitude,2,2,1,10,0,1,0,1
+Slicer,Grit,2,3,1,10,0,1,1,1
+Slicer,Bypass Security,2,4,1,10,0,1,1,0
+Slicer,Natural Programmer,3,1,1,15,1,1,0,0
+Slicer,Bypass Security,3,2,1,15,1,1,0,1
+Slicer,Defensive Slicing,3,3,1,15,1,1,1,1
+Slicer,Grit,3,4,1,15,1,1,1,0
+Slicer,Defensive Slicing,4,1,1,20,1,1,0,1
+Slicer,Defensive Slicing (Improved),4,2,1,20,1,1,1,1
+Slicer,Codebreaker,4,3,1,20,1,1,1,1
+Slicer,Resolve,4,4,1,20,1,1,1,0
+Slicer,Skilled Slicer,5,1,1,25,1,0,0,1
+Slicer,Master Slicer,5,2,1,25,1,0,1,1
+Slicer,Mental Fortress,5,3,1,25,1,0,1,1
+Slicer,Dedication,5,4,1,25,1,0,1,0
+Cyber Tech,Cyberneticist,1,1,1,5,0,1,0,0
+Cyber Tech,More Machine Than Man,1,2,1,5,0,1,0,0
+Cyber Tech,Engineered Redundancies,1,3,1,5,0,0,0,0
+Cyber Tech,Toughened,1,4,1,5,0,1,0,0
+Cyber Tech,Eye for Detail,2,1,1,10,1,1,0,0
+Cyber Tech,Toughened,2,2,1,10,1,1,0,1
+Cyber Tech,Energy Transfer,2,3,1,10,0,1,1,1
+Cyber Tech,Cyberneticist,2,4,1,10,1,1,1,0
+Cyber Tech,Overcharge,3,1,1,15,1,1,0,1
+Cyber Tech,More Machine Than Man,3,2,1,15,1,1,1,1
+Cyber Tech,Durable,3,3,1,15,1,1,1,1
+Cyber Tech,Surgeon,3,4,1,15,1,0,1,0
+Cyber Tech,Overcharge (Improved),4,1,1,20,1,1,0,1
+Cyber Tech,Utility Belt,4,2,1,20,1,0,1,1
+Cyber Tech,More Machine Than Man,4,3,1,20,1,0,1,1
+Cyber Tech,Surgeon,4,4,1,20,0,1,1,0
+Cyber Tech,More Machine Than Man,5,1,1,25,1,0,0,1
+Cyber Tech,Durable,5,2,1,25,0,0,1,1
+Cyber Tech,Overcharge (Supreme),5,3,1,25,0,0,1,0
+Cyber Tech,Dedication,5,4,1,25,1,0,0,0
+Droid Tech,Machine Mender,1,1,1,5,0,1,0,0
+Droid Tech,Hidden Storage,1,2,1,5,0,1,0,0
+Droid Tech,Speaks Binary,1,3,1,5,0,1,0,0
+Droid Tech,Grit,1,4,1,5,0,1,0,0
+Droid Tech,Deft Maker,2,1,1,10,1,1,0,1
+Droid Tech,Eye for Detail,2,2,1,10,1,0,1,0
+Droid Tech,Grit,2,3,1,10,1,1,0,1
+Droid Tech,Speaks Binary,2,4,1,10,1,1,1,0
+Droid Tech,Grit,3,1,1,15,1,1,0,0
+Droid Tech,Speaks Binary (Supreme),3,2,1,15,0,0,0,1
+Droid Tech,Speaks Binary (Improved),3,3,1,15,1,1,1,0
+Droid Tech,Hidden Storage,3,4,1,15,1,1,0,0
+Droid Tech,Redundant Systems,4,1,1,20,1,1,0,0
+Droid Tech,Machine Mender,4,2,1,20,0,1,0,1
+Droid Tech,Speaks Binary,4,3,1,20,1,0,1,1
+Droid Tech,Deft Maker,4,4,1,20,1,1,1,0
+Droid Tech,Eye for Detail,5,1,1,25,1,0,0,1
+Droid Tech,Reroute Processors,5,2,1,25,1,0,1,1
+Droid Tech,Dedication,5,3,1,25,0,0,1,1
+Droid Tech,Machine Mender,5,4,1,25,1,0,1,0
+Outlaw Tech,Tinkerer,1,1,1,5,0,1,0,0
+Outlaw Tech,Utinni!,1,2,1,5,0,1,0,0
+Outlaw Tech,Speaks Binary,1,3,1,5,0,1,0,0
+Outlaw Tech,Tinkerer,1,4,1,5,0,1,0,0
+Outlaw Tech,Solid Repairs,2,1,1,10,1,1,0,1
+Outlaw Tech,Grit,2,2,1,10,1,1,1,1
+Outlaw Tech,Utinni!,2,3,1,10,1,1,1,1
+Outlaw Tech,Toughened,2,4,1,10,1,1,1,0
+Outlaw Tech,Utility Belt,3,1,1,15,1,1,0,1
+Outlaw Tech,Side Step,3,2,1,15,1,1,1,1
+Outlaw Tech,Brace,3,3,1,15,1,1,1,1
+Outlaw Tech,Defensive Stance,3,4,1,15,1,1,1,0
+Outlaw Tech,Jury Rigged,4,1,1,20,1,1,0,1
+Outlaw Tech,Speaks Binary,4,2,1,20,1,0,1,1
+Outlaw Tech,Inventor,4,3,1,20,1,1,1,0
+Outlaw Tech,Jury Rigged,4,4,1,20,1,1,0,0
+Outlaw Tech,Inventor,5,1,1,25,1,0,0,1
+Outlaw Tech,Dedication,5,2,1,25,0,0,1,0
+Outlaw Tech,Known Schematic,5,3,1,25,1,0,0,1
+Outlaw Tech,Brace,5,4,1,25,1,0,1,0
+Aggressor,Intimidating,1,1,1,5,0,1,0,0
+Aggressor,Plausible Deniability,1,2,1,5,0,1,0,0
+Aggressor,Grit,1,3,1,5,0,1,0,0
+Aggressor,Toughened,1,4,1,5,0,1,0,0
+Aggressor,Fearsome,2,1,1,10,1,1,0,1
+Aggressor,Intimidating,2,2,1,10,1,1,1,1
+Aggressor,Prey on the Weak,2,3,1,10,1,1,1,0
+Aggressor,Sense Advantage,2,4,1,10,1,1,0,0
+Aggressor,Fearsome,3,1,1,15,1,1,0,1
+Aggressor,Terrify,3,2,1,15,1,1,1,0
+Aggressor,Crippling Blow,3,3,1,15,1,1,0,1
+Aggressor,Toughened,3,4,1,15,1,1,1,0
+Aggressor,Grit,4,1,1,20,1,1,0,1
+Aggressor,Terrify (Improved),4,2,1,20,1,1,1,0
+Aggressor,Prey on the Weak,4,3,1,20,1,1,0,0
+Aggressor,Heroic Fortitude,4,4,1,20,1,1,0,0
+Aggressor,Force Rating,5,1,1,25,1,0,0,1
+Aggressor,Fearsome,5,2,1,25,1,0,1,1
+Aggressor,Dedication,5,3,1,25,1,0,1,0
+Aggressor,Against All Odds,5,4,1,25,1,0,0,0
+Colossus,Toughened,1,1,1,5,0,1,0,0
+Colossus,Durable,1,2,1,5,0,1,0,0
+Colossus,Hard Headed,1,3,1,5,0,1,0,0
+Colossus,Grit,1,4,1,5,0,1,0,0
+Colossus,Toughened,2,1,1,10,1,1,0,0
+Colossus,Durable,2,2,1,10,1,1,0,0
+Colossus,Hard Headed,2,3,1,10,1,1,0,0
+Colossus,Grit,2,4,1,10,1,1,0,0
+Colossus,Toughened,3,1,1,15,1,1,0,0
+Colossus,Durable,3,2,1,15,1,1,0,0
+Colossus,Headbutt,3,3,1,15,1,1,0,0
+Colossus,Enduring,3,4,1,15,1,1,0,0
+Colossus,Toughened,4,1,1,20,1,1,0,0
+Colossus,Unstoppable,4,2,1,20,1,1,0,0
+Colossus,Hard Headed (Improved),4,3,1,20,1,1,0,0
+Colossus,Indomitable Will,4,4,1,20,1,1,0,0
+Colossus,Toughened (Improved),5,1,1,25,1,0,0,1
+Colossus,Heroic Fortitude,5,2,1,25,1,0,1,1
+Colossus,Dedication,5,3,1,25,1,0,1,1
+Colossus,Power From Pain,5,4,1,25,1,0,1,0
+Juyo Berserker,Toughened,1,1,1,5,0,0,0,0
+Juyo Berserker,Parry,1,2,1,5,0,0,0,0
+Juyo Berserker,Grit,1,3,1,5,0,0,0,0
+Juyo Berserker,Intimidating,1,4,1,5,0,1,0,0
+Juyo Berserker,Inner Peace,2,1,1,10,0,1,0,1
+Juyo Berserker,Parry,2,2,1,10,0,0,1,1
+Juyo Berserker,Vaapad Control,2,3,1,10,0,0,1,0
+Juyo Berserker,Lethal Blows,2,4,1,10,1,1,0,0
+Juyo Berserker,Balance,3,1,1,15,1,1,0,0
+Juyo Berserker,Lethal Blows,3,2,1,15,0,1,0,1
+Juyo Berserker,Quick Strike,3,3,1,15,0,1,1,0
+Juyo Berserker,Embrace Your Hate,3,4,1,15,1,1,0,0
+Juyo Berserker,Inner Peace,4,1,1,20,1,1,0,0
+Juyo Berserker,Intimidating,4,2,1,20,1,1,0,0
+Juyo Berserker,Juyo Savagery,4,3,1,20,1,0,0,0
+Juyo Berserker,Quick Strike,4,4,1,20,1,1,0,0
+Juyo Berserker,Parry,5,1,1,25,1,0,0,1
+Juyo Berserker,Embrace Your Hate,5,2,1,25,1,0,1,1
+Juyo Berserker,Dedication,5,3,1,25,0,0,1,1
+Juyo Berserker,Multiple Opponents,5,4,1,25,1,0,1,0
+Shi-Cho Knight,Parry,1,1,1,5,0,1,0,0
+Shi-Cho Knight,Second Wind,1,2,1,5,0,1,0,0
+Shi-Cho Knight,Toughened,1,3,1,5,0,1,0,0
+Shi-Cho Knight,Parry,1,4,1,5,0,1,0,0
+Shi-Cho Knight,Second Wind,2,1,1,10,1,1,0,1
+Shi-Cho Knight,Conditioned,2,2,1,10,1,1,1,1
+Shi-Cho Knight,Multiple Opponents,2,3,1,10,1,1,1,0
+Shi-Cho Knight,Durable,2,4,1,10,1,1,0,0
+Shi-Cho Knight,Quick Draw,3,1,1,15,1,1,0,0
+Shi-Cho Knight,Grit,3,2,1,15,1,1,0,1
+Shi-Cho Knight,Parry,3,3,1,15,1,1,1,1
+Shi-Cho Knight,Defensive Training,3,4,1,15,1,1,1,0
+Shi-Cho Knight,Natural Blademaster,4,1,1,20,1,1,0,1
+Shi-Cho Knight,Sarlacc Sweep,4,2,1,20,1,1,1,0
+Shi-Cho Knight,Parry (Improved),4,3,1,20,1,0,0,1
+Shi-Cho Knight,Sum Djem,4,4,1,20,1,0,1,0
+Shi-Cho Knight,Center of Being,5,1,1,25,1,0,0,1
+Shi-Cho Knight,Durable,5,2,1,25,1,0,1,1
+Shi-Cho Knight,Dedication,5,3,1,25,0,0,1,1
+Shi-Cho Knight,Parry,5,4,1,25,0,0,1,0
+Starfighter Ace,Grit,1,1,1,5,0,0,0,0
+Starfighter Ace,Skilled Jockey,1,2,1,5,0,1,0,0
+Starfighter Ace,Rapid Reaction,1,3,1,5,0,1,0,0
+Starfighter Ace,Solid Repairs,1,4,1,5,0,1,0,0
+Starfighter Ace,Intuitive Evasion,2,1,1,10,0,0,0,1
+Starfighter Ace,Confidence,2,2,1,10,1,1,1,1
+Starfighter Ace,Solid Repairs,2,3,1,10,1,1,1,1
+Starfighter Ace,Galaxy Mapper,2,4,1,10,1,1,1,0
+Starfighter Ace,Full Throttle,3,1,1,15,0,0,0,1
+Starfighter Ace,Rapid Reaction,3,2,1,15,1,1,1,0
+Starfighter Ace,Exhaust Port,3,3,1,15,1,0,0,0
+Starfighter Ace,Grit,3,4,1,15,1,1,0,0
+Starfighter Ace,Intuitive Strike,4,1,1,20,0,1,0,1
+Starfighter Ace,Touch of Fate,4,2,1,20,1,1,1,1
+Starfighter Ace,Grit,4,3,1,20,0,1,1,1
+Starfighter Ace,Skilled Jockey,4,4,1,20,1,1,1,0
+Starfighter Ace,Force Rating,5,1,1,25,1,0,0,0
+Starfighter Ace,Tricky Target,5,2,1,25,1,0,0,1
+Starfighter Ace,Dedication,5,3,1,25,1,0,1,1
+Starfighter Ace,Intuitive Evasion,5,4,1,25,1,0,1,0
+Steel Hand Adept,Grit,1,1,1,5,0,1,0,0
+Steel Hand Adept,Iron Body,1,2,1,5,0,0,0,0
+Steel Hand Adept,Iron Body,1,3,1,5,0,0,0,0
+Steel Hand Adept,Toughened,1,4,1,5,0,1,0,0
+Steel Hand Adept,Martial Grace,2,1,1,10,1,1,0,0
+Steel Hand Adept,Acklay's Scything Strike,2,2,1,10,0,1,0,0
+Steel Hand Adept,Unarmed Parry,2,3,1,10,0,1,0,0
+Steel Hand Adept,Precision Strike,2,4,1,10,1,1,0,0
+Steel Hand Adept,Dodge,3,1,1,15,1,1,0,1
+Steel Hand Adept,Swift,3,2,1,15,1,1,1,1
+Steel Hand Adept,Parry,3,3,1,15,1,1,1,1
+Steel Hand Adept,Precision Strike (Improved),3,4,1,15,1,1,1,0
+Steel Hand Adept,Dodge (Improved),4,1,1,20,1,0,0,0
+Steel Hand Adept,Toughened,4,2,1,20,1,1,0,0
+Steel Hand Adept,Grit,4,3,1,20,1,1,0,0
+Steel Hand Adept,Sapith Sundering,4,4,1,20,1,0,0,0
+Steel Hand Adept,Force Rating,5,1,1,25,0,0,0,1
+Steel Hand Adept,Far Strike,5,2,1,25,1,0,1,0
+Steel Hand Adept,Dedication,5,3,1,25,1,0,0,1
+Steel Hand Adept,Dodge,5,4,1,25,0,0,1,0
+Force Adherent,Resolve,1,1,1,5,0,1,0,0
+Force Adherent,Disciple of Lore,1,2,1,5,0,1,0,0
+Force Adherent,Grit,1,3,1,5,0,0,0,0
+Force Adherent,Push Aside,1,4,1,5,0,1,0,0
+Force Adherent,Disciple of Lore,2,1,1,10,1,1,0,1
+Force Adherent,As the Force Wills It,2,2,1,10,1,0,1,1
+Force Adherent,Precision Strike,2,3,1,10,0,0,1,1
+Force Adherent,Extended Reach,2,4,1,10,1,1,1,0
+Force Adherent,Confidence,3,1,1,15,1,0,0,1
+Force Adherent,Hard Headed,3,2,1,15,0,1,1,0
+Force Adherent,Confidence,3,3,1,15,0,0,0,1
+Force Adherent,Dodge,3,4,1,15,1,1,1,0
+Force Adherent,Disciplined Soul,4,1,1,20,0,1,0,0
+Force Adherent,Grit,4,2,1,20,1,1,0,1
+Force Adherent,Dodge,4,3,1,20,0,1,1,1
+Force Adherent,Resolve,4,4,1,20,1,0,1,0
+Force Adherent,Force of Will,5,1,1,25,1,0,0,1
+Force Adherent,Superior Reflexes,5,2,1,25,1,0,1,0
+Force Adherent,Sixth Sense,5,3,1,25,1,0,0,1
+Force Adherent,Dedication,5,4,1,25,0,0,1,0
+Force Sensitive Emergent,Insight,1,1,1,5,0,0,0,0
+Force Sensitive Emergent,Uncanny Senses,1,2,1,5,0,1,0,0
+Force Sensitive Emergent,Indistinguishable,1,3,1,5,0,1,0,0
+Force Sensitive Emergent,Grit,1,4,1,5,0,0,0,0
+Force Sensitive Emergent,Uncanny Reactions,2,1,1,10,0,1,0,0
+Force Sensitive Emergent,Toughened,2,2,1,10,1,1,0,0
+Force Sensitive Emergent,Sleight of Mind,2,3,1,10,1,1,0,0
+Force Sensitive Emergent,Sleight of Mind,2,4,1,10,0,1,0,0
+Force Sensitive Emergent,Uncanny Senses,3,1,1,15,1,1,0,0
+Force Sensitive Emergent,Uncanny Reactions,3,2,1,15,1,1,0,0
+Force Sensitive Emergent,Grit,3,3,1,15,1,1,0,0
+Force Sensitive Emergent,Indistinguishable,3,4,1,15,1,1,0,0
+Force Sensitive Emergent,Toughened,4,1,1,20,1,1,0,1
+Force Sensitive Emergent,Sense Danger,4,2,1,20,1,1,1,1
+Force Sensitive Emergent,Touch of Fate,4,3,1,20,1,1,1,1
+Force Sensitive Emergent,Balance,4,4,1,20,1,1,1,0
+Force Sensitive Emergent,Invigorate,5,1,1,25,1,0,0,0
+Force Sensitive Emergent,Force of Will,5,2,1,25,1,0,0,0
+Force Sensitive Emergent,Force Rating,5,3,1,25,1,0,0,0
+Force Sensitive Emergent,Dedication,5,4,1,25,1,0,0,0
+Force Sensitive Exile,Uncanny Senses,1,1,1,5,0,1,0,0
+Force Sensitive Exile,Insight,1,2,1,5,0,0,0,0
+Force Sensitive Exile,Forager,1,3,1,5,0,0,0,0
+Force Sensitive Exile,Uncanny Reactions,1,4,1,5,0,1,0,0
+Force Sensitive Exile,Convincing Demeanor,2,1,1,10,1,1,0,0
+Force Sensitive Exile,Overwhelm Emotions,2,2,1,10,0,1,0,0
+Force Sensitive Exile,Intense Focus,2,3,1,10,0,1,0,0
+Force Sensitive Exile,Quick Draw,2,4,1,10,1,1,0,0
+Force Sensitive Exile,Sense Danger,3,1,1,15,1,1,0,0
+Force Sensitive Exile,Sense Emotions,3,2,1,15,1,1,0,0
+Force Sensitive Exile,Balance,3,3,1,15,1,1,0,0
+Force Sensitive Exile,Touch of Fate,3,4,1,15,1,1,0,0
+Force Sensitive Exile,Street Smarts,4,1,1,20,1,1,0,1
+Force Sensitive Exile,Uncanny Senses,4,2,1,20,1,1,1,1
+Force Sensitive Exile,Uncanny Reactions,4,3,1,20,1,1,1,1
+Force Sensitive Exile,Street Smarts,4,4,1,20,1,1,1,0
+Force Sensitive Exile,Sixth Sense,5,1,1,25,1,0,0,1
+Force Sensitive Exile,Force Rating,5,2,1,25,1,0,1,1
+Force Sensitive Exile,Dedication,5,3,1,25,1,0,1,1
+Force Sensitive Exile,Superior Reflexes,5,4,1,25,1,0,1,0
+Imperial Academy Cadet,Grit,1,1,1,5,0,1,0,0
+Imperial Academy Cadet,Vehicle Combat Training,1,2,1,5,0,0,0,0
+Imperial Academy Cadet,Conditioned,1,3,1,5,0,1,0,0
+Imperial Academy Cadet,Knowledge Specialization,1,4,1,5,0,1,0,0
+Imperial Academy Cadet,Know the Enemy,2,1,1,10,1,1,0,1
+Imperial Academy Cadet,By the Book,2,2,1,10,0,0,1,1
+Imperial Academy Cadet,Defensive Driving,2,3,1,10,1,0,1,1
+Imperial Academy Cadet,Tactical Combat Training,2,4,1,10,1,1,1,0
+Imperial Academy Cadet,Formation Tactics,3,1,1,15,1,0,0,1
+Imperial Academy Cadet,Command,3,2,1,15,0,1,1,1
+Imperial Academy Cadet,Full Throttle,3,3,1,15,0,1,1,1
+Imperial Academy Cadet,Known Schematic,3,4,1,15,1,1,1,0
+Imperial Academy Cadet,Formation Tactics (Improved),4,1,1,20,0,1,0,1
+Imperial Academy Cadet,By the Book,4,2,1,20,1,0,1,0
+Imperial Academy Cadet,Conditioned,4,3,1,20,1,1,0,1
+Imperial Academy Cadet,Knowledge Specialization,4,4,1,20,1,0,1,0
+Imperial Academy Cadet,Natural Scholar,5,1,1,25,1,0,0,1
+Imperial Academy Cadet,Targeted Firepower,5,2,1,25,0,0,1,1
+Imperial Academy Cadet,By the Book,5,3,1,25,1,0,1,1
+Imperial Academy Cadet,Dedication,5,4,1,25,0,0,1,0
+Padawan Survivor,Parry,1,1,1,5,0,1,0,0
+Padawan Survivor,Constant Vigilance,1,2,1,5,0,0,0,0
+Padawan Survivor,Street Smarts,1,3,1,5,0,1,0,0
+Padawan Survivor,Nobody's Fool,1,4,1,5,0,0,0,0
+Padawan Survivor,Toughened,2,1,1,10,1,1,0,1
+Padawan Survivor,Reflect,2,2,1,10,0,0,1,1
+Padawan Survivor,Sleight of Mind,2,3,1,10,1,1,1,1
+Padawan Survivor,Secrets of the Jedi,2,4,1,10,0,0,1,0
+Padawan Survivor,Parry,3,1,1,15,1,0,0,1
+Padawan Survivor,Balance,3,2,1,15,0,1,1,0
+Padawan Survivor,Smooth Talker,3,3,1,15,1,0,0,1
+Padawan Survivor,Master of Shadows,3,4,1,15,0,1,1,0
+Padawan Survivor,Disorienting Strike,4,1,1,20,0,1,0,1
+Padawan Survivor,Uncanny Reactions,4,2,1,20,1,1,1,0
+Padawan Survivor,Smooth Talker,4,3,1,20,0,0,0,1
+Padawan Survivor,Trust No One,4,4,1,20,1,1,1,0
+Padawan Survivor,Secrets of the Jedi (Improved),5,1,1,25,1,0,0,1
+Padawan Survivor,Temple Training,5,2,1,25,1,0,1,1
+Padawan Survivor,Force Rating,5,3,1,25,0,0,1,1
+Padawan Survivor,Dedication,5,4,1,25,1,0,1,0
+Pirate,Black Market Contacts,1,1,1,5,0,1,0,0
+Pirate,Toughened,1,2,1,5,0,0,0,0
+Pirate,Quick Draw,1,3,1,5,0,0,0,0
+Pirate,Know the Ropes,1,4,1,5,0,1,0,0
+Pirate,Greased Palms,2,1,1,10,1,1,0,1
+Pirate,Toughened,2,2,1,10,0,1,1,1
+Pirate,Fearsome Rep,2,3,1,10,0,1,1,1
+Pirate,Commanding Presence,2,4,1,10,1,1,1,0
+Pirate,Black Market Contacts,3,1,1,15,1,1,0,1
+Pirate,Double Talk,3,2,1,15,1,1,1,0
+Pirate,Street Smarts,3,3,1,15,1,0,0,1
+Pirate,Intimidating,3,4,1,15,1,1,1,0
+Pirate,Fearsome Rep,4,1,1,20,1,0,0,1
+Pirate,Intense Presence,4,2,1,20,1,1,1,0
+Pirate,Commanding Presence,4,3,1,20,0,1,0,1
+Pirate,Steely Nerves,4,4,1,20,1,0,1,0
+Pirate,Prepare To Be Boarded!,5,1,1,25,0,0,0,1
+Pirate,Altered Deal,5,2,1,25,1,0,1,1
+Pirate,Natural Rogue,5,3,1,25,1,0,1,1
+Pirate,Dedication,5,4,1,25,0,0,1,0
+Recruit,Basic Combat Training,1,1,1,5,0,1,0,0
+Recruit,Second Wind,1,2,1,5,0,1,0,0
+Recruit,Outdoorsman,1,3,1,5,0,1,0,0
+Recruit,Tactical Combat Training,1,4,1,5,0,1,0,0
+Recruit,Second Wind,2,1,1,10,1,1,0,0
+Recruit,Vehicle Combat Training,2,2,1,10,1,1,0,0
+Recruit,Well-Traveled,2,3,1,10,1,1,0,0
+Recruit,Toughened,2,4,1,10,1,1,0,0
+Recruit,Quick Draw,3,1,1,15,1,0,0,1
+Recruit,Grit,3,2,1,15,1,1,1,0
+Recruit,Toughened,3,3,1,15,1,1,0,0
+Recruit,Spare Clip,3,4,1,15,1,1,0,0
+Recruit,Second Wind,4,1,1,20,0,1,0,1
+Recruit,Jump Up,4,2,1,20,1,0,1,1
+Recruit,Grit,4,3,1,20,1,1,1,1
+Recruit,Creative Killer,4,4,1,20,1,0,1,0
+Recruit,Dynamic Fire,5,1,1,25,1,0,0,1
+Recruit,Dedication,5,2,1,25,0,0,1,1
+Recruit,Toughened,5,3,1,25,1,0,1,1
+Recruit,Enduring,5,4,1,25,0,0,1,0
+Retired Clone Trooper,Toughened,1,1,1,5,0,1,0,0
+Retired Clone Trooper,Steady Aim,1,2,1,5,0,0,0,0
+Retired Clone Trooper,Spare Clip,1,3,1,5,0,0,0,0
+Retired Clone Trooper,Grit,1,4,1,5,0,1,0,0
+Retired Clone Trooper,Combat Veteran,2,1,1,10,1,1,0,0
+Retired Clone Trooper,Durable,2,2,1,10,0,1,0,1
+Retired Clone Trooper,Swift,2,3,1,10,0,1,1,1
+Retired Clone Trooper,Familiar Suns,2,4,1,10,1,0,1,0
+Retired Clone Trooper,Grit,3,1,1,15,1,0,0,1
+Retired Clone Trooper,Stimpack Specialization,3,2,1,15,1,1,1,1
+Retired Clone Trooper,Toughened,3,3,1,15,1,1,1,1
+Retired Clone Trooper,Durable,3,4,1,15,0,1,1,0
+Retired Clone Trooper,Persistent Targeting,4,1,1,20,0,0,0,1
+Retired Clone Trooper,Powerful Blast,4,2,1,20,1,1,1,1
+Retired Clone Trooper,Combat Veteran,4,3,1,20,1,1,1,1
+Retired Clone Trooper,Powerful Blast,4,4,1,20,1,0,1,0
+Retired Clone Trooper,Dedication,5,1,1,25,0,0,0,1
+Retired Clone Trooper,Comrades In Arms (Improved),5,2,1,25,1,0,1,1
+Retired Clone Trooper,Comrades In Arms,5,3,1,25,1,0,1,1
+Retired Clone Trooper,Enduring,5,4,1,25,0,0,1,0
+Ship Captain,Wheel and Deal,1,1,1,5,0,1,0,0
+Ship Captain,Pride and Joy,1,2,1,5,0,1,0,0
+Ship Captain,Grit,1,3,1,5,0,0,0,0
+Ship Captain,Kill With Kindness,1,4,1,5,0,1,0,0
+Ship Captain,Kill With Kindness,2,1,1,10,1,1,0,1
+Ship Captain,Pride and Joy (Improved),2,2,1,10,1,0,1,1
+Ship Captain,Field Commander,2,3,1,10,0,1,1,1
+Ship Captain,Skilled Jockey,2,4,1,10,1,0,1,0
+Ship Captain,Wheel and Deal,3,1,1,15,1,1,0,1
+Ship Captain,Encouraging Words,3,2,1,15,0,1,1,1
+Ship Captain,Seen A Lot of Things,3,3,1,15,1,1,1,0
+Ship Captain,Full Throttle,3,4,1,15,0,1,0,0
+Ship Captain,Trust the Captain,4,1,1,20,1,0,0,1
+Ship Captain,Inspiring Rhetoric,4,2,1,20,1,1,1,1
+Ship Captain,Trust the Captain,4,3,1,20,1,1,1,1
+Ship Captain,Pride and Joy (Supreme),4,4,1,20,1,0,1,0
+Ship Captain,Most Impressive,5,1,1,25,0,0,0,1
+Ship Captain,Inspiring Leadership,5,2,1,25,1,0,1,0
+Ship Captain,Grit,5,3,1,25,1,0,0,1
+Ship Captain,Dedication,5,4,1,25,0,0,1,0
+Captain of the Guard,Toughened,1,1,1,5,0,0,0,0
+Captain of the Guard,Tactical Combat Training,1,2,1,5,0,1,0,0
+Captain of the Guard,Grit,1,3,1,5,0,0,0,0
+Captain of the Guard,Supporting Evidence,1,4,1,5,0,1,0,0
+Captain of the Guard,Bring It Down,2,1,1,10,0,1,0,0
+Captain of the Guard,Quick Draw,2,2,1,10,1,1,0,1
+Captain of the Guard,Quick Strike,2,3,1,10,0,0,1,0
+Captain of the Guard,Encouraging Words,2,4,1,10,1,1,0,0
+Captain of the Guard,Pin,3,1,1,15,1,1,0,0
+Captain of the Guard,Defensive Training,3,2,1,15,1,1,0,1
+Captain of the Guard,Feint,3,3,1,15,0,1,1,0
+Captain of the Guard,Comrades In Arms,3,4,1,15,1,1,0,0
+Captain of the Guard,Point Blank,4,1,1,20,1,1,0,1
+Captain of the Guard,Push Aside,4,2,1,20,1,1,1,1
+Captain of the Guard,Grit,4,3,1,20,1,0,1,1
+Captain of the Guard,Inspiring Rhetoric,4,4,1,20,1,1,1,0
+Captain of the Guard,Sixth Sense,5,1,1,25,1,0,0,0
+Captain of the Guard,Dedication,5,2,1,25,1,0,0,1
+Captain of the Guard,Inspiring Leadership,5,3,1,25,0,0,1,1
+Captain of the Guard,Master Leader,5,4,1,25,1,0,1,0
+Planetary Defense Force Officer,Toughened,1,1,1,5,0,0,0,0
+Planetary Defense Force Officer,Vehicle Combat Training,1,2,1,5,0,1,0,0
+Planetary Defense Force Officer,Quick Draw,1,3,1,5,0,1,0,0
+Planetary Defense Force Officer,Grit,1,4,1,5,0,1,0,0
+Planetary Defense Force Officer,Defensive Driving,2,1,1,10,0,1,0,1
+Planetary Defense Force Officer,Tactical Combat Training,2,2,1,10,1,1,1,1
+Planetary Defense Force Officer,Quick Strike,2,3,1,10,1,1,1,0
+Planetary Defense Force Officer,Encouraging Words,2,4,1,10,1,1,0,0
+Planetary Defense Force Officer,Dead to Rights,3,1,1,15,1,1,0,1
+Planetary Defense Force Officer,True Aim,3,2,1,15,1,1,1,0
+Planetary Defense Force Officer,Toughened,3,3,1,15,1,1,0,1
+Planetary Defense Force Officer,Field Commander,3,4,1,15,1,1,1,0
+Planetary Defense Force Officer,Guns Blazing,4,1,1,20,1,1,0,1
+Planetary Defense Force Officer,Deadly Accuracy,4,2,1,20,1,1,1,1
+Planetary Defense Force Officer,Targeted Blow,4,3,1,20,1,0,1,0
+Planetary Defense Force Officer,Inspiring Rhetoric,4,4,1,20,1,1,0,0
+Planetary Defense Force Officer,Spitfire,5,1,1,25,1,0,0,0
+Planetary Defense Force Officer,Master Pilot,5,2,1,25,1,0,0,1
+Planetary Defense Force Officer,Dedication,5,3,1,25,0,0,1,1
+Planetary Defense Force Officer,Most Impressive,5,4,1,25,1,0,1,0

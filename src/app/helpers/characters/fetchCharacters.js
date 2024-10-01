@@ -1,4 +1,4 @@
-import { onSnapshot, query, where, orderBy, getDocs } from 'firebase/firestore';
+import { query, orderBy, getDocs } from 'firebase/firestore';
 import { charactersCollection } from '../../../db/application/db';
 
 export const fetchCharacters = async () => {

@@ -1,18 +1,20 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 
-export default function useFetchData(fetchFunction) {
+export default function useFetchData(fetchFunction, dependencies = []) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
+  const memoizedFetch = useCallback(fetchFunction, dependencies);
+
   useEffect(() => {
     const fetchData = async() => {
-      const result = await fetchFunction();
+      const result = await memoizedFetch();
       setData(result);
       setLoading(false);
     };
 
     fetchData();
-  }, [fetchFunction]);
+  }, [memoizedFetch]);
 
   return { data, loading };
 }
