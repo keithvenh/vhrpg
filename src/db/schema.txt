@@ -284,14 +284,14 @@
   - attachments: Array
     - Array: Map
   
-[Books Colection][Static][Offline]
+[x][Books Colection][Static][Offline]
   - id: String
   - system: String[Edge of the Empire, Age of Rebellion, Force and Destiny, Overall]
   - title: String
   - subtitle: String
   - type: String[CRB, adventure, sourcebook, supplement]
 
-[Careers Collection][Static][Offline]
+[x][Careers Collection][Static][Offline]
   - id: String
   - name: String
   - book: Map
@@ -306,7 +306,7 @@
       - name: String[specialization.name]
       - id: String[specialization.id]
   
-[Specializations Collection][Static]
+[x][Specializations Collection][Static][Offline]
   - id: String
   - name: String
   - book: Map
@@ -331,7 +331,7 @@
     - cost: Number
     - descriptionShort: String[talent.descriptionShort]
 
-[Talents Collection][Static]
+[x][Talents Collection][Static][Offline]
   - id: String
   - name: String
   - book: Map
@@ -374,7 +374,7 @@
       - right: Boolean
     - cost: Number
 
-[Skills Collection][Static][Offline]
+[x][Skills Collection][Static][Offline]
   - id: String
   - name: String
   - characteristic: String[brawn, agility, intellect, cunning, willpower, presence]

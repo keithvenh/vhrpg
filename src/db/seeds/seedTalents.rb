@@ -17,7 +17,7 @@ def seedTalents
     # Generate a Random ID or use the given ID
     talent['id'] = talent['id'] || SecureRandom.hex(10)
 
-    # Save the Talent object
+    # save the talent object
     talents[talent['id']] = {
       id: talent['id'],
       name: talent['talent'],

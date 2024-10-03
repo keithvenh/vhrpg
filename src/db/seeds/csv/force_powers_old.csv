@@ -1,4 +1,4 @@
-﻿Game,Name,ForceRating,Cost,DownLink1,DownLink2,DownLink3,DownLink4,Description
+﻿game,name,forceRatingRequired,cost,downLink1,dowmLink2,downLink3,downLink4,descriptionShort
 Force and Destiny,Alter,1,15,1,1,1,1,"The Force user can tap into the Living Force of their surroundings, manipulating the nearby environs.
 The Force user may spend :ldsp: to make all terrain currently within short range difficult terrain until the end of their next turn.
 The Force user may spend :ldsp: to make all terrain currently within short range normal terrain until the end of their next turn."

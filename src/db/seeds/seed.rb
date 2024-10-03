@@ -4,13 +4,21 @@ require 'securerandom'
 require_relative './seedBooks'
 require_relative './seedSkills'
 require_relative './seedTalents'
+require_relative './seedCareers'
+require_relative './seedSpecializations'
+require_relative './seedForcePowers'
 
-## Uncomment the Collections You want to seed
-## This will overwrite the data
+## ===== Uncomment the Collections You want to seed ===== ##
+# ------ This will overwrite the data ------- #
 
 # seedBooks
 
 # seedSkills
 
-## Requires Seeding with Node As Well
-seedTalents
+# seedTalents
+
+# seedCareers
+
+# seedSpecializations
+
+seedForcePowers

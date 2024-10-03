@@ -29,15 +29,8 @@ def seedBooks
 
   # Write the data as a javascript object
   book_js_file = File.open('../static/books.js', 'w')
-  book_js_file.write("export const books =")
+  book_js_file.write("export const books = ")
   book_js_file.write(JSON.pretty_generate(books))
   book_js_file.close
-
-  # Save the data to the csv
-  CSV.open('./csv/books.csv', 'w', write_headers: true, headers: book_data.headers) do |csv|
-    book_data.each do |book|
-      csv << book
-    end
-  end
 
 end
