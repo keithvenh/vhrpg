@@ -17,6 +17,7 @@ import Astrogation from './features/Astrogation';
 
 import Characters from './pages/Characters';
 import CharacterShowPage from './pages/Characters/CharacterShowPage';
+import CharacterForm from './pages/Characters/CharacterForm';
 
 import Contacts from './pages/Contacts';
 
@@ -69,6 +70,7 @@ export default function App() {
                   <Route path="/astrogation" element={<Astrogation />} />
                   <Route path="/characters" element={<Characters />} />
                   <Route path="/characters/:id" element={<CharacterShowPage />} />
+                  <Route path="/characters/:id/edit" element={<CharacterForm />} />
 
                   <Route path="/contacts" element={<Contacts />} />
                   <Route path="/organizations" element={<Organizations />} />

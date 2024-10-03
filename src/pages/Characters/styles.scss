@@ -66,6 +66,7 @@ h1.section-title {
 
 // ===== CHARACTER SHOW PAGE ===== //
 .CharacterShowPage {
+  position: relative;
   h1 {
     text-align: center;
     padding: 12px;
@@ -75,6 +76,18 @@ h1.section-title {
   .id {
     text-align: center;
     font-size: 1.2em;
+  }
+  .edit-character-button {
+    cursor: pointer;
+    padding: 12px;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    font-size: 1.5em;
+    color: $white;
+    &:hover {
+      color: $teal;
+    }
   }
   .basic-info {
     padding: 12px;
@@ -124,5 +137,44 @@ h1.section-title {
       margin-bottom: 12px;
     }
     padding: 12px;
+  }
+}
+
+// ===== CHARACTER FORM ===== //
+.CharacterForm {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  .form-sections {
+    border: 1px solid $white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 6px;
+    .submit-button {
+      text-align: center;
+      background-color: $green;
+      margin: 24px 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      align-self: center;
+      justify-self: center;
+      &:hover {
+        color: $white;
+        background-color: darken($green, 10%);
+      }
+    }
+    a {
+      padding: 6px;
+      color: $white;
+      cursor: pointer;
+      &.active-true {
+        color: $black;
+        background-color: $white;
+      }
+      &:hover {
+        color: $teal;
+      }
+    }
   }
 }

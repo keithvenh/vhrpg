@@ -2,10 +2,12 @@ import {useParams} from 'react-router-dom';
 import useFetchData from '../../hooks/useFetchData';
 import {getDoc, doc} from 'firebase/firestore';
 import {charactersCollection} from '../../db/application/db';
+import {useNavigate} from 'react-router-dom'
 
 import Loading from '../../features/Loading';
 
 export default function Character() {
+  const navigate = useNavigate();
 
   async function getCharacter(characterID) {
     const c = await getDoc(doc(charactersCollection, characterID));
@@ -24,6 +26,8 @@ export default function Character() {
     "minion": "Dorn"
   }
 
+  const handleEditClick = () => navigate(`/characters/${character.id}/edit`, {state: { character }})
+  
   const emptyBox = (i) => {
     return <i key={i} className='fa-regular fa-square-full'></i>
   }
@@ -56,6 +60,7 @@ export default function Character() {
   return (
     <section className='CharacterShowPage'>
       <h1>Galactic Denizen Profile:</h1>
+      <i className='fas fa-pencil edit-character-button' onClick={handleEditClick}></i>
       <p className='sw id'>{id}</p>
       <div className='basic-info'>
         <div className='character-image'>
