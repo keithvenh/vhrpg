@@ -1,0 +1,87 @@
+@import '../../styles/variables.scss';
+
+.SpecializationShowPage {
+    .talents {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 276px 276px 276px 276px;
+        grid-template-rows: 175px 175px 175px 175px 175px;
+        justify-content: center;
+        .talent {
+            display: grid;
+            grid-template-columns: 240px 36px;
+            grid-template-rows: 139px 36px;
+            position: relative;
+            .talent-box {
+                border: 2px solid $white;
+                background-color: $eoteTan;
+                .fa-burst {
+                    color: $eoteMaroon;
+                    position: absolute;
+                    font-size: 24px;
+                    left: -6px;
+                    top: -6px;
+                }
+                .talent-name {
+                    background-color: $eoteMaroon;
+                    text-align: center;
+                    padding: 4px;
+                    font-size: 16px;
+                    display: flex;
+                    z-index: 10;
+                    position: relative;
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    span {
+                        text-align: center;
+                        flex-grow: 1;
+                    }
+                    i {
+                        flex-shrink: 1;
+                    }
+                }
+                .talent-description {
+                    font-size: 0.8em;
+                    color: $black;
+                    padding: 4px;
+                    overflow-y: scroll;
+                    height: 103px;
+                }
+                .talent-cost {
+                    background-color: $eoteMaroon;
+                    padding: 4px;
+                    text-align: center;
+                    display: inline-block;
+                    width: 100px;
+                    position: absolute;
+                    border-top-right-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                    font-size: 12px;
+                    right: 40px;
+                    bottom: 27px;
+                    z-index: 20;
+                }
+                &.active-false {
+                    .fa-burst {
+                        color: $eoteNavy;
+                    }
+                    .talent-name, .talent-cost {
+                        background-color: $eoteNavy;
+                    }
+                }
+            }
+            .right-link.true {
+                width: 36px;
+                height: 12px;
+                background-color: $white;
+                align-self: center;
+            }
+            .down-link.true {
+                width: 12px;
+                height: 36px;
+                background-color: $white;
+                justify-self: center;
+            }
+        }
+    }
+}

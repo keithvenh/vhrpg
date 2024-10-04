@@ -29,8 +29,14 @@ import PlanetShowPage from './pages/Planets/PlanetShowPage';
 
 import Settings from './pages/Users/Settings';
 
+import Specializations from './pages/Specializations';
+import SpecializationShowPage from './pages/Specializations/SpecializationShowPage';
+
 import Species from './pages/Species';
 import SpeciesShowPage from './pages/Species/SpeciesShowPage';
+
+import Talents from './pages/Talents';
+import TalentShowPage from './pages/Talents/TalentShowPage'
 
 import Todos from './features/Todos';
 
@@ -81,8 +87,14 @@ export default function App() {
 
                   <Route path="/profile" element={<Settings />} />
 
+                  <Route path='/specializations' element={<Specializations />} />
+                  <Route path='/specializations/:id' element={<SpecializationShowPage />} />
+                  
                   <Route path="/species" element={<Species />} />
                   <Route path="/species/:id" element={<SpeciesShowPage />} />
+
+                  <Route path="/talents" element={<Talents />} />
+                  <Route path="/talents/:id" element={<TalentShowPage />} />
 
                   <Route path="/todos" element={<Todos />} />
 

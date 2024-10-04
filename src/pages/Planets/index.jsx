@@ -9,9 +9,6 @@ import AlphabetizeWithLink from '../../components/Alphabetize';
 export default function Planets() {
   const {data: planets, loading} = useFetchData(fetchAllPlanets);
 
-  const uncheckbox = <i className='fas fa-square'></i>
-  const checkbox = <i className='fas fa-square-check'></i>
-
   if(loading) return <Loading />
 
   return (
