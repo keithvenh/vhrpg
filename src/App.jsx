@@ -21,6 +21,9 @@ import CharacterForm from './pages/Characters/CharacterForm';
 
 import Contacts from './pages/Contacts';
 
+import ForcePowers from './pages/ForcePowers';
+import ForcePowerShowPage from './pages/ForcePowers/ForcePowerShowPage';
+
 import Organizations from './pages/Organizations';
 import OrganizationShowPage from './pages/Organizations/OrganizationShowPage';
 
@@ -79,6 +82,10 @@ export default function App() {
                   <Route path="/characters/:id/edit" element={<CharacterForm />} />
 
                   <Route path="/contacts" element={<Contacts />} />
+
+                  <Route path="/force-powers" element={<ForcePowers />} />
+                  <Route path="/force-powers/:id" element={<ForcePowerShowPage />} />
+
                   <Route path="/organizations" element={<Organizations />} />
                   <Route path="/organizations/:id" element={<OrganizationShowPage />} />
 

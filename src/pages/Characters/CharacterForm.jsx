@@ -50,8 +50,8 @@ export default function CharacterForm() {
 
   async function handleFormSubmit() {
     console.log("Submitting Form");
-    const update = await updateCharacter(character.id, characterForm)
-    console.log(update);
+    try {await updateCharacter(character.id, characterForm)}
+    catch(error) {"Error Updating Character:", error}
   }
 
   return (

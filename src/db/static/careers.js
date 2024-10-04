@@ -1,6 +1,6 @@
 export const careers = {
-  "40a4d3cd0f454201cd8e": {
-    "id": "40a4d3cd0f454201cd8e",
+  "71ea268594382fc33ef0": {
+    "id": "71ea268594382fc33ef0",
     "name": "Ace",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -43,33 +43,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "adbfbab85e9e94132d45",
+        "id": "20f11c7fd412e155542c",
         "name": "Beast Rider"
       },
       {
-        "id": "5f3aed31a85705b9b0c5",
+        "id": "26d3cf5f17eb15d3550e",
         "name": "Driver"
       },
       {
-        "id": "1ed5d1c309e93088bfd3",
+        "id": "192397531739f7c7c1da",
         "name": "Gunner"
       },
       {
-        "id": "1112979c21b0467e9603",
+        "id": "51488e9c15c2eaa9032d",
         "name": "Hotshot"
       },
       {
-        "id": "24b836c8f3c30c1b0382",
+        "id": "b0a844768d7a218e09ca",
         "name": "Pilot"
       },
       {
-        "id": "db93615baa0b9a0c7c3a",
+        "id": "6f306297485f9c223587",
         "name": "Rigger"
       }
     ]
   },
-  "77afdabd3db18d738234": {
-    "id": "77afdabd3db18d738234",
+  "80f84998371f42057eba": {
+    "id": "80f84998371f42057eba",
     "name": "Commander",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -112,33 +112,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "825249d0e7a705890e76",
+        "id": "164105b9e9574fa339d8",
         "name": "Commodore"
       },
       {
-        "id": "97c3fa9dba33210858fe",
+        "id": "2bb7fda052a66ccbfca6",
         "name": "Figurehead"
       },
       {
-        "id": "cbfca3cd7bae8e6fa66b",
+        "id": "da9beea89aa4a390700a",
         "name": "Instructor"
       },
       {
-        "id": "26cfcd5a98d212d1c771",
+        "id": "9ec090b20a53b1219b7e",
         "name": "Squadron Leader"
       },
       {
-        "id": "3c8e89e246f151a3f377",
+        "id": "86a22e476f2fd19dba36",
         "name": "Strategist"
       },
       {
-        "id": "c0cd6da6be9fdd206c73",
+        "id": "b701e68ecf4e39cfca07",
         "name": "Tactician"
       }
     ]
   },
-  "05a80d1c1f8901453105": {
-    "id": "05a80d1c1f8901453105",
+  "84af327fa26107ca5937": {
+    "id": "84af327fa26107ca5937",
     "name": "Diplomat",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -181,33 +181,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "1707a76cde5653902f26",
+        "id": "c672463a5d46aeaebbfb",
         "name": "Advocate"
       },
       {
-        "id": "75baf8f1f707b818116c",
+        "id": "0a1fb19bdf2e7b74dbd9",
         "name": "Agitator"
       },
       {
-        "id": "3b2e6d9b24904c52c621",
+        "id": "03675b48cbfa0471e5e4",
         "name": "Ambassador"
       },
       {
-        "id": "500657dff31e55033776",
+        "id": "a271e526308dfc5c0a8b",
         "name": "Analyst"
       },
       {
-        "id": "e91fbec309dde588d89d",
+        "id": "f309a8b9d0a10a806dc3",
         "name": "Propagandist"
       },
       {
-        "id": "2de5aa750552e2437e7f",
+        "id": "3f9f377e9f58f99c95a8",
         "name": "Quartermaster"
       }
     ]
   },
-  "d00e294f728a00cd90f5": {
-    "id": "d00e294f728a00cd90f5",
+  "90c16f8f1b89be4e7b0f": {
+    "id": "90c16f8f1b89be4e7b0f",
     "name": "Engineer",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -250,33 +250,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "2509c0ece969f9941498",
+        "id": "c91b41e34a2a3a0f58f9",
         "name": "Droid Specialist"
       },
       {
-        "id": "d5657a3db3ec7039a924",
+        "id": "9ff873d3413927210f08",
         "name": "Mechanic"
       },
       {
-        "id": "cc10ad9ecfab5816cfba",
+        "id": "55d62aa7e58e4396e736",
         "name": "Saboteur"
       },
       {
-        "id": "c1a324fb1f534bc993ab",
+        "id": "37f5fe2726fa5e05959c",
         "name": "Sapper"
       },
       {
-        "id": "bb6e838af8d608231f55",
+        "id": "b7d37296393d9f7835fa",
         "name": "Scientist"
       },
       {
-        "id": "4909bf1bc94812e3a2df",
+        "id": "915cf7855a59ed107dd7",
         "name": "Shipwright"
       }
     ]
   },
-  "ed06c18d889b67aa72f2": {
-    "id": "ed06c18d889b67aa72f2",
+  "5b74bf436e4c353d1a5b": {
+    "id": "5b74bf436e4c353d1a5b",
     "name": "Soldier",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -319,33 +319,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "0794f91c0dca03e63b14",
+        "id": "211b132cbc7d6588149e",
         "name": "Commando"
       },
       {
-        "id": "01cc8edadc8bbeac8210",
+        "id": "be45a8ec874e9774669b",
         "name": "Heavy"
       },
       {
-        "id": "3ab2e38dca7a1ebb23c4",
+        "id": "de2aad00e674af174c90",
         "name": "Medic"
       },
       {
-        "id": "5464a19258026c684175",
+        "id": "05fd751c3097a4d24801",
         "name": "Sharpshooter"
       },
       {
-        "id": "aa81db7315cbda67e424",
+        "id": "835a25e22361c2b82340",
         "name": "Trailblazer"
       },
       {
-        "id": "90ebdc1e5b7674dd2a36",
+        "id": "6fbc4f396443cadf5693",
         "name": "Vanguard"
       }
     ]
   },
-  "9b94f94d0e1c927d899d": {
-    "id": "9b94f94d0e1c927d899d",
+  "320a28df99a6578b30c2": {
+    "id": "320a28df99a6578b30c2",
     "name": "Spy",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -388,33 +388,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "7e238a319b57af6cac93",
+        "id": "0e68f91f8528aef82b66",
         "name": "Courier"
       },
       {
-        "id": "83c7ae9dad70176635d8",
+        "id": "90421632ee3accb93e63",
         "name": "Infiltrator"
       },
       {
-        "id": "a4868e2f4dcc04d466b6",
+        "id": "5ffc2f47e65e92c77085",
         "name": "Interrogator"
       },
       {
-        "id": "a7c8d58c0852d92e58ce",
+        "id": "591b55766f8a91428049",
         "name": "Scout"
       },
       {
-        "id": "272c21fb7b60471ad13f",
+        "id": "f31f6ead3c7413879001",
         "name": "Sleeper Agent"
       },
       {
-        "id": "add54d961ca74f48332b",
+        "id": "32d1ce613171e97819bc",
         "name": "Slicer"
       }
     ]
   },
-  "2bf1d8001916811c0286": {
-    "id": "2bf1d8001916811c0286",
+  "989c4c9d124b0b5c2d60": {
+    "id": "989c4c9d124b0b5c2d60",
     "name": "Universal",
     "book": {
       "id": "4f557759227d8885c70c",
@@ -426,53 +426,53 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "1699a8998214fa26c8fe",
+        "id": "a2c61d54201475a3c6f7",
         "name": "Force Sensitive Emergent"
       },
       {
-        "id": "ba872e443bf58b9818b4",
+        "id": "1d617cb796084ca1ff7d",
         "name": "Recruit"
       },
       {
-        "id": "2f7192b2a845488f41ee",
+        "id": "626e964457e96e87c7f4",
         "name": "Force Sensitive Exile"
       },
       {
-        "id": "c6761ce43ddaffa2785d",
+        "id": "268aece3f281d3ae8b5f",
         "name": "Force Adherent"
       },
       {
-        "id": "7e5aef1f22a3e511ce07",
+        "id": "7f1327f360a24717096c",
         "name": "Imperial Academy Cadet"
       },
       {
-        "id": "3e99f03c5180e71cb027",
+        "id": "cd8f3f1532d91c990f35",
         "name": "Padawan Survivor"
       },
       {
-        "id": "f200f0a1f481f6d05972",
+        "id": "1a5c438c123957d21006",
         "name": "Pirate"
       },
       {
-        "id": "7296d44b0e2bac63d765",
+        "id": "44c9740cf54a5077c10a",
         "name": "Retired Clone Trooper"
       },
       {
-        "id": "c3d67a1725e00ec44e02",
+        "id": "fd920d411a29804138b6",
         "name": "Ship Captain"
       },
       {
-        "id": "3b08befbfc50b0046c53",
+        "id": "41764b0369e816f1ac6d",
         "name": "Planetary Defense Force Officer"
       },
       {
-        "id": "ca103dd779073823e006",
+        "id": "663781c4611f8565fc83",
         "name": "Captain of the Guard"
       }
     ]
   },
-  "304191eaeee385d2e363": {
-    "id": "304191eaeee385d2e363",
+  "1c0aa937a5cd212840ec": {
+    "id": "1c0aa937a5cd212840ec",
     "name": "Bounty Hunter",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -515,33 +515,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "2bce205360e14b2cdefc",
+        "id": "26559e22435cc0607a97",
         "name": "Assassin"
       },
       {
-        "id": "2116ba7369d7c422d4ec",
+        "id": "f550247177abbd90adec",
         "name": "Gadgeteer"
       },
       {
-        "id": "1ec0e59b1c453de7c0de",
+        "id": "c480079fa2561634501c",
         "name": "Martial Artist"
       },
       {
-        "id": "d0e428480fcfbfae3f86",
+        "id": "47a3a40a4b4dcad3efb5",
         "name": "Operator"
       },
       {
-        "id": "7a34e513b65663d92c4f",
+        "id": "777858d21e130dc25de3",
         "name": "Skip Tracer"
       },
       {
-        "id": "9ce3a682d12ead399230",
+        "id": "e74303765a4acb73e18f",
         "name": "Survivalist"
       }
     ]
   },
-  "13d95a126cf40e82ce1c": {
-    "id": "13d95a126cf40e82ce1c",
+  "8ce7ed54b9b3f80f90f9": {
+    "id": "8ce7ed54b9b3f80f90f9",
     "name": "Colonist",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -584,33 +584,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "950d66b600d8cf99ddac",
+        "id": "6955bb6429a28212bc18",
         "name": "Doctor"
       },
       {
-        "id": "3036cc925abea87ed9e3",
+        "id": "5da9a07c29c17050c7cc",
         "name": "Entrepreneur"
       },
       {
-        "id": "844fcfa85234dd588f15",
+        "id": "ee65750bbd8e33e74d92",
         "name": "Marshall"
       },
       {
-        "id": "1e7d7d25a0fcb98b7b4c",
+        "id": "0c4ba80fbdc0a3cc35bb",
         "name": "Performer"
       },
       {
-        "id": "4a649aa252cdec178389",
+        "id": "269861c40ff363543baa",
         "name": "Politico"
       },
       {
-        "id": "53abbdda237748adde8f",
+        "id": "c177c89f5431e168a8f0",
         "name": "Scholar"
       }
     ]
   },
-  "26247257ef8b2184cb25": {
-    "id": "26247257ef8b2184cb25",
+  "1d93494ea942a1bde3e5": {
+    "id": "1d93494ea942a1bde3e5",
     "name": "Explorer",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -653,33 +653,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "e301dae7b10677575220",
+        "id": "9e090a2092252edc57b2",
         "name": "Archaeologist"
       },
       {
-        "id": "2a14489c6dad6ddcd12a",
+        "id": "cc3edbedcfeadbf84d3a",
         "name": "Big-Game Hunter"
       },
       {
-        "id": "d4db77328e077673045d",
+        "id": "54ad5a9a42f58eb0b1e4",
         "name": "Driver"
       },
       {
-        "id": "4335b0b36f8f40ede348",
+        "id": "a3f7c342e8b08ed35a8e",
         "name": "Fringer"
       },
       {
-        "id": "d7aaf85e514c78b26074",
+        "id": "6a1a10d0f0cc1548c859",
         "name": "Scout"
       },
       {
-        "id": "606562f464815ee66e91",
+        "id": "cf7829d035bc58cb5b88",
         "name": "Trader"
       }
     ]
   },
-  "2b144191f440a8fc81c6": {
-    "id": "2b144191f440a8fc81c6",
+  "a171beae97597dd9c930": {
+    "id": "a171beae97597dd9c930",
     "name": "Hired Gun",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -722,33 +722,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "77a5c9b752584059bd1d",
+        "id": "35614e3871ecf6b6862e",
         "name": "Bodyguard"
       },
       {
-        "id": "a8528e4eb8c8f094909c",
+        "id": "7582843c22cbb13f5326",
         "name": "Demolitionist"
       },
       {
-        "id": "fb7593931ce5b1780b1a",
+        "id": "d25fc10891009d8f10e4",
         "name": "Enforcer"
       },
       {
-        "id": "381737d3939f74d909c2",
+        "id": "cc9b8ff71e0339da3141",
         "name": "Heavy"
       },
       {
-        "id": "31755291e40570f161a9",
+        "id": "83ff9d06395a8f6e4c15",
         "name": "Marauder"
       },
       {
-        "id": "af8b0d8090cd472f5310",
+        "id": "dbfb895a7e08b6156878",
         "name": "Mercenary"
       }
     ]
   },
-  "13d28cf12b049a7fc659": {
-    "id": "13d28cf12b049a7fc659",
+  "1eaf55287d43426e307a": {
+    "id": "1eaf55287d43426e307a",
     "name": "Smuggler",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -791,33 +791,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "f853db1af6c46f3f8a9d",
+        "id": "3decd1dde1947e58866e",
         "name": "Charmer"
       },
       {
-        "id": "31e4d6d19cdf1c9bf5ac",
+        "id": "4807d040baddd9391cef",
         "name": "Gambler"
       },
       {
-        "id": "980580c1c993d81a51a6",
+        "id": "eb0c4e4f55744d747d69",
         "name": "Gunslinger"
       },
       {
-        "id": "7cafc40a9feee8325c72",
+        "id": "12dd0e9f7f2dcc5b2ddc",
         "name": "Pilot"
       },
       {
-        "id": "ae421c0711d8e8ab2282",
+        "id": "7340698eec17838172e9",
         "name": "Scoundrel"
       },
       {
-        "id": "641a6d31570ec8d5d688",
+        "id": "8d260e2b468bb737f2c5",
         "name": "Thief"
       }
     ]
   },
-  "d3a62682ec9a23056212": {
-    "id": "d3a62682ec9a23056212",
+  "6268dcd3dbc42b495294": {
+    "id": "6268dcd3dbc42b495294",
     "name": "Technician",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -860,33 +860,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "d984ff374cacb6560e74",
+        "id": "fa00fda9cbdb63a3d1a5",
         "name": "Cyber Tech"
       },
       {
-        "id": "089562bd9856f685b06a",
+        "id": "a593628e42255cebc87a",
         "name": "Droid Tech"
       },
       {
-        "id": "d6e23499a1677093830b",
+        "id": "6a4897d2db88ece52462",
         "name": "Mechanic"
       },
       {
-        "id": "ca56d7f9032ad3b81af6",
+        "id": "3ee432600a50c4d04bb9",
         "name": "Modder"
       },
       {
-        "id": "8c7b8ab0afbe09f4e5c7",
+        "id": "500b0f6c5faafd4b8b1d",
         "name": "Outlaw Tech"
       },
       {
-        "id": "92e8e7941f92ae83d10f",
+        "id": "bb35caa0956b3a72d37a",
         "name": "Slicer"
       }
     ]
   },
-  "4f981d53dc586bb59f1a": {
-    "id": "4f981d53dc586bb59f1a",
+  "b51f608c41e255912de3": {
+    "id": "b51f608c41e255912de3",
     "name": "Universal",
     "book": {
       "id": "dc937241c320a10d7eca",
@@ -900,8 +900,8 @@ export const careers = {
 
     ]
   },
-  "1b4863126297338e2c78": {
-    "id": "1b4863126297338e2c78",
+  "972799b36d2dcd0400d3": {
+    "id": "972799b36d2dcd0400d3",
     "name": "Consular",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -936,33 +936,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "bed613d9914001438462",
+        "id": "60b569b760ea905069e4",
         "name": "Arbiter"
       },
       {
-        "id": "7a111bfc3b4111987dc1",
+        "id": "628244ba87d95b2ecc63",
         "name": "Ascetic"
       },
       {
-        "id": "a73bede2f10446e7f957",
+        "id": "06d13220e44a37c645ea",
         "name": "Healer"
       },
       {
-        "id": "5335ad67b760d9921e45",
+        "id": "8db5ba7fb6c5f9854e90",
         "name": "Niman Disciple"
       },
       {
-        "id": "a54563051c1054996f99",
+        "id": "f2eefef5d8a86410385c",
         "name": "Sage"
       },
       {
-        "id": "bea9f7fc907bcb23b449",
+        "id": "4f81e5fef5be04c23a89",
         "name": "Teacher"
       }
     ]
   },
-  "b965769ab0aba9556ba7": {
-    "id": "b965769ab0aba9556ba7",
+  "912f9b8f91a8e17247da": {
+    "id": "912f9b8f91a8e17247da",
     "name": "Guardian",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -997,33 +997,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "6704abf7e6f5ea12d91a",
+        "id": "4680ff98ebd70b7fe029",
         "name": "Armorer"
       },
       {
-        "id": "f8f1e38a758f9520b621",
+        "id": "2e524ceb7bfe02a2313b",
         "name": "Peacekeeper"
       },
       {
-        "id": "c18b126630134a8ce588",
+        "id": "8fe63c3497ac7b42b76c",
         "name": "Protector"
       },
       {
-        "id": "540a2e204dc58c526927",
+        "id": "90abafdd0fafd29fe7bb",
         "name": "Soresu Defender"
       },
       {
-        "id": "b3291807085cf8f99f05",
+        "id": "bbcc3410100fa30da838",
         "name": "Warden"
       },
       {
-        "id": "7d047645fcb50ad27c13",
+        "id": "e7b4411c18ff8be0f036",
         "name": "Warleader"
       }
     ]
   },
-  "31eef6175c06b694cd33": {
-    "id": "31eef6175c06b694cd33",
+  "03931f3831850db741ab": {
+    "id": "03931f3831850db741ab",
     "name": "Mystic",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -1058,33 +1058,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "2c7e34a1408e8609697e",
+        "id": "47569a6f46d7c9224f3d",
         "name": "Advisor"
       },
       {
-        "id": "35ea10933c20b2df88ee",
+        "id": "dd326ecee9c52a59df13",
         "name": "Alchemist"
       },
       {
-        "id": "e8cffca781c68b6e526c",
+        "id": "497155ce08e0a863ff2d",
         "name": "Magus"
       },
       {
-        "id": "1fcc7beee9e5d01f6a94",
+        "id": "b312a9bcce1a72f8d807",
         "name": "Makashi Duelist"
       },
       {
-        "id": "cb503cc659b9f081049e",
+        "id": "d5f4cf802cf2396628c9",
         "name": "Prophet"
       },
       {
-        "id": "58e334ceb5df86a5b4d8",
+        "id": "d9bd2df3ed3db810fbc6",
         "name": "Seer"
       }
     ]
   },
-  "0516c6474a1fc82c0bbb": {
-    "id": "0516c6474a1fc82c0bbb",
+  "1ea4f36d7d535b1f2227": {
+    "id": "1ea4f36d7d535b1f2227",
     "name": "Seeker",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -1111,33 +1111,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "5fd7be0f05bca56b8599",
+        "id": "3e35f8d2688a30950572",
         "name": "Ataru Striker"
       },
       {
-        "id": "3095eebfbf95dc27ecfa",
+        "id": "0843173f71e475308a18",
         "name": "Executioner"
       },
       {
-        "id": "2fecc0587b788048ac66",
+        "id": "317d3f006192dd395d55",
         "name": "Hermit"
       },
       {
-        "id": "14bab4c9837aab1ea84d",
+        "id": "4faa2f5e414e0ae38fe3",
         "name": "Hunter"
       },
       {
-        "id": "b0850ba3403f79a26977",
+        "id": "6f18881dbc520d4fb2fc",
         "name": "Navigator"
       },
       {
-        "id": "2f0ecae2b05f23a783a4",
+        "id": "63c13d2600f6611f99dc",
         "name": "Pathfinder"
       }
     ]
   },
-  "8a672a0ad892fded2d47": {
-    "id": "8a672a0ad892fded2d47",
+  "9e3ee892ea4c62c4560e": {
+    "id": "9e3ee892ea4c62c4560e",
     "name": "Sentinel",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -1172,33 +1172,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "0f6072250ddabdd608f8",
+        "id": "a8bf09243325502a97cd",
         "name": "Artisan"
       },
       {
-        "id": "57fab99678b6616231b3",
+        "id": "f7fdfd320a179d036b5f",
         "name": "Investigator"
       },
       {
-        "id": "6264c0809534d3efc15d",
+        "id": "6eb1ab02dd4d60d25d47",
         "name": "Racer"
       },
       {
-        "id": "f384cb948d15cbadac83",
+        "id": "c63653822261576653f1",
         "name": "Sentry"
       },
       {
-        "id": "23da88b35ca9137c85c0",
+        "id": "ab333c13c534a4eb3647",
         "name": "Shadow"
       },
       {
-        "id": "58f0990d62453b349229",
+        "id": "7c02301086b272f5c691",
         "name": "Shien Expert"
       }
     ]
   },
-  "daf41baecf5b230cb88f": {
-    "id": "daf41baecf5b230cb88f",
+  "aeed4fc72b80a8244bda": {
+    "id": "aeed4fc72b80a8244bda",
     "name": "Warrior",
     "book": {
       "id": "ac5ae1d860cf20c4c497",
@@ -1233,33 +1233,33 @@ export const careers = {
     ],
     "specializations": [
       {
-        "id": "230b41e045936b01d8dd",
+        "id": "2754161bbf0c2609d7e0",
         "name": "Aggressor"
       },
       {
-        "id": "0370f1995b9df3a7f5e0",
+        "id": "5f99314b15cb312f35c5",
         "name": "Colossus"
       },
       {
-        "id": "0cd8c4db762c10b486f0",
+        "id": "1bccaed1912a27d8043a",
         "name": "Juyo Berserker"
       },
       {
-        "id": "f4395546c2e810bf94b6",
+        "id": "9ba1cd7ebb107717bb6f",
         "name": "Shi-Cho Knight"
       },
       {
-        "id": "db6305f3d00bfff63e45",
+        "id": "a0c0cb242ea5c9cb7158",
         "name": "Starfighter Ace"
       },
       {
-        "id": "b970b0567b774ec77a0a",
+        "id": "71939f24ade3dfe15b9f",
         "name": "Steel Hand Adept"
       }
     ]
   },
-  "4985b236582ac507bfbf": {
-    "id": "4985b236582ac507bfbf",
+  "c42e29f8b8420d34e93f": {
+    "id": "c42e29f8b8420d34e93f",
     "name": "Universal",
     "book": {
       "id": "ac5ae1d860cf20c4c497",

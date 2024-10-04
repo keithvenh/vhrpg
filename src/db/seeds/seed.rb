@@ -21,4 +21,4 @@ require_relative './seedForcePowers'
 
 # seedSpecializations
 
-seedForcePowers
+# seedForcePowers

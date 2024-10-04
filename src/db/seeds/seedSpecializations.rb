@@ -7,6 +7,7 @@ require 'securerandom'
 def seedSpecializations
   # Read the csv
   specialization_data = CSV.parse(File.read('./csv/specializations.csv', encoding: 'bom|utf-8'), headers: true)
+  career_data = CSV.parse(File.read('./csv/careers.csv', encoding: 'bom|utf-8'), headers: true)
 
   # Set up the object
   specializations = {}
@@ -18,6 +19,12 @@ def seedSpecializations
 
     career = specialization['career'].split("=>")
     career = {id: career[0], name: career[1]}
+    career_data.each do |c|
+      if c['name'] == career[:name]
+        career = {id: c['id'], name: c['name']}
+        break
+      end
+    end
 
     skills = specialization['skills'].split('|--|')
     skills = skills.map do |skill|

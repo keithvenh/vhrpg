@@ -2,15 +2,28 @@ import './styles.scss';
 
 import {useParams} from 'react-router-dom';
 import {fetchSpecialization} from '../../services/specializations';
+import {fetchCareer} from '../../services/careers';
 
 export default function SpecializationShowPage() {
   const {id} = useParams();
   const specialization = fetchSpecialization(id);
-
+  console.log(specialization.career.id);
+  const career = fetchCareer(specialization.career.id);
+  console.log(career)
     return (
         <section className='SpecializationShowPage'>
-          <h1>{specialization.career.name}::{specialization.name}</h1>
-          <h2>Specialization Skills: {specialization.skills.map(skill => <span>{skill.name} </span>)}</h2>
+          <div className='specialization-overview'>
+            <div className='specialization-data'>
+              <h1><span className='career'>{specialization.career.name}:</span> {specialization.name} Talent Tree</h1>
+              <p className='career-skills'>Career Skills: {career.skills.map(c => c.name).join(", ")}</p>
+              <p className='specialization-skills'>Bonus Career Skills: {specialization.skills.map(skill => skill.name).join(", ")}</p>
+            </div>
+            <div className='specialization-legend'>
+              <p className='active'><i className='fas fa-square'></i> Active</p>
+              <p className='passive'><i className='fas fa-square'></i> Passive</p>
+              <p className='force'><i className='fas fa-burst'></i><i className='fas fa-square'></i> Force Talent</p>
+            </div>
+          </div>
           <div className='talents'>
             {specialization.talents.map(talent => (
                 <div className='talent'>
