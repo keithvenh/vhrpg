@@ -4,7 +4,7 @@ import FormSelect from '../../../app/components/forms/FormSelect';
 export default function Career({character, handler}) {
   const careers = fetchAllCareers();
   console.log(careers);
-  const options = careers.map((career) => ({value: career.id, display: career.name}))
+  const options = careers.map((career) => ({value: career.id, display: career.name})).sort((a, b) => (a.display.localeCompare(b.display)))
   return (
     <div className='Career'>
       <h1>{character.name || character.displayName || "Character"} Career</h1>

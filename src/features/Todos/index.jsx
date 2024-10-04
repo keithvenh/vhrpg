@@ -4,7 +4,7 @@ import TaskList from "./TaskList";
 export default function Todos() {
   return (
     <section className='Todos'>
-      <h1>Vorzyd Industries To-Do Lists</h1>
+      <h1>The Commonality To-Do Lists</h1>
 
       <div className='todo-section'>
         <h2>Game Management</h2>
@@ -21,10 +21,10 @@ export default function Todos() {
         <TaskList
           title="Other"
           tasks={[
-            "Create a Vorzyd Industrites Logo",
+            "Create a The Commonality Logo",
             "Create deck plans for ships",
             "Create floor plans for business",
-            "Write Vorzyd Sector Rules",
+            "Write The Commonality Sector Rules",
             "Generate Jobs and Missions",
             "Consider Initial Sessions",
             "List of things to test in app for Zack"
@@ -82,7 +82,7 @@ export default function Todos() {
             "Remove/move Tasks from pages",
             "Alphabetical Lists can be refactors/ componentized",
             "Link Contacts with Characters through Character map field",
-            "Vorzyd (Sector) Industries About Us and Financials",
+            "The Commonality About Us and Financials",
             "Complete movement of content from old directory structure"
           ]}
         ><TaskList
@@ -237,7 +237,7 @@ export default function Todos() {
             "Alphabetical Separators",
             "Filter options [region, sector, grid, visited, nearby]",
             "Search Feature",
-            "Vorzyd Sector Section",
+            "The Commonality Section",
             "New Planet Page",
             "Edit Planet Page",
           ]}

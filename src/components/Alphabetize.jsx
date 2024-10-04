@@ -1,5 +1,5 @@
 function sortData(data) {
-  return Object.entries(data).sort(([,val1],[,val2]) => val1 - val2);
+  return Object.keys(data).sort().map((key) => [key, data[key]]);
 }
 
 function segment(data, sortField) {
@@ -17,7 +17,7 @@ export default function AlphabetizeWithLink({data, sortField, displayField, link
 
   displayField = displayField || sortField;
   const segmentedData = segment(data, sortField);
-  const sortedData = sortData(segmentedData);
+  const sortedData = sortData(segmentedData, sortField);
 
   return (
     <div className='Alphabetize'>

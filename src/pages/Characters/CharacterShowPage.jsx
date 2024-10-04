@@ -1,8 +1,8 @@
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import useFetchData from '../../hooks/useFetchData';
 import {getDoc, doc} from 'firebase/firestore';
 import {charactersCollection} from '../../db/application/db';
-import {useNavigate} from 'react-router-dom'
+import {useState, useEffect} from 'react';
 
 import Loading from '../../features/Loading';
 
@@ -17,7 +17,16 @@ export default function Character() {
     };
   }
   const {id} = useParams();
-  const {data: character, loading} = useFetchData(() => getCharacter(id))
+  const {data: char, loading} = useFetchData(() => getCharacter(id));
+  const [character, setCharacter] = useState(null);
+
+  useEffect(() => {
+    if (!loading && char) {
+      setCharacter(char)
+    }
+  }, [loading, char])
+  
+  if(!character) return <Loading />
 
   const skillLevels = {
     "pc": "Aurek",
@@ -38,8 +47,20 @@ export default function Character() {
   const strain = []
   const wounds = []
 
+  function handleWoundsStrain(type, amount) {
+    const max = parseInt(character[`${type}Threshold`]) + 1
+    let current = parseInt(character[`${type}Current`]) + amount
+    current = Math.min(Math.max(current, 0), max);
+
+    console.log(current);
+    setCharacter(prevState => ({
+      ...prevState,
+      [`${type}Current`]: current
+    }))
+
+  }
+
   
-  if(!character) return <Loading />
   
   for(let i = 0; i < character.woundsThreshold; i++) {
     let health = character.woundsThreshold - character.woundsCurrent;
@@ -71,15 +92,23 @@ export default function Character() {
           <div className='data'>
             <p>Species: {character.species || "Unknown"}</p>
             <p>Last Known Location: {character.location || "Unknown"}</p>
-            <p>Vorzyd Contact List: {character.isContact ? "Affirmative" : "Negative"}</p>
+            <p>The Commonality Contact List: {character.isContact ? "Affirmative" : "Negative"}</p>
             <p>Skill Level: {skillLevels[character.type] || "Unknown"}</p>
             <p>Wealth: {character.credits || "Unknown"}</p>
           </div>
         </div>
       </div>
       <div className='status'>
-        <p className='strain'>{strain} {character.strainThreshold - character.strainCurrent || ""}|{character.strainThreshold}</p>
-        <p className='wounds'>{wounds} {character.woundsThreshold - character.woundsCurrent || ""}|{character.woundsThreshold}</p>
+        <p className='strain'>
+          <i className='fas fa-minus' onClick={() => handleWoundsStrain('strain', 1)}></i>
+          {strain}
+          <i className='fas fa-plus' onClick={() => handleWoundsStrain('strain', -1)}></i>
+        </p>
+        <p className='wounds'>
+        <i className='fas fa-minus' onClick={() => handleWoundsStrain('wounds', 1)}></i>
+          {wounds}
+          <i className='fas fa-plus' onClick={() => handleWoundsStrain('wounds', -1)}></i>
+        </p>
       </div>
       <div className='associates'>
         <h3>Known Associates</h3>

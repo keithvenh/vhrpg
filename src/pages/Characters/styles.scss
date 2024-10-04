@@ -123,6 +123,9 @@ h1.section-title {
       margin-top: 4px;
       font-size: 0.8em;
       display: flex;
+      .fa-minus, .fa-plus {
+        cursor: pointer;
+      }
       i {
         margin-right: 1px;
       }
@@ -176,5 +179,9 @@ h1.section-title {
         color: $teal;
       }
     }
+  }
+
+  .background {
+    width: 100%;
   }
 }

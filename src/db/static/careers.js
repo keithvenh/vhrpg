@@ -885,21 +885,6 @@ export const careers = {
       }
     ]
   },
-  "b51f608c41e255912de3": {
-    "id": "b51f608c41e255912de3",
-    "name": "Universal",
-    "book": {
-      "id": "dc937241c320a10d7eca",
-      "title": "Edge of the Empire",
-      "subtitle": "Core Rulebook"
-    },
-    "skills": [
-
-    ],
-    "specializations": [
-
-    ]
-  },
   "972799b36d2dcd0400d3": {
     "id": "972799b36d2dcd0400d3",
     "name": "Consular",
@@ -1256,21 +1241,6 @@ export const careers = {
         "id": "71939f24ade3dfe15b9f",
         "name": "Steel Hand Adept"
       }
-    ]
-  },
-  "c42e29f8b8420d34e93f": {
-    "id": "c42e29f8b8420d34e93f",
-    "name": "Universal",
-    "book": {
-      "id": "ac5ae1d860cf20c4c497",
-      "title": "Force and Destiny",
-      "subtitle": "Core Rulebook"
-    },
-    "skills": [
-
-    ],
-    "specializations": [
-
     ]
   }
 }

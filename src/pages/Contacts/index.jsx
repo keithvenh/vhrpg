@@ -13,7 +13,7 @@ export default function Contacts() {
 
   return (
     <section className='Contacts'>
-      <h1>Vorzyd Industries Contact List</h1>
+      <h1>The Commonality Contact List</h1>
       <div className='contacts-list'>
         <AlphabetizeWithLink data={contacts} sortField='displayName' linkPrefix='/characters/' linkField='id' />
       </div>

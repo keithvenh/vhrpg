@@ -344,7 +344,7 @@
   - descriptionShort: String[markdown]
   - descriptionLong: String[markdown]
 
-[forcePowers Colection][Static][Offline]
+[x][forcePowers Colection][Static][Offline]
   - id: String
   - name: String
   - book: Map
