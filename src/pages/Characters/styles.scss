@@ -181,7 +181,20 @@ h1.section-title {
     }
   }
 
-  .background {
+  .Background, .Species {
     width: 100%;
+  }
+
+  .Obligation, .Motivation {
+    width: 100%;
+    .obligations, .motivations {
+      display: flex;
+      flex-direction: column;
+      .obligation, .motivation {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+    }
   }
 }

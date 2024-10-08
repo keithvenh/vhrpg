@@ -17,13 +17,14 @@ export default function FormSelect(props) {
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                 >
-                    {props.options.map((option) => (
+                    {props.children}
+                    
+                    {props.options?.map((option) => (
                         <option key={option.value} value={option.value}>
                             {option.display}
                         </option>
                     ))}
 
-                    {props.children}
                 </select>
             </div>
         </div>

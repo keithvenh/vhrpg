@@ -10,17 +10,48 @@ import Motivations from "./forms/Motivations";
 import Equipment from "./forms/Equipment";
 import Weapons from "./forms/Weapons";
 import Appearance from "./forms/Appearance";
+import Other from './forms/Other';
+import Loading from '../../features/Loading';
 
-import {useLocation} from 'react-router-dom';
-import {useState} from 'react';
-import { updateCharacter } from "../../services/characters";
+import {useParams} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import { fetchCharacter, updateCharacter } from "../../services/characters";
 
 export default function CharacterForm() {
+  const {id} = useParams();
 
-  const location = useLocation();
-  const {character} = location.state;
-  const [characterForm, setCharacterForm] = useState(character)
+  const [characterForm, setCharacterForm] = useState()
+  const [loading, setLoading] = useState(true)
 
+  function handleFormChanges(changes) {
+    setCharacterForm((prevState) => ({
+      ...prevState,
+      ...changes
+    }))
+  }
+
+  async function handleFormSubmit() {
+    console.log("Submitting Form");
+    try {
+      await updateCharacter(id, characterForm);
+    }
+    catch(error) {"Error Updating Character:", error}
+  }
+
+  useEffect(() => {
+    const loadCharacter = async () => {
+      try {
+        const character = await fetchCharacter(id);
+        if(character) {setCharacterForm(character)}
+      } catch (error) {
+        console.error("Error fetching Character:", error)
+      } finally {setLoading(false)}
+    }
+
+    loadCharacter();
+  }, [id])
+
+  
   const sections = {
     background: <Background character={characterForm} handler={handleFormChanges} />,
     obligation: <Obligation character={characterForm} handler={handleFormChanges} />,
@@ -33,26 +64,16 @@ export default function CharacterForm() {
     motivations: <Motivations character={characterForm} handler={handleFormChanges} />,
     equipment: <Equipment character={characterForm} handler={handleFormChanges} />,
     weapons: <Weapons character={characterForm} handler={handleFormChanges} />,
-    appearance: <Appearance character={characterForm} handler={handleFormChanges} />
+    appearance: <Appearance character={characterForm} handler={handleFormChanges} />,
+    other: <Other character={characterForm} handler={handleFormChanges} />
   }
   const [currentSection, setCurrentSection] = useState('background')
   
   function updateSection(section) {
     setCurrentSection(section)
   }
-
-  function handleFormChanges(event) {
-    setCharacterForm((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value
-    }))
-  }
-
-  async function handleFormSubmit() {
-    console.log("Submitting Form");
-    try {await updateCharacter(character.id, characterForm)}
-    catch(error) {"Error Updating Character:", error}
-  }
+  
+  if(loading) return <Loading />
 
   return (
     <div className='CharacterForm'>
@@ -70,6 +91,7 @@ export default function CharacterForm() {
         <a onClick={() => updateSection('equipment')} className={`active-${currentSection == 'equipment'}`}>Equipment</a>
         <a onClick={() => updateSection('weapons')} className={`active-${currentSection == 'weapons'}`}>Weapons</a>
         <a onClick={() => updateSection('appearance')} className={`active-${currentSection == 'appearance'}`}>Appearance</a>
+        <a onClick={() => updateSection('other')} className={`active-${currentSection == 'other'}`}>Other</a>
       </div>
       {sections[currentSection]}
     </div>

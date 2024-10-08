@@ -14,25 +14,28 @@
     - vehicleOrder: Array [String[vehicle.id]]
 
 [Characters Collection]
-  - name: String
-  - type: String[pc, nemesis, rival, minion]
-  - displayName: String
-  - background: String[markdown]
-  - obligation: Array
+  x- name: String
+  x- nickname: String
+  x- type: String[pc, nemesis, rival, minion]
+  x- displayName: String
+  x- background: String[markdown]
+  x- obligation: Array
     - Array: Map
       - value: Number
       - type: String[obligation.name]
       - faction: String[faction.name]
       - description: String[markdown]
       - status: String[held, triggered, elevated, overdue]
-  - species: Map
+  x- species: Map
     - name: String[species.name]
     - id: String[species.id]
-  - career: Map
+  x- career: Map
     - name: String[careers.name]
     - skills: Array[careers.skills]
-    - specialization: String[specializations.id]
-  - specializations: Array
+    - specialization: Map
+      - id: String[specializations.id]
+      - name: String[specializations.name]
+  x- specializations: Array
     - Array: Map
       - name: String[specialization.name]
       - id: String[specialization.id]
@@ -47,58 +50,55 @@
       - activationType: String[incidental, maneuver, action]
       - isForceOnly: boolean
       - isRanked: boolean
-  - characteristics: Map
-    - Brawn: Number
-    - Agility: Number
-    - Intellect: Number
-    - Cunning: Number
-    - Willpower: Number
-    - Presence: Number
-  - skills: Array
-    - Array: Map
-      - id: String[skill.id]
-      - name: String[skill.name]
-      - rank: Number
-      - characteristic: String[brawn, agility, intellect, cunning, willpower, presence]
-      - description: String[skill.description]
-  - attributes: Map
-    - woundsThreshold: Number
-    - woundsCurrent: Number
-    - strainThreshold: Number
-    - strainCurrent: Number
-    - defense: Map
-      - ranged: Number
-      - Melee: Number
-    - soak: Number
-  - motivations: Array
+  x- Brawn: Number
+  x- Agility: Number
+  x- Intellect: Number
+  x- Cunning: Number
+  x- Willpower: Number
+  x- Presence: Number
+  x- skills: Map[name.toLowerCase]
+    - id: String[skill.id]
+    - name: String[skill.name]
+    - rank: Number
+    - characteristic: String[brawn, agility, intellect, cunning, willpower, presence]
+    - description: String[skill.description]
+    - isCareer: boolean
+  x- woundsThreshold: Number
+  x- woundsCurrent: Number
+  x- strainThreshold: Number
+  x- strainCurrent: Number
+  x- defenseMelee: Number
+  x- defenseRanged: Number
+  x- soak: Number
+  x- encumbrance: Number
+  x- motivations: Array
     - Array: Map
       - category: String[motivation.category]
       - type: String[motivation.type]
       - description: String[markdown]
       - faction: String[faction.name]
-  - appearance: Map
-    - imageURL: String[url]
-    - description: String[markdown]
+  x- imageURL: String[url]
+  x- appearance: String[markdown]
   - gear: Array
     - Array: Map
       - id: [gear.id]
       - ...details...
-  - credits: Map
+  x- credits: Map
     - balance: Number
     - transactions: Array
       - Array: Map
         - type: String[income, expense]
         - amount: Number
         - description: String
-  - experience: Map
+  x- experience: Map
     - balance: Number
     - transactions: Array
       - Array: Map
         - type: String[income, expense]
         - amount: Number
         - description: String
-  - forceRating: Number
-  - forcePowers: Array
+  x- forceRating: Number
+  x- forcePowers: Array
     - Array: Map
       - name: String[forcePower.name]
       - id: String[forcePower.id]
@@ -109,10 +109,9 @@
           - descriptionShort: String[markdown]
           - descriptionLong: String[markdown]
           - upgradeNumber: Number
-  - isContact: boolean
-  - location: String[planet.name]
-  - esteem: Number
-  - encumbrance: Number
+  x- isContact: boolean
+  x- location: String[planet.name]
+  x- esteem: Number
   - criticalInjuries: Array
     Array: Map
       - name: String[criticalInjury.name]

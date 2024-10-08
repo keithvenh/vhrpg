@@ -94,7 +94,7 @@ export default function Character() {
             <p>Last Known Location: {character.location || "Unknown"}</p>
             <p>The Commonality Contact List: {character.isContact ? "Affirmative" : "Negative"}</p>
             <p>Skill Level: {skillLevels[character.type] || "Unknown"}</p>
-            <p>Wealth: {character.credits || "Unknown"}</p>
+            <p>Wealth: {character.creditsAvailable || "Unknown"}</p>
           </div>
         </div>
       </div>
