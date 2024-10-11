@@ -1,17 +1,12 @@
 import './styles.scss';
 
-import useFetchData from "../../hooks/useFetchData";
 import { fetchOrganization } from "../../services/organizations";
 import { useParams } from 'react-router-dom';
-
-import Loading from '../../features/Loading';
 
 export default function OrganizationShowPage() {
 
   const {id} = useParams();
-  const {data: organization, loading} = useFetchData(() => fetchOrganization(id))
-
-  if(loading) return <Loading />
+  const organization = fetchOrganization(id);
 
   return (
     <section className='OrganizationShowPage'>
@@ -22,9 +17,9 @@ export default function OrganizationShowPage() {
           {organization.imageURL ? <img src={organization.imageURL} /> : <i className='fas fa-building-columns'></i>}
         </div>
         <div className='info'>
-          <h2>Name: {organization.displayName}</h2>
+          <h2>Name: {organization.name}</h2>
           <div className='data'>
-            <p>Headquarters: {
+            <p>Centrality Headquarters: {
               organization.headquarters ? 
               `
               ${organization.headquarters.planet} ::

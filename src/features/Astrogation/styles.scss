@@ -15,10 +15,15 @@
     .map-image {
       max-width: 50%;
       max-height: 100%;
+      flex: 1;
       
       img {
         max-width: 100%;
         max-height: 100%;
+      }
+
+      #THE_COMMONALITY {
+        width: 100%;
       }
     }
     .astrogation-check {
@@ -97,4 +102,105 @@
       padding: 2px 4px 4px 4px;
     }
   }
+}
+
+// SVG MAP STYLES //
+
+#Background {
+  fill: $black;
+}
+
+#Sectors {
+  path {
+    fill: grey;
+    opacity: 0.25;
+    stroke: white;
+  }
+}
+
+#Regions {
+  stroke: $white;
+  opacity: 0.1;
+  #Outer_Rim {
+    fill: none;
+  }
+  #Mid_Rim {
+    fill: $black;
+  }
+}
+
+#Controlled_Regions {
+  #Tion_Cluster {
+    fill: $eoteMaroon;
+    opacity: 0.5;
+  }
+  #The_Commonality {
+    fill: $eoteGreen;
+    opacity: 0.5;
+  }
+}
+
+#Hexes {
+  fill: none;
+  stroke: $green;
+  opacity: 0.25;
+  stroke-width: 2px;
+}
+
+#Grid_Lines line {
+  fill: none;
+  stroke: $green;
+  opacity: 0.25;
+  stroke-width: 4px;
+}
+
+#Hyperlanes {
+  path {
+    fill: none;
+  }
+  #Major path {
+    stroke: $teal;
+    stroke-width: 16px;
+  }
+  #Standard path {
+    stroke: $teal;
+    stroke-width: 10px;
+  }
+  #Minor path {
+    stroke: $teal;
+    stroke-width: 8px;
+  }
+}
+
+#Planet_Nodes circle {
+  r: 15px;
+  fill: $orange;
+}
+
+#Link_Nodes rect {
+  fill: $yellow;
+  height: 20px;
+  width: 20px;
+}
+
+#Grid_Labels path {
+  fill: $white;
+  opacity: 0.25;
+}
+
+#Sector_Labels path {
+  fill: $white;
+  opacity: 0.5;
+}
+
+#Hyperlane_Labels path {
+  fill: $teal;
+}
+
+#Planet_Labels {
+  fill: $orange;
+}
+
+#Link_Labels {
+  fill: $yellow;
 }

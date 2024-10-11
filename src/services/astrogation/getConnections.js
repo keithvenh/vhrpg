@@ -1,4 +1,4 @@
-import {vorzydSectorPlanetConnections as connectionData} from '../../db/vorzydSectorPlanetConnections';
+import {astroNav as connectionData} from '../../db/static/astroNav';
 import {calculateTrip} from './calculateTrip';
 
 export function getConnections(planet) {

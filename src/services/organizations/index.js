@@ -1,33 +1,26 @@
-import { organizationsCollection } from "../../db/application/db"
-import { getDocs, query, orderBy, getDoc, doc } from 'firebase/firestore';
+import { factions } from "../../db/static/factions"
 
 // === CREATE === //
 export async function createOrganization() {
-  return false
+  return false;
 }
 
 // === READ === //
-export async function fetchAllOrganizations() {
-  const q = query(organizationsCollection, orderBy('displayName'));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({
-    ...doc.data(),
-    id: doc.id
-  }));
+export function fetchAllOrganizations() {
+  const allOrganizations = Object.entries(factions).map(([id, data]) => ({ id, ...data }));
+  return allOrganizations;
 }
 
-export async function fetchOrganization(id) {
-  const organization = await getDoc(doc(organizationsCollection, id));
-  if(organization) {return {...organization.data(), id: organization.id}}
-  else {return console.log("There was an error fetching your organization")}
+export function fetchOrganization(id) {
+  return factions[id];
 }
 
 // === UPDATE === //
 export async function updateOrganization(id, data) {
-  return false
+  return false;
 }
 
 // === DESTROY === //
 export async function deleteOrganization(id) {
-  return false
+  return false;
 }

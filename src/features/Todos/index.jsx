@@ -45,9 +45,6 @@ export default function Todos() {
         <TaskList
           title='Database Design'
           tasks={[
-            "Does contacts need to be different than characters",
-            "Include isContact? and other contact information on relevant characters",
-            "Contact should be a map field on Character",
             "Create a news model",
             "Seed database with basic data",
             "Remove Contacts data model",
@@ -60,6 +57,9 @@ export default function Todos() {
             "Add FetchPCs method"
           ]}
           complete={[
+            "Does contacts need to be different than characters",
+            "Include isContact? and other contact information on relevant characters",
+            "Contact should be a map field on Character",
             "Add Characters Data Model",
             "Add Planets Data Model",
             "Add Organizations Data Model",

@@ -3,6 +3,7 @@ import useFetchData from '../../hooks/useFetchData';
 import {getDoc, doc} from 'firebase/firestore';
 import {charactersCollection} from '../../db/application/db';
 import {useState, useEffect} from 'react';
+import SkillTrack from './SkillTrack';
 
 import Loading from '../../features/Loading';
 
@@ -60,6 +61,9 @@ export default function Character() {
 
   }
 
+  const circleCheck = <i className='fas fa-circle-check'></i>
+  const circle = <i className='fa-regular fa-circle'></i>
+
   
   
   for(let i = 0; i < character.woundsThreshold; i++) {
@@ -93,8 +97,64 @@ export default function Character() {
             <p>Species: {character.species || "Unknown"}</p>
             <p>Last Known Location: {character.location || "Unknown"}</p>
             <p>The Commonality Contact List: {character.isContact ? "Affirmative" : "Negative"}</p>
-            <p>Skill Level: {skillLevels[character.type] || "Unknown"}</p>
-            <p>Wealth: {character.creditsAvailable || "Unknown"}</p>
+            <p>Career: {character.career?.name || 'Unknown'}</p>
+            <p> Specializations: {character.specializations?.map(spec => spec.name).sort((a,b) => a.localeCompare(b)).join(", ")}</p>
+          </div>
+        </div>
+        <div className='attributes'>
+          <div className='attribute soak'>
+            <p className='label'>Soak</p>
+            <p className='value'>{character.soak}</p>
+            <p className='sublabel current'>Current</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Wounds</p>
+            <p className='value threshold'>{character.woundsThreshold}</p>
+            <p className='value'>{character.woundsCurrent}</p>
+            <p className='sublabel threshold'>Threshold</p>
+            <p className='sublabel current'>Current</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Strain</p>
+            <p className='value'>{character.strainThreshold}</p>
+            <p className='value'>{character.strainCurrent}</p>
+            <p className='sublabel threshold'>Threshold</p>
+            <p className='sublabel current'>Current</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Defense</p>
+            <p className='value'>{character.defenseRanged || '-'}</p>
+            <p className='value'>{character.defenseMelee || '-'}</p>
+            <p className='sublabel threshold'>Ranged</p>
+            <p className='sublabel current'>Melee</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Force</p>
+            <p className='value threshold'>{character.forceRating}</p>
+            <p className='value'>{character.forceCommitted}</p>
+            <p className='sublabel threshold'>Rating</p>
+            <p className='sublabel current'>Committed</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Encumbrance</p>
+            <p className='value'>{character.encumbranceThreshold || '-'}</p>
+            <p className='value'>{character.encumbranceCurrent || '-'}</p>
+            <p className='sublabel threshold'>Threshold</p>
+            <p className='sublabel current'>Current</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Experience</p>
+            <p className='value threshold'>{character.xpAvailable}</p>
+            <p className='value current'>{character.xpSpent}</p>
+            <p className='sublabel threshold'>Available</p>
+            <p className='sublabel current'>Spent</p>
+          </div>
+          <div className='attribute'>
+            <p className='label'>Credits</p>
+            <p className='value threshold'>{character.creditsAvailable}</p>
+            <p className='value current'>{character.creditsSpent}</p>
+            <p className='sublabel threshold'>Available</p>
+            <p className='sublabel current'>Spent</p>
           </div>
         </div>
       </div>
@@ -110,10 +170,93 @@ export default function Character() {
           <i className='fas fa-plus' onClick={() => handleWoundsStrain('wounds', -1)}></i>
         </p>
       </div>
-      <div className='associates'>
+      <div className='skills'>
+        <h2>Skills</h2>
+        <div className='characteristics'>
+          <div className='characteristic'>
+            <p className='value'>{character.brawn}</p>
+            <p className='label'>Brawn</p>
+          </div>
+          <div className='characteristic'>
+            <p className='value'>{character.agility}</p>
+            <p className='label'>Agility</p>
+          </div>
+          <div className='characteristic'>
+            <p className='value'>{character.intellect}</p>
+            <p className='label'>Intellect</p>
+          </div>
+          <div className='characteristic'>
+            <p className='value'>{character.cunning}</p>
+            <p className='label'>Cunning</p>
+          </div>
+          <div className='characteristic'>
+            <p className='value'>{character.willpower}</p>
+            <p className='label'>Willpower</p>
+          </div>
+          <div className='characteristic'>
+            <p className='value'>{character.presence}</p>
+            <p className='label'>Presence</p>
+          </div>
+        </div>
+        <div className='category'>
+          <h3>General Skills</h3>
+          <div>
+            {Object.entries(character.skills)
+            .filter(([key,skill]) => skill.category === 'general')
+            .sort(([a],[b]) => a.localeCompare(b))
+            .map(([key, skill]) => (
+              <div className='skill'>
+                <div>
+                  {skill.isCareer ? circleCheck : circle}
+                  {skill.name}
+                </div>
+                <SkillTrack rank={parseInt(skill.rank)} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className='category'>
+            <h3>Combat Skills</h3>
+            <div>
+              {Object.entries(character.skills)
+              .filter(([key,skill]) => skill.category === 'combat')
+              .sort(([a],[b]) => a.localeCompare(b))
+              .map(([key, skill]) => (
+                <div className='skill'>
+                  <div>
+                    {skill.isCareer ? circleCheck : circle}
+                    {skill.name}
+                  </div>
+                  <SkillTrack rank={parseInt(skill.rank)} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className='category'>
+            <h3>Knowledge Skills</h3>
+            <div>
+              {Object.entries(character.skills)
+              .filter(([key,skill]) => skill.category === 'knowledge')
+              .sort(([a],[b]) => a.localeCompare(b))
+              .map(([key, skill]) => (
+                <div className='skill'>
+                  <div>
+                    {skill.isCareer ? circleCheck : circle}
+                    {skill.name}
+                  </div>
+                  <SkillTrack rank={parseInt(skill.rank)} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className='talents'>
+          <h2>Talents</h2>
+        </div>
+      </div>
         <h3>Known Associates</h3>
         <p>{emptyBox(0)} {character.knownAssociates || "None Known"}</p>
-      </div>
     </section>
   )
 }

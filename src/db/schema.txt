@@ -157,12 +157,12 @@
   - specialAbilities: Array[String[markdown]]
 
 [Organizations Collection][Static]
-  - name: String
+  x- name: String
   - imageURL: String
   - headquarters: Map
     - name: [planet.name]
     - id: [planet.id]
-  - description: String[markdown]
+  x- description: String[markdown]
   - knownMembers: Array
     - Array: Map
       - name: String[character.name]

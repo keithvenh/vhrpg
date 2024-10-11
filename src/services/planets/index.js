@@ -1,32 +1,26 @@
-import { planetsCollection } from "../../db/application/db"
-import { getDocs, query, orderBy, getDoc, doc } from 'firebase/firestore';
+import { planets } from "../../db/static/planets"
+
 // === CREATE === //
 export async function createPlanet() {
-  return false
+  return false;
 }
 
 // === READ === //
-export async function fetchAllPlanets() {
-  const q = query(planetsCollection, orderBy('displayName'));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({
-    ...doc.data(),
-    id: doc.id
-  }));
+export function fetchAllPlanets() {
+  const allPlanets = Object.entries(planets).map(([id, data]) => ({ id, ...data }));
+  return allPlanets;
 }
 
-export async function fetchPlanet(id) {
-  const planet = await getDoc(doc(planetsCollection, id));
-  if(planet) {return {...planet.data(), id: planet.id}}
-  else {return console.log("There was an error fetching your planet")}
+export function fetchPlanet(id) {
+  return planets[id];
 }
 
 // === UPDATE === //
 export async function updatePlanet(id, data) {
-  return false
+  return false;
 }
 
 // === DESTROY === //
 export async function deletePlanet(id) {
-  return false
+  return false;
 }

@@ -134,6 +134,149 @@ h1.section-title {
       color: $green;
     }
   }
+
+  .attributes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    .attribute {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $white;
+      border: 6px double $black;
+      align-self: start;
+      width: 20%;
+      margin: 0 12px;
+      
+      &.soak {
+        .value, .sublabel {
+          flex: 0 0 100%;
+        }
+      }
+      
+      p {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8em;
+      }
+      .label {
+        width: 100%;
+        text-align: center;
+        background-color: $eoteNavy;
+        padding: 3px;
+        box-sizing: border-box;
+      }
+      .value {
+        flex: 1 1 50%;
+        color: $black;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 38px;
+        text-align: center;
+        box-sizing: border-box;
+        &.threshold {
+          border-right: 1px solid $black;
+        }
+      }
+      .sublabel {
+        flex: 1 1 50%;
+        text-align: center;
+        padding: 3px;
+        box-sizing: border-box;
+        &.current {
+          background-color: $eoteTeal;
+          color: $black;
+        }
+        &.threshold {
+          background-color: $eoteMaroon;
+        }
+      }
+    }
+  }
+  
+  .characteristics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .characteristic {
+      border: none;
+      width: auto;
+      background-color: $eoteOlive;
+      .value {
+        border-radius: 100%;
+        background-color: $whiteFaded;
+        color: $black;
+        height: 40px;
+        width: 40px;
+        font-size: 28px;
+        line-height: 38px;
+        text-align: center;
+        border: 6px double $black;
+        margin: 4px 0;
+      }
+      .label {
+        background-color: $eoteMaroon;
+        color: $white;
+        font-size: 12px;
+        letter-spacing: 2px;
+        padding: 3px;
+        text-align: center;
+      }
+    }
+  }
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    h2 {
+      width: 100%;
+    }
+    
+    .category {
+      margin: 0 24px;
+      h3 {
+        margin-left: 6px;
+        margin-top: 12px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+    }
+    
+    .skill {
+      display: flex;
+      justify-content: space-between;
+      line-height: 1.2em;
+      font-size: 0.8em;
+      align-items: center;
+      border-bottom: 1px dotted $whiteFaded;
+      border-right: 1px solid $whiteFaded;
+      border-left: 1px solid $whiteFaded;
+      padding: 4px 6px;
+      div {
+        margin-right: 12px;
+      }
+      &:first-child {
+        border-top: 1px solid $whiteFaded;
+      }
+      &:last-child {
+        border-bottom: 1px solid $whiteFaded;
+      }
+      .fas, .fa-regular {
+        opacity: 0.65;
+        margin-right: 6px;
+      }
+      .fa-circle-check {
+        color: $green;
+      }
+      .fa-circle {
+        color: $white;
+      }
+      
+    }
+  }
   .associates {
     h3 {
       text-decoration: underline;
@@ -196,5 +339,31 @@ h1.section-title {
       }
       
     }
+  }
+}
+
+// SKILL TRACK
+.SkillTrack {
+  height: 10px;
+  .skill {
+    opacity: 0.2;
+    &.true {
+      opacity: 0.65;
+    }
+  }
+  .Skill_1 {
+    fill: $yellow;
+  }
+  .Skill_2 {
+    fill: $green;
+  }
+  .Skill_3 {
+    fill: $eoteGreen;
+  }
+  .Skill_4 {
+    fill: $blue;
+  }
+  .Skill_5 {
+    fill: $teal;
   }
 }

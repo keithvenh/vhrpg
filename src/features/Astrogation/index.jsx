@@ -2,23 +2,30 @@ import './styles.scss';
 
 import {useState} from 'react';
 
-import {vorzydSectorPlanets} from '../../db/vorzydSectorPlanetList';
+import { fetchAllPlanets } from '../../services/planets';
+
+import { ReactComponent as MapSVG } from '../../app/assets/images/TheCommonalityMap.svg'
 
 import getRoutes from '../../services/astrogation/getRoutes';
 
 import RouteTable from './RouteTable';
 
 export default function Astrogation() {
-
+  const planets = fetchAllPlanets();
   const [fromPlanet, setFromPlanet] = useState();
   const [toPlanet, setToPlanet] = useState();
   const [routes, setRoutes] = useState()
+  const [style, setStyle] = useState({});
 
-  const mapImage = require('../../app/assets/images/Sw-Grid-R6-Map-Transparent.png')
+  const mapImage = require('../../app/assets/images/TheCommonalityMap.svg')
 
   function handleChange(e) {
     if(e.target.name == 'fromPlanet'){
       setFromPlanet(e.target.value);
+      const planetNode = document.getElementById(e.target.value)
+      console.log(planetNode);
+      planetNode.style.fill = "white";
+      planetNode.style.r = "32px";
     }
     if(e.target.name == 'toPlanet') {
       setToPlanet(e.target.value);
@@ -44,7 +51,7 @@ export default function Astrogation() {
       <h1>Astrogation</h1>
       <div className='astrogation-content'>
         <div className='map-image'>
-          <img src={mapImage} />
+          <MapSVG style={{style}}/>
         </div>
         <div className='astrogation-check'>
           <div className='astrogation-form'>
@@ -53,7 +60,7 @@ export default function Astrogation() {
                 <option value=''>
                   SELECT ONE
                 </option>
-              {vorzydSectorPlanets.map((option, index) => (
+              {planets.map((option, index) => (
                 <option key={index} value={option.name}>
                   {option.name}
                 </option>
@@ -64,7 +71,7 @@ export default function Astrogation() {
                 <option value=''>
                   SELECT ONE
                 </option>
-              {vorzydSectorPlanets.map((option, index) => (
+              {planets.map((option, index) => (
                 <option key={index} value={option.name}>
                   {option.name}
                 </option>
