@@ -3,6 +3,7 @@ import useFetchData from '../../hooks/useFetchData';
 import {fetchCharacters} from '../../services/characters/fetchCharacters';
 import { useContext } from 'react';
 import {UserContext} from '../../app/contexts/userContext';
+import CharacterHud from './CharacterHud';
 
 import PCBox from './PCBox';
 import Loading from '../../features/Loading';
@@ -19,7 +20,7 @@ export default function PCBar({chars}) {
 
   return (
     <div className='pc-bar'>
-      {pcs.map(char => <PCBox key={char.id} pc={char} />)}
+      {pcs.map(char => <div key={char.id} className='character-hud'><a href={`/characters/${char.id}`}><CharacterHud character={char} /></a></div>)}
     </div>
   )
 }

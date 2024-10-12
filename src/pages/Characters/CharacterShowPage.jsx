@@ -4,7 +4,7 @@ import {getDoc, doc} from 'firebase/firestore';
 import {charactersCollection} from '../../db/application/db';
 import {useState, useEffect} from 'react';
 import SkillTrack from './SkillTrack';
-import {ReactComponent as CharacterHud} from '../../app/assets/images/characterhud.svg';
+import CharacterHud from './CharacterHud';
 
 import Loading from '../../features/Loading';
 
@@ -258,7 +258,7 @@ export default function Character() {
       </div>
         <h3>Known Associates</h3>
         <p>{emptyBox(0)} {character.knownAssociates || "None Known"}</p>
-        <CharacterHud />
+        <CharacterHud character={character} />
     </section>
   )
 }
