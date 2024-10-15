@@ -99,7 +99,12 @@ export default function Character() {
             <p>Last Known Location: {character.location || "Unknown"}</p>
             <p>The Commonality Contact List: {character.isContact ? "Affirmative" : "Negative"}</p>
             <p>Career: {character.career?.name || 'Unknown'}</p>
-            <p> Specializations: {character.specializations?.map(spec => spec.name).sort((a,b) => a.localeCompare(b)).join(", ")}</p>
+            <p> Specializations: {character.specializations?.map(spec => {
+              return (<a href={`/characters/${character.id}/specializations/${spec.id}`}>{spec.name}</a>)
+            })}</p>
+            <p> Force Powers: {character.forcePowers?.map(fp => {
+              return (<a href={`/characters/${character.id}/force_powers/${fp.id}`}>{fp.name}</a>)
+            })}</p>
           </div>
         </div>
         <div className='attributes'>
@@ -158,18 +163,6 @@ export default function Character() {
             <p className='sublabel current'>Spent</p>
           </div>
         </div>
-      </div>
-      <div className='status'>
-        <p className='strain'>
-          <i className='fas fa-minus' onClick={() => handleWoundsStrain('strain', 1)}></i>
-          {strain}
-          <i className='fas fa-plus' onClick={() => handleWoundsStrain('strain', -1)}></i>
-        </p>
-        <p className='wounds'>
-        <i className='fas fa-minus' onClick={() => handleWoundsStrain('wounds', 1)}></i>
-          {wounds}
-          <i className='fas fa-plus' onClick={() => handleWoundsStrain('wounds', -1)}></i>
-        </p>
       </div>
       <div className='skills'>
         <h2>Skills</h2>
@@ -258,7 +251,6 @@ export default function Character() {
       </div>
         <h3>Known Associates</h3>
         <p>{emptyBox(0)} {character.knownAssociates || "None Known"}</p>
-        <CharacterHud character={character} />
     </section>
   )
 }

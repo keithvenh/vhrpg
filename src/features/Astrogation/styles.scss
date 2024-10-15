@@ -115,6 +115,9 @@
     fill: grey;
     opacity: 0.25;
     stroke: white;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
 
@@ -125,7 +128,7 @@
     fill: none;
   }
   #Mid_Rim {
-    fill: $black;
+    fill: none;
   }
 }
 
@@ -157,18 +160,28 @@
 #Hyperlanes {
   path {
     fill: none;
+    cursor: pointer;
   }
   #Major path {
     stroke: $teal;
     stroke-width: 16px;
+    &:hover {
+      stroke: $red;
+    }
   }
   #Standard path {
     stroke: $teal;
     stroke-width: 10px;
+    &:hover {
+      stroke: $red;
+    }
   }
   #Minor path {
     stroke: $teal;
     stroke-width: 8px;
+    &:hover {
+      stroke: $red;
+    }
   }
 }
 

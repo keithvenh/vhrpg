@@ -12,6 +12,20 @@
         display: flex;
         color: $black;
         justify-content: space-between;
+        .submit-button {
+            background-color: $eoteGreen;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px;
+            margin: 3px 0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: $white;
+            &:hover {
+                background-color: $green;
+            }
+        }
         .specialization-data {
             padding-right: 12px;
             h1 {
@@ -79,6 +93,9 @@
                 border: 6px double $eoteMaroon;
                 background-color: $white;
                 padding: 3px;
+                &.purchased-false {
+                    opacity: 0.65;
+                }
                 .fa-burst {
                     color: $eoteMaroon;
                     position: absolute;
@@ -100,8 +117,16 @@
                         flex-grow: 1;
                         margin-left: 6px;
                     }
-                    i {
+                    i, input {
                         flex-shrink: 1;
+                        font-size: 30px;
+                    }
+                    .purchased-checkbox {
+                        border: none;
+                        outline: none;
+                        margin: 0;
+                        padding: 0;
+                        align-self: flex-start;
                     }
                 }
                 .talent-description {

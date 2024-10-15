@@ -1,5 +1,5 @@
 import { vehiclesCollection } from "../../db/application/db"
-import { getDocs, query, orderBy, getDoc, doc } from 'firebase/firestore';
+import { getDocs, query, orderBy, getDoc, doc, updateDoc } from 'firebase/firestore';
 
 // === CREATE === //
 export async function createVehicle() {
@@ -24,7 +24,11 @@ export async function fetchVehicle(id) {
 
 // === UPDATE === //
 export async function updateVehicle(id, data) {
-  return false
+  try {
+    await updateDoc(doc(vehiclesCollection, id), data);
+    console.log("Vehicle Updated Successfully")
+  }
+  catch(error) {console.log("There was an error updating the character", error)}
 }
 
 // === DESTROY === //

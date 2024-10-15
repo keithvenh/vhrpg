@@ -13,6 +13,20 @@
     color: $black;
     justify-content: space-between;
     align-items: center;
+    .submit-button {
+      background-color: $eoteGreen;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px;
+      margin: 3px 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: $white;
+      &:hover {
+          background-color: $green;
+      }
+  }
     .force-power-data {
       h1 {
         font-size: 1.5em;
@@ -74,6 +88,9 @@
           box-sizing: border-box;
           position: relative;
           background-color: $eoteWhiteGreen;
+          &.purchased-false {
+            opacity: 0.65;
+          }
           .upgrade-name {
             background-color: $eoteGreen;
             padding: 4px;
@@ -89,6 +106,13 @@
             }
             i {
               flex-shrink: 1;
+            }
+            input {
+              border: none;
+              outline: none;
+              margin: 0;
+              padding: 0;
+              align-self: flex-start;
             }
           }
           .upgrade-description {

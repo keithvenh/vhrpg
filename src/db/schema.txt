@@ -226,23 +226,23 @@
       - isActive: boolean
 
 [Vehicles Collection]
-  - name: String
-  - id: String
-  - description: String[markdown]
-  - designation: String[vehicle, starship]
-  - imageURL: String
-  - model: String
-  - type: String
-  - manufacturer: Array[String]
-  - hyperdrive: Map
-    - primary: Number
-    - backup: Number
-  - sensorRange: String
+  x- name: String
+  x- id: String
+  x- description: String[markdown]
+  x- designation: String[vehicle, starship]
+  x- imageURL: String
+  x- model: String
+  x- type: String
+  x- manufacturer: Array[String]
+  x- hyperdrivePrimary: Number
+  x- hyperdriveBackup: Number
+  x- sensorRange: String
   - navicomputer: boolean
   - cost: Number
   - rarity: Number
   - restricted: boolean
-  - hardPoints: Number
+  x- hardPoints: Number
+  x- hardPointsUsed: Number
   - complement: Map
     - total: Number
     - roles: Array
@@ -250,23 +250,23 @@
         - count: Number
         - role: String
   - passengers: Number
-  - fuelCapacity: Number
   - consumables: Number
-  - silhouette: Number
-  - speed: Number
-  - handling: Number
-  - defense: Map
-    - fore: Number
-    - port: Number
-    - starboard: Number
-    - aft: Number
-  - armor: Number
-  - hullTraumaThreshold: Number
-  - systemStrainThreshold: Number
+  x- silhouette: Number
+  x- speedThreshold: Number
+  x- speedCurrent: Number
+  x- handling: Number
+  x- defenseFore: Number
+  x- defensePort: Number
+  x- defenseStarboard: Number
+  x- defenseAft: Number
+  x- armor: Number
+  x- hullTraumaThreshold: Number
+  x- hullTraumaCurrent: Number
+  x- systemStrainThreshold: Number
+  x- systemStrainCurrent: Number
   - weapons: Array
     - Array: Map
   - isTemplate: Boolean
-  - hullTraumaCurrent: Number
   - componentCriticals: Array
     - Array: Map
       - name: String[componentCriticals.name]
@@ -277,9 +277,6 @@
         - name: String[component.name]
         - id: String[component.id]
         - description: String[component.description]
-  - systemStrainCurrent: Number
-  - speedCurrent: Number
-  - hardPointsUsed: Number
   - attachments: Array
     - Array: Map
   

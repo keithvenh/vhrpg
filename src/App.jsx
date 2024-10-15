@@ -18,6 +18,8 @@ import Astrogation from './features/Astrogation';
 import Characters from './pages/Characters';
 import CharacterShowPage from './pages/Characters/CharacterShowPage';
 import CharacterForm from './pages/Characters/CharacterForm';
+import CharacterSpecialization from './pages/Characters/CharacterSpecialization';
+import CharacterForcePower from './pages/Characters/CharacterForcePower';
 
 import Contacts from './pages/Contacts';
 
@@ -45,6 +47,7 @@ import Todos from './features/Todos';
 
 import Vehicles from './pages/Vehicles';
 import VehicleShowPage from './pages/Vehicles/VehicleShowPage';
+import VehicleForm from './pages/Vehicles/VehicleForm';
 
 export default function App() {
 
@@ -80,11 +83,13 @@ export default function App() {
                   <Route path="/characters" element={<Characters />} />
                   <Route path="/characters/:id" element={<CharacterShowPage />} />
                   <Route path="/characters/:id/edit" element={<CharacterForm />} />
+                  <Route path="/characters/:id/specializations/:spec_id" element={<CharacterSpecialization />} />
+                  <Route path="/characters/:id/force_powers/:fp_id" element={<CharacterForcePower />} />
 
                   <Route path="/contacts" element={<Contacts />} />
 
-                  <Route path="/force-powers" element={<ForcePowers />} />
-                  <Route path="/force-powers/:id" element={<ForcePowerShowPage />} />
+                  <Route path="/force_powers" element={<ForcePowers />} />
+                  <Route path="/force_powers/:id" element={<ForcePowerShowPage />} />
 
                   <Route path="/organizations" element={<Organizations />} />
                   <Route path="/organizations/:id" element={<OrganizationShowPage />} />
@@ -107,6 +112,7 @@ export default function App() {
 
                   <Route path="/vehicles" element={<Vehicles />} />
                   <Route path='/vehicles/:id' element={<VehicleShowPage />} />
+                  <Route path='/vehicles/:id/edit' element={<VehicleForm />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
