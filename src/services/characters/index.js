@@ -8,7 +8,7 @@ export async function createCharacter() {
 
 // === READ === //
 export async function fetchAllCharacters() {
-  const q = query(planetsCollection, orderBy('displayName'));
+  const q = query(charactersCollection, orderBy('name'));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

@@ -21,7 +21,7 @@ export default function Career({character, handler}) {
       <h1>{character.name || character.displayName || "Character"} Career</h1>
       <FormSelect
         name='career'
-        value={character.career?.id}
+        value={character.career?.id || ''}
         handler={handleCareerChange}
         options={careerOptions}
       />

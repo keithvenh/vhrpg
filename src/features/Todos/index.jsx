@@ -138,18 +138,19 @@ export default function Todos() {
             title="Character"
             tasks={[
               "Add triggered obligation, duty, morality",
-              "Add Force Rating",
-              "Add Obligation",
-              "Add Skills",
               "Add Talents",
               "Add Force Powers",
               "Add Gear",
               "Add Faction Esteen",
               "Add Conflict",
               "Add Morality",
-              "Add Duty"
+              "Add Duty",
+              "Custom Page for Minions, Rivals, Nemeses, PCs"
             ]}
             complete={[
+              "Add Force Rating",
+              "Add Obligation",
+              "Add Skills",
               "Add Wounds",
               "Add Strain",
               "Add Name",

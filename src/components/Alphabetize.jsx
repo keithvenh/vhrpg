@@ -5,7 +5,7 @@ function sortData(data) {
 function segment(data, sortField) {
   let segments = {}
   data.map(d => {
-    const segment = d[sortField].charAt(0)
+    const segment = d[sortField]?.charAt(0) || d.name?.charAt(0) || d.displayName?.charAt(0)
     if(segment in segments) {
       segments[segment].push(d)
     }else(segments[segment] = [d])
@@ -27,7 +27,7 @@ export default function AlphabetizeWithLink({data, sortField, displayField, link
             <p className='segmentor sw'>{data[0]}</p>
             {data[1].map((d, index) => {
               return (
-                <p key={index} className='segment-item'><a href={`${linkPrefix}${d[linkField]}`}>{d[displayField]}</a></p>
+                <p key={index} className='segment-item'><a href={`${linkPrefix}${d[linkField]}`}>{d[displayField] || d.name || d.displayName}</a></p>
               )
             })}
           </div>

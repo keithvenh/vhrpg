@@ -14,7 +14,7 @@ export default function Species({character, handler}) {
       <FormInput
         name='species'
         type='text'
-        value={character.species}
+        value={character.species || ''}
         autoFocus={true}
         handler={handleSpeciesChange}
         label='Character Species'

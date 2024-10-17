@@ -42,7 +42,7 @@ export default function Skills({character, handler}) {
           <FormInput
             name={skill.id}
             type='number'
-            value={character.skills?.[skill.name.toLowerCase()]?.rank || ''}
+            value={character.skills?.[skill.name.toLowerCase()]?.rank || 0}
             handler={handleSkillChange}
             label={skill.name}
           />

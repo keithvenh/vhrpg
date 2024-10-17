@@ -6,9 +6,9 @@ import { fetchCareer } from '../../../services/careers';
 
 
 export default function Specializaitons({character, handler}) {
-  const career = fetchCareer(character.career.id);
+  const career = fetchCareer(character.career?.id);
   const allSpecializations = fetchAllSpecializations();
-  const [careerSpecializations, setCareerSpecializations] = useState(career.specializations)
+  const [careerSpecializations, setCareerSpecializations] = useState(career?.specializations)
   const [newSpecialization, setNewSpecialization] = useState('')
   
 
@@ -53,15 +53,16 @@ export default function Specializaitons({character, handler}) {
     <div className='Specializaitons'>
       <h1>{character.name || character.displayName || "Character"} Specializaitons</h1>
       <h2>Career Specialization</h2>
+      {character.career ? 
       <FormSelect
         name='careerSpec'
         value={character.career?.specialization?.id || ''}
         handler={handleCareerSpecChange}
         options={careerSpecializations.map(spec => ({value: spec.id, display: spec.name})).sort((a,b) => a.display.localeCompare(b.display))}
-      ><option value='' disabled>SELECT ONE</option></FormSelect>
+      ><option value='' disabled>SELECT ONE</option></FormSelect> : '' }
       <hr />
       <h2>Additional Specializations</h2>
-      {character.specializations.map((spec, index) => {
+      {character.specializations?.map((spec, index) => {
         if(index>0) {
           return (
             <FormSelect

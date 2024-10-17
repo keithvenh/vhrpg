@@ -29,7 +29,7 @@ export default function Background({character, handler}) {
       <FormInput
         name='name'
         type='text'
-        value={character.name || character.displayName}
+        value={character.name || character.displayName || ''}
         autoFocus={true}
         handler={handleBackgroundChange}
         label='Character Name'
@@ -38,10 +38,27 @@ export default function Background({character, handler}) {
       <FormInput
         name='nickname'
         type='text'
-        value={character.nickname || character.displayName}
+        value={character.nickname || character.displayName || ''}
         handler={handleBackgroundChange}
         label='Character Nickname'
       />
+
+      <FormSelect
+        name='faction'
+        value={character.faction || ''}
+        handler={handleBackgroundChange}
+      >
+        <option value='' disabled>SELECT ONE</option>
+        <option value='black'>Black Sun</option>
+        <option value='bounty'>Bounty Hunter's Guild</option>
+        <option value='brethren'>Brethren of the Voidbound</option>
+        <option value='cardas'>Car'Das Smuggling Ring</option>
+        <option value='commerce'>Commerce Guild</option>
+        <option value='empire'>Galactic Empire</option>
+        <option value='hutt'>Hutt Cartel</option>
+        <option value='neutral'>Neutral</option>
+        <option value='rebel'>Rebel Alliance</option>
+      </FormSelect>
 
       <FormTextArea
         name='background'

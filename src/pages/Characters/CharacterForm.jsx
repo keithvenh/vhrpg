@@ -11,6 +11,7 @@ import Equipment from "./forms/Equipment";
 import Weapons from "./forms/Weapons";
 import Appearance from "./forms/Appearance";
 import Other from './forms/Other';
+import Talents from './forms/Talents';
 import Loading from '../../features/Loading';
 
 import {useParams} from 'react-router-dom';
@@ -65,6 +66,7 @@ export default function CharacterForm() {
     equipment: <Equipment character={characterForm} handler={handleFormChanges} />,
     weapons: <Weapons character={characterForm} handler={handleFormChanges} />,
     appearance: <Appearance character={characterForm} handler={handleFormChanges} />,
+    talents: <Talents character={characterForm} handler={handleFormChanges} />,
     other: <Other character={characterForm} handler={handleFormChanges} />
   }
   const [currentSection, setCurrentSection] = useState('background')
@@ -83,6 +85,7 @@ export default function CharacterForm() {
         <a onClick={() => updateSection('obligation')} className={`active-${currentSection == 'obligation'}`}>Obligation</a>
         <a onClick={() => updateSection('species')} className={`active-${currentSection == 'species'}`}>Species</a>
         <a onClick={() => updateSection('career')} className={`active-${currentSection == 'career'}`}>Career and Specializations</a>
+        <a onClick={() => updateSection('talents')} className={`active-${currentSection == 'talents'}`}>Talents and Abilities</a>
         <a onClick={() => updateSection('forcePowers')} className={`active-${currentSection == 'forcePowers'}`}>Force Powers</a>
         <a onClick={() => updateSection('characteristics')} className={`active-${currentSection == 'characteristics'}`}>Characteristics</a>
         <a onClick={() => updateSection('skills')} className={`active-${currentSection == 'skills'}`}>Skills</a>

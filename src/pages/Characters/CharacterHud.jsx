@@ -32,7 +32,6 @@ export default function CharacterHud({ character, radius = 50, rectWidth = 10, r
   };
 
   const getStraightLineTransform = (index) => {
-    console.log(index-maxArcHealth);
     const x = cx + (index - maxArcHealth) * (rectHeight + gap) - arcGap + gap;
     const y = cy + (radius); // Align the rectangles to the center horizontally
     return `translate(${x}, ${y}) rotate(90, ${rectWidth/2}, ${rectHeight/2})`;

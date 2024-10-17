@@ -355,24 +355,24 @@ h1.section-title {
 .SkillTrack {
   height: 10px;
   .skill {
-    opacity: 0.2;
+    opacity: 0.3;
     &.true {
-      opacity: 0.75;
+      opacity: 1;
     }
   }
   .Skill_1 {
-    fill: $yellow;
+    fill: $orange;
   }
   .Skill_2 {
-    fill: $green;
+    fill: $yellow;
   }
   .Skill_3 {
-    fill: $eoteGreen;
+    fill: $green;
   }
   .Skill_4 {
-    fill: $blue;
+    fill: $teal;
   }
   .Skill_5 {
-    fill: $teal;
+    fill: $blue;
   }
 }

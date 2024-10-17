@@ -5,11 +5,11 @@ import AlphabetizeWithLink from '../../components/Alphabetize';
 import PCBar from './PCBar';
 
 import useFetchData from '../../hooks/useFetchData';
-import {fetchCharacters} from '../../services/characters/fetchCharacters';
+import {fetchAllCharacters} from '../../services/characters/index';
 
 export default function Characters() {
 
-  const {data: characters, loading} = useFetchData(fetchCharacters)
+  const {data: characters, loading} = useFetchData(fetchAllCharacters)
 
   if(loading) return <Loading />
 
